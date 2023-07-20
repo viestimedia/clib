@@ -2,7 +2,6 @@
  * This CSS file is used by index.html only, it's not to to be bundled.
  */
 
-@tailwind base;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -80,3 +79,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* This must be the last rule in this file for tailwind to work properly in dev mode */
+@tailwind base;
