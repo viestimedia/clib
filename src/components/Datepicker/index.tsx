@@ -1,3 +1,3 @@
 export function Datepicker() {
-  return <p className="text-xs">I am a datepicker</p>
+  return <p className="text-xs">[Insert datepicker here]</p>
 }
