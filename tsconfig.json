@@ -23,7 +23,12 @@
     "typeRoots": [
       "node_modules/@types",
       "src/component/index.d.ts"
-    ]
+    ],
+    "baseUrl": "./src",
+		"paths": {
+      "components/*": ["components/*"],
+      "models/*": ["models/*"],
+    },
   },
   "include": ["src"],
   "types": ["node"],

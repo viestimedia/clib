@@ -1,0 +1,48 @@
+/* System colors */
+$statusGreen: #388e3c;
+$statusGreenDarkMode: #66bb6a;
+$statusRed: #d32f2f;
+$statusRedDarkMode: #ef5350;
+$statusOrange: #ef6c00;
+$statusOrangeDarkMode: #ffa726;
+
+/* Grey scale */
+$white: #ffffff;
+$lightGray: #f1f1f1;
+$lightGray2: #e7e7e7;
+$lightGray3: #d5d5d5;
+$gray: #bbbbbb;
+$gray2: #747474;
+$gray3: #474747;
+$darkGray: #2c2c2c;
+$darkGray2: #1b1b1b;
+$black: #000000;
+
+/* Common accent colors */
+$salesLight: #fcdf34;
+$salesMedium: #f9c306;
+
+/* Brand colors */
+$brandColorLight: var(--brandColorLight);
+$brandColorMedium: var(--brandColorMedium);
+$brandColorDark: var(--brandColorDark);
+
+/* Sub brand colors */
+$brandAarreLight: #a4bb24;
+$brandAarreMedium: #8fa31f;
+$brandAarreDark: #7e9318;
+$brandAdvertorial: #27659f;
+$brandYle: #03adc5;
+$brandMtLight: #7ac74c;
+$brandKvLight: #e90e0e;
+
+/* Marketing colors */
+$marketingLight: #d6dde3;
+$marketingDark: #344454;
+$marketingOffer: #d32f2f;
+$marketingPopular: #27659f;
+$marketingNew: #4b6a39;
+
+/* Colors based on use (using colors defined above) */
+$fontColor: $darkGray2;
+$bodyBackgroundColor: $lightGray;

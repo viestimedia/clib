@@ -1,10 +1,12 @@
 import { Datepicker } from './components'
+import { Button } from './components'
 import { CSSModule } from './components/CSSModule'
 
 import { useState } from 'react'
 import { add, sub } from 'date-fns'
 import { DateRange } from 'react-day-picker'
 import { useHash } from 'react-use'
+import { ButtonVariant } from 'models/button'
 // import { Datepicker } from './components/-picker';
 
 const oneWeekLater = add(new Date(), { days: 7 })
@@ -22,6 +24,7 @@ function App() {
       <AppNav setRoute={setRoute} />
 
       {route === '#datepicker' && <DatepickerRoute />}
+      {route === '#somethingelse' && <SomethingelseRoute />}
 
       <CSSModule />
     </>
@@ -46,6 +49,17 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
       </ul>
     </nav>
   )
+}
+
+function SomethingelseRoute() {
+	return (
+		<div className="py-6">
+			<h2 className="text-xl font-bold pb-4">Buttons</h2>
+			<Button label="Primary button"  variant={ButtonVariant.Primary}/>
+			<Button label="Naked button" variant={ButtonVariant.Naked} />
+			<Button label="Secondary button" variant={ButtonVariant.Secondary} />
+		</div>
+	)
 }
 
 function DatepickerRoute() {
