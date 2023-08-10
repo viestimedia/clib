@@ -10,7 +10,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
     "preview": "vite preview",
-    "postinstall": "npm run build"
+    "postinstall": "npm install && npm run build"
   },
   "files": [
     "**/*"
