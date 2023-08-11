@@ -32,6 +32,7 @@ jobs:
           files: |
             README.md
             dist/*
+            dist/**/*
             package.json
             package-lock.json
 
