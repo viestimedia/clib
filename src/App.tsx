@@ -53,13 +53,21 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
 
 function SomethingelseRoute() {
 	return (
-		<div className="py-6">
-			<h2 className="text-xl font-bold pb-4">Buttons</h2>
-			<Button label="Primary button"  variant={ButtonVariant.Primary}/>
-			<Button label="Naked button" variant={ButtonVariant.Naked} />
-			<Button label="Secondary button" variant={ButtonVariant.Secondary} />
-		</div>
-	)
+    <div className="py-6">
+      <h2 className="text-xl font-bold pb-4">Buttons</h2>
+      <div className="bg-white p-3">
+        <Button label="Primary button" variant={ButtonVariant.Primary} />
+        <Button label="Naked button" variant={ButtonVariant.Naked} />
+        <Button label="Secondary button" variant={ButtonVariant.Secondary} />
+      </div>
+
+      <div className="bg-black p-3">
+        <Button label="Primary button" variant={ButtonVariant.Primary} />
+        <Button label="Naked button" variant={ButtonVariant.Naked} />
+        <Button label="Secondary button" variant={ButtonVariant.Secondary} />
+      </div>
+    </div>
+  )
 }
 
 function DatepickerRoute() {
