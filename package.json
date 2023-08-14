@@ -15,6 +15,7 @@
     "dist/**/*",
     "src/**/*",
     "public/**/*",
+    "**/*.d.ts",
     "./*"
   ],
   "main": "dist/index.cjs",
