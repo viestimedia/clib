@@ -12,7 +12,10 @@
     "preview": "vite preview"
   },
   "files": [
-    "**/*"
+    "dist/**/*",
+    "src/**/*",
+    "public/**/*",
+    "./*"
   ],
   "main": "dist/index.cjs",
   "module": "dist/index.es.js",
