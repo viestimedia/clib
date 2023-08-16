@@ -56,4 +56,3 @@ jobs:
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
-
