@@ -34,15 +34,17 @@ jobs:
 
       - name: Generate new version
         id: generate_tag
+        run: npm version ${{ github.event.inputs.version }}
+
+      - name: Push new version tag to repository
+        run: git push origin main --tags
+
+      - name: Generate outputs
         run: |
-          npm version ${{ github.event.inputs.version }}
           echo "new_tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
           CHANGELOG=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline)
           echo "Changelog ${CHANGELOG}"
           echo "changelog=${CHANGELOG}" >> $GITHUB_OUTPUT
-
-      - name: Push new version tag to repository
-        run: git push origin main --tags
 
   release:
     name: Create Release
