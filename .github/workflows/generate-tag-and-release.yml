@@ -16,6 +16,9 @@ jobs:
   version:
     name: Create new version ${{ github.event.inputs.version }}
     runs-on: ubuntu-latest
+    # Map the output from the generate_tag job to the inputs of the release job
+    outputs:
+      new_tag: ${{ steps.generate_tag.outputs.new_tag }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -29,7 +32,10 @@ jobs:
           node-version: 16
 
       - name: Generate new version
-        run: npm version ${{ github.event.inputs.version }}
+        id: generate_tag
+        run: |
+          npm version ${{ github.event.inputs.version }}
+          echo ::set-output name=new_tag::$(git describe --tags --abbrev=0)
 
       - name: Push new version tag to repository
         run: git push origin main --tags
@@ -49,4 +55,3 @@ jobs:
         with:
           tag_name: ${{ needs.version.outputs.new_tag }}
           release_name: Release ${{ needs.version.outputs.new_tag }}
-          body: ${{ needs.version.outputs.changelog }}}
