@@ -7,7 +7,7 @@ Confirmed to work with Remix 1.19 and Next 12
 ## Local development
 
 To link the library to a project locally,
-run the following commands: 
+run the following commands:
 
 ```
 npm install
@@ -19,7 +19,7 @@ npm link
 Then, in the project you want to use the library in, run:
 
 ```
-npm link @viestimedia/clib 
+npm link @viestimedia/clib
 ```
 
 Now, when you build the library (`npm run build`), it should automatically update in the project you linked it to.
@@ -28,11 +28,11 @@ You can also work on the components in isolation by running `npm run dev`. Inclu
 
 ## Troubleshooting
 
-Chances are you will run into errors when `npm link`ing the library to a project. 
+Chances are you will run into errors when `npm link`ing the library to a project.
 
 ### Changes not showing up in the project
 
-If your changes aren't showing up, run `npm run build` in the library, and restart / rebuild the project you linked it to. 
+If your changes aren't showing up, run `npm run build` in the library, and restart / rebuild the project you linked it to.
 
 ### Uncaught TypeError: Cannot read properties of null (reading 'useContext')
 
@@ -48,8 +48,6 @@ npm link ../libraryconsumerproject/node_modules/react
 
 ## Publishing
 
-This library is automatically published on npm whenever a release is created from a version tag.
+This library is automatically published on NPM by a GitHub action that creates a version tag and a new release based on that tag.
 
-Easiest way to generate a tag is to navigate to https://github.com/viestimedia/clib/actions/workflows/generate-tag.yml, and click "Run workflow". Choose the version type (major, minor, patch), wait a few seconds for the action to complete, and then create a new release from the newly created tag: https://github.com/viestimedia/clib/releases/new
-
-Select the tag you just created, click "Publish release". After a few minutes, you can run `npm install @viestimedia/clib` to update the library wherever you're consuming it.
+Easiest way to generate a tag is to navigate to https://github.com/viestimedia/clib/actions/workflows/generate-tag.yml, and click "Run workflow". Choose the version type (major, minor, patch). If the workflow is successful, it will release a new version to NPM after first creating a tag and a release with release notes.
