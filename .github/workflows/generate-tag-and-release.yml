@@ -1,4 +1,4 @@
-name: Generate tag and release
+name: Generate tag and release to NPM
 on:
   workflow_dispatch:
     inputs:
@@ -16,10 +16,10 @@ jobs:
   version:
     name: Create new version ${{ github.event.inputs.version }}
     runs-on: ubuntu-latest
-    # Map the output from the generate_tag job to the inputs of the release job
+    # Map the output from the generate_outputs job to the inputs of the release job
     outputs:
-      new_tag: ${{ steps.generate_tag.outputs.new_tag }}
-      changelog: ${{ steps.generate_tag.outputs.changelog }}
+      new_tag: ${{ steps.generate_outputs.outputs.new_tag }}
+      changelog: ${{ steps.generate_outputs.outputs.changelog }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -33,13 +33,13 @@ jobs:
           node-version: 16
 
       - name: Generate new version
-        id: generate_tag
         run: npm version ${{ github.event.inputs.version }}
 
       - name: Push new version tag to repository
         run: git push origin main --tags
 
       - name: Generate outputs
+        id: generate_outputs
         run: |
           echo "new_tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
           CHANGELOG=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline)
