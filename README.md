@@ -50,4 +50,4 @@ npm link ../libraryconsumerproject/node_modules/react
 
 This library is automatically published on NPM by a GitHub action that creates a version tag and a new release based on that tag.
 
-Easiest way to generate a tag is to navigate to https://github.com/viestimedia/clib/actions/workflows/generate-tag.yml, and click "Run workflow". Choose the version type (major, minor, patch). If the workflow is successful, it will release a new version to NPM after first creating a tag and a release with release notes.
+Easiest way to generate a tag is to navigate to https://github.com/viestimedia/clib/actions/workflows/generate-tag-and-release.yml, and click "Run workflow". Choose the version type (major, minor, patch). If the workflow is successful, it will release a new version to NPM after first creating a tag and a release with release notes.
