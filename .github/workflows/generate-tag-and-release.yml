@@ -45,8 +45,6 @@ jobs:
           TAG_NAME=$(git describe --tags --abbrev=0)
           echo "new_tag=${TAG_NAME}" >> $GITHUB_OUTPUT
           echo "Tag name ${TAG_NAME}"
-          echo "changelog=$(git log ${TAG_NAME}..HEAD --pretty=format:"%s")"
-          echo "changelog=$(git log ${TAG_NAME}..HEAD --pretty=format:"%s")" >> $GITHUB_OUTPUT
 
   release:
     name: Create Release
@@ -55,6 +53,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Create release notes
+        uses: johnyherangi/create-release-notes@main
+        id: create-release-notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -63,10 +66,7 @@ jobs:
         with:
           tag_name: ${{ needs.version.outputs.new_tag }}
           release_name: Release ${{ needs.version.outputs.new_tag }}
-          # List commit messages since last tag
-          body: |
-            Commits in this release
-            ${{ needs.version.outputs.changelog }}
+          body: ${{ steps.create-release-notes.outputs.release-notes }}
   publish-npm:
     name: Publish to NPM
     runs-on: ubuntu-latest
