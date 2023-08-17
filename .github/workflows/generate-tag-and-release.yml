@@ -58,6 +58,7 @@ jobs:
           # List commit messages since last tag
           body: '$(git log $(git describe --tags --abbrev=0)..HEAD --oneline)'
   publish-npm:
+    name: Publish to NPM
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
