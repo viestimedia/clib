@@ -55,3 +55,5 @@ jobs:
         with:
           tag_name: ${{ needs.version.outputs.new_tag }}
           release_name: Release ${{ needs.version.outputs.new_tag }}
+          # List commit messages since last tag
+          body: $(git log $(git describe --tags --abbrev=0)..HEAD --oneline)
