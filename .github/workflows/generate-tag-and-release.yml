@@ -19,6 +19,7 @@ jobs:
     # Map the output from the generate_tag job to the inputs of the release job
     outputs:
       new_tag: ${{ steps.generate_tag.outputs.new_tag }}
+      changelog: ${{ steps.generate_tag.outputs.changelog }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -36,6 +37,7 @@ jobs:
         run: |
           npm version ${{ github.event.inputs.version }}
           echo "new_tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+          echo "changelog=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline)" >> $GITHUB_OUTPUT
 
       - name: Push new version tag to repository
         run: git push origin main --tags
@@ -56,7 +58,9 @@ jobs:
           tag_name: ${{ needs.version.outputs.new_tag }}
           release_name: Release ${{ needs.version.outputs.new_tag }}
           # List commit messages since last tag
-          body: echo "$(git log $(git describe --tags --abbrev=0)..HEAD --oneline)"
+          body: |
+            Commits in this release
+            ${{ needs.version.outputs.changelog }}
   publish-npm:
     name: Publish to NPM
     runs-on: ubuntu-latest
