@@ -37,7 +37,7 @@ jobs:
         run: |
           npm version ${{ github.event.inputs.version }}
           echo "new_tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
-          echo "changelog=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline)" >> $GITHUB_OUTPUT
+          echo "changelog=$(git log "$(git describe --tags --abbrev=0)"..HEAD --oneline)" >> $GITHUB_OUTPUT
 
       - name: Push new version tag to repository
         run: git push origin main --tags
