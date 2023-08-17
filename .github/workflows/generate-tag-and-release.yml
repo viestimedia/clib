@@ -24,6 +24,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          fetch-tags: true
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -43,7 +44,7 @@ jobs:
         run: |
           TAG_NAME=$(git describe --tags --abbrev=0)
           echo "new_tag=${TAG_NAME}" >> $GITHUB_OUTPUT
-          CHANGELOG=$(git log "${TAG_NAME}"..HEAD --pretty=format:"%s")
+          CHANGELOG=$(git log ${TAG_NAME}..HEAD --pretty=format:"%s")
           echo "Tag name ${TAG_NAME}"
           echo "Changelog ${CHANGELOG}"
           echo "changelog=${CHANGELOG}" >> $GITHUB_OUTPUT
