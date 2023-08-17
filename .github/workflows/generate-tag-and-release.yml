@@ -1,4 +1,4 @@
-name: Generate tag version
+name: Generate tag and release
 on:
   workflow_dispatch:
     inputs:
