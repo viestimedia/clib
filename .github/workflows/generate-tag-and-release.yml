@@ -37,7 +37,9 @@ jobs:
         run: |
           npm version ${{ github.event.inputs.version }}
           echo "new_tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
-          echo "changelog=\$(git log \$(git describe --tags --abbrev=0)..HEAD --oneline)" >> \$GITHUB_OUTPUT
+          CHANGELOG=$(git log $(git describe --tags --abbrev=0)..HEAD --oneline)
+          echo "Changelog ${CHANGELOG}"
+          echo "changelog=${CHANGELOG}" >> $GITHUB_OUTPUT
 
       - name: Push new version tag to repository
         run: git push origin main --tags
@@ -73,8 +75,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: git pull
       - run: npm ci
-      - run: echo "Release name ${{ needs.version.outputs.new_tag }}"
-      - run: echo "Commits ${{ needs.version.outputs.changelog }}"
       - run: npm run build
       - run: npm publish --access public
         env:
