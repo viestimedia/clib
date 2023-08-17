@@ -44,8 +44,7 @@ jobs:
         run: |
           TAG_NAME=$(git describe --tags --abbrev=0)
           echo "new_tag=${TAG_NAME}" >> $GITHUB_OUTPUT
-          CHANGELOG=""
-          echo "$(git log ${TAG_NAME}..HEAD --pretty=format:"%s")" >> CHANGELOG
+          CHANGELOG=$(echo "$(git log ${TAG_NAME}..HEAD --pretty=format:"%s")")
           echo "Tag name ${TAG_NAME}"
           echo "Changelog ${CHANGELOG}"
           echo "changelog=${CHANGELOG}" >> $GITHUB_OUTPUT
