@@ -42,6 +42,7 @@ jobs:
       - name: Generate outputs
         id: generate_outputs
         run: |
+          echo "Git log $(git log)"
           TAG_NAME=$(git describe --tags --abbrev=0)
           echo "new_tag=${TAG_NAME}" >> $GITHUB_OUTPUT
           CHANGELOG=$(git log ${TAG_NAME}..HEAD --pretty=format:"%s")
