@@ -1,0 +1,52 @@
+@import "/src/styles/common";
+
+%inputMessage {
+  display: inline-flex;
+  align-items: center;
+  @extend %sansSerifRegular;
+  font-size: $fontSizeS;
+  padding-top: 8px;
+  margin-bottom: $standardPadding;
+
+  span {
+    line-height: 1.4;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    margin: 1px 4px 0 0;
+  }
+}
+
+.info {
+  @extend %inputMessage;
+}
+
+.success {
+  @extend %inputMessage;
+  color: $statusGreen;
+  svg {
+    path {
+      fill: $statusGreen;
+    }
+  }
+}
+
+.error {
+  @extend %inputMessage;
+  color: $statusRed;
+  svg > path {
+    fill: $statusRed;
+  }
+}
+
+.warning {
+  @extend %inputMessage;
+  color: $statusOrange;
+  svg {
+    path {
+      fill: $statusOrange;
+    }
+  }
+}

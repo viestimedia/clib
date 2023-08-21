@@ -1,0 +1,97 @@
+%paragraph {
+  @extend %sansSerifRegular;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+%paragraphBold {
+  @extend %sansSerifBold;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+%tag {
+  @extend %sansSerifBold;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+%link {
+  @extend %paragraph;
+  text-decoration: underline;
+  color: $fontColor;
+}
+
+%linkBold {
+  @extend %paragraphBold;
+  text-decoration: underline;
+  color: $fontColor;
+}
+
+%blockquote {
+  @extend %serifRegular;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+}
+
+%meta {
+  @extend %sansSerifRegular;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+%metaBold {
+  @extend %sansSerifBold;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+%metaSemiBold {
+  @extend %sansSerifSemiBold;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+%metaSmallSemiBold {
+  @extend %sansSerifSemiBold;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+%adParagraph {
+  @extend %adFontRegular;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+%adParagraphBold {
+  @extend %adFontBold;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+%adLink {
+  @extend %adParagraphBold;
+  text-decoration: underline;
+  color: $brandAdvertorial;
+}
+
+%adBlockquote {
+  @extend %adFontRegular;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+}
+
+%adMeta {
+  @extend %adFontRegular;
+  font-size: 16px;
+  line-height: 21px;
+}
+
+%adMetaBold {
+  @extend %adFontBold;
+  font-size: 16px;
+  line-height: 21px;
+}

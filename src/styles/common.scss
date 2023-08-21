@@ -1,3 +1,13 @@
+@import "./breakpoints.scss";
+@import "./grid.scss";
 @import "./colors.scss";
 @import "./fonts.scss";
+@import "./typography.scss";
 @import "./variables.scss";
+
+%inputLabel {
+  @extend %sansSerifSemiBold;
+  font-size: $fontSizeS;
+  display: inline-block;
+  padding-bottom: 8px;
+}

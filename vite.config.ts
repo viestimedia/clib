@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 
 import react from '@vitejs/plugin-react'
 import dts from 'vite-plugin-dts'
+import svgr from "vite-plugin-svgr";
 import tsConfigPaths from 'vite-tsconfig-paths'
 
 // @ts-ignore Shut up and do it
@@ -19,6 +20,9 @@ export default defineConfig({
     dts({
       include: ['src/components/'],
     }),
+		svgr({
+			exportAsDefault: true
+		}),
   ],
 
   test: {
