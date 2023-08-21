@@ -15,7 +15,7 @@ interface Props
   onChange(value: string | number): void;
   message?: string;
   messageType?: 'success' | 'error' | 'warning' | 'info';
-  icon?: ReactElement;
+  icon?: React.ReactNode;
   iconButton?: ReactElement;
   autoFocus?: boolean;
 }
@@ -39,7 +39,6 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(({
   defaultValue,
   autoFocus = false
 }, ref) => {
-	console.log(className)
   const cn = `${styles.field} ${className ? styles[className] : ''} ${
     message ? styles.hasMessage : ''
   }`;
@@ -52,7 +51,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(({
         {required && <span className={styles.required}>*</span>}
       </label>
       <div className={cn}>
-        {icon}
+				{icon}
         <input
 					ref={ref}
           className={`${styles.fieldInput} ${icon ? styles.withIcon : ''}`}

@@ -10,7 +10,7 @@ interface ButtonProps
   label?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  icon?: React.FC;
+  icon?: React.ReactNode;
   outline?: boolean;
   ariaLabel?: string;
   extraClass?: string;
@@ -49,7 +49,7 @@ export const Button = ({
       disabled={disabled}
       type={type}
     >
-      {icon && React.createElement(icon)}
+      {icon}
       {label && <span>{label}</span>}
       {children && children}
     </button>
