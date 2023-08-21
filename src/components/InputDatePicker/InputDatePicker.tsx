@@ -1,14 +1,12 @@
-import React, { ChangeEventHandler, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './InputDatePicker.module.scss';
 import { ReactElement } from 'react-markdown/lib/react-markdown';
 import EventIcon from 'assets/icons/event-outlined.svg';
 import { Input } from 'components/Input/Input';
-import { format, isValid, parse } from 'date-fns';
+import { format } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
-import { DayPicker } from 'react-day-picker';
 import { usePopper } from 'react-popper';
 import { Datepicker } from 'components/Datepicker';
-import { offset } from '@popperjs/core';
 
 interface Props
   extends Omit<
@@ -29,21 +27,7 @@ interface Props
 
 export const InputDatePicker = ({
   label,
-  name,
-  type = 'text',
-  placeholder,
-  message,
-  messageType = 'error',
-  icon,
-  iconButton,
   required,
-  onChange,
-  className,
-  value,
-  maxLength,
-  autoComplete,
-  defaultValue,
-  autoFocus = false,
 }: Props) => {
   const [selected, setSelected] = useState<Date>();
   const [inputValue, setInputValue] = useState<string>(format(Date.now(), 'd.M.yyyy'));
