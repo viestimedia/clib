@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import styles from './InputDatePicker.module.scss';
-import { ReactElement } from 'react-markdown/lib/react-markdown';
 import EventIcon from 'assets/icons/event-outlined.svg';
 import { Input } from 'components/Input/Input';
 import { format } from 'date-fns';
@@ -8,22 +7,10 @@ import FocusTrap from 'focus-trap-react';
 import { usePopper } from 'react-popper';
 import { Datepicker } from 'components/Datepicker';
 
-interface Props
-  extends Omit<
-    React.DetailedHTMLProps<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      HTMLInputElement
-    >,
-    'onChange' // We are using a custom type of onChange
-  > {
+type Props = {
   label: string;
-  onChange(value: string | number): void;
-  message?: string;
-  messageType?: 'success' | 'error' | 'warning' | 'info';
-  icon?: React.FC;
-  iconButton?: ReactElement;
-  autoFocus?: boolean;
-}
+	required: boolean;
+};
 
 export const InputDatePicker = ({
   label,
@@ -66,7 +53,7 @@ export const InputDatePicker = ({
   return (
     <div className={styles.container}>
 			<div className={styles.inputContainer}>
-				<Input ref={popperRef} label={label} required={required} value={inputValue} className='iconOnRight' onChange={() => null} icon={EventIcon} onClick={openDayPicker}/>
+				<Input ref={popperRef} label={label} required={required} value={inputValue} className='iconOnRight' onChange={() => null} icon={React.createElement(EventIcon)} onClick={openDayPicker}/>
 			</div>
       {isDayPickerOpen && (
         <FocusTrap

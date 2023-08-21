@@ -1,4 +1,4 @@
-import { Datepicker } from './components'
+import { Datepicker, Input, InputDatePicker, InputMessage } from './components'
 import { Button } from './components'
 import { CSSModule } from './components/CSSModule'
 
@@ -16,8 +16,6 @@ function App() {
   // react-router would be a little overkill for this use
   const [_route, setRoute] = useHash()
   const route = _route || '#datepicker'
-
-  console.log('route', route)
 
   return (
     <>
@@ -53,21 +51,53 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
 
 function SomethingelseRoute() {
 	return (
-    <div className="py-6">
-      <h2 className="text-xl font-bold pb-4">Buttons</h2>
-      <div className="bg-white p-3">
-        <Button label="Primary button" variant={ButtonVariant.Primary} />
-        <Button label="Naked button" variant={ButtonVariant.Naked} />
-        <Button label="Secondary button" variant={ButtonVariant.Secondary} />
-      </div>
+    <>
+			<div className="py-6 text-left">
+				<h2 className="text-xl font-bold">Buttons</h2>
+				<div className="bg-white p-3 border">
+					<Button label="Primary button" variant={ButtonVariant.Primary} />
+					<Button label="Naked button" variant={ButtonVariant.Naked} />
+					<Button label="Secondary button" variant={ButtonVariant.Secondary} />
+				</div>
 
-      <div className="bg-black p-3">
-        <Button label="Primary button" variant={ButtonVariant.Primary} />
-        <Button label="Naked button" variant={ButtonVariant.Naked} />
-        <Button label="Secondary button" variant={ButtonVariant.Secondary} />
-      </div>
-    </div>
-  )
+				<div className="bg-black p-3 border">
+					<Button label="Primary button" variant={ButtonVariant.Primary} />
+					<Button label="Naked button" variant={ButtonVariant.Naked} />
+					<Button label="Secondary button" variant={ButtonVariant.Secondary} />
+				</div>
+			</div>
+
+			<div className="py-6 text-left">
+				<h2 className="text-xl font-bold">Inputs</h2>
+
+				<div className="font-bold pt-3">Input Message</div>
+				<div className="bg-white p-3 border">
+					<InputMessage
+						id="inputError"
+						type="error"
+						text="Input message lorem ipsum."
+					/>
+				</div>
+
+				<div className="font-bold pt-3">Input Text</div>
+				<div className="bg-white p-3 border">
+					<Input 
+						label='Label'
+						required={true}
+						name="textInputName"
+						placeholder="Text input placeholder"
+						onChange={() => null} />
+				</div>
+
+				<div className="font-bold pt-3">Input Date Picker</div>
+				<div className="bg-white p-3 border">
+					<InputDatePicker
+						label='Date'
+						required={true} />
+				</div>
+			</div>
+		</>
+	)
 }
 
 function DatepickerRoute() {

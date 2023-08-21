@@ -15,7 +15,7 @@ interface Props
   onChange(value: string | number): void;
   message?: string;
   messageType?: 'success' | 'error' | 'warning' | 'info';
-  icon?: React.FC;
+  icon?: ReactElement;
   iconButton?: ReactElement;
   autoFocus?: boolean;
 }
@@ -52,7 +52,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(({
         {required && <span className={styles.required}>*</span>}
       </label>
       <div className={cn}>
-        {icon && React.createElement(icon)}
+        {icon}
         <input
 					ref={ref}
           className={`${styles.fieldInput} ${icon ? styles.withIcon : ''}`}
