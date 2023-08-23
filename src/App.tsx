@@ -12,6 +12,8 @@ import { add, sub } from 'date-fns';
 import { DateRange } from 'react-day-picker';
 import { useHash } from 'react-use';
 import { ButtonVariant } from 'models/button';
+import CheckIcon from 'assets/icons/check-circle-filled.svg';
+
 // import { Datepicker } from './components/-picker';
 
 const oneWeekLater = add(new Date(), { days: 7 });
@@ -92,6 +94,20 @@ function SomethingelseRoute() {
             name="textInputName"
             placeholder="Text input placeholder"
             onChange={() => null}
+          />
+        </div>
+
+        <div className="font-bold pt-3">Input with icon button</div>
+        <div className="bg-white p-3 border">
+          <Input
+            required
+            label="Label"
+            name="inputWithIcon"
+            onChange={() => null}
+            className="withPasswordToggle"
+            iconButton={
+              <Button icon={<CheckIcon />} variant={ButtonVariant.Naked} />
+            }
           />
         </div>
 

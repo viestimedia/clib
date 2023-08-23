@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Input.module.scss';
-import { ReactElement } from 'react-markdown/lib/react-markdown';
 import { InputMessage } from 'components/InputMessage/InputMessage';
 
 interface Props
@@ -16,7 +15,7 @@ interface Props
   message?: string;
   messageType?: 'success' | 'error' | 'warning' | 'info';
   icon?: React.ReactNode;
-  iconButton?: ReactElement;
+  iconButton?: React.ReactElement;
   autoFocus?: boolean;
 }
 
