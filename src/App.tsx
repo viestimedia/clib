@@ -100,17 +100,6 @@ function SomethingelseRoute() {
           <InputDatePicker label="Date" required={true} />
         </div>
       </div>
-
-      <div className="py-6 text-left">
-        <h2 className="text-xl font-bold">Tags</h2>
-
-        <div className="bg-white p-3 border flex gap-3">
-          <Tag text="Ostetaan" color="#815109" noBackground={true} />
-          <Tag text="Myydään" color="#815109" />
-          <Tag text="Tilaajalle" color="#000" uppercase={true} />
-          <Tag text="Haku sulkeutuu pian" color="#E65100" uppercase={true} />
-        </div>
-      </div>
     </>
   );
 }
