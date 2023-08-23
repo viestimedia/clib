@@ -1,21 +1,26 @@
-import { Datepicker, Input, InputDatePicker, InputMessage } from './components'
-import { Button } from './components'
-import { CSSModule } from './components/CSSModule'
+import {
+  Datepicker,
+  Input,
+  InputDatePicker,
+  InputMessage,
+} from './components';
+import { Button } from './components';
+import { CSSModule } from './components/CSSModule';
 
-import { useState } from 'react'
-import { add, sub } from 'date-fns'
-import { DateRange } from 'react-day-picker'
-import { useHash } from 'react-use'
-import { ButtonVariant } from 'models/button'
+import { useState } from 'react';
+import { add, sub } from 'date-fns';
+import { DateRange } from 'react-day-picker';
+import { useHash } from 'react-use';
+import { ButtonVariant } from 'models/button';
 // import { Datepicker } from './components/-picker';
 
-const oneWeekLater = add(new Date(), { days: 7 })
-const oneWeekBefore = sub(new Date(), { days: 7 })
+const oneWeekLater = add(new Date(), { days: 7 });
+const oneWeekBefore = sub(new Date(), { days: 7 });
 
 function App() {
   // react-router would be a little overkill for this use
-  const [_route, setRoute] = useHash()
-  const route = _route || '#datepicker'
+  const [_route, setRoute] = useHash();
+  const route = _route || '#datepicker';
 
   return (
     <>
@@ -26,7 +31,7 @@ function App() {
 
       <CSSModule />
     </>
-  )
+  );
 }
 
 function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
@@ -46,81 +51,111 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
         </li>
       </ul>
     </nav>
-  )
+  );
 }
 
 function SomethingelseRoute() {
-	return (
+  return (
     <>
-			<div className="py-6 text-left">
-				<h2 className="text-xl font-bold">Buttons</h2>
-				<div className="bg-white p-3 border">
-					<Button label="Primary button" variant={ButtonVariant.Primary} />
-					<Button label="Naked button" variant={ButtonVariant.Naked} />
-					<Button label="Secondary button" variant={ButtonVariant.Secondary} />
-				</div>
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Buttons</h2>
+        <div className="bg-white p-3 border">
+          <Button label="Primary button" variant={ButtonVariant.Primary} />
+          <Button label="Naked button" variant={ButtonVariant.Naked} />
+          <Button label="Secondary button" variant={ButtonVariant.Secondary} />
+        </div>
 
-				<div className="bg-black p-3 border">
-					<Button label="Primary button" variant={ButtonVariant.Primary} />
-					<Button label="Naked button" variant={ButtonVariant.Naked} />
-					<Button label="Secondary button" variant={ButtonVariant.Secondary} />
-				</div>
-			</div>
+        <div className="bg-black p-3 border">
+          <Button label="Primary button" variant={ButtonVariant.Primary} />
+          <Button label="Naked button" variant={ButtonVariant.Naked} />
+          <Button label="Secondary button" variant={ButtonVariant.Secondary} />
+        </div>
+      </div>
 
-			<div className="py-6 text-left">
-				<h2 className="text-xl font-bold">Inputs</h2>
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Inputs</h2>
 
-				<div className="font-bold pt-3">Input Message</div>
-				<div className="bg-white p-3 border">
-					<InputMessage
-						id="inputError"
-						type="error"
-						text="Input message lorem ipsum."
-					/>
-				</div>
+        <div className="font-bold pt-3">Input Message</div>
+        <div className="bg-white p-3 border">
+          <InputMessage
+            id="inputError"
+            type="error"
+            text="Input message lorem ipsum."
+          />
+        </div>
 
-				<div className="font-bold pt-3">Input Text</div>
-				<div className="bg-white p-3 border">
-					<Input 
-						label='Label'
-						required={true}
-						name="textInputName"
-						placeholder="Text input placeholder"
-						onChange={() => null} />
-				</div>
+        <div className="font-bold pt-3">Input Text</div>
+        <div className="bg-white p-3 border">
+          <Input
+            label="Label"
+            required={true}
+            name="textInputName"
+            placeholder="Text input placeholder"
+            onChange={() => null}
+          />
+        </div>
 
-				<div className="font-bold pt-3">Input Date Picker</div>
-				<div className="bg-white p-3 border">
-					<InputDatePicker
-						label='Date'
-						required={true} />
-				</div>
-			</div>
-		</>
-	)
+        <div className="font-bold pt-3">Input Date Picker</div>
+        <div className="bg-white p-3 border">
+          <InputDatePicker label="Date" required={true} />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Tags</h2>
+
+        <div className="bg-white p-3 border flex gap-3">
+          <Tag text="Ostetaan" color="#815109" noBackground={true} />
+          <Tag text="Myydään" color="#815109" />
+          <Tag text="Tilaajalle" color="#000" uppercase={true} />
+          <Tag text="Haku sulkeutuu pian" color="#E65100" uppercase={true} />
+        </div>
+      </div>
+    </>
+  );
 }
 
 function DatepickerRoute() {
-  const [selected, setSelected] = useState<Date | undefined>(undefined)
-  const [multipleSelected, setMultipleSelected] = useState<Array<Date> | undefined>([])
-  const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined)
+  const [selected, setSelected] = useState<Date | undefined>(undefined);
+  const [multipleSelected, setMultipleSelected] = useState<
+    Array<Date> | undefined
+  >([]);
+  const [dateRange, setDateRange] = useState<DateRange | undefined>(undefined);
 
   return (
     <main className="w-full mx-auto px-3 py-6 bg-stone-300">
       <div className="flex flex-col items-center xl:flex-row xl:flex-wrap xl:justify-around gap-12">
         <section className="flex items-center gap-3">
-          <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">Single</h2>
+          <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">
+            Single
+          </h2>
           <div>
-            <Datepicker mode="single" selected={selected} onSelect={setSelected} />
+            <Datepicker
+              mode="single"
+              selected={selected}
+              onSelect={setSelected}
+            />
           </div>
         </section>
         <section className="flex items-center gap-3">
-          <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">Multiple</h2>
-          <Datepicker mode="multiple" selected={multipleSelected} onSelect={setMultipleSelected} />
+          <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">
+            Multiple
+          </h2>
+          <Datepicker
+            mode="multiple"
+            selected={multipleSelected}
+            onSelect={setMultipleSelected}
+          />
         </section>
         <section className="flex items-center gap-3">
-          <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">Range</h2>
-          <Datepicker mode="range" selected={dateRange} onSelect={setDateRange} />
+          <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">
+            Range
+          </h2>
+          <Datepicker
+            mode="range"
+            selected={dateRange}
+            onSelect={setDateRange}
+          />
         </section>
         <section className="flex items-center gap-3">
           <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">
@@ -150,7 +185,9 @@ function DatepickerRoute() {
           </div>
         </section>
         <section className="flex items-center gap-3">
-          <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">Show Two Months</h2>
+          <h2 className="text-xl w-36 text-right font-bold text-gray-600 ">
+            Show Two Months
+          </h2>
           <div>
             <Datepicker
               mode="single"
@@ -175,7 +212,7 @@ function DatepickerRoute() {
         </section>
       </div>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;

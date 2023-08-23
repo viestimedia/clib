@@ -9,17 +9,15 @@ import { Datepicker } from 'components/Datepicker';
 
 type Props = {
   label: string;
-	required: boolean;
+  required: boolean;
 };
 
-export const InputDatePicker = ({
-  label,
-  required,
-}: Props) => {
+export const InputDatePicker = ({ label, required }: Props) => {
   const [selected, setSelected] = useState<Date>();
-  const [inputValue, setInputValue] = useState<string>(format(Date.now(), 'd.M.yyyy'));
+  const [inputValue, setInputValue] = useState<string>(
+    format(Date.now(), 'd.M.yyyy')
+  );
   const [isDayPickerOpen, setIsDayPickerOpen] = useState(false);
-
 
   const popperRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -28,7 +26,7 @@ export const InputDatePicker = ({
   );
 
   const popper = usePopper(popperRef.current, popperElement, {
-		placement: 'bottom-start',
+    placement: 'bottom-start',
   });
 
   const closeDayPicker = () => {
@@ -52,9 +50,18 @@ export const InputDatePicker = ({
 
   return (
     <div className={styles.container}>
-			<div className={styles.inputContainer}>
-				<Input ref={popperRef} label={label} required={required} value={inputValue} className='iconOnRight' onChange={() => null} icon={<EventIcon/>} onClick={openDayPicker}/>
-			</div>
+      <div className={styles.inputContainer}>
+        <Input
+          ref={popperRef}
+          label={label}
+          required={required}
+          value={inputValue}
+          className="iconOnRight"
+          onChange={() => null}
+          icon={<EventIcon />}
+          onClick={openDayPicker}
+        />
+      </div>
       {isDayPickerOpen && (
         <FocusTrap
           active
@@ -62,7 +69,7 @@ export const InputDatePicker = ({
             initialFocus: false,
             allowOutsideClick: true,
             clickOutsideDeactivates: true,
-						onActivate: openDayPicker,
+            onActivate: openDayPicker,
             onDeactivate: closeDayPicker,
           }}
         >
@@ -75,7 +82,11 @@ export const InputDatePicker = ({
             role="dialog"
             aria-label="DayPicker calendar"
           >
-						<Datepicker mode="single" selected={selected} onSelect={(d) => handleDaySelect(d)} />
+            <Datepicker
+              mode="single"
+              selected={selected}
+              onSelect={(d) => handleDaySelect(d)}
+            />
           </div>
         </FocusTrap>
       )}

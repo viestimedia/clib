@@ -16,7 +16,7 @@ export const InputMessage = ({ text, id, type }: Props) => {
 
   return text ? (
     <div id={id} className={styles[type]}>
-      {type !== 'info' && <Icon/>}
+      {type !== 'info' && <Icon />}
       <span>{text}</span>
     </div>
   ) : null;
