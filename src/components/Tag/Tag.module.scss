@@ -1,0 +1,20 @@
+@import "/src/styles/common";
+
+.tag {
+  display: inline-block;
+  border-radius: 16px;
+  @extend %sansSerifBold;
+  font-size: 12px;
+  line-height: 18px;
+  color: $white;
+  padding: 0 8px;
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+	&.hasBorder {
+		border: 1px solid;
+		line-height: 16px;
+	}
+}

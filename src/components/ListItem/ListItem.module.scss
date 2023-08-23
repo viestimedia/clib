@@ -1,0 +1,63 @@
+@import "/src/styles/common";
+
+.heading {
+  grid-area: heading;
+}
+
+.articleImage {
+  grid-area: image;
+}
+
+.metadata {
+  grid-area: meta;
+}
+
+.listItem {
+	list-style: none;
+	background: white;
+	margin-top: 2px;
+
+	p {
+		margin: 0;
+	}
+
+  a {
+    @extend %sansSerifSemiBold;
+    font-size: $fontSizeS;
+    color: $darkGray;
+    line-height: 1.2em;
+    padding: 15px $standardPadding;
+    width: 100%;
+    display: block;
+
+    &:visited .heading {
+      color: $gray2;
+    }
+
+    &:hover .heading {
+      color: $gray3;
+    }
+  }
+}
+
+.subheading {
+	margin-bottom: 10px;
+}
+
+.date {
+	@extend %metaSmallSemiBold;
+	color: $gray3;
+	margin-right: 5px;
+}
+
+.itemWithImage {
+  a {
+    display: grid;
+    grid-template-areas:
+      "heading image"
+      "meta meta";
+    grid-template-columns: 1fr $newsListImageWidth;
+    grid-template-rows: auto 1fr;
+    grid-column-gap: 10px;
+  }
+}

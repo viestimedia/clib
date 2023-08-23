@@ -1,0 +1,7 @@
+@import "/src/styles/common";
+
+.listHeading {
+	border-top: 3px solid var(--theme-border-color);
+  background: white;
+  padding: $standardPadding;
+}

@@ -46,3 +46,7 @@ $marketingNew: #4b6a39;
 /* Colors based on use (using colors defined above) */
 $fontColor: $darkGray2;
 $bodyBackgroundColor: $lightGray;
+
+:root {
+  --theme-border-color: #{$darkGray};
+}
