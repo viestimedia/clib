@@ -1,12 +1,13 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
-import react from '@vitejs/plugin-react'
-import dts from 'vite-plugin-dts'
-import tsConfigPaths from 'vite-tsconfig-paths'
+import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
+import svgr from 'vite-plugin-svgr';
+import tsConfigPaths from 'vite-tsconfig-paths';
 
 // @ts-ignore Shut up and do it
-import * as packageJson from './package.json'
+import * as packageJson from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,6 +19,9 @@ export default defineConfig({
     tsConfigPaths(),
     dts({
       include: ['src/components/'],
+    }),
+    svgr({
+      exportAsDefault: true,
     }),
   ],
 
@@ -35,7 +39,8 @@ export default defineConfig({
       formats: ['es', 'cjs'],
 
       // Do not touch this or everything will break
-      fileName: (format, entry) => `${entry}.${format === 'es' ? 'es.js' : format}`,
+      fileName: (format, entry) =>
+        `${entry}.${format === 'es' ? 'es.js' : format}`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
@@ -47,4 +52,4 @@ export default defineConfig({
       },
     },
   },
-})
+});

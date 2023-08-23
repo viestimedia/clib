@@ -20,15 +20,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "typeRoots": [
-      "node_modules/@types",
-      "src/component/index.d.ts"
-    ],
+    "typeRoots": ["node_modules/@types", "src/component/index.d.ts"],
     "baseUrl": "./src",
-		"paths": {
+    "paths": {
       "components/*": ["components/*"],
-      "models/*": ["models/*"],
-    },
+      "models/*": ["models/*"]
+    }
   },
   "include": ["src"],
   "types": ["node"],

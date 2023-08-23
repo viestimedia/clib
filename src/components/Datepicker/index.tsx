@@ -1,16 +1,16 @@
-import { DayPicker, DayPickerDefaultProps } from 'react-day-picker'
-import type { DateRange } from 'react-day-picker'
+import { DayPicker, DayPickerDefaultProps } from 'react-day-picker';
+import type { DateRange } from 'react-day-picker';
 
-export type { DateRange }
+export type { DateRange };
 
-export type DatepickerProps = React.ComponentPropsWithoutRef<typeof DayPicker>
+export type DatepickerProps = React.ComponentPropsWithoutRef<typeof DayPicker>;
 
 /**
  * Uses tailwind classes for styling
  */
 export const Datepicker = (props: DatepickerProps) => (
   <DayPicker classNames={classNames} {...props} />
-)
+);
 
 export const classNames: DayPickerDefaultProps['classNames'] = {
   vhidden: 'sr-only',
@@ -28,10 +28,11 @@ export const classNames: DayPickerDefaultProps['classNames'] = {
   day: 'rounded-full w-10 h-10 transition-colors hover:bg-sky-100 focus:outline-none focus-visible:ring focus-visible:ring-sky-300 focus-visible:ring-opacity-50 active:bg-sky-600 active:text-white',
   day_selected: 'text-white bg-sky-500 hover:bg-sky-500',
   day_today: 'font-bold',
-  day_disabled: 'opacity-25 hover:bg-white active:bg-white active:text-gray-800',
+  day_disabled:
+    'opacity-25 hover:bg-white active:bg-white active:text-gray-800',
   day_outside: 'enabled:opacity-50',
   day_range_middle: 'rounded-none',
   day_range_end: 'rounded-l-none rounded-r-full',
   day_range_start: 'rounded-r-none rounded-l-full',
   day_hidden: 'hidden',
-}
+};
