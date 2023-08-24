@@ -8,6 +8,7 @@ type Props = {
   date?: string;
   image?: React.ReactElement;
   tag?: React.ReactElement;
+  className?: string;
 };
 
 export const ListItem = ({
@@ -17,9 +18,14 @@ export const ListItem = ({
   date,
   image,
   tag,
+	className,
 }: Props) => {
   return (
-    <li className={`${styles.listItem} ${image ? styles.itemWithImage : ''}`}>
+    <li
+      className={`${styles.listItem} ${image ? styles.itemWithImage : ''} ${
+        className ? styles[className] : ''
+      }`}
+    >
       <a href={linkUrl}>
         <div className={styles.heading}>
           {parse(heading)}
@@ -29,7 +35,8 @@ export const ListItem = ({
         </div>
         {image && <div className={styles.image}>{image}</div>}
         <div className={styles.metadata}>
-          {date && <span className={styles.date}>{date}</span>} {tag}{' '}
+          {date && <span className={styles.date}>{date}</span>}
+          {tag}
         </div>
       </a>
     </li>

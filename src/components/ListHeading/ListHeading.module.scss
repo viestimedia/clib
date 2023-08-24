@@ -1,7 +1,7 @@
 @import "/src/styles/common";
 
 .listHeading {
-	border-top: 3px solid var(--theme-border-color);
-  background: white;
+	border-top: 2px solid var(--brandColorLight, $gray2);
+  background:$white;
   padding: $standardPadding;
 }
