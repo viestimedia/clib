@@ -1,6 +1,7 @@
 import { HeadingStyle } from 'models/heading';
-import { Heading } from '..';
+import { Heading } from 'components/Heading/Heading';
 import styles from './ListHeading.module.scss';
+
 
 type Props = {
   text: string;

@@ -12,3 +12,4 @@ export { ListItem } from './ListItem/ListItem';
 export { Tag } from './Tag/Tag';
 export { CSSModule } from './CSSModule';
 export { ButtonVariant, ButtonSize } from 'models/button';
+export { HeadingStyle } from 'models/heading';
