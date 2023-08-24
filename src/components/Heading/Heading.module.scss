@@ -1,0 +1,109 @@
+@import "/src/styles/common";
+
+.heading {
+  @extend %serifBold;
+  color: $darkGray;
+  line-height: 1.2em;
+  word-break: break-word;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.extraLarge {
+  font-size: 38px;
+  line-height: 44px;
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+
+.large {
+  font-size: 32px;
+  line-height: 38px;
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    font-size: 38px;
+    line-height: 44px;
+  }
+}
+
+.default {
+  font-size: 28px;
+  line-height: 34px;
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    font-size: 34px;
+    line-height: 40px;
+  }
+}
+
+.small {
+  font-size: 25px;
+  line-height: 30px;
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    font-size: 27px;
+    line-height: 33px;
+  }
+}
+
+.tiny {
+  font-size: 21px;
+  line-height: 24px;
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+
+.secondary {
+  font-size: 19px;
+  line-height: 22px;
+  @extend %sansSerifBold;
+}
+
+.subheading {
+  font-size: 18px;
+  line-height: 22px;
+  @extend %sansSerifBold;
+}
+
+.nativeAd,
+.suomenParhaat {
+  &.heading,
+  &.secondary,
+  &.subheading {
+    @extend %adFontBold;
+  }
+
+  &.small {
+    font-size: 22px;
+    line-height: 28px;
+
+    @media (min-width: $mediumDesktopLowerLimit) {
+      font-size: 25px;
+    }
+  }
+}
+
+.yle {
+  &.heading,
+  &.secondary,
+  &.subheading {
+    @extend %yleFontBold;
+  }
+
+  &.small {
+    font-size: 22px;
+    line-height: 28px;
+
+    @media (min-width: $mediumDesktopLowerLimit) {
+      font-size: 25px;
+    }
+  }
+}

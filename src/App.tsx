@@ -1,8 +1,13 @@
 import {
   Datepicker,
+  Heading,
   Input,
   InputDatePicker,
   InputMessage,
+	ListFooter,
+	ListHeading,
+	ListItem,
+	Tag,
 } from './components';
 import { Button } from './components';
 import { CSSModule } from './components/CSSModule';
@@ -13,6 +18,7 @@ import { DateRange } from 'react-day-picker';
 import { useHash } from 'react-use';
 import { ButtonVariant } from 'models/button';
 import CheckIcon from 'assets/icons/check-circle-filled.svg';
+import { HeadingStyle } from 'models/heading';
 
 // import { Datepicker } from './components/-picker';
 
@@ -114,6 +120,94 @@ function SomethingelseRoute() {
         <div className="font-bold pt-3">Input Date Picker</div>
         <div className="bg-white p-3 border">
           <InputDatePicker label="Date" required={true} />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Tags</h2>
+
+        <div className="bg-white p-3 border flex gap-3">
+          <Tag text="Ostetaan" color="#815109" hasBorder={true} />
+          <Tag text="Myydään" color="#815109" hasBackground={true} />
+          <Tag
+            text="Tilaajalle"
+            color="#000"
+            uppercase={true}
+            hasBackground={true}
+          />
+          <Tag text="Tilaajalle" color="#1b1b1b" uppercase={true} />
+          <Tag
+            text="Haku sulkeutuu pian"
+            color="#E65100"
+            uppercase={true}
+            hasBackground={true}
+          />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Headings</h2>
+
+        <div className="bg-white p-3 border">
+          <Heading
+            text="Default heading"
+            style={HeadingStyle.Default}
+            level="h1"
+          />
+          <Heading
+            text="Secondary heading"
+            style={HeadingStyle.Secondary}
+            level="h2"
+          />
+          <Heading
+            text="Subheading"
+            style={HeadingStyle.Subheading}
+            level="h3"
+          />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">List</h2>
+
+        <div className="bg-gray-200 p-3 border">
+          <ListHeading text="Katsotuimmat hevoset" />
+          <ul>
+            <ListItem
+              heading="Kuvallinen tilaajalle-otsikko lorem ipsum dolor sit amet"
+              linkUrl="/art1"
+              date="09:22"
+              image={<img src="https://picsum.photos/200" />}
+              tag={
+                <Tag
+                  text="Tilaajalle"
+                  color="#1b1b1b"
+                  uppercase={true}
+                  hasBackground={false}
+                  hasBorder={false}
+                />
+              }
+            />
+            <ListItem
+              heading="Kuvaton uutisotsikko lorem ipsum dolor sit amet"
+              linkUrl="/art2"
+              date="19.8. 05:11"
+            />
+            <ListItem
+              heading="Kuvallinen hevosilmoitus"
+              subheading="3 v, Tamma, 6000 €"
+              linkUrl="/art3"
+              image={<img src="https://picsum.photos/200" />}
+              tag={<Tag text="Myydään" color="#815109" hasBackground={true} />}
+            />
+            <ListItem
+              heading="Kuvaton hevosilmoitus"
+              subheading="3 v, Tamma, 6000 €"
+              linkUrl="/art4"
+              tag={<Tag text="Ostetaan" color="#815109" hasBorder={true} />}
+            />
+          </ul>
+          <ListFooter text="Näytä lisää" linkUrl="/" />
         </div>
       </div>
     </>

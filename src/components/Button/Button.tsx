@@ -8,6 +8,7 @@ interface ButtonProps
     HTMLButtonElement
   > {
   label?: string;
+  linkUrl?: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: React.ReactNode;
@@ -18,6 +19,7 @@ interface ButtonProps
 
 export const Button = ({
   label,
+  linkUrl,
   variant = ButtonVariant.Primary,
   size = ButtonSize.M,
   disabled = false,
@@ -41,17 +43,27 @@ export const Button = ({
   } ${extraClassName}`;
 
   return (
-    <button
-      id={id}
-      aria-label={ariaLabel}
-      className={className}
-      onClick={onClick}
-      disabled={disabled}
-      type={type}
-    >
-      {icon}
-      {label && <span>{label}</span>}
-      {children && children}
-    </button>
+    <>
+      {linkUrl ? (
+        <a href={linkUrl} id={id} aria-label={ariaLabel} className={className}>
+          {icon}
+          {label && <span>{label}</span>}
+          {children && children}
+        </a>
+      ) : (
+        <button
+          id={id}
+          aria-label={ariaLabel}
+          className={className}
+          onClick={onClick}
+          disabled={disabled}
+          type={type}
+        >
+          {icon}
+          {label && <span>{label}</span>}
+          {children && children}
+        </button>
+      )}
+    </>
   );
 };
