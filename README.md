@@ -22,7 +22,9 @@ Then, in the project you want to use the library in, run:
 npm link @viestimedia/clib
 ```
 
-Now, when you build the library (`npm run build`), it should automatically update in the project you linked it to.
+Now, when you build the library (`npm run build`), it should automatically update in the project you linked it to. 
+
+There's also a `npm run build:watch` option. So you don't have to manually run `npm run build` every time you make a change just to see it in the project you linked it to.
 
 You can also work on the components in isolation by running `npm run dev`. Include your components in `App.tsx` to see them in action.
 
@@ -33,6 +35,8 @@ Chances are you will run into errors when `npm link`ing the library to a project
 ### Changes not showing up in the project
 
 If your changes aren't showing up, run `npm run build` in the library, and restart / rebuild the project you linked it to.
+
+You might need to trigger a rebuild in the project you linked to to sync the changes. 
 
 ### Uncaught TypeError: Cannot read properties of null (reading 'useContext')
 

@@ -1,7 +1,8 @@
+import { fi } from 'date-fns/locale';
 import { DayPicker, DayPickerDefaultProps } from 'react-day-picker';
-import type { DateRange } from 'react-day-picker';
+import type { DateRange, DayPickerSingleProps } from 'react-day-picker';
 
-export type { DateRange };
+export type { DateRange, DayPickerSingleProps };
 
 export type DatepickerProps = React.ComponentPropsWithoutRef<typeof DayPicker>;
 
@@ -9,7 +10,12 @@ export type DatepickerProps = React.ComponentPropsWithoutRef<typeof DayPicker>;
  * Uses tailwind classes for styling
  */
 export const Datepicker = (props: DatepickerProps) => (
-  <DayPicker classNames={classNames} {...props} />
+  <DayPicker
+    captionLayout="dropdown-buttons"
+    locale={fi}
+    classNames={classNames}
+    {...props}
+  />
 );
 
 export const classNames: DayPickerDefaultProps['classNames'] = {
@@ -17,7 +23,13 @@ export const classNames: DayPickerDefaultProps['classNames'] = {
   caption: 'flex justify-center items-center h-10',
   root: 'text-gray-800',
   months: 'flex gap-4 relative px-4',
-  caption_label: 'text-xl px-1',
+  // This doesn't work with captionLayout="dropdown"
+  // caption_label: 'text-xl px-1',
+
+  // Not sure what the consequence of this is. It was ugly.
+  // Might be bad for a11y.
+  caption_label: 'hidden',
+  caption_dropdowns: 'flex gap-2',
   nav_button:
     'inline-flex justify-center items-center absolute top-0 w-10 h-10 rounded-full text-gray-600 hover:bg-gray-100',
   nav_button_next: 'right-0',
