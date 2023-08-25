@@ -10,9 +10,13 @@ import { Datepicker } from 'components/Datepicker';
 type Props = {
   label: string;
   required: boolean;
+
+  // Forward all props to the input
+  // Note: input only accepts known props, `data-something` will not work
+  [key: string]: any;
 };
 
-export const InputDatePicker = ({ label, required }: Props) => {
+export const InputDatePicker = ({ label, required, ...rest }: Props) => {
   const [selected, setSelected] = useState<Date>();
   const [inputValue, setInputValue] = useState<string>(
     format(Date.now(), 'd.M.yyyy')
@@ -60,6 +64,7 @@ export const InputDatePicker = ({ label, required }: Props) => {
           onChange={() => null}
           icon={<EventIcon />}
           onClick={openDayPicker}
+          {...rest}
         />
       </div>
       {isDayPickerOpen && (
