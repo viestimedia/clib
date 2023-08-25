@@ -1,6 +1,17 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "timezone": "Europe/Helsinki",
+  "schedule": ["after 6pm and before 6am every weekday", "every weekend"],
+  "prConcurrentLimit": 6,
+  "dependencyDashboard": true,
+  "reviewersFromCodeOwners": false,
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "stabilityDays": 2,
+      "prCreation": "not-pending",
+      "automerge": true
+    }
   ]
 }
