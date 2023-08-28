@@ -1,5 +1,6 @@
 import styles from './ListItem.module.scss';
 import parse from 'html-react-parser';
+import classNames from 'classnames';
 
 type Props = {
   heading: string;
@@ -18,13 +19,17 @@ export const ListItem = ({
   date,
   image,
   tag,
-	className,
+  className = '',
 }: Props) => {
+  const moduleExtend = styles[className] ? true : false;
+
   return (
     <li
-      className={`${styles.listItem} ${image ? styles.itemWithImage : ''} ${
-        className ? styles[className] : ''
-      }`}
+      className={classNames(styles.listItem, {
+        [styles.itemWithImage]: Boolean(image),
+        [styles[className]]: moduleExtend,
+        [className]: !moduleExtend,
+      })}
     >
       <a href={linkUrl}>
         <div className={styles.heading}>
