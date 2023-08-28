@@ -23,9 +23,9 @@ $salesLight: #fcdf34;
 $salesMedium: #f9c306;
 
 /* Brand colors */
-$brandColorLight: var(--brandColorLight);
-$brandColorMedium: var(--brandColorMedium);
-$brandColorDark: var(--brandColorDark);
+$brandColorLight: var(--brandColorLight, $gray2);
+$brandColorMedium: var(--brandColorMedium, $gray3);
+$brandColorDark: var(--brandColorDark, $darkGray);
 
 /* Sub brand colors */
 $brandAarreLight: #a4bb24;

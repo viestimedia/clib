@@ -9,6 +9,7 @@ export { InputMessage } from './InputMessage/InputMessage';
 export { ListFooter } from './ListFooter/ListFooter';
 export { ListHeading } from './ListHeading/ListHeading';
 export { ListItem } from './ListItem/ListItem';
+export { Tabs } from './Tabs/Tabs';
 export { Tag } from './Tag/Tag';
 export { CSSModule } from './CSSModule';
 export { ButtonVariant, ButtonSize } from 'models/button';

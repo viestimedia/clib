@@ -7,6 +7,7 @@ import {
 	ListFooter,
 	ListHeading,
 	ListItem,
+	Tabs,
 	Tag,
 } from './components';
 import { Button } from './components';
@@ -163,6 +164,20 @@ function SomethingelseRoute() {
             text="Subheading"
             style={HeadingStyle.Subheading}
             level="h3"
+          />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Tabs</h2>
+
+        <div className="bg-white p-3 border">
+          <Tabs
+            inputSelectOptions={[
+              { label: 'Selected tab', value: '/selected-tab', id: '1' },
+              { label: 'Other tab', value: '/other-tab', id: '2' },
+            ]}
+            selectedOptionKey={'/selected-tab'}
           />
         </div>
       </div>
