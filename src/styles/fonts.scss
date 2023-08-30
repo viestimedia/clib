@@ -1,10 +1,10 @@
 %serifBold {
-  font-family: var(--brandFontFamily);
+  font-family: var(--brandFontFamily, "Red Hat Text");
   font-weight: 700;
 }
 
 %serifRegular {
-  font-family: var(--brandFontFamily);
+  font-family: var(--brandFontFamily, "Red Hat Text");
   font-weight: 400;
 }
 

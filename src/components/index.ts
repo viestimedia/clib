@@ -11,6 +11,8 @@ export { ListHeading } from './ListHeading/ListHeading';
 export { ListItem } from './ListItem/ListItem';
 export { Tabs } from './Tabs/Tabs';
 export { Tag } from './Tag/Tag';
+export { Teaser } from './Teaser/Teaser';
 export { CSSModule } from './CSSModule';
 export { ButtonVariant, ButtonSize } from 'models/button';
 export { HeadingStyle } from 'models/heading';
+export { TeaserType } from 'models/type';

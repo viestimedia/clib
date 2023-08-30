@@ -1,6 +1,7 @@
 import styles from './Heading.module.scss';
 import parse from 'html-react-parser';
 import { HeadingStyle, HeadingLevel } from 'models/heading';
+import classNames from 'classnames';
 
 interface HeadingProps {
   text: string;
@@ -17,15 +18,15 @@ export const Heading = ({
   style,
   italic,
   id,
-  className,
+  className = '',
 }: HeadingProps) => {
+	const moduleExtend = styles[className] ? true : false;
   const HeadingTag = level;
   return (
     <HeadingTag
       id={id}
-      className={`${styles.heading} ${styles[style]} ${
-        italic ? styles.italic : ''
-      } ${className ? className : ''}`}
+      className={classNames(styles.heading, styles[style], {[styles.italic]: Boolean(italic), [styles[className]]: moduleExtend,
+        [className]: !moduleExtend} )} 
     >
       {parse(text)}
     </HeadingTag>

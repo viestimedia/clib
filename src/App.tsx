@@ -1,4 +1,5 @@
 import {
+	Button,
   Datepicker,
   Heading,
   Input,
@@ -9,8 +10,9 @@ import {
 	ListItem,
 	Tabs,
 	Tag,
+	Teaser,
+	TeaserType,
 } from './components';
-import { Button } from './components';
 import { CSSModule } from './components/CSSModule';
 
 import { useState } from 'react';
@@ -127,7 +129,7 @@ function SomethingelseRoute() {
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Tags</h2>
 
-        <div className="bg-white p-3 border flex gap-3">
+        <div className="bg-white p-3 border flex flex-wrap gap-3">
           <Tag text="Ostetaan" color="#815109" hasBorder={true} />
           <Tag text="Myydään" color="#815109" hasBackground={true} />
           <Tag
@@ -223,6 +225,56 @@ function SomethingelseRoute() {
             />
           </ul>
           <ListFooter text="Näytä lisää" linkUrl="/" />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Teaser</h2>
+
+        <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">
+          <Teaser
+            heading="Kuvallinen hevosilmoitus"
+            subheading="2 v 6 kk, tamma, suomenhevonen, 6000 €"
+            linkUrl="/art1"
+            image={<img src="https://picsum.photos/920/516" />}
+            tag={<Tag text="Myydään" color="#815109" hasBackground={true} />}
+            id="art1"
+            teaserType={TeaserType.Medium}
+            className="hasBorder"
+          />
+          <Teaser
+            heading="Kuvaton medium-teaser hevosilmoitus"
+            subheading="4 v 6 kk, tamma"
+            linkUrl="/art2"
+            tag={<Tag text="Ostetaan" color="#815109" hasBorder={true} />}
+            id="art2"
+            teaserType={TeaserType.Medium}
+            className="hasBorder"
+          />
+          <Teaser
+            heading="Small-teaser lorem ipsum dolor sit amet"
+            linkUrl="/art3"
+            image={<img src="https://picsum.photos/200" />}
+            id="art3"
+            teaserType={TeaserType.Compact}
+            metadata={
+              <div className="italic">
+                Metadata-placeholder (styles in vm-web)
+              </div>
+            }
+          />
+          <Teaser
+            heading="Large-teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            linkUrl="/art4"
+            image={<img src="https://picsum.photos/800/450" />}
+            id="art3"
+            teaserType={TeaserType.Large}
+            metadata={
+              <div className="italic">
+                Metadata-placeholder (styles in vm-web)
+              </div>
+            }
+          />
         </div>
       </div>
     </>
