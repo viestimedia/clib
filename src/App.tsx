@@ -5,6 +5,7 @@ import {
   Input,
   InputDatePicker,
   InputMessage,
+	InputSelect,
 	ListFooter,
 	ListHeading,
 	ListItem,
@@ -117,6 +118,34 @@ function SomethingelseRoute() {
             iconButton={
               <Button icon={<CheckIcon />} variant={ButtonVariant.Naked} />
             }
+          />
+        </div>
+
+        <div className="font-bold pt-3">Input Select</div>
+        <div className="bg-white p-3 border">
+          <InputSelect
+            title="Options"
+            required={true}
+            name="option"
+            onChange={() => null}
+            id="optiontest"
+            options={[
+              {
+                label: 'Select option',
+                value: '',
+                id: '',
+              },
+              {
+                label: 'Option number one',
+                value: '1',
+                id: 'option1',
+              },
+              {
+                label: 'Second option',
+                value: '2',
+                id: 'option2',
+              },
+            ]}
           />
         </div>
 
