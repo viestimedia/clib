@@ -1,26 +1,20 @@
 import styles from './Tag.module.scss';
+import classNames from 'classnames';
 
 type Props = {
   text: string;
-  color: string;
-  uppercase?: boolean;
-  hasBackground?: boolean;
-	hasBorder?: boolean;
+  className?: string;
 };
 
-export const Tag = ({ text, color, uppercase, hasBackground, hasBorder }: Props) => {
-	const style = hasBackground
-    ? { backgroundColor: color }
-    : hasBorder
-    ? { color: color, borderColor: color }
-    : { color: color };
-	
+export const Tag = ({ text, className = '' }: Props) => {
+  const moduleExtend = styles[className] ? true : false;
+
   return (
     <div
-      className={`${styles.tag} ${uppercase ? styles.uppercase : ''} ${
-        hasBorder ? styles.hasBorder : ''
-      }`}
-      style={style}
+      className={classNames(styles.tag, {
+        [styles[className]]: moduleExtend,
+        [className]: !moduleExtend,
+      })}
     >
       <span>{text}</span>
     </div>

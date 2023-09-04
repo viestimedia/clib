@@ -8,13 +8,4 @@
   line-height: 18px;
   color: $white;
   padding: 0 8px;
-
-  &.uppercase {
-    text-transform: uppercase;
-  }
-
-	&.hasBorder {
-		border: 1px solid;
-		line-height: 16px;
-	}
 }

@@ -159,21 +159,14 @@ function SomethingelseRoute() {
         <h2 className="text-xl font-bold">Tags</h2>
 
         <div className="bg-white p-3 border flex flex-wrap gap-3">
-          <Tag text="Ostetaan" color="#815109" hasBorder={true} />
-          <Tag text="Myydään" color="#815109" hasBackground={true} />
           <Tag
-            text="Tilaajalle"
-            color="#000"
-            uppercase={true}
-            hasBackground={true}
+            text="Ostetaan"
+            className="border border-[#815109] !text-[#815109] !leading-4"
           />
-          <Tag text="Tilaajalle" color="#1b1b1b" uppercase={true} />
-          <Tag
-            text="Haku sulkeutuu pian"
-            color="#E65100"
-            uppercase={true}
-            hasBackground={true}
-          />
+          <Tag text="Myydään" className="bg-[#815109]" />
+          <Tag text="Tilaajalle" className="bg-black uppercase" />
+          <Tag text="Tilaajalle" className="text-[#1b1b1b] uppercase" />
+          <Tag text="Haku sulkeutuu pian" className="bg-[#E65100] uppercase" />
         </div>
       </div>
 
@@ -225,13 +218,7 @@ function SomethingelseRoute() {
               date="09:22"
               image={<img src="https://picsum.photos/200" />}
               tag={
-                <Tag
-                  text="Tilaajalle"
-                  color="#1b1b1b"
-                  uppercase={true}
-                  hasBackground={false}
-                  hasBorder={false}
-                />
+                <Tag text="Tilaajalle" className="text-[#1b1b1b] uppercase" />
               }
             />
             <ListItem
@@ -244,13 +231,18 @@ function SomethingelseRoute() {
               subheading="3 v, Tamma, 6000 €"
               linkUrl="/art3"
               image={<img src="https://picsum.photos/200" />}
-              tag={<Tag text="Myydään" color="#815109" hasBackground={true} />}
+              tag={<Tag text="Myydään" className="bg-[#815109]" />}
             />
             <ListItem
               heading="Kuvaton hevosilmoitus"
               subheading="3 v, Tamma, 6000 €"
               linkUrl="/art4"
-              tag={<Tag text="Ostetaan" color="#815109" hasBorder={true} />}
+              tag={
+                <Tag
+                  text="Ostetaan"
+                  className="border border-[#815109] !text-[#815109] !leading-4"
+                />
+              }
             />
           </ul>
           <ListFooter text="Näytä lisää" linkUrl="/" />
@@ -266,7 +258,7 @@ function SomethingelseRoute() {
             subheading="2 v 6 kk, tamma, suomenhevonen, 6000 €"
             linkUrl="/art1"
             image={<img src="https://picsum.photos/920/516" />}
-            tag={<Tag text="Myydään" color="#815109" hasBackground={true} />}
+            tag={<Tag text="Myydään" className="bg-[#815109]" />}
             id="art1"
             teaserType={TeaserType.Medium}
             className="hasBorder"
@@ -275,7 +267,12 @@ function SomethingelseRoute() {
             heading="Kuvaton medium-teaser hevosilmoitus"
             subheading="4 v 6 kk, tamma"
             linkUrl="/art2"
-            tag={<Tag text="Ostetaan" color="#815109" hasBorder={true} />}
+            tag={
+              <Tag
+                text="Ostetaan"
+                className="border border-[#815109] !text-[#815109] !leading-4"
+              />
+            }
             id="art2"
             teaserType={TeaserType.Medium}
             className="hasBorder"
