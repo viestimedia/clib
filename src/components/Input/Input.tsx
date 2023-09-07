@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Input.module.scss';
 import { InputMessage } from 'components/InputMessage/InputMessage';
+import classNames from 'classnames';
 
 interface Props
   extends Omit<
@@ -33,7 +34,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       required,
       onChange,
       onClick,
-      className,
+      className = '',
       value,
       maxLength,
       autoComplete,
@@ -42,20 +43,18 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     },
     ref
   ) => {
-    const cn = `${styles.field} ${className ? styles[className] : ''} ${
-      message ? styles.hasMessage : ''
-    }`;
-
+		const moduleExtend = styles[className] ? true : false;
     const messageId = message && name ? `${name}-message` : '';
-    return (
-      <div>
+
+		return (
+      <>
         {label && (
           <label htmlFor={name}>
             <span className={styles.label}>{label}</span>
             {required && <span className={styles.required}>*</span>}
           </label>
         )}
-        <div className={cn}>
+        <div className={classNames(styles.field, {[styles.hasMessage]: Boolean(message), [styles[className]]: moduleExtend, [className]: !moduleExtend, })}>
           {icon}
           <input
             ref={ref}
@@ -78,7 +77,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         </div>
 
         <InputMessage text={message} id={messageId} type={messageType} />
-      </div>
+      </>
     );
   }
 );

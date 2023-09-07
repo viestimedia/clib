@@ -29,15 +29,17 @@ export const InputSelect = ({
 	const moduleExtend = styles[className] ? true : false;
 
   return (
-    <div className={styles.label}>
+    <div
+      className={classNames(styles.label, {
+        [styles[className]]: moduleExtend,
+        [className]: !moduleExtend,
+      })}
+    >
       <select
         name={name}
         title={title}
         id={id || name}
-        className={classNames(styles.select, {
-          [styles[className]]: moduleExtend,
-          [className]: !moduleExtend,
-        })}
+        className={styles.select}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         required={required}
