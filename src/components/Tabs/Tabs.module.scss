@@ -19,7 +19,7 @@
 
   &:hover,
   &.selected {
-    border-bottom: 2px solid $brandColorLight;
+    border-bottom: 4px solid $brandColorLight;
   }
 
   @media (min-width: $tabletLowerLimit) {
