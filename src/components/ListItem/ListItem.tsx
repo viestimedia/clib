@@ -1,10 +1,10 @@
 import styles from './ListItem.module.scss';
-import parse from 'html-react-parser';
 import classNames from 'classnames';
+import React from 'react';
 
 type Props = {
-  heading: string;
-  subheading?: string;
+  heading: string | React.ReactNode;
+  subheading?: string | React.ReactNode;
   linkUrl: string;
   date?: string;
   image?: React.ReactElement;
@@ -33,10 +33,8 @@ export const ListItem = ({
     >
       <a href={linkUrl}>
         <div className={styles.heading}>
-          {parse(heading)}
-          {subheading && (
-            <div className={styles.subheading}>{parse(subheading)}</div>
-          )}
+          {heading}
+          {subheading && <div className={styles.subheading}>{subheading}</div>}
         </div>
         {image && <div className={styles.image}>{image}</div>}
         <div className={styles.metadata}>
