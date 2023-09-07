@@ -1,16 +1,18 @@
 import styles from './InputSelect.module.scss';
 import { InputOption } from 'models/inputs';
+import classNames from 'classnames';
 
 interface Props {
   name: string;
   title: string;
-  id: string;
+  id?: string;
   value?: string;
   // eslint-disable-next-line no-unused-vars
   onChange(val: string): void;
   placeholder?: string;
   options: InputOption[];
   required?: boolean;
+  className?: string;
 }
 
 export const InputSelect = ({
@@ -22,14 +24,20 @@ export const InputSelect = ({
   placeholder,
   options,
   required = true,
+	className = ''
 }: Props) => {
+	const moduleExtend = styles[className] ? true : false;
+
   return (
     <div className={styles.label}>
       <select
         name={name}
         title={title}
-        id={id}
-        className={styles.select}
+        id={id || name}
+        className={classNames(styles.select, {
+          [styles[className]]: moduleExtend,
+          [className]: !moduleExtend,
+        })}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         required={required}

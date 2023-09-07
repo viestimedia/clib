@@ -10,7 +10,7 @@ interface Props
     >,
     'onChange' // We are using a custom type of onChange
   > {
-  label: string;
+  label?: string;
   onChange(value: string | number): void;
   message?: string;
   messageType?: 'success' | 'error' | 'warning' | 'info';
@@ -49,10 +49,12 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     const messageId = message && name ? `${name}-message` : '';
     return (
       <div>
-        <label htmlFor={name}>
-          <span className={styles.label}>{label}</span>
-          {required && <span className={styles.required}>*</span>}
-        </label>
+        {label && (
+          <label htmlFor={name}>
+            <span className={styles.label}>{label}</span>
+            {required && <span className={styles.required}>*</span>}
+          </label>
+        )}
         <div className={cn}>
           {icon}
           <input

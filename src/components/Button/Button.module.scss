@@ -10,6 +10,7 @@
   min-height: 34px;
   min-width: 80px; // Spec from design
   justify-content: center;
+	flex: 1 0 auto;
 
   &:focus {
     outline: 2px solid $gray2;
