@@ -5,6 +5,108 @@
 @import "./typography.scss";
 @import "./variables.scss";
 
+%contentPlaceholder {
+  background: white;
+  padding: $standardPadding;
+  @extend %sansSerifBold;
+}
+
+%mainLayoutWrapper {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    padding: 0 $standardPadding;
+  }
+}
+
+%mainLayoutContainer {
+  max-width: $mainContentMaxWidth;
+  width: 100%;
+}
+
+%mainLayoutContainerForHeaderAndFooter {
+  @extend %mainLayoutContainer;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    text-align: left;
+    padding-left: $wallpaperAdMargin; // padding needed with wallpaper ad
+    padding-right: $wallpaperAdMargin; // padding needed with wallpaper ad
+  }
+
+  // This is needed to center header and footer content _with_ sticky ads
+  // while not actually having sticky ads (content going only as far as sticky ad gutter)
+  @media (min-width: $stickyAdBreakPoint) {
+    max-width: calc(#{$mainContentMaxWidth} + #{$stickyAdWidth} + #{$gutter});
+    padding-right: calc(#{$stickyAdWidth} + #{$gutter} + #{$wallpaperAdMargin});
+  }
+}
+
+%bulletList {
+  @extend %metaSemiBold;
+
+  li {
+    list-style-type: disc;
+
+    &:not(:last-of-type) {
+      padding-bottom: 8px;
+    }
+  }
+}
+
+%loading {
+  position: relative;
+  display: block;
+
+  &::before {
+    content: "";
+    background: $lightGray;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    background: $lightGray3;
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    animation: Pulsate 1.3s linear infinite;
+
+    @keyframes Pulsate {
+      from {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+%underlinedLink {
+  @extend %link;
+  display: inline-block;
+  margin-bottom: $standardPadding;
+  text-decoration: none;
+  color: $fontColor;
+  line-height: 22px;
+  border-bottom: 2px solid $darkGray2;
+}
+
 %inputLabel {
   @extend %sansSerifSemiBold;
   font-size: $fontSizeS;

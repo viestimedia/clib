@@ -28,7 +28,6 @@ export const classNames: DayPickerDefaultProps['classNames'] = {
 
   // Not sure what the consequence of this is. It was ugly.
   // Might be bad for a11y.
-  caption_label: 'hidden',
   caption_dropdowns: 'flex gap-2',
   nav_button:
     'inline-flex justify-center items-center absolute top-0 w-10 h-10 rounded-full text-gray-600 hover:bg-gray-100',

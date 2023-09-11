@@ -1,0 +1,58 @@
+@import "/src/styles/common";
+
+.bannerWrapper {
+  @extend %mainLayoutWrapper;
+  padding: 25px $standardPadding;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+
+	@media (min-width: $smallDesktopLowerLimit) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+.logoContainer {
+  @extend %mainLayoutContainerForHeaderAndFooter;
+}
+
+.logo {
+	> * {
+		margin: 0 auto;		
+	}
+
+	@media (min-width: $smallDesktopLowerLimit) {
+		> * {
+			margin: 0;		
+		}
+	}
+
+	svg {
+		height: 100%;
+	}
+}
+
+.mainLogo {
+
+	.large & {
+		height: 40px;
+
+		@media (min-width: $smallDesktopLowerLimit) {
+			height: 60px;
+		}
+	}
+
+	.compact & {
+		height: 34px;
+	}
+}
+
+.subLogo {
+  height: 20px;
+  position: relative;
+  margin-top: 10px;
+}

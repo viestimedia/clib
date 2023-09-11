@@ -54,5 +54,13 @@ h1 {
   }
 }
 
+.headerBannerDemo {
+	background-image: url("https://picsum.photos/id/135/1896/97?blur=10&grayscale")
+}
+
+.headerBannerLogo {
+	height: 20px;
+}
+
 /* This must be the last rule in this file for tailwind to work properly in dev mode */
 @tailwind base;

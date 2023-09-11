@@ -2,6 +2,7 @@
 export type { DatepickerProps, DateRange } from './Datepicker';
 export { Datepicker, classNames } from './Datepicker';
 export { Button } from './Button/Button';
+export { HeaderBanner } from './HeaderBanner/HeaderBanner';
 export { Heading } from './Heading/Heading';
 export { Input } from './Input/Input';
 export { InputDatePicker } from './InputDatePicker/InputDatePicker';

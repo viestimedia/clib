@@ -1,6 +1,7 @@
 import {
   Button,
   Datepicker,
+  HeaderBanner,
   Heading,
   Input,
   InputDatePicker,
@@ -20,8 +21,9 @@ import { useState } from 'react';
 import { add, sub } from 'date-fns';
 import { DateRange } from 'react-day-picker';
 import { useHash } from 'react-use';
-import { ButtonVariant } from 'models/button';
+import { ButtonSize, ButtonVariant } from 'models/button';
 import CheckIcon from 'assets/icons/check-circle-filled.svg';
+import MTLogo from 'assets/mt-logo.svg';
 import { HeadingStyle } from 'models/heading';
 
 // import { Datepicker } from './components/-picker';
@@ -203,6 +205,41 @@ function SomethingelseRoute() {
               { label: 'Other tab', value: '/other-tab', id: '2' },
             ]}
             selectedOptionKey={'/selected-tab'}
+          />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Header banner</h2>
+
+        <div className="bg-white p-3 border">
+          <HeaderBanner
+            mainLogo={<MTLogo />}
+            logoText="Hevosmarkkinat"
+            className="headerBannerDemo"
+            type="compact"
+            button={
+              <Button
+                label="Palaa MT:n etusivulle"
+                variant={ButtonVariant.Blend}
+                size={ButtonSize.S}
+              />
+            }
+          />
+        </div>
+        <div className="bg-white p-3 border">
+          <HeaderBanner
+            mainLogo={<MTLogo />}
+            subLogo={<img src="https://picsum.photos/100/20" />}
+            logoText="Hevosmarkkinat"
+            className="headerBannerDemo"
+            button={
+              <Button
+                label="Palaa MT:n etusivulle"
+                variant={ButtonVariant.Blend}
+                size={ButtonSize.S}
+              />
+            }
           />
         </div>
       </div>
