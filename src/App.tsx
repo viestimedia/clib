@@ -215,7 +215,6 @@ function SomethingelseRoute() {
         <div className="bg-white p-3 border">
           <HeaderBanner
             mainLogo={<MTLogo />}
-            logoText="Hevosmarkkinat"
             className="headerBannerDemo"
             type="compact"
             button={
@@ -231,7 +230,6 @@ function SomethingelseRoute() {
           <HeaderBanner
             mainLogo={<MTLogo />}
             subLogo={<img src="https://picsum.photos/100/20" />}
-            logoText="Hevosmarkkinat"
             className="headerBannerDemo"
             button={
               <Button
