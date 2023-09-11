@@ -129,6 +129,7 @@ function SomethingelseRoute() {
             name="option"
             onChange={() => null}
             id="optiontest"
+						className='noBg'
             options={[
               {
                 label: 'Select option',

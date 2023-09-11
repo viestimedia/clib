@@ -39,3 +39,20 @@
     outline: 1px solid $gray2;
   }
 }
+
+.noBg {
+	&:after {
+		right: 0;
+	}
+	
+  select {
+		background-color: transparent;
+    border: 0;
+		padding-left: 0;
+		padding-right: 18px;
+
+    &:focus:not(.focus-visible) {
+      outline: none;
+    }
+  }
+}
