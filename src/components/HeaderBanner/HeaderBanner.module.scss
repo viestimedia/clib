@@ -5,10 +5,11 @@
   padding: 25px $standardPadding;
   background-size: cover;
   background-repeat: no-repeat;
+	background-position: center;
 
 	flex-direction: column;
 	align-items: center;
-	gap: 10px;
+	gap: 20px;
 
 	@media (min-width: $smallDesktopLowerLimit) {
 		flex-direction: row;
@@ -31,8 +32,9 @@
 		}
 	}
 
-	svg {
-		height: 100%;
+	svg, img {
+		max-height: 100%;
+		max-width: 100%;
 	}
 }
 
