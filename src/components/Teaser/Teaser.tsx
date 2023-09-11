@@ -3,6 +3,7 @@ import styles from './Teaser.module.scss';
 import { Heading } from 'components/Heading/Heading';
 import { HeadingStyle } from 'models/heading';
 import { TeaserType } from 'models/type';
+import { Link } from 'utils/init';
 
 type Props = {
   id: string;
@@ -46,7 +47,7 @@ export const Teaser = ({
         [className]: !moduleExtend,
       })}
     >
-      <a href={linkUrl} className={styles.teaserLink} id={`teaser-${id}`}>
+      <Link href={linkUrl} className={styles.teaserLink} id={`teaser-${id}`}>
         {topBanner && <div className={styles.banner}>{topBanner}</div>}
         {image && <div className={styles.articleImage}>{image}</div>}
         {author && <div className={styles.authorContainer}>{author}</div>}
@@ -64,7 +65,7 @@ export const Teaser = ({
           </div>
           {tag && <div className={styles.tag}>{tag}</div>}
         </div>
-      </a>
+      </Link>
       <div className={styles.metadata}>{metadata}</div>
     </div>
   );

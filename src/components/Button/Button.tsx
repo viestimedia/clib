@@ -54,7 +54,7 @@ export const Button = ({
           {icon}
           {label && <span>{label}</span>}
           {children && children}
-        </a>
+        </Link>
       ) : (
         <button
           id={id}

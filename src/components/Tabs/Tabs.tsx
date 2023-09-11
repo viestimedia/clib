@@ -1,3 +1,4 @@
+import { Link } from 'utils/init';
 import styles from './Tabs.module.scss';
 import { InputOption } from 'models/inputs';
 
@@ -22,7 +23,7 @@ export const Tabs = ({
         }`}
       >
         {inputSelectOptions.map((option) => (
-          <a
+          <Link
             className={`${styles.tab} ${
               option.value === selectedOptionKey ? styles.selected : ''
             }`}
@@ -30,7 +31,7 @@ export const Tabs = ({
             href={option.value}
           >
             {option.label}
-          </a>
+          </Link>
         ))}
       </div>
     </div>

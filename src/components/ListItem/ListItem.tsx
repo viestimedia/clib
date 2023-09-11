@@ -1,6 +1,7 @@
 import styles from './ListItem.module.scss';
 import classNames from 'classnames';
 import React from 'react';
+import { Link } from 'utils/init';
 
 type Props = {
   heading: string | React.ReactNode;
@@ -31,7 +32,7 @@ export const ListItem = ({
         [className]: !moduleExtend,
       })}
     >
-      <a href={linkUrl}>
+      <Link href={linkUrl}>
         <div className={styles.heading}>
           {heading}
           {subheading && <div className={styles.subheading}>{subheading}</div>}
@@ -41,7 +42,7 @@ export const ListItem = ({
           {date && <span className={styles.date}>{date}</span>}
           {tag}
         </div>
-      </a>
+      </Link>
     </li>
   );
 };
