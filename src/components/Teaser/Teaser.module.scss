@@ -3,7 +3,9 @@
 $compactImageAreaWidthMobile: calc(
   #{$compactTeaserImageWidthMobile} + #{$standardPadding}
 );
-$compactImageAreaWidthDesktop: calc(#{$compactTeaserImageWidth} + #{$standardPadding});
+$compactImageAreaWidthDesktop: calc(
+  #{$compactTeaserImageWidth} + #{$standardPadding}
+);
 $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
 
 .teaserContainer {
@@ -93,20 +95,20 @@ $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
 
 .medium {
   .teaserLink {
-		grid-template-areas:
-			"banner"
-			"author"
-			"info"
-			"image";
-		grid-template-columns: 1fr;
+    grid-template-areas:
+      "banner"
+      "author"
+      "info"
+      "image";
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr;
 
     @media (min-width: $smallDesktopLowerLimit) {
-			grid-template-areas:
-				"banner image"
-				"author image"
-				"info image";
-			grid-template-columns: 1fr $mediumImageAreaWidthDesktop;
+      grid-template-areas:
+        "banner image"
+        "author image"
+        "info image";
+      grid-template-columns: 1fr $mediumImageAreaWidthDesktop;
     }
   }
 
@@ -118,38 +120,38 @@ $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
 
   .articleImage {
     @media (min-width: $smallDesktopLowerLimit) {
-	    padding: 0;
-			margin: auto 0;	
+      padding: 0;
+      margin: auto 0;
     }
   }
 
   .articleInfo {
     display: flex;
     flex-direction: column;
-		padding: 0 $standardPadding $standardPadding;
-		align-items: flex-start;
+    padding: 0 $standardPadding $standardPadding;
+    align-items: flex-start;
 
     @media (min-width: $smallDesktopLowerLimit) {
-			padding: 0 $standardPadding 0 0;
+      padding: 0 $standardPadding 0 0;
     }
   }
 
   .heading {
-		flex: 1;
-		padding-top: $standardPadding;
-		padding-bottom: 0;
+    flex: 1;
+    padding-top: $standardPadding;
+    padding-bottom: 0;
 
     @media (min-width: $smallDesktopLowerLimit) {
-			padding-left: $standardPadding;
+      padding-left: $standardPadding;
     }
   }
 
-	.tag {
-		@media (min-width: $smallDesktopLowerLimit) {
-			margin-top: auto;
-			padding: 0 0 15px $standardPadding;
+  .tag {
+    @media (min-width: $smallDesktopLowerLimit) {
+      margin-top: auto;
+      padding: 0 0 15px $standardPadding;
     }
-	}
+  }
 
   .metadata {
     bottom: 17px;
@@ -180,9 +182,9 @@ $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
 .articleImage {
   grid-area: image;
 
-	img {
-		width: 100%;
-	}
+  img {
+    width: 100%;
+  }
 }
 
 .articleInfo {
@@ -203,9 +205,9 @@ $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
 }
 
 .subheading {
-	@extend %sansSerifRegular;
-	font-size: $fontSizeS;
-	padding: 5px 0 10px 0;
+  @extend %sansSerifRegular;
+  font-size: $fontSizeS;
+  padding: 5px 0 10px 0;
 }
 
 .metadata {
@@ -215,5 +217,5 @@ $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
 }
 
 .hasBorder {
-	border-bottom: 4px solid $brandColorLight;
+  border-bottom: 4px solid $brandColorLight;
 }

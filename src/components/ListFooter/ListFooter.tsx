@@ -3,7 +3,7 @@ import { Button, ButtonVariant } from '..';
 
 type Props = {
   text: string;
-	linkUrl: string;
+  linkUrl: string;
 };
 
 export const ListFooter = ({ text, linkUrl }: Props) => {

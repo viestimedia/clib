@@ -13,13 +13,13 @@
 }
 
 .listItem {
-	list-style: none;
-	background: white;
-	margin-top: 2px;
+  list-style: none;
+  background: white;
+  margin-top: 2px;
 
-	p {
-		margin: 0;
-	}
+  p {
+    margin: 0;
+  }
 
   a {
     @extend %sansSerifSemiBold;
@@ -41,13 +41,13 @@
 }
 
 .subheading {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .date {
-	@extend %metaSmallSemiBold;
-	color: $gray3;
-	margin-right: 5px;
+  @extend %metaSmallSemiBold;
+  color: $gray3;
+  margin-right: 5px;
 }
 
 .itemWithImage {
@@ -63,22 +63,22 @@
 }
 
 @media (min-width: $mediumDesktopLowerLimit) {
-	.mainLaneItem {
-		.heading,
-		.subheading {
-			font-weight: 700;
-			font-size: $fontSizeL;
-			max-width: 545px;
-		}
+  .mainLaneItem {
+    .heading,
+    .subheading {
+      font-weight: 700;
+      font-size: $fontSizeL;
+      max-width: 545px;
+    }
 
-		&.itemWithImage {
-			a {
-				grid-template-areas:
-					"heading image"
-					"meta image";
-				grid-template-columns: 1fr 136px;
-				grid-template-rows: auto minmax(auto, 1fr);
-			}
-		}
-	}
+    &.itemWithImage {
+      a {
+        grid-template-areas:
+          "heading image"
+          "meta image";
+        grid-template-columns: 1fr 136px;
+        grid-template-rows: auto minmax(auto, 1fr);
+      }
+    }
+  }
 }

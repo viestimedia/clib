@@ -41,15 +41,15 @@
 }
 
 .noBg {
-	&:after {
-		right: 0;
-	}
-	
+  &:after {
+    right: 0;
+  }
+
   select {
-		background-color: transparent;
+    background-color: transparent;
     border: 0;
-		padding-left: 0;
-		padding-right: 18px;
+    padding-left: 0;
+    padding-right: 18px;
 
     &:focus:not(.focus-visible) {
       outline: none;

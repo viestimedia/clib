@@ -1,18 +1,18 @@
 import {
-	Button,
+  Button,
   Datepicker,
   Heading,
   Input,
   InputDatePicker,
   InputMessage,
-	InputSelect,
-	ListFooter,
-	ListHeading,
-	ListItem,
-	Tabs,
-	Tag,
-	Teaser,
-	TeaserType,
+  InputSelect,
+  ListFooter,
+  ListHeading,
+  ListItem,
+  Tabs,
+  Tag,
+  Teaser,
+  TeaserType,
 } from './components';
 import { CSSModule } from './components/CSSModule';
 
@@ -129,7 +129,7 @@ function SomethingelseRoute() {
             name="option"
             onChange={() => null}
             id="optiontest"
-						className='noBg'
+            className="noBg"
             options={[
               {
                 label: 'Select option',

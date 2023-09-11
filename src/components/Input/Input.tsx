@@ -43,10 +43,10 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     },
     ref
   ) => {
-		const moduleExtend = styles[className] ? true : false;
+    const moduleExtend = styles[className] ? true : false;
     const messageId = message && name ? `${name}-message` : '';
 
-		return (
+    return (
       <>
         {label && (
           <label htmlFor={name}>
@@ -54,7 +54,13 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             {required && <span className={styles.required}>*</span>}
           </label>
         )}
-        <div className={classNames(styles.field, {[styles.hasMessage]: Boolean(message), [styles[className]]: moduleExtend, [className]: !moduleExtend, })}>
+        <div
+          className={classNames(styles.field, {
+            [styles.hasMessage]: Boolean(message),
+            [styles[className]]: moduleExtend,
+            [className]: !moduleExtend,
+          })}
+        >
           {icon}
           <input
             ref={ref}

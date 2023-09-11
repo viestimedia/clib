@@ -31,9 +31,9 @@ export const Teaser = ({
   teaserType = TeaserType.Compact,
   className = '',
 }: Props) => {
-	const moduleExtend = styles[className] ? true : false;
+  const moduleExtend = styles[className] ? true : false;
   const headingStyle =
-    (teaserType === TeaserType.Compact || teaserType === TeaserType.Medium)
+    teaserType === TeaserType.Compact || teaserType === TeaserType.Medium
       ? HeadingStyle.Secondary
       : HeadingStyle.Small;
 

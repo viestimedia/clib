@@ -24,9 +24,9 @@ export const InputSelect = ({
   placeholder,
   options,
   required = true,
-	className = ''
+  className = '',
 }: Props) => {
-	const moduleExtend = styles[className] ? true : false;
+  const moduleExtend = styles[className] ? true : false;
 
   return (
     <div
