@@ -1,12 +1,10 @@
 import styles from './HeaderBanner.module.scss';
 import React from 'react';
 import classNames from 'classnames';
-import { Heading, HeadingStyle } from '..';
 
 type Props = {
   mainLogo: React.ReactElement;
   subLogo?: React.ReactElement;
-  logoText?: string;
   button?: React.ReactElement;
 	type?: 'large' | 'compact';
   className?: string;
@@ -15,7 +13,6 @@ type Props = {
 export const HeaderBanner = ({
 	mainLogo,
   subLogo,
-  logoText,
   button,
 	type = 'large',
   className = '',
