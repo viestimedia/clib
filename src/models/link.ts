@@ -1,9 +1,9 @@
 import { UrlObject } from 'url';
 import { Brand } from './brand';
-import { PropsWithChildren } from 'react';
+import { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
 
 type Url = string | UrlObject;
-type LinkProps = {
+type NextLinkProps = {
   href: Url;
   as?: Url;
   replace?: boolean;
@@ -21,7 +21,20 @@ type LinkProps = {
   tabIndex?: number;
 };
 
-// TODO: Accept Remix type of link component as well
-export type LinkType = (props: PropsWithChildren<LinkProps>) => JSX.Element;
+export type NextLinkComponentProps = PropsWithChildren<NextLinkProps>;
 
-export type AnchorProps = JSX.IntrinsicElements['a'];
+export type RemixLinkProps = {
+  to: Url;
+};
+
+export type RemixLinkComponentProps = PropsWithChildren<RemixLinkProps>;
+
+export type LinkComponentProps =
+  | NextLinkComponentProps
+  | RemixLinkComponentProps;
+
+export type NextLinkType = (props: NextLinkComponentProps) => JSX.Element;
+export type RemixLinkType = (props: RemixLinkComponentProps) => JSX.Element;
+export type LinkType = NextLinkType;
+
+export type AnchorProps = ComponentPropsWithoutRef<'a'>;

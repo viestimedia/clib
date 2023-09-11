@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Button.module.scss';
 import { ButtonVariant, ButtonSize } from 'models/button';
 import classNames from 'classnames';
+import { Link } from 'utils/init';
 
 interface ButtonProps
   extends React.DetailedHTMLProps<
@@ -36,10 +37,10 @@ export const Button = ({
   if (!label && !icon) {
     console.error('A Button needs a label or an icon!');
     return null;
-	}
-	
-	const moduleExtend = styles[className] ? true : false;
-	const cn = classNames(styles[variant], styles[size], {
+  }
+
+  const moduleExtend = styles[className] ? true : false;
+  const cn = classNames(styles[variant], styles[size], {
     [styles['withIcon']]: Boolean(icon),
     [styles['noLabel']]: Boolean(!label),
     [styles['noOutline']]: Boolean(!outline),
@@ -50,7 +51,7 @@ export const Button = ({
   return (
     <>
       {linkUrl ? (
-        <a href={linkUrl} id={id} aria-label={ariaLabel} className={cn}>
+        <Link href={linkUrl} id={id} aria-label={ariaLabel} className={cn}>
           {icon}
           {label && <span>{label}</span>}
           {children && children}
