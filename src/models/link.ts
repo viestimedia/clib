@@ -34,13 +34,7 @@ export interface RemixLinkProps
 }
 
 export type RemixLinkComponentProps = PropsWithChildren<RemixLinkProps>;
-
-export type LinkComponentProps =
-  | NextLinkComponentProps
-  | RemixLinkComponentProps;
-
 export type NextLinkType = (props: NextLinkComponentProps) => JSX.Element;
 export type RemixLinkType = (props: RemixLinkComponentProps) => JSX.Element;
 export type LinkType = NextLinkType;
-
 export type AnchorProps = ComponentPropsWithoutRef<'a'>;
