@@ -18,3 +18,4 @@ export { CSSModule } from './CSSModule';
 export { ButtonVariant, ButtonSize } from 'models/button';
 export { HeadingStyle } from 'models/heading';
 export { TeaserType } from 'models/type';
+export { initializeComponentLibrary } from 'utils/init';
