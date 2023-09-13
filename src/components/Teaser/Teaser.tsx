@@ -7,7 +7,7 @@ import { Link } from 'utils/init';
 
 type Props = {
   id: string;
-  heading: string;
+  heading: string | React.ReactNode;
   subheading?: string;
   linkUrl: string;
   image?: React.ReactElement;
