@@ -131,7 +131,6 @@ function SomethingelseRoute() {
             name="option"
             onChange={() => null}
             id="optiontest"
-            className="noBg"
             options={[
               {
                 label: 'Select option',
@@ -150,6 +149,32 @@ function SomethingelseRoute() {
               },
             ]}
           />
+          <div className="mt-5">
+            <InputSelect
+              title="Options with nobg"
+              required={true}
+              name="option-nobg"
+              id="optiontest-nobg"
+              className="noBg"
+              options={[
+                {
+                  label: 'Select nobg option',
+                  value: '',
+                  id: '',
+                },
+                {
+                  label: 'Option number one',
+                  value: '1',
+                  id: 'option1',
+                },
+                {
+                  label: 'Second option',
+                  value: '2',
+                  id: 'option2',
+                },
+              ]}
+            />
+          </div>
         </div>
 
         <div className="font-bold pt-3">Input Date Picker</div>

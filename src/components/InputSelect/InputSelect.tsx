@@ -8,7 +8,7 @@ interface Props {
   id?: string;
   value?: string;
   // eslint-disable-next-line no-unused-vars
-  onChange(val: string): void;
+  onChange?(val: string): void;
   placeholder?: string;
   options: InputOption[];
   required?: boolean;
@@ -26,7 +26,7 @@ export const InputSelect = ({
   required = true,
   className = '',
 }: Props) => {
-  const moduleExtend = styles[className] ? true : false;
+	const moduleExtend = styles[className] ? true : false;
 
   return (
     <div
@@ -34,14 +34,15 @@ export const InputSelect = ({
         [styles[className]]: moduleExtend,
         [className]: !moduleExtend,
       })}
-    >
+		>
+			<label className={styles.hidden}>{title}</label>
       <select
         name={name}
         title={title}
         id={id || name}
         className={styles.select}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={onChange ? (e) => onChange(e.target.value) : undefined}
         required={required}
       >
         {placeholder && (
