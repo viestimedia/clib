@@ -20,8 +20,6 @@ export let Link: LinkType | ((props: AnchorProps) => JSX.Element) =
   AnchorComponent;
 
 export const initializeComponentLibrary = (options: Options) => {
-  console.log('initializeComponentLibrary', options);
-
   const { variation, linkComponent } = options;
 
   switch (variation) {
