@@ -21,11 +21,17 @@ type NextLinkProps = {
   tabIndex?: number;
 };
 
+// Not actual Next's Link props but more like vm-web Link component props
 export type NextLinkComponentProps = PropsWithChildren<NextLinkProps>;
 
-export type RemixLinkProps = {
+type PrefetchBehavior = 'intent' | 'render' | 'none' | 'viewport';
+
+// Not a perfect representation of Remix's LinkProps, but good enough for now
+export interface RemixLinkProps
+  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
   to: Url;
-};
+  prefetch?: PrefetchBehavior;
+}
 
 export type RemixLinkComponentProps = PropsWithChildren<RemixLinkProps>;
 
