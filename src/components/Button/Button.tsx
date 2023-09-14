@@ -3,6 +3,7 @@ import styles from './Button.module.scss';
 import { ButtonVariant, ButtonSize } from 'models/button';
 import classNames from 'classnames';
 import { Link } from 'utils/init';
+import { Brand } from 'models/brand';
 
 interface ButtonProps
   extends React.DetailedHTMLProps<
@@ -16,6 +17,8 @@ interface ButtonProps
   icon?: React.ReactNode;
   outline?: boolean;
   ariaLabel?: string;
+  brand?: Brand;
+  openInNewTab?: boolean;
   extraClass?: string;
 }
 
@@ -30,6 +33,8 @@ export const Button = ({
   id,
   outline = true,
   ariaLabel,
+	brand,
+	openInNewTab,
   type,
   children,
   className = '',
@@ -51,7 +56,14 @@ export const Button = ({
   return (
     <>
       {linkUrl ? (
-        <Link href={linkUrl} id={id} aria-label={ariaLabel} className={cn}>
+        <Link
+          href={linkUrl}
+          id={id}
+          aria-label={ariaLabel}
+          className={cn}
+          brand={brand}
+          openInNewTab={openInNewTab}
+        >
           {icon}
           {label && <span>{label}</span>}
           {children && children}
