@@ -20,6 +20,11 @@ interface ButtonProps
   brand?: Brand;
   openInNewTab?: boolean;
   extraClass?: string;
+
+  // Allow all props.
+  // In remix, it's common for buttons to have names, values, etc.
+  // Not to forget formAction. Typechecking for all of them doesn't serve much purpose since they're just strings.
+  [buttonExtraProp: string]: any;
 }
 
 export const Button = ({
@@ -33,11 +38,12 @@ export const Button = ({
   id,
   outline = true,
   ariaLabel,
-	brand,
-	openInNewTab,
+  brand,
+  openInNewTab,
   type,
   children,
   className = '',
+  ...buttonExtraProps
 }: ButtonProps) => {
   if (!label && !icon) {
     console.error('A Button needs a label or an icon!');
@@ -76,6 +82,7 @@ export const Button = ({
           onClick={onClick}
           disabled={disabled}
           type={type}
+          {...buttonExtraProps}
         >
           {icon}
           {label && <span>{label}</span>}
