@@ -1,0 +1,33 @@
+/// <reference types="vitest" />
+import { defineConfig } from 'vite';
+
+import react from '@vitejs/plugin-react';
+import dts from 'vite-plugin-dts';
+import svgr from 'vite-plugin-svgr';
+import tsConfigPaths from 'vite-tsconfig-paths';
+
+// @ts-ignore Shut up and do it
+import * as packageJson from './package.json';
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    react({
+      // This removes the JSX runtime but breaks the build, so don't do this.
+      // jsxRuntime: 'classic',
+    }),
+    tsConfigPaths(),
+    dts({
+      include: ['src/components/'],
+    }),
+    svgr({
+      exportAsDefault: true,
+    }),
+  ],
+
+  test: {
+    globals: true,
+    setupFiles: ['./src/vitest-setup.ts'],
+    environment: 'happy-dom',
+  },
+});

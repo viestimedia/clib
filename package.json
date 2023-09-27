@@ -8,6 +8,7 @@
     "dev": "vite",
     "typecheck": "tsc",
     "build": "tsc && vite build",
+    "build-vercel": "tsc && vite build --config vite.vercel.config.ts",
     "build:watch": "vite build --watch",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "npm run lint -- --fix",
