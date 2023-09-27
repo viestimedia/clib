@@ -81,6 +81,16 @@
     @extend %adFontBold;
   }
 
+  &.subheading {
+    font-size: 23px;
+    line-height: 29px;
+
+    @media (min-width: $mediumDesktopLowerLimit) {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+
   &.small {
     font-size: 22px;
     line-height: 28px;
