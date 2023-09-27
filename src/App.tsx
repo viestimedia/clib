@@ -217,6 +217,18 @@ function SomethingelseRoute() {
             style={HeadingStyle.Subheading}
             level="h3"
           />
+          <Heading
+            level="h2"
+            style={HeadingStyle.Subheading}
+            text="Suomen Parhaat subheading"
+            className="suomenParhaat"
+          />
+          <Heading
+            level="h2"
+            style={HeadingStyle.Subheading}
+            text="Native Ad subheading"
+            className="nativeAd"
+          />
         </div>
       </div>
 
