@@ -9,6 +9,7 @@ interface HeadingProps {
   italic?: boolean;
   id?: string;
   className?: string;
+  extraClassName?: string;
 }
 
 export const Heading = ({
@@ -18,8 +19,10 @@ export const Heading = ({
   italic,
   id,
   className = '',
+  extraClassName = '',
 }: HeadingProps) => {
   const moduleExtend = styles[className] ? true : false;
+  const extraModuleExtend = styles[extraClassName] ? true : false;
   const HeadingTag = level;
   return (
     <HeadingTag
@@ -28,6 +31,8 @@ export const Heading = ({
         [styles.italic]: Boolean(italic),
         [styles[className]]: moduleExtend,
         [className]: !moduleExtend,
+        [styles[extraClassName]]: extraModuleExtend,
+        [extraClassName]: extraClassName,
       })}
     >
       {text}

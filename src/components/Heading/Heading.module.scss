@@ -81,7 +81,7 @@
     @extend %adFontBold;
   }
 
-  &.subheading {
+  &.subheading:not(.factBoxHeading) {
     font-size: 23px;
     line-height: 29px;
 
