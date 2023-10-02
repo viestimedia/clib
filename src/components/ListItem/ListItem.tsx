@@ -11,6 +11,7 @@ type Props = {
   image?: React.ReactElement;
   tag?: React.ReactElement;
   className?: string;
+  id?: string;
 };
 
 export const ListItem = ({
@@ -21,6 +22,7 @@ export const ListItem = ({
   image,
   tag,
   className = '',
+  id,
 }: Props) => {
   const moduleExtend = styles[className] ? true : false;
 
@@ -32,7 +34,7 @@ export const ListItem = ({
         [className]: !moduleExtend,
       })}
     >
-      <Link href={linkUrl}>
+      <Link href={linkUrl} id={id ? `listItem-${id}` : undefined}>
         <div className={styles.heading}>
           {heading}
           {subheading && <div className={styles.subheading}>{subheading}</div>}
