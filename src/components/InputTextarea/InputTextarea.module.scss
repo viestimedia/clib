@@ -1,0 +1,91 @@
+@import "/src/styles/common";
+
+.label {
+  @extend %inputLabel;
+}
+
+.required {
+  color: $statusRed;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.field {
+  position: relative;
+
+  @media (min-width: $tabletLowerLimit) {
+    max-width: 300px;
+  }
+
+  > svg {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 10px;
+    width: 20px;
+  }
+
+  &.fullWidth {
+    max-width: 100%;
+  }
+}
+
+.fieldInput {
+  @extend %sansSerifRegular;
+  font-size: $fontSizeM;
+  display: block;
+  border: 1px solid $gray2;
+  padding: 6px 10px;
+  color: $fontColor;
+  width: 100%;
+
+  &.withIcon {
+    padding-left: 30px;
+  }
+
+  &:focus {
+    outline: 1px solid $gray2;
+  }
+}
+
+.iconOnRight {
+  .withIcon {
+    padding-left: 10px;
+    padding-right: 30px;
+  }
+
+  > svg {
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 10px;
+    left: auto;
+    width: 20px;
+  }
+}
+
+.withMargin {
+  margin-bottom: $standardPadding;
+
+  &.hasMessage {
+    margin-bottom: 8px;
+  }
+}
+
+.withPasswordToggle {
+  margin-bottom: $standardPadding;
+
+  &.hasMessage {
+    margin-bottom: 8px;
+  }
+
+  button {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding: 0 10px;
+
+    path {
+      fill: $gray2;
+    }
+  }
+}

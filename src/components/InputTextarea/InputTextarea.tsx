@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Input.module.scss';
+import styles from './InputTextarea.module.scss';
 import { InputMessage } from 'components/InputMessage/InputMessage';
 import classNames from 'classnames';
 
@@ -20,12 +20,11 @@ interface Props
   autoFocus?: boolean;
 }
 
-export const Input = React.forwardRef<HTMLInputElement, Props>(
+export const InputTextarea = React.forwardRef<HTMLInputElement, Props>(
   (
     {
       label,
       name,
-      type = 'text',
       placeholder,
       message,
       messageType = 'error',
@@ -33,15 +32,13 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       iconButton,
       required,
       onChange,
-      onClick,
       className = '',
       value,
       maxLength,
       autoComplete,
       defaultValue,
       autoFocus = false,
-    },
-    ref
+    }
   ) => {
     const moduleExtend = styles[className] ? true : false;
     const messageId = message && name ? `${name}-message` : '';
@@ -62,12 +59,10 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
           })}
         >
           {icon}
-          <input
-            ref={ref}
+          <textarea
             className={`${styles.fieldInput} ${icon ? styles.withIcon : ''}`}
             name={name}
             id={name}
-            type={type}
             placeholder={placeholder}
             autoFocus={autoFocus} // eslint-disable-line jsx-a11y/no-autofocus -- Don't use this unless you have a good reason, like a search field on the search page.
             aria-describedby={message ? `${messageId}` : undefined}
@@ -77,7 +72,6 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             required={required}
             autoComplete={autoComplete}
             defaultValue={defaultValue}
-            onClick={onClick}
           />
           {iconButton}
         </div>
