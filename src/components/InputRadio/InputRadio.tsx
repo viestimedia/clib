@@ -9,13 +9,13 @@ interface Props {
   value: string;
   options: InputOption[];
   // eslint-disable-next-line no-unused-vars
-	onChange?(val: string): void;
-	message?: string;
+  onChange?(val: string): void;
+  message?: string;
   messageType?: 'success' | 'error' | 'warning' | 'info';
 
-	inline?: boolean;
-	required?: boolean;
-	className?: string;
+  inline?: boolean;
+  required?: boolean;
+  className?: string;
 }
 
 export const InputRadio = ({
@@ -27,8 +27,8 @@ export const InputRadio = ({
   message,
   messageType = 'error',
   inline,
-	required,
-	className = ''
+  required,
+  className = '',
 }: Props) => {
   if (options.some((opt) => !opt.children && !opt.label)) {
     console.error(
@@ -37,12 +37,16 @@ export const InputRadio = ({
   }
   if (!options.length) {
     return null;
-	}
+  }
 
-	const moduleExtend = styles[className] ? true : false;
-	const messageId = message && name ? `${name}-message` : '';
+  const moduleExtend = styles[className] ? true : false;
+  const messageId = message && name ? `${name}-message` : '';
 
-	return (
+  // If onChange is provided, this is a controlled component.
+  // In Remix, uncontrolled components are preferred, as forms are handled as wholes and not as individual inputs.
+  const uncontrolled = !!onChange;
+
+  return (
     <>
       <div
         className={classNames({
@@ -71,7 +75,11 @@ export const InputRadio = ({
                   id={option.id}
                   name={name}
                   value={option.value}
-                  checked={value === option.value}
+                  checked={!uncontrolled ? value === option.value : undefined}
+                  defaultChecked={
+                    // This allows changing the value without onChange
+                    uncontrolled ? value === option.value : undefined
+                  }
                   onChange={
                     onChange ? (e) => onChange(e.target.value) : undefined
                   }
