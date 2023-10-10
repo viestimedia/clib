@@ -20,7 +20,7 @@ interface Props
   autoFocus?: boolean;
 }
 
-export const InputTextarea = React.forwardRef<HTMLInputElement, Props>(
+export const InputTextarea = React.forwardRef<HTMLTextAreaElement, Props>(
   (
     {
       label,
@@ -38,7 +38,8 @@ export const InputTextarea = React.forwardRef<HTMLInputElement, Props>(
       autoComplete,
       defaultValue,
       autoFocus = false,
-    }
+    },
+    ref
   ) => {
     const moduleExtend = styles[className] ? true : false;
     const messageId = message && name ? `${name}-message` : '';
@@ -60,6 +61,7 @@ export const InputTextarea = React.forwardRef<HTMLInputElement, Props>(
         >
           {icon}
           <textarea
+            ref={ref}
             className={`${styles.fieldInput} ${icon ? styles.withIcon : ''}`}
             name={name}
             id={name}

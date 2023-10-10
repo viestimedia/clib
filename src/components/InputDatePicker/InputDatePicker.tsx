@@ -59,13 +59,13 @@ export const InputDatePicker = ({
   );
 
   // TODO: Remove this logging when done with the component
-  useEffect(() => {
-    console.log('Datepicker data', {
-      selected,
-      inputValue,
-      datepicker,
-    });
-  }, [selected, inputValue, datepicker]);
+  // useEffect(() => {
+  //   console.log('Datepicker data', {
+  //     selected,
+  //     inputValue,
+  //     datepicker,
+  //   });
+  // }, [selected, inputValue, datepicker]);
 
   // I wrote this effect when TS complained about not matching
   // the correct type for onSelected. It also works with the
