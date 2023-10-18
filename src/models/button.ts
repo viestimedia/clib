@@ -4,7 +4,9 @@ export enum ButtonVariant {
   Sales = 'salesButton',
   Naked = 'nakedButton',
   Tertiary = 'tertiaryButton',
-  Blend = 'blendButton',
+	Blend = 'blendButton',
+	Delete = 'deleteButton',
+	Reject = 'rejectButton'
 }
 
 export enum ButtonSize {

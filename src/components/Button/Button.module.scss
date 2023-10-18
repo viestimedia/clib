@@ -75,6 +75,37 @@
   }
 }
 
+.deleteButton {
+  @extend %buttonBasic;
+  background-color: $statusRed;
+  color: $white;
+
+  &.withIcon {
+    path {
+      fill: $white;
+    }
+  }
+
+  &:hover,
+  &:active,
+	&.active {
+    background-color: #aa2424; /* TODO: add correct color when design in figma is done */
+  }
+}
+
+.rejectButton {
+  @extend %buttonBasic;
+  background-color: $white;
+  color: $statusRed;
+  box-shadow: inset 0 0 0 2px $statusRed;
+
+  &:hover,
+  &:active,
+	&.active {
+    background-color: $lightGray2; /* TODO: add correct color when design in figma is done */
+  }
+}
+
 .salesButton {
   @extend %buttonBasic;
   background-color: $salesLight;
