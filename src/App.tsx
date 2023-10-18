@@ -106,6 +106,8 @@ function SomethingelseRoute() {
             name="textInputName"
             placeholder="Text input placeholder"
             onChange={() => null}
+            onFocus={() => console.log('FOCUS')}
+            onBlur={() => console.log('BLUR')}
           />
         </div>
 

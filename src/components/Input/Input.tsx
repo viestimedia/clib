@@ -33,7 +33,9 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       iconButton,
       required,
       onChange,
-      onClick,
+			onClick,
+			onFocus,
+			onBlur,
       className = '',
       value,
       maxLength,
@@ -78,6 +80,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             autoComplete={autoComplete}
             defaultValue={defaultValue}
             onClick={onClick}
+						onFocus={onFocus}
+						onBlur={onBlur}
           />
           {iconButton}
         </div>
