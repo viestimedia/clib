@@ -49,7 +49,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     const messageId = message && name ? `${name}-message` : '';
 
     return (
-      <>
+      <div>
         {label && (
           <label htmlFor={name}>
             <span className={styles.label}>{label}</span>
@@ -87,7 +87,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         </div>
 
         <InputMessage text={message} id={messageId} type={messageType} />
-      </>
+      </div>
     );
   }
 );

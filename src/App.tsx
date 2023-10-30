@@ -107,7 +107,15 @@ function SomethingelseRoute() {
             placeholder="Text input placeholder"
             onChange={() => null}
             onFocus={() => console.log('FOCUS')}
-            onBlur={() => console.log('BLUR')}
+						onBlur={() => console.log('BLUR')}
+						message='Virheviestin testaus'
+          />
+          <Input
+            label="Label 2"
+            required={true}
+            name="textInputName2"
+						placeholder="Text input placeholder 2"
+            onChange={() => null}
           />
         </div>
 
