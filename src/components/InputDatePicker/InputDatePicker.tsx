@@ -35,6 +35,17 @@ export const InputDatePicker = ({
   datepicker,
   ...rest
 }: Props) => {
+  if (!(value instanceof Date) && value !== undefined) {
+    console.warn(
+      "InputDatePicker: value isn't a Date object. This would cause a crash, but we're fixing it for you. Please use a Date object.",
+      value
+    );
+
+    // There seems to be no difference between these two
+    // value = parseISO(value);
+    value = new Date(value);
+  }
+
   /**
    * selected should be a machine friendly date
    * inputValue should be a human friendly date
@@ -112,7 +123,7 @@ export const InputDatePicker = ({
           type="hidden"
           name={name}
           readOnly
-          value={selected?.toISOString()}
+          value={selected?.toISOString() || ''} // Fixes: A component is changing an uncontrolled input to be controlled.
         />
         <Input
           ref={popperRef}
