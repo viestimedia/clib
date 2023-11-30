@@ -1,25 +1,25 @@
 %serifBold {
-  font-family: var(--brandFontFamily, "Red Hat Text");
+  font-family: var(--brandFontFamily, '"Red Hat Text Variable", "Red Hat Text"');
   font-weight: 700;
 }
 
 %serifRegular {
-  font-family: var(--brandFontFamily, "Red Hat Text");
+  font-family: var(--brandFontFamily, '"Red Hat Text Variable", "Red Hat Text"');
   font-weight: 400;
 }
 
 %sansSerifBold {
-  font-family: "Red Hat Text", Arial, sans-serif;
+  font-family: "Red Hat Text Variable", "Red Hat Text", Arial, sans-serif;
   font-weight: 700;
 }
 
 %sansSerifSemiBold {
-  font-family: "Red Hat Text", Arial, sans-serif;
+  font-family: "Red Hat Text Variable", "Red Hat Text", Arial, sans-serif;
   font-weight: 600;
 }
 
 %sansSerifRegular {
-  font-family: "Red Hat Text", Arial, sans-serif;
+  font-family: "Red Hat Text Variable", "Red Hat Text", Arial, sans-serif;
   font-weight: 400;
 }
 
