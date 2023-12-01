@@ -20,6 +20,10 @@
   }
 }
 
+.labelText {
+  @extend %inputLabel;
+}
+
 .select {
   @extend %sansSerifRegular;
   font-size: $fontSizeM;

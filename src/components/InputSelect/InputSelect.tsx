@@ -1,6 +1,7 @@
 import styles from './InputSelect.module.scss';
 import { InputOption } from 'models/inputs';
 import classNames from 'classnames';
+import { InputMessage } from '..';
 
 interface Props {
   name: string;
@@ -14,6 +15,10 @@ interface Props {
   options: InputOption[];
   required?: boolean;
   className?: string;
+
+  message?: string;
+  messageType?: 'success' | 'error' | 'warning' | 'info';
+  label?: string;
 }
 
 export const InputSelect = ({
@@ -27,8 +32,13 @@ export const InputSelect = ({
   options,
   required = false,
   className = '',
+
+  message,
+  messageType,
+  label,
 }: Props) => {
   const moduleExtend = styles[className] ? true : false;
+  const messageId = message && name ? `${name}-message` : '';
 
   return (
     <div
@@ -37,7 +47,14 @@ export const InputSelect = ({
         [className]: !moduleExtend,
       })}
     >
-      <label className={styles.hidden}>{title}</label>
+      {label ? (
+        <label htmlFor={name}>
+          <span className={styles.labelText}>{label}</span>
+          {required && <span className={styles.required}>*</span>}
+        </label>
+      ) : (
+        <label className={styles.hidden}>{title}</label>
+      )}
       <select
         name={name}
         title={title}
@@ -59,6 +76,12 @@ export const InputSelect = ({
           </option>
         ))}
       </select>
+
+      <InputMessage
+        text={message}
+        id={messageId}
+        type={messageType || 'error'}
+      />
     </div>
   );
 };
