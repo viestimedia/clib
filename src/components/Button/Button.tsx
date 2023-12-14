@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Button.module.scss';
 import classNames from 'classnames';
 import { Link } from 'utils/init';
-import { Brand } from 'models/brand';
+import { Brand } from 'components/Link/Link';
 
 export enum ButtonVariant {
   Primary = 'button',
