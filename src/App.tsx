@@ -1,8 +1,11 @@
 import {
   Button,
+  ButtonVariant,
+  ButtonSize,
   Datepicker,
   HeaderBanner,
   Heading,
+  HeadingStyle,
   Input,
   InputDatePicker,
   InputMessage,
@@ -15,18 +18,13 @@ import {
   Teaser,
   TeaserType,
 } from './components';
-import { CSSModule } from './components/CSSModule';
 
 import { useState } from 'react';
 import { add, sub } from 'date-fns';
 import { DateRange } from 'react-day-picker';
 import { useHash } from 'react-use';
-import { ButtonSize, ButtonVariant } from 'models/button';
 import CheckIcon from 'assets/icons/check-circle-filled.svg';
 import MTLogo from 'assets/mt-logo.svg';
-import { HeadingStyle } from 'models/heading';
-
-// import { Datepicker } from './components/-picker';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -42,8 +40,6 @@ function App() {
 
       {route === '#datepicker' && <DatepickerRoute />}
       {route === '#somethingelse' && <SomethingelseRoute />}
-
-      <CSSModule />
     </>
   );
 }

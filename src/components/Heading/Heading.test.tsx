@@ -1,8 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { render } from '@testing-library/react';
-import { Heading } from './Heading';
-import { HeadingStyle } from 'models/heading';
+import { Heading, HeadingStyle } from './Heading';
 
 describe('Heading', () => {
   const text = 'heading content text';

@@ -2,8 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Button } from './Button';
-import { ButtonVariant, ButtonSize } from '../../models/button';
+import { Button, ButtonVariant, ButtonSize } from './Button';
 
 const clickHandler = vi.fn();
 const mockError = vi.fn();

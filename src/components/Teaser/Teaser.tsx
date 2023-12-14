@@ -1,9 +1,14 @@
 import classNames from 'classnames';
 import styles from './Teaser.module.scss';
-import { Heading } from 'components/Heading/Heading';
-import { HeadingStyle } from 'models/heading';
-import { TeaserType } from 'models/type';
+import { Heading, HeadingStyle } from 'components/Heading/Heading';
 import { Link } from 'utils/init';
+
+export enum TeaserType {
+  Large = 'large',
+  Medium = 'medium',
+  Compact = 'compact',
+}
+
 
 type Props = {
   id: string;

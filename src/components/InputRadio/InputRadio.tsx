@@ -1,7 +1,7 @@
-import { InputOption } from 'models/inputs';
 import styles from './InputRadio.module.scss';
 import { InputMessage } from 'components/InputMessage/InputMessage';
 import classNames from 'classnames';
+import { InputOption } from '..';
 
 interface Props {
   label?: string;

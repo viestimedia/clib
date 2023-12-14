@@ -1,6 +1,6 @@
 import { Link } from 'utils/init';
 import styles from './Tabs.module.scss';
-import { InputOption } from 'models/inputs';
+import { InputOption } from '..';
 
 type Props = {
   inputSelectOptions: InputOption[];

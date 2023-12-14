@@ -1,9 +1,25 @@
 import React from 'react';
 import styles from './Button.module.scss';
-import { ButtonVariant, ButtonSize } from 'models/button';
 import classNames from 'classnames';
 import { Link } from 'utils/init';
 import { Brand } from 'models/brand';
+
+export enum ButtonVariant {
+  Primary = 'button',
+  Secondary = 'secondaryButton',
+  Sales = 'salesButton',
+  Naked = 'nakedButton',
+  Tertiary = 'tertiaryButton',
+  Blend = 'blendButton',
+  Delete = 'deleteButton',
+  Reject = 'rejectButton',
+}
+
+export enum ButtonSize {
+  S = 'small',
+  M = 'medium',
+  L = 'large',
+}
 
 interface ButtonProps
   extends React.DetailedHTMLProps<
@@ -45,6 +61,7 @@ export const Button = ({
   className = '',
   ...buttonExtraProps
 }: ButtonProps) => {
+  console.log('Button logging 3!');
   if (!label && !icon) {
     console.error('A Button needs a label or an icon!');
     return null;

@@ -1,10 +1,11 @@
-import { AnchorComponent, RemixLink } from 'components/Link/Link';
 import {
+  AnchorComponent,
+  RemixLink,
   AnchorProps,
   LinkType,
   NextLinkType,
   RemixLinkType,
-} from 'models/link';
+} from 'components/Link/Link';
 
 type Options =
   | {

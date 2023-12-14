@@ -1,7 +1,17 @@
 import styles from './InputSelect.module.scss';
-import { InputOption } from 'models/inputs';
 import classNames from 'classnames';
 import { InputMessage } from '..';
+
+import { ReactElement } from 'react';
+
+export interface InputOption {
+  label?: string;
+  value: string;
+  id: string;
+  selected?: boolean;
+  children?: ReactElement;
+  sortIndex?: number;
+}
 
 interface Props {
   name: string;

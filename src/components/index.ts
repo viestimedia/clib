@@ -1,23 +1,22 @@
-// export { Helloworld } from './Hello'
-export type { DatepickerProps, DateRange } from './Datepicker';
-export { Datepicker, classNames } from './Datepicker';
-export { Button } from './Button/Button';
-export { HeaderBanner } from './HeaderBanner/HeaderBanner';
-export { Heading } from './Heading/Heading';
-export { Input } from './Input/Input';
-export { InputDatePicker } from './InputDatePicker/InputDatePicker';
-export { InputMessage } from './InputMessage/InputMessage';
-export { InputRadio } from './InputRadio/InputRadio';
-export { InputSelect } from './InputSelect/InputSelect';
-export { InputTextarea } from './InputTextarea/InputTextarea';
-export { ListFooter } from './ListFooter/ListFooter';
-export { ListHeading } from './ListHeading/ListHeading';
-export { ListItem } from './ListItem/ListItem';
-export { Tabs } from './Tabs/Tabs';
-export { Tag } from './Tag/Tag';
-export { Teaser } from './Teaser/Teaser';
-export { CSSModule } from './CSSModule';
-export { ButtonVariant, ButtonSize } from 'models/button';
-export { HeadingStyle } from 'models/heading';
-export { TeaserType } from 'models/type';
+// Re-export everything from invidual components.
+// Use the component files to control what is exported.
+
+export * from './Datepicker';
+export * from './Button/Button';
+export * from './HeaderBanner/HeaderBanner';
+export * from './Heading/Heading';
+export * from './Input/Input';
+export * from './InputDatePicker/InputDatePicker';
+export * from './InputMessage/InputMessage';
+export * from './InputRadio/InputRadio';
+export * from './InputSelect/InputSelect';
+export * from './InputTextarea/InputTextarea';
+export * from './ListFooter/ListFooter';
+export * from './ListHeading/ListHeading';
+export * from './ListItem/ListItem';
+export * from './Tabs/Tabs';
+export * from './Tag/Tag';
+export * from './Teaser/Teaser';
+
+// This doesn't work with the * syntax for some reason
 export { initializeComponentLibrary } from 'utils/init';
