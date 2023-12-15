@@ -61,7 +61,6 @@ export const Button = ({
   className = '',
   ...buttonExtraProps
 }: ButtonProps) => {
-  console.log('Button logging 3!');
   if (!label && !icon) {
     console.error('A Button needs a label or an icon!');
     return null;
