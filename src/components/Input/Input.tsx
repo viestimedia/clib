@@ -18,6 +18,7 @@ interface Props
   icon?: React.ReactNode;
   iconButton?: React.ReactElement;
   autoFocus?: boolean;
+  datalist?: string[];
 }
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
@@ -33,15 +34,16 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       iconButton,
       required,
       onChange,
-			onClick,
-			onFocus,
-			onBlur,
+      onClick,
+      onFocus,
+      onBlur,
       className = '',
       value,
       maxLength,
       autoComplete,
       defaultValue,
       autoFocus = false,
+      datalist,
     },
     ref
   ) => {
@@ -80,10 +82,19 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             autoComplete={autoComplete}
             defaultValue={defaultValue}
             onClick={onClick}
-						onFocus={onFocus}
-						onBlur={onBlur}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            list={datalist ? `${name}-datalist` : undefined}
           />
           {iconButton}
+
+          {datalist && (
+            <datalist id={`${name}-datalist`}>
+              {datalist.map((item) => (
+                <option key={item} value={item} />
+              ))}
+            </datalist>
+          )}
         </div>
 
         <InputMessage text={message} id={messageId} type={messageType} />

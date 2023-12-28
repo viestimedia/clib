@@ -69,7 +69,7 @@ function SomethingelseRoute() {
     <>
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Buttons</h2>
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <Button label="Primary button" variant={ButtonVariant.Primary} />
           <Button label="Naked button" variant={ButtonVariant.Naked} />
           <Button label="Secondary button" variant={ButtonVariant.Secondary} />
@@ -86,7 +86,7 @@ function SomethingelseRoute() {
         <h2 className="text-xl font-bold">Inputs</h2>
 
         <div className="font-bold pt-3">Input Message</div>
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <InputMessage
             id="inputError"
             type="error"
@@ -95,7 +95,7 @@ function SomethingelseRoute() {
         </div>
 
         <div className="font-bold pt-3">Input Text</div>
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <Input
             label="Label"
             required={true}
@@ -103,20 +103,32 @@ function SomethingelseRoute() {
             placeholder="Text input placeholder"
             onChange={() => null}
             onFocus={() => console.log('FOCUS')}
-						onBlur={() => console.log('BLUR')}
-						message='Virheviestin testaus'
+            onBlur={() => console.log('BLUR')}
+            message="Virheviestin testaus"
           />
           <Input
             label="Label 2"
             required={true}
             name="textInputName2"
-						placeholder="Text input placeholder 2"
+            placeholder="Text input placeholder 2"
             onChange={() => null}
           />
         </div>
 
+        <div className="font-bold pt-3">Input with datalist</div>
+        <div className=" p-3 border">
+          <Input
+            label="Label"
+            required={true}
+            name="datalistInput"
+            datalist={['Autocomplete', 'Datalist', 'Test']}
+            message="Kokeile kirjoittaa kenttään. Aloita vaikka T kirjaimella."
+            messageType="info"
+          />
+        </div>
+
         <div className="font-bold pt-3">Input with icon button</div>
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <Input
             required
             label="Label"
@@ -130,7 +142,7 @@ function SomethingelseRoute() {
         </div>
 
         <div className="font-bold pt-3">Input Select</div>
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <InputSelect
             title="Options"
             required={true}
@@ -184,7 +196,7 @@ function SomethingelseRoute() {
         </div>
 
         <div className="font-bold pt-3">Input Date Picker</div>
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <InputDatePicker label="Date" required={true} />
         </div>
       </div>
@@ -192,7 +204,7 @@ function SomethingelseRoute() {
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Tags</h2>
 
-        <div className="bg-white p-3 border flex flex-wrap gap-3">
+        <div className=" p-3 border flex flex-wrap gap-3">
           <Tag
             text="Ostetaan"
             className="border border-[#815109] !text-[#815109] !leading-4"
@@ -207,7 +219,7 @@ function SomethingelseRoute() {
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Headings</h2>
 
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <Heading
             text="Default heading"
             style={HeadingStyle.Default}
@@ -241,7 +253,7 @@ function SomethingelseRoute() {
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Tabs</h2>
 
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <Tabs
             inputSelectOptions={[
               { label: 'Selected tab', value: '/selected-tab', id: '1' },
@@ -255,7 +267,7 @@ function SomethingelseRoute() {
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Header banner</h2>
 
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <HeaderBanner
             mainLogo={<MTLogo />}
             className="headerBannerDemo"
@@ -269,7 +281,7 @@ function SomethingelseRoute() {
             }
           />
         </div>
-        <div className="bg-white p-3 border">
+        <div className=" p-3 border">
           <HeaderBanner
             mainLogo={<MTLogo />}
             subLogo={<img src="https://picsum.photos/100/20" />}

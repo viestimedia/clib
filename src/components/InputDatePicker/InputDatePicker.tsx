@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './InputDatePicker.module.scss';
 import EventIcon from 'assets/icons/event-outlined.svg';
 import { Input } from 'components/Input/Input';
@@ -6,6 +6,8 @@ import { format } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
 import { usePopper } from 'react-popper';
 import { Datepicker, DayPickerSingleProps } from 'components/Datepicker';
+
+type InputProps = React.ComponentProps<typeof Input>;
 
 type Props = {
   label: string;
@@ -22,9 +24,12 @@ type Props = {
   // datepicker?: Omit<DayPickerSingleProps, 'onSelect' | 'selected'>;
   datepicker?: DayPickerSingleProps;
 
-  // Forward all props to the input
+  // Input spesific props:
+  input: React.ComponentProps<typeof Input>;
+
+  // Forward rest of props to the input (deprecated)
   // Note: input only accepts known props, `data-something` will not work
-  [key: string]: any;
+  [key: string]: any; // TODO: Make this ComponentProps<Input>
 };
 
 export const InputDatePicker = ({
@@ -33,6 +38,7 @@ export const InputDatePicker = ({
   name,
   value,
   datepicker,
+  input,
   ...rest
 }: Props) => {
   if (!(value instanceof Date) && value !== undefined) {
@@ -44,6 +50,15 @@ export const InputDatePicker = ({
     // There seems to be no difference between these two
     // value = parseISO(value);
     value = new Date(value);
+  }
+
+  const keys = Object.keys(rest);
+
+  if (keys.length > 0) {
+    console.warn(
+      'InputDatePicker: The following props are deprecated and will be removed in the near future. Please use the input prop instead.',
+      keys
+    );
   }
 
   /**
@@ -134,7 +149,8 @@ export const InputDatePicker = ({
           onChange={() => null}
           icon={<EventIcon />}
           onClick={openDayPicker}
-          {...rest}
+          {...input}
+          {...rest} // TODO: Remove these in the near future, they've been replaced by the above
         />
       </div>
       {isDayPickerOpen && (
