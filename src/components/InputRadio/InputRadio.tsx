@@ -46,8 +46,6 @@ export const InputRadio = ({
   // In Remix, uncontrolled components are preferred, as forms are handled as wholes and not as individual inputs.
   const uncontrolled = !Boolean(onChange);
 
-  console.log('Uncontrolled radio check', { name, uncontrolled, onChange });
-
   return (
     <>
       <div
