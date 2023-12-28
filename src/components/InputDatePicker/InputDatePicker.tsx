@@ -7,8 +7,6 @@ import FocusTrap from 'focus-trap-react';
 import { usePopper } from 'react-popper';
 import { Datepicker, DayPickerSingleProps } from 'components/Datepicker';
 
-type InputProps = React.ComponentProps<typeof Input>;
-
 type Props = {
   label: string;
   required: boolean;
@@ -25,11 +23,12 @@ type Props = {
   datepicker?: DayPickerSingleProps;
 
   // Input spesific props:
-  input: React.ComponentProps<typeof Input>;
+  input?: React.ComponentProps<typeof Input>;
 
-  // Forward rest of props to the input (deprecated)
+  // Forward rest of props to the input (deprecated).
+  // This will be removed in the next major version.
   // Note: input only accepts known props, `data-something` will not work
-  [key: string]: any; // TODO: Make this ComponentProps<Input>
+  [key: string]: any;
 };
 
 export const InputDatePicker = ({
