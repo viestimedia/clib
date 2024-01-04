@@ -39,6 +39,7 @@ function App() {
       <AppNav setRoute={setRoute} />
 
       {route === '#datepicker' && <DatepickerRoute />}
+      {route === '#header' && <HeaderRoute />}
       {route === '#somethingelse' && <SomethingelseRoute />}
     </>
   );
@@ -53,6 +54,11 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
             Datepicker
           </a>
         </li>
+        <li>
+          <a href="#header" onClick={() => setRoute('header')}>
+            Header
+          </a>
+        </li>
 
         <li>
           <a href="#somethingelse" onClick={() => setRoute('somethingelse')}>
@@ -61,6 +67,38 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
         </li>
       </ul>
     </nav>
+  );
+}
+
+function HeaderRoute() {
+  return (
+    <div className="absolute top-0 left-0 right-0">
+      <HeaderBanner
+        mainLogo={<MTLogo />}
+        type="compact"
+        className="headerBannerDemo"
+        button={
+          <Button
+            label="Palaa MT:n etusivulle"
+            variant={ButtonVariant.Blend}
+            size={ButtonSize.S}
+          />
+        }
+      />
+      <br />
+      <HeaderBanner
+        mainLogo={<MTLogo />}
+        className="headerBannerDemo"
+        subLogo={<img src="https://picsum.photos/100/20" />}
+        button={
+          <Button
+            label="Palaa MT:n etusivulle"
+            variant={ButtonVariant.Blend}
+            size={ButtonSize.S}
+          />
+        }
+      />
+    </div>
   );
 }
 
