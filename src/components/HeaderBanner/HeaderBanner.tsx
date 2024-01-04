@@ -26,13 +26,17 @@ export const HeaderBanner = ({
         [className]: !moduleExtend,
       })}
     >
-      <div className={styles.logoContainer}>
-        <div className={`${styles.logo} ${styles.mainLogo}`}>{mainLogo}</div>
-        {subLogo && (
-          <div className={`${styles.logo} ${styles.subLogo}`}>{subLogo}</div>
-        )}
+      <div className={styles.innerWrapper}>
+        <div className={styles.container}>
+          <div className={styles.logoContainer}>
+            <div className={`${styles.logo} ${styles.mainLogo}`}>{mainLogo}</div>
+            {subLogo && (
+              <div className={`${styles.logo} ${styles.subLogo}`}>{subLogo}</div>
+            )}
+          </div>
+            {button && <div className={styles.button}>{button}</div>}
+        </div>
       </div>
-      {button && <div className={styles.button}>{button}</div>}
-    </div>
+  </div>
   );
 };
