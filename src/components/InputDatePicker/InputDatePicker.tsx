@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
 import { usePopper } from 'react-popper';
 import { Datepicker, DayPickerSingleProps } from 'components/Datepicker';
+import { validateDate } from 'utils/validate';
 
 type Props = {
   label: string;
@@ -74,6 +75,7 @@ export const InputDatePicker = ({
   const [inputValue, setInputValue] = useState<string>(
     value ? format(value, 'd.M.yyyy') : format(Date.now(), 'd.M.yyyy')
   );
+  const [inputError, setInputError] = useState<string | undefined>('');
 
   const [isDayPickerOpen, setIsDayPickerOpen] = useState(false);
 
@@ -145,9 +147,19 @@ export const InputDatePicker = ({
           required={required}
           value={inputValue}
           className="iconOnRight"
-          onChange={() => null}
+          onChange={(val) => {
+            setInputValue(val as string);
+            setInputError(validateDate(val as string));
+          }}
+          message={inputError}
           icon={<EventIcon />}
           onClick={openDayPicker}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              openDayPicker()
+            }
+          }}
+          onFocus={!inputValue ? openDayPicker : undefined}
           {...input}
           {...rest} // TODO: Remove these in the near future, they've been replaced by the above
         />
