@@ -156,8 +156,12 @@ export const InputDatePicker = ({
           onClick={openDayPicker}
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
-              openDayPicker()
+              openDayPicker();
             }
+            if (e.key === 'Escape') {
+              closeDayPicker();
+            }
+
           }}
           onFocus={!inputValue ? openDayPicker : undefined}
           {...input}
