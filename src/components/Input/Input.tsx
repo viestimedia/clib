@@ -37,6 +37,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       onClick,
       onFocus,
       onBlur,
+      onKeyUp,
+      onKeyDown,
       className = '',
       value,
       maxLength,
@@ -84,6 +86,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             onClick={onClick}
             onFocus={onFocus}
             onBlur={onBlur}
+            onKeyUp={onKeyUp}
+            onKeyDown={onKeyDown}
             list={datalist ? `${name}-datalist` : undefined}
           />
           {iconButton}
