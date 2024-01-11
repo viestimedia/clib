@@ -2,7 +2,7 @@
 
 %inputMessage {
   display: inline-flex;
-  align-items: center;
+  align-items: flex-start;
   @extend %sansSerifRegular;
   font-size: $fontSizeS;
   padding-top: 8px;
@@ -15,7 +15,7 @@
   svg {
     width: 16px;
     height: 16px;
-    margin: 1px 4px 0 0;
+    margin: 3px 4px 0 0;
   }
 }
 
