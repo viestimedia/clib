@@ -1,0 +1,41 @@
+@import "/src/styles/common";
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: $standardPadding;
+
+  @media (min-width: $tabletLowerLimit) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.title {
+  @extend %sansSerifBold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.navLink {
+  @extend %sansSerifSemiBold;
+  color: $white;
+  white-space: nowrap;
+  padding: 0 $standardPadding 10px 0;
+}
+
+.responsibleJournalism {
+  padding-top: 30px;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    padding-top: 40px;
+  }
+}
+
+.companyInfo {
+  margin-top: $standardPadding;
+}

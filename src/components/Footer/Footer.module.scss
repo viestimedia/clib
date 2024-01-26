@@ -1,0 +1,29 @@
+@import "/src/styles/common";
+
+.container {
+  background: $darkGray;
+  color: white;
+  font-size: $fontSizeS;
+  line-height: 22px;
+}
+
+.wrapper {
+  @extend %mainLayoutWrapper;
+  padding: $standardPadding;
+
+  &:nth-child(2) {
+    border-top: 1px solid $gray3;
+    border-bottom: 1px solid $gray3;
+  }
+}
+
+.innerContent {
+  @extend %mainLayoutContainerForHeaderAndFooter;
+
+  // Note: we're using @media max-width here so that we can preserve
+  // the shared magic done in desktop size with 'max-width' in
+  // %mainLayoutContainerForHeaderAndFooter
+  @media (max-width: calc(#{$smallDesktopLowerLimit} - 1px)) {
+    max-width: $tabletMainLaneMaxWidth;
+  }
+}

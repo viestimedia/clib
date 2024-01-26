@@ -5,6 +5,7 @@ import { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
 export enum Brand {
   MT = 'mt',
   KV = 'kv',
+  VM = 'vm',
 }
 
 type Url = string | UrlObject;

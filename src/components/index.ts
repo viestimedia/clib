@@ -17,6 +17,7 @@ export * from './ListItem/ListItem';
 export * from './Tabs/Tabs';
 export * from './Tag/Tag';
 export * from './Teaser/Teaser';
+export * from './Footer/Footer';
 
 // This doesn't work with the * syntax for some reason
 export { initializeComponentLibrary } from 'utils/init';

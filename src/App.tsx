@@ -25,6 +25,9 @@ import { DateRange } from 'react-day-picker';
 import { useHash } from 'react-use';
 import CheckIcon from 'assets/icons/check-circle-filled.svg';
 import MTLogo from 'assets/mt-logo.svg';
+import VMLogo from 'assets/vm-logo-white.svg';
+import { Footer } from 'components/Footer/Footer';
+import { Brand } from 'components/Link/Link';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -105,6 +108,48 @@ function HeaderRoute() {
 function SomethingelseRoute() {
   return (
     <>
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Footer</h2>
+
+        <Footer
+          brand={Brand.VM}
+          footer={{
+            top: {
+              actions: <p>Some actions</p>,
+              logo: <VMLogo />,
+              brand: Brand.VM,
+            },
+            main: {
+              columns: <p>Insert menu columns here</p>,
+            },
+            bottom: {
+              paperName: 'Viestimedia Oy',
+              menu: [
+                {
+                  title: 'Linkki 1',
+                  url: '/',
+                  openInNewTab: false,
+                  brand: Brand.VM,
+                },
+                {
+                  title: 'Linkki 2',
+                  url: '/',
+                  openInNewTab: false,
+                  brand: Brand.VM,
+                },
+                {
+                  title: 'Linkki 3',
+                  url: '/',
+                  openInNewTab: false,
+                  brand: Brand.VM,
+                },
+              ],
+              children: <p>Cookie settings button</p>,
+            },
+          }}
+        />
+      </div>
+
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Buttons</h2>
         <div className=" p-3 border">
