@@ -11,7 +11,7 @@ export type BottomFooterProps = {
   menu: {
     title: string;
     url: string;
-    openInNewTab: boolean;
+    openInNewTab?: boolean;
     brand: Brand;
   }[];
   paperName: string;
@@ -26,20 +26,17 @@ export const FooterBottom = ({
   return (
     <div className={styles.bottomRow}>
       <div className={styles.bottomLinks}>
-        {menu.map(
-          (link) =>
-            link.url && (
-              <Link
-                key={link.title}
-                href={link.url}
-                className={styles.bottomLink}
-                openInNewTab={link.openInNewTab}
-                brand={link.brand}
-              >
-                {link.title}
-              </Link>
-            )
-        )}
+        {menu.map((link) => (
+          <Link
+            key={link.title}
+            href={link.url}
+            className={styles.bottomLink}
+            openInNewTab={link.openInNewTab || false}
+            brand={link.brand}
+          >
+            {link.title}
+          </Link>
+        ))}
         {children}
       </div>
       <div>© {paperName}</div>
