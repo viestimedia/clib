@@ -3,6 +3,7 @@ import styles from './Button.module.scss';
 import classNames from 'classnames';
 import { Link } from 'utils/init';
 import { Brand } from 'components/Link/Link';
+import { Spinner } from 'components/Spinner/Spinner';
 
 export enum ButtonVariant {
   Primary = 'button',
@@ -36,6 +37,7 @@ interface ButtonProps
   brand?: Brand;
   openInNewTab?: boolean;
   extraClass?: string;
+  isLoading?: boolean;
 
   // Allow all props.
   // In remix, it's common for buttons to have names, values, etc.
@@ -59,6 +61,7 @@ export const Button = ({
   type,
   children,
   className = '',
+  isLoading = false,
   ...buttonExtraProps
 }: ButtonProps) => {
   if (!label && !icon) {
@@ -71,9 +74,23 @@ export const Button = ({
     [styles['withIcon']]: Boolean(icon),
     [styles['noLabel']]: Boolean(!label),
     [styles['noOutline']]: Boolean(!outline),
+    [styles['isLoading']]: Boolean(isLoading),
     [styles[className]]: moduleExtend,
     [className]: !moduleExtend,
   });
+
+  const ButtonContent = () => (
+    <>
+      {icon}
+      {label && <span>{label}</span>}
+      {children && children}
+      {isLoading && (
+        <div className={styles.progress}>
+          <Spinner className={variant === ButtonVariant.Primary ? 'light' : ''} />
+        </div>
+      )}
+    </>
+  );
 
   return (
     <>
@@ -86,24 +103,22 @@ export const Button = ({
           brand={brand}
           openInNewTab={openInNewTab}
         >
-          {icon}
-          {label && <span>{label}</span>}
-          {children && children}
+          <ButtonContent />
         </Link>
       ) : (
-        <button
-          id={id}
-          aria-label={ariaLabel}
-          className={cn}
-          onClick={onClick}
-          disabled={disabled}
-          type={type}
-          {...buttonExtraProps}
-        >
-          {icon}
-          {label && <span>{label}</span>}
-          {children && children}
-        </button>
+        <>
+          <button
+            id={id}
+            aria-label={ariaLabel}
+            className={cn}
+            onClick={onClick}
+            disabled={disabled}
+            type={type}
+            {...buttonExtraProps}
+          >
+            <ButtonContent />
+          </button>
+        </>
       )}
     </>
   );
