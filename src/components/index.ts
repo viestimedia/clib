@@ -18,6 +18,7 @@ export * from './Tabs/Tabs';
 export * from './Tag/Tag';
 export * from './Teaser/Teaser';
 export * from './Footer/Footer';
+export * from './CookieSettingsLink/CookieSettingsLink';
 
 // This doesn't work with the * syntax for some reason
 export { initializeComponentLibrary } from 'utils/init';
