@@ -1,0 +1,19 @@
+@import "/styles/common";
+
+.link {
+  @extend %sansSerifSemiBold;
+  white-space: nowrap;
+
+  // Override cookie settings link default styles defined in cookie consent script
+  font-size: 15px !important;
+  line-height: 22px !important;
+  color: $white !important;
+  border: 0 !important;
+  background-color: transparent !important;
+  font-family: inherit !important;
+  padding: 0 20px 10px 0 !important;
+
+  &:focus-visible {
+    outline: -webkit-focus-ring-color auto 1px !important;
+  }
+}
