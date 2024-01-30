@@ -28,6 +28,7 @@ import MTLogo from 'assets/mt-logo.svg';
 import VMLogo from 'assets/vm-logo-white.svg';
 import { Footer } from 'components/Footer/Footer';
 import { Brand } from 'components/Link/Link';
+import { CookieSettingsLink } from 'components/CookieSettingsLink/CookieSettingsLink';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -144,7 +145,7 @@ function SomethingelseRoute() {
                   brand: Brand.VM,
                 },
               ],
-              children: <p>Cookie settings button</p>,
+              children: <CookieSettingsLink />,
             },
           }}
         />
