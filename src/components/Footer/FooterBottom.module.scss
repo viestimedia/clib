@@ -1,10 +1,12 @@
 @import "/src/styles/common";
 
 .bottomRow {
-  display: block;
+  display: grid;
+  grid-gap: $standardPadding;
+  grid-template-columns: 1fr;
 
   @media (min-width: $smallDesktopLowerLimit) {
-    display: flex;
+    grid-template-columns: 1fr max-content;
   }
 }
 
@@ -12,11 +14,23 @@
   flex: 1;
   display: flex;
   flex-wrap: wrap;
+
+  justify-content: center;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    justify-content: flex-start;
+  }
+
 }
 
 .bottomLink {
   @extend %sansSerifSemiBold;
-  padding: 0 $standardPadding 10px 0;
+  padding: 0 $standardPadding 0 0;
   color: $white;
   white-space: nowrap;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    padding-bottom: 10px;
+  }
+
 }

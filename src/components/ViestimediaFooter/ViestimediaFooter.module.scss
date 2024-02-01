@@ -4,6 +4,11 @@
   display: block;
   height: 30px;
   width: 185px;
+  margin: 0 auto;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    margin: 0;
+  }
 }
 
 .customerServiceLink {

@@ -6,6 +6,11 @@
   font-size: $fontSizeS;
   line-height: 22px;
   font-family: "Red Hat Text Variable", "Red Hat Text", Arial, sans-serif;
+  text-align: center;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    text-align: left;
+  }
 }
 
 .wrapper {
@@ -32,5 +37,6 @@
   // %mainLayoutContainerForHeaderAndFooter
   @media (max-width: calc(#{$smallDesktopLowerLimit} - 1px)) {
     max-width: $tabletMainLaneMaxWidth;
+    text-align: center;    
   }
 }
