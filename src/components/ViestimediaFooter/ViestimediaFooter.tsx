@@ -3,13 +3,13 @@ import { Brand } from 'components/Link/Link';
 import { Link } from 'utils/init';
 import { Footer } from '../Footer/Footer';
 import ViestimediaLogo from 'assets/viestimedia-logo.svg';
+import { CookieSettingsLink } from '..';
 
 export type Props = {
   seoText?: string;
-  cookieSettingsLink: React.ReactNode;
 };
 
-export const ViestimediaFooter = ({ seoText, cookieSettingsLink }: Props) => {
+export const ViestimediaFooter = ({ seoText }: Props) => {
   return (
     <Footer
       footer={{
@@ -69,7 +69,7 @@ export const ViestimediaFooter = ({ seoText, cookieSettingsLink }: Props) => {
               brand: Brand.VM,
             },
           ],
-          children: cookieSettingsLink,
+          children: <CookieSettingsLink />,
         },
       }}
     />

@@ -115,7 +115,7 @@ function HeaderRoute() {
 function FooterRoute() {
   return (
     <div className="absolute top-36 left-0 right-0">
-      <ViestimediaFooter cookieSettingsLink={<CookieSettingsLink />} />
+      <ViestimediaFooter />
 
       <br />
 
