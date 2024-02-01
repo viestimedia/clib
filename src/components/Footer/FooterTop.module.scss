@@ -14,9 +14,6 @@
   flex: 1;
   margin-bottom: $standardPadding;
 
-  // Viestimedia logo is quite big
-  max-width: 400px;
-
   svg {
     width: 100%;
     height: auto;
@@ -25,74 +22,4 @@
   @media (min-width: $smallDesktopLowerLimit) {
     margin-bottom: 0;
   }
-}
-
-.actions {
-  display: grid;
-  grid-template-areas:
-    "orderButton"
-    "social"
-    "newsletters";
-  grid-gap: $standardPadding;
-  justify-content: center;
-
-  @media (min-width: $smallDesktopLowerLimit) {
-    grid-template-areas: "newsletters social orderButton";
-    grid-gap: $standardPadding;
-    justify-content: left;
-  }
-
-  svg {
-    path {
-      fill: $white;
-    }
-  }
-}
-
-.newsletters {
-  @extend %sansSerifSemiBold;
-  grid-area: newsletters;
-  color: $white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  span {
-    padding-right: 5px;
-  }
-
-  svg {
-    width: 24px;
-    height: auto;
-  }
-}
-
-.social {
-  @extend %sansSerifSemiBold;
-  grid-area: social;
-  display: flex;
-  align-items: center;
-
-  span,
-  svg {
-    margin: 0 4px;
-    display: block;
-
-    @media (min-width: $smallDesktopLowerLimit) {
-      margin: 0 2px;
-    }
-
-    @media (min-width: $mediumDesktopLowerLimit) {
-      margin: 0 4px;
-    }
-  }
-
-  svg {
-    width: 24px;
-    height: auto;
-  }
-}
-
-.orderButton {
-  grid-area: orderButton;
 }

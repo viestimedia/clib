@@ -29,6 +29,7 @@ import VMLogo from 'assets/vm-logo-white.svg';
 import { Footer } from 'components/Footer/Footer';
 import { Brand } from 'components/Link/Link';
 import { CookieSettingsLink } from 'components/CookieSettingsLink/CookieSettingsLink';
+import { ViestimediaFooter } from 'components/ViestimediaFooter/ViestimediaFooter';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -44,6 +45,7 @@ function App() {
 
       {route === '#datepicker' && <DatepickerRoute />}
       {route === '#header' && <HeaderRoute />}
+      {route === '#footer' && <FooterRoute />}
       {route === '#somethingelse' && <SomethingelseRoute />}
     </>
   );
@@ -63,7 +65,11 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
             Header
           </a>
         </li>
-
+        <li>
+          <a href="#footer" onClick={() => setRoute('footer')}>
+            Footer
+          </a>
+        </li>
         <li>
           <a href="#somethingelse" onClick={() => setRoute('somethingelse')}>
             Something else
@@ -76,7 +82,7 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
 
 function HeaderRoute() {
   return (
-    <div className="absolute top-0 left-0 right-0">
+    <div className="absolute top-36 left-0 right-0">
       <HeaderBanner
         mainLogo={<MTLogo />}
         type="compact"
@@ -106,51 +112,55 @@ function HeaderRoute() {
   );
 }
 
+function FooterRoute() {
+  return (
+    <div className="absolute top-36 left-0 right-0">
+      <ViestimediaFooter cookieSettingsLink={<CookieSettingsLink />} />
+
+      <br />
+
+      <Footer
+        footer={{
+          top: {
+            actions: <p>Some actions</p>,
+            logo: <VMLogo />,
+          },
+          main: {
+            columns: <p>Insert menu columns here</p>,
+          },
+          bottom: {
+            paperName: 'Viestimedia Oy',
+            menu: [
+              {
+                title: 'Linkki 1',
+                url: '/',
+                openInNewTab: false,
+                brand: Brand.VM,
+              },
+              {
+                title: 'Linkki 2',
+                url: '/',
+                openInNewTab: false,
+                brand: Brand.VM,
+              },
+              {
+                title: 'Linkki 3',
+                url: '/',
+                openInNewTab: false,
+                brand: Brand.VM,
+              },
+            ],
+            children: <CookieSettingsLink />,
+          },
+        }}
+      />
+    </div>
+  );
+}
+
 function SomethingelseRoute() {
   return (
     <>
-      <div className="py-6 text-left">
-        <h2 className="text-xl font-bold">Footer</h2>
-
-        <Footer
-          brand={Brand.VM}
-          footer={{
-            top: {
-              actions: <p>Some actions</p>,
-              logo: <VMLogo />,
-              brand: Brand.VM,
-            },
-            main: {
-              columns: <p>Insert menu columns here</p>,
-            },
-            bottom: {
-              paperName: 'Viestimedia Oy',
-              menu: [
-                {
-                  title: 'Linkki 1',
-                  url: '/',
-                  openInNewTab: false,
-                  brand: Brand.VM,
-                },
-                {
-                  title: 'Linkki 2',
-                  url: '/',
-                  openInNewTab: false,
-                  brand: Brand.VM,
-                },
-                {
-                  title: 'Linkki 3',
-                  url: '/',
-                  openInNewTab: false,
-                  brand: Brand.VM,
-                },
-              ],
-              children: <CookieSettingsLink />,
-            },
-          }}
-        />
-      </div>
-
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Buttons</h2>
         <div className=" p-3 border">

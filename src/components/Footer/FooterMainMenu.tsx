@@ -1,31 +1,26 @@
 import React from 'react';
 import styles from './FooterMainMenu.module.scss';
-import { Link } from 'utils/init';
 
 export type MainFooterProps = {
-  columns: React.ReactNode;
+  infoTexts?: string[];
+  columns?: React.ReactNode;
   children?: React.ReactNode;
 };
 
-export const FooterMainMenu = ({ columns, children }: MainFooterProps) => {
+export const FooterMainMenu = ({ infoTexts, columns, children }: MainFooterProps) => {
   return (
     <div>
-      <div className={styles.columns}>{columns}</div>
-      <div className={styles.responsibleJournalism}>
-        <div className={styles.companyInfo}>
-          {children ? (
-            children
-          ) : (
-            <Link
-              href="https://viestimedia.fi/"
-              className={styles.navLink}
-              openInNewTab={true}
-            >
-              Viestimedia Oy
-            </Link>
-          )}
+      {infoTexts?.map((text, index) => (
+        <div key={index} className={styles.row}>
+          {text}
         </div>
-      </div>
+      ))}
+      {columns && <div className={styles.columns}>{columns}</div>}
+      {children && (
+        <div className={styles.responsibleJournalism}>
+          <div className={styles.companyInfo}>{children}</div>
+        </div>
+      )}
     </div>
   );
 };

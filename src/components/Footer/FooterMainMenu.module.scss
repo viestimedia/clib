@@ -14,6 +14,15 @@
   }
 }
 
+.row {
+  padding-bottom: $standardPadding;
+  border-bottom: 4px solid $gray3;
+
+  &:not(:first-child) {
+    padding-top: $standardPadding;
+  }
+}
+
 .title {
   @extend %sansSerifBold;
   text-transform: uppercase;

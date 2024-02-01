@@ -1,0 +1,14 @@
+@import "/src/styles/common";
+
+.viestimediaLogo {
+  display: block;
+  height: 30px;
+  width: 185px;
+}
+
+.customerServiceLink {
+  text-decoration: none;
+  color: $white;
+  line-height: 22px;
+  border-bottom: 4px solid $white;
+}

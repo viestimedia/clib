@@ -5,16 +5,23 @@
   color: white;
   font-size: $fontSizeS;
   line-height: 22px;
+  font-family: "Red Hat Text Variable", "Red Hat Text", Arial, sans-serif;
 }
 
 .wrapper {
   @extend %mainLayoutWrapper;
-  padding: $standardPadding;
+  padding: 0 $standardPadding;
+}
 
-  &:nth-child(2) {
-    border-top: 1px solid $gray3;
-    border-bottom: 1px solid $gray3;
-  }
+.topWrapper,
+.bottomWrapper {
+  padding: $standardPadding;
+}
+
+.columnWrapper {
+  border-top: 1px solid $gray3;
+  border-bottom: 1px solid $gray3;
+  padding: $standardPadding;
 }
 
 .innerContent {
