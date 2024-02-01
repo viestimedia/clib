@@ -52,7 +52,7 @@ export const ViestimediaFooter = ({ seoText, cookieSettingsLink }: Props) => {
             },
             {
               title: 'Myyntiehdot',
-              url: 'https://www.viestimedia.fi/myyntiehdot/',
+              url: 'https://viestimedia.fi/verkkomainonnan-myyntiehdot/',
               openInNewTab: true,
               brand: Brand.VM,
             },
