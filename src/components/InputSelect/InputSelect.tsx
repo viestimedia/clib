@@ -50,6 +50,21 @@ export const InputSelect = ({
   const moduleExtend = styles[className] ? true : false;
   const messageId = message && name ? `${name}-message` : '';
 
+  const hasNoEmptyOption = !!options.find((option) => option.value === '');
+  const renderedOptions = options.map((option) => {
+    return (
+      <option key={option.id} value={option.value}>
+        {option.label}
+      </option>
+    );
+  });
+
+  if (!placeholder && hasNoEmptyOption) {
+    console.warn(
+      `Field ${name} has no empty option and no placeholder. This means the field can't be cleared.`
+    );
+  }
+
   return (
     <div
       className={classNames(styles.label, {
@@ -75,16 +90,12 @@ export const InputSelect = ({
         onChange={onChange ? (e) => onChange(e.target.value) : undefined}
         required={required}
       >
-        {placeholder && (
-          <option value="" hidden>
+        {placeholder && ( // Always show placeholder if there's no empty option. Otherwise field can't be cleared.
+          <option value="" hidden={hasNoEmptyOption}>
             {placeholder}
           </option>
         )}
-        {options.map((option) => (
-          <option key={option.id} value={option.value}>
-            {option.label}
-          </option>
-        ))}
+        {renderedOptions}
       </select>
 
       <InputMessage
