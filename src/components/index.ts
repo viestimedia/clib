@@ -3,6 +3,7 @@
 
 export * from './Datepicker';
 export * from './Button/Button';
+export * from './Spinner/Spinner';
 export * from './HeaderBanner/HeaderBanner';
 export * from './Heading/Heading';
 export * from './Input/Input';
