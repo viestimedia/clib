@@ -104,12 +104,12 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             onBlur={onBlur}
             onKeyUp={onKeyUp}
             onKeyDown={onKeyDown}
-            list={datalist ? `${name}-datalist` : undefined}
+            list={name && datalist ? `${name}-datalist` : undefined}
           />
           {iconButton}
           {showPasswordToggle && <PasswordToggleButton />}
 
-          {datalist && (
+          {name && datalist && (
             <datalist id={`${name}-datalist`}>
               {datalist.map((item) => (
                 <option key={item} value={item} />
