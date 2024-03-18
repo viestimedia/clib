@@ -23,7 +23,6 @@ import { useState } from 'react';
 import { add, sub } from 'date-fns';
 import { DateRange } from 'react-day-picker';
 import { useHash } from 'react-use';
-import CheckIcon from 'assets/icons/check-circle-filled.svg';
 import MTLogo from 'assets/mt-logo.svg';
 import VMLogo from 'assets/vm-logo-white.svg';
 import { Footer } from 'components/Footer/Footer';
