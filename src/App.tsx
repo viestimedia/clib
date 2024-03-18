@@ -225,13 +225,10 @@ function SomethingelseRoute() {
         <div className=" p-3 border">
           <Input
             required
+            type="password"
             label="Label"
             name="inputWithIcon"
             onChange={() => null}
-            className="withPasswordToggle"
-            iconButton={
-              <Button icon={<CheckIcon />} variant={ButtonVariant.Naked} />
-            }
           />
         </div>
 
