@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Input.module.scss';
 import { InputMessage } from 'components/InputMessage/InputMessage';
 import classNames from 'classnames';
+import EyeIcon from 'assets/icons/eye.svg';
+import EyeSlashIcon from 'assets/icons/eye-slash.svg';
+import { Button, ButtonVariant } from '..';
 
 interface Props
   extends Omit<
@@ -51,6 +54,18 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
   ) => {
     const moduleExtend = styles[className] ? true : false;
     const messageId = message && name ? `${name}-message` : '';
+    const showPasswordToggle = type === 'password' && !iconButton;
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+
+    const PasswordToggleButton = () => {
+      return (
+        <Button
+          icon={showPassword ? <EyeSlashIcon /> : <EyeIcon />}
+          variant={ButtonVariant.Naked}
+          onClick={() => setShowPassword(!showPassword)}
+        />
+      );
+    };
 
     return (
       <div>
@@ -62,6 +77,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         )}
         <div
           className={classNames(styles.field, {
+            [styles.withPasswordToggle]: Boolean(showPasswordToggle),
             [styles.hasMessage]: Boolean(message),
             [styles[className]]: moduleExtend,
             [className]: !moduleExtend,
@@ -73,7 +89,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             className={`${styles.fieldInput} ${icon ? styles.withIcon : ''}`}
             name={name}
             id={name}
-            type={type}
+            type={showPasswordToggle && showPassword ? 'text' : type}
             placeholder={placeholder}
             autoFocus={autoFocus} // eslint-disable-line jsx-a11y/no-autofocus -- Don't use this unless you have a good reason, like a search field on the search page.
             aria-describedby={message ? `${messageId}` : undefined}
@@ -88,11 +104,12 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             onBlur={onBlur}
             onKeyUp={onKeyUp}
             onKeyDown={onKeyDown}
-            list={datalist ? `${name}-datalist` : undefined}
+            list={name && datalist ? `${name}-datalist` : undefined}
           />
           {iconButton}
+          {showPasswordToggle && <PasswordToggleButton />}
 
-          {datalist && (
+          {name && datalist && (
             <datalist id={`${name}-datalist`}>
               {datalist.map((item) => (
                 <option key={item} value={item} />
