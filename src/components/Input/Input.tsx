@@ -63,6 +63,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
           icon={showPassword ? <EyeSlashIcon /> : <EyeIcon />}
           variant={ButtonVariant.Naked}
           onClick={() => setShowPassword(!showPassword)}
+          type="button" // Explicitly declare the type to tell autofill that this is not the submit
         />
       );
     };
