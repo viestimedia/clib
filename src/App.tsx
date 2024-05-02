@@ -191,6 +191,7 @@ function SomethingelseRoute() {
         <div className=" p-3 border">
           <Input
             label="Label"
+            labelInfo='(Label info lorem ipsum)'
             required={true}
             name="textInputName"
             placeholder="Text input placeholder"

@@ -4,6 +4,12 @@
   @extend %inputLabel;
 }
 
+.labelInfo {
+  @extend %sansSerifRegular;
+  font-size: $fontSizeS;
+  margin: -8px 0 8px;
+}
+
 .required {
   color: $statusRed;
   display: inline-block;

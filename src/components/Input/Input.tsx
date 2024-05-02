@@ -15,6 +15,7 @@ interface Props
     'onChange' // We are using a custom type of onChange
   > {
   label?: string;
+  labelInfo?: string;
   onChange?(value: string | number): void;
   message?: string;
   messageType?: 'success' | 'error' | 'warning' | 'info';
@@ -28,6 +29,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
   (
     {
       label,
+      labelInfo,
       name,
       type = 'text',
       placeholder,
@@ -75,6 +77,9 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             <span className={styles.label}>{label}</span>
             {required && <span className={styles.required}>*</span>}
           </label>
+        )}
+        {labelInfo && (
+          <div className={styles.labelInfo}>{labelInfo}</div>
         )}
         <div
           className={classNames(styles.field, {
