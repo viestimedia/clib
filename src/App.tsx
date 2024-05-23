@@ -162,6 +162,10 @@ function SomethingelseRoute() {
     <>
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Buttons</h2>
+        <div className="p-3 border">
+          <button className="button buttonMedium">Blueconic-button</button>
+        </div>
+
         <div className=" p-3 border">
           <Button label="Primary button" variant={ButtonVariant.Primary} />
           <Button label="Naked button" variant={ButtonVariant.Naked} />
@@ -191,7 +195,7 @@ function SomethingelseRoute() {
         <div className=" p-3 border">
           <Input
             label="Label"
-            labelInfo='(Label info lorem ipsum)'
+            labelInfo="(Label info lorem ipsum)"
             required={true}
             name="textInputName"
             placeholder="Text input placeholder"

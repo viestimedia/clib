@@ -1,33 +1,5 @@
 @import "/src/styles/common.scss";
 
-%buttonBasic {
-  @extend %sansSerifBold;
-  font-size: $fontSizeS;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  vertical-align: top;
-  min-height: 34px;
-  min-width: 80px; // Spec from design
-  justify-content: center;
-  flex: 0 0 auto;
-
-  &:focus {
-    outline: 2px solid $gray2;
-    outline-offset: 2px;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-  }
-
-  svg {
-    margin-right: 10px;
-    width: 24px;
-    height: 24px;
-  }
-}
-
 .isLoading {
   position: relative;
 
@@ -46,25 +18,7 @@
 }
 
 .button {
-  @extend %buttonBasic;
-  background-color: $darkGray2;
-  color: $white;
-
-  &.withIcon {
-    path {
-      fill: $white;
-    }
-  }
-
-  &:hover,
-  &:active,
-	&.active {
-    background-color: $gray3;
-  }
-
-  &:disabled {
-    background-color: $gray2;
-  }
+  @extend %button;
 }
 
 .secondaryButton {
@@ -218,19 +172,15 @@
 }
 
 .small {
-  padding: 0 12px;
+  @extend %buttonSmall;
 }
 
 .medium {
-  height: 42px;
-  padding: 0 12px;
-  font-size: $fontSizeM;
+  @extend %buttonMedium;
 }
 
 .large {
-  min-height: 85px;
-  padding: 0 12px;
-  font-size: $fontSizeM;
+  @extend %buttonLarge;
 }
 
 .withIcon {
