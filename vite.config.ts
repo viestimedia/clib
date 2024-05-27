@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import svgr from 'vite-plugin-svgr';
 import tsConfigPaths from 'vite-tsconfig-paths';
+import path from 'path';
 
 // @ts-ignore Shut up and do it
 import * as packageJson from './package.json';
@@ -29,6 +30,28 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/vitest-setup.ts'],
     environment: 'happy-dom',
+  },
+
+  css: {
+    modules: {
+      localsConvention: 'camelCaseOnly',
+
+      /**
+       * Generate classes in the following format:
+       *
+       * .vmButton__blendButton
+       */
+      generateScopedName(name, filename, css) {
+        const parts = filename.split('?')[0].split('/');
+        const lastSegment = parts.pop();
+
+        // Remove .module from the name, as it transforms into -module in the class name.
+        const baseFilename = lastSegment.replace(/(\.module)?(\.\w+)$/, '');
+
+        return `vm${baseFilename}__${name}`;
+      },
+      hashPrefix: '',
+    },
   },
 
   build: {
