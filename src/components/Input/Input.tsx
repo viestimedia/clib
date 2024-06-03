@@ -51,6 +51,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
       defaultValue,
       autoFocus = false,
       datalist,
+      ...rest
     },
     ref
   ) => {
@@ -78,9 +79,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             {required && <span className={styles.required}>*</span>}
           </label>
         )}
-        {labelInfo && (
-          <div className={styles.labelInfo}>{labelInfo}</div>
-        )}
+        {labelInfo && <div className={styles.labelInfo}>{labelInfo}</div>}
         <div
           className={classNames(styles.field, {
             [styles.withPasswordToggle]: Boolean(showPasswordToggle),
@@ -91,6 +90,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         >
           {icon}
           <input
+            {...rest} // Adding overflowing props first to allow them to be overridden
             ref={ref}
             className={`${styles.fieldInput} ${icon ? styles.withIcon : ''}`}
             name={name}

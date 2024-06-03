@@ -9,3 +9,23 @@
   color: $white;
   padding: 0 8px;
 }
+
+
+// TagType:
+.plain {
+  color: $white;
+}
+
+.buying {
+  border-color: var(--brown);
+  background: $white;
+  color: var(--brown) !important;
+}
+
+.selling {
+  background-color: var(--brown);
+}
+
+.leasing {
+  background-color: var(--darkOrange);
+}
