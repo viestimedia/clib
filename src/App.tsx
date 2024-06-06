@@ -17,6 +17,7 @@ import {
   Tag,
   Teaser,
   TeaserType,
+  ItemType,
 } from './components';
 
 import { useState } from 'react';
@@ -191,7 +192,7 @@ function SomethingelseRoute() {
         <div className=" p-3 border">
           <Input
             label="Label"
-            labelInfo='(Label info lorem ipsum)'
+            labelInfo="(Label info lorem ipsum)"
             required={true}
             name="textInputName"
             placeholder="Text input placeholder"
@@ -389,7 +390,7 @@ function SomethingelseRoute() {
       </div>
 
       <div className="py-6 text-left">
-        <h2 className="text-xl font-bold">List</h2>
+        <h2 className="text-xl font-bold">List with images</h2>
 
         <div className="bg-gray-200 p-3 border">
           <ListHeading text="Katsotuimmat hevoset" />
@@ -428,6 +429,45 @@ function SomethingelseRoute() {
             />
           </ul>
           <ListFooter text="Näytä lisää" linkUrl="/" />
+        </div>
+
+        <h2 className="text-xl font-bold mt-6">List with tags</h2>
+
+        <div className="bg-gray-200 p-3 border">
+          <ul>
+            <ListItem
+              heading="Kuvallinen tilaajalle-otsikko lorem ipsum dolor sit amet"
+              subheading="6000 €"
+              linkUrl="/art1"
+              tag={<Tag text="Vuokrataan" className="bg-[#815109]" />}
+              type={ItemType.TagItem}
+            />
+            <ListItem
+              heading="Kuvaton uutisotsikko lorem ipsum dolor sit amet"
+              subheading="3000 €"
+              linkUrl="/art2"
+              type={ItemType.TagItem}
+            />
+            <ListItem
+              heading="Kuvallinen hevosilmoitus"
+              subheading="6000 €"
+              linkUrl="/art3"
+              tag={<Tag text="Myydään" className="bg-[#815109]" />}
+              type={ItemType.TagItem}
+            />
+            <ListItem
+              heading="Kuvaton hevosilmoitus"
+              subheading="1600000 €"
+              linkUrl="/art4"
+              tag={
+                <Tag
+                  text="Ostetaan"
+                  className="border border-[#815109] !text-[#815109] !leading-4"
+                />
+              }
+              type={ItemType.TagItem}
+            />
+          </ul>
         </div>
       </div>
 

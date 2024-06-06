@@ -10,9 +10,15 @@ type Props = {
   date?: string;
   image?: React.ReactElement;
   tag?: React.ReactElement;
+  type?: ItemType;
   className?: string;
   id?: string;
 };
+
+export enum ItemType {
+  ImageItem = 'imageItem',
+  TagItem = 'tagItem',
+}
 
 export const ListItem = ({
   heading,
@@ -21,6 +27,7 @@ export const ListItem = ({
   date,
   image,
   tag,
+  type = ItemType.ImageItem,
   className = '',
   id,
 }: Props) => {
@@ -28,7 +35,7 @@ export const ListItem = ({
 
   return (
     <li
-      className={classNames(styles.listItem, {
+      className={classNames(styles.listItem, styles[type], {
         [styles.itemWithImage]: Boolean(image),
         [styles[className]]: moduleExtend,
         [className]: !moduleExtend,
@@ -36,14 +43,23 @@ export const ListItem = ({
     >
       <Link href={linkUrl} id={id ? `listItem-${id}` : undefined}>
         <div className={styles.heading}>
-          {heading}
+          <div className={styles.mainHeading}>{heading}</div>
           {subheading && <div className={styles.subheading}>{subheading}</div>}
         </div>
-        {image && <div className={styles.image}>{image}</div>}
-        <div className={styles.metadata}>
-          {date && <span className={styles.date}>{date}</span>}
-          {tag}
-        </div>
+
+        {type === ItemType.ImageItem && (
+          <>
+            {image && <div className={styles.image}>{image}</div>}
+            <div className={styles.metadata}>
+              {date && <span className={styles.date}>{date}</span>}
+              {tag}
+            </div>
+          </>
+        )}
+
+        {type === ItemType.TagItem && tag && (
+          <div className={styles.tag}>{tag}</div>
+        )}
       </Link>
     </li>
   );
