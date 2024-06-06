@@ -17,7 +17,7 @@ import {
   Tag,
   Teaser,
   TeaserType,
-  ItemType,
+  ListItemType,
 } from './components';
 
 import { useState } from 'react';
@@ -431,32 +431,33 @@ function SomethingelseRoute() {
           <ListFooter text="Näytä lisää" linkUrl="/" />
         </div>
 
-        <h2 className="text-xl font-bold mt-6">List with tags</h2>
+        <h2 className="text-xl font-bold mt-6">Horse ad list</h2>
 
         <div className="bg-gray-200 p-3 border">
+          <ListHeading text="Uusimmat hevoset" className="noBorder" />
           <ul>
             <ListItem
-              heading="Kuvallinen tilaajalle-otsikko lorem ipsum dolor sit amet"
+              heading="Superpitkä hepan nimi lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
               subheading="6000 €"
               linkUrl="/art1"
               tag={<Tag text="Vuokrataan" className="bg-[#815109]" />}
-              type={ItemType.TagItem}
+              type={ListItemType.HorseAdItem}
             />
             <ListItem
-              heading="Kuvaton uutisotsikko lorem ipsum dolor sit amet"
+              heading="Ravihevonen"
               subheading="3000 €"
               linkUrl="/art2"
-              type={ItemType.TagItem}
+              type={ListItemType.HorseAdItem}
             />
             <ListItem
-              heading="Kuvallinen hevosilmoitus"
+              heading="Heppa lorem ipsum"
               subheading="6000 €"
               linkUrl="/art3"
               tag={<Tag text="Myydään" className="bg-[#815109]" />}
-              type={ItemType.TagItem}
+              type={ListItemType.HorseAdItem}
             />
             <ListItem
-              heading="Kuvaton hevosilmoitus"
+              heading="Heppa 1"
               subheading="1600000 €"
               linkUrl="/art4"
               tag={
@@ -465,7 +466,47 @@ function SomethingelseRoute() {
                   className="border border-[#815109] !text-[#815109] !leading-4"
                 />
               }
-              type={ItemType.TagItem}
+              type={ListItemType.HorseAdItem}
+            />
+          </ul>
+        </div>
+
+        <h2 className="text-xl font-bold mt-6">Job ad list</h2>
+
+        <div className="bg-gray-200 p-3 border">
+          <ListHeading text="Uusimmat työpaikat" className="noBorder" />
+          <ul>
+            <ListItem
+              heading="Superpitkä työpaikan nimi lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+              subheading="HAKU PÄÄTTYY: 12.5.2024"
+              linkUrl="/art1"
+              tag={<Tag text="Rakennusala" className="bg-[#815109]" />}
+              type={ListItemType.JobAdItem}
+            />
+            <ListItem
+              heading="Hae työpaikkaa"
+              subheading="HAKU PÄÄTTYY: 12.5.2024"
+              linkUrl="/art2"
+              type={ListItemType.JobAdItem}
+            />
+            <ListItem
+              heading="Työpaikka"
+              subheading="HAKU PÄÄTTYY: 12.5.2024"
+              linkUrl="/art3"
+              tag={<Tag text="Rakennusala" className="bg-[#815109]" />}
+              type={ListItemType.JobAdItem}
+            />
+            <ListItem
+              heading="Työpaikka"
+              subheading="HAKU PÄÄTTYY: 12.5.2024"
+              linkUrl="/art4"
+              tag={
+                <Tag
+                  text="Kuljetusala"
+                  className="border border-[#815109] !text-[#815109] !leading-4"
+                />
+              }
+              type={ListItemType.JobAdItem}
             />
           </ul>
         </div>

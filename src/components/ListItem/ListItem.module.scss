@@ -66,13 +66,58 @@
   }
 }
 
-.tagItem {
+.jobAdItem { 
   a {
-    display: grid;
-    grid-template-areas:
-      "tag heading";
-    grid-template-columns: 85px auto;
-    grid-column-gap: $standardPadding;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .subheading {
+    @extend %sansSerifBold;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    a {
+      display: grid;
+      grid-template-areas:
+        "tag heading";
+      grid-template-columns: 85px auto;
+      grid-column-gap: $standardPadding;
+    }
+
+    .heading {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: $standardPadding;
+    }
+
+    .mainHeading {
+      width: 100%;
+    }
+
+    .subheading {
+      flex-wrap: nowrap;
+      white-space: nowrap;
+    }
+  }
+}
+
+.horseAdItem {
+  a {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .heading {
@@ -90,8 +135,10 @@
   .subheading {
     flex-wrap: nowrap;
     white-space: nowrap;
+    margin: 0;
   }
 }
+
 
 @media (min-width: $mediumDesktopLowerLimit) {
   .mainLaneItem {
