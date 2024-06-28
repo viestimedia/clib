@@ -21,7 +21,7 @@ jobs:
       new_tag: ${{ steps.generate_outputs.outputs.new_tag }}
       changelog: ${{ steps.generate_outputs.outputs.changelog }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
@@ -49,7 +49,7 @@ jobs:
     needs: version
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Create release notes
         uses: johnyherangi/create-release-notes@main
         id: create-release-notes
@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: release
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 16
