@@ -1,6 +1,7 @@
 // Re-export everything from invidual components.
 // Use the component files to control what is exported.
 
+export * from './AVPlayer/AVPlayer';
 export * from './Datepicker';
 export * from './Button/Button';
 export * from './Spinner/Spinner';

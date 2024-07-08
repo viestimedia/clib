@@ -18,6 +18,7 @@ import {
   Teaser,
   TeaserType,
   ListItemType,
+  AVPlayer,
 } from './components';
 
 import { useState } from 'react';
@@ -161,6 +162,25 @@ function FooterRoute() {
 function SomethingelseRoute() {
   return (
     <>
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Audio & video player</h2>
+        <div className=" p-3 border">
+          <AVPlayer
+            player={{
+              url: 'https://media-develop.viestimedia.net/sidetrack.mp4',
+            }}
+          />
+        </div>
+
+        <div className="bg-black p-3 border">
+          <AVPlayer
+            player={{
+              url: 'https://media-develop.viestimedia.net/podcast.m4a',
+            }}
+          />
+        </div>
+      </div>
+
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Buttons</h2>
         <div className=" p-3 border">
