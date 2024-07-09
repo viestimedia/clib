@@ -46,3 +46,12 @@ $marketingNew: #4b6a39;
 /* Colors based on use (using colors defined above) */
 $fontColor: $darkGray2;
 $bodyBackgroundColor: $lightGray;
+
+/* Audio / video player */
+
+$avPlayerBg: var(--avPlayerBg, $statusGreen);
+$avPlayerHeaderBg: var(--avPlayerHeaderBg, $statusGreenDarkMode);
+$avPlayerSeeker: var(--avPlayerSeeker, $statusRed);
+$avPlayerSeekerBg: var(--avPlayerSeekerBg, $statusGreen);
+$avPlayerSeekerThumb: var(--avPlayerSeekerThumb, $white);
+$avPlayerPlayPauseBg: var(--avPlayerPlayPauseBg, $black);

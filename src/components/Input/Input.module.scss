@@ -1,4 +1,5 @@
 @import "/src/styles/common";
+@import "./range";
 
 .label {
   @extend %inputLabel;
