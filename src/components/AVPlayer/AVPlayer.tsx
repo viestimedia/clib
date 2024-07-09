@@ -8,7 +8,7 @@ import { OnProgressProps } from 'react-player/base';
 
 import PlayIcon from 'assets/icons/play.svg';
 import PauseIcon from 'assets/icons/pause.svg';
-import FullscreenIcon from 'assets/icons/fullscreen.svg';
+// import FullscreenIcon from 'assets/icons/fullscreen.svg';
 import VolumeIcon from 'assets/icons/volume1.svg';
 
 interface Props {
