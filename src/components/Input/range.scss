@@ -27,7 +27,7 @@
   --rinput-track-shadow-color: rgba(0, 0, 0, .2);
   --rinput-track-border-width: 2px;
   --rinput-track-border-color: #cfd8dc;
-  --rinput-track-radius: 5px;
+  --rinput-track-radius: 0px;
   --contrast-percent: 0.05;
 
 }
@@ -43,11 +43,7 @@
   }
   
   &:focus {
-    outline: 0;
-    
-    &::-webkit-slider-runnable-track {
-      background: #f4f7f8; /* lighten by 5% equivalent */
-    }
+    // outline: 0; // Bad a11y
   }
   
   &::-webkit-slider-runnable-track {

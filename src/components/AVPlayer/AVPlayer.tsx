@@ -6,6 +6,11 @@ import ReactPlayer, { FilePlayerProps } from 'react-player/file';
 // import screenfull from 'screenfull';
 import { OnProgressProps } from 'react-player/base';
 
+import PlayIcon from 'assets/icons/play.svg';
+import PauseIcon from 'assets/icons/pause.svg';
+import FullscreenIcon from 'assets/icons/fullscreen.svg';
+import VolumeIcon from 'assets/icons/volume1.svg';
+
 interface Props {
   className?: string;
   // player: React.ComponentProps<typeof ReactPlayer>;
@@ -186,6 +191,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             height="100%"
             ref={instance}
             className={styles.player}
+            // className="not-working"
             url={url}
             pip={pip}
             playing={playing}
@@ -211,8 +217,12 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             {...state}
           />
 
-          <div className="flex justify-between items-center">
-            <button onClick={play}>{state.playing ? 'Pause' : 'Play'}</button>
+          <div
+            className={`flex justify-between items-center ${styles.controls}`}
+          >
+            <button onClick={play} className={styles.playpause}>
+              {state.playing ? <PauseIcon /> : <PlayIcon />}
+            </button>
 
             <Duration className={styles.duration} seconds={duration * played} />
 
@@ -228,14 +238,18 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             />
             <Duration className={styles.duration} seconds={duration} />
 
-            <label>
+            <label
+              className={`${styles.button} ${muted ? styles.disabled : ''}`}
+            >
               <input
                 id="muted"
                 type="checkbox"
                 checked={muted}
                 onChange={handleToggleMuted}
+                className="sr-only"
               />{' '}
               <span className="sr-only">Mute</span>
+              <VolumeIcon />
             </label>
           </div>
         </div>

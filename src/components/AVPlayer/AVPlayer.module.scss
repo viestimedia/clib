@@ -1,28 +1,59 @@
 @import "/src/styles/common";
 
 .playerContainer {
+  // These overrides should only apply here, right? 
+
   --rinput-track-color: $avPlayerSeekerBg;
-  // --rinput-thumb-color: $avPlayerSeekerThumb;
+  --rinput-thumb-color: $avPlayerSeekerThumb;
   --rinput-thumb-color: red;
   --rinput-thumb-border-width: 0;
 
   width: 100%;
   position: relative;
-  // padding-top: 56.25%; // 16:9 aspect ratio
   margin: $standardPadding 0;
   background: $avPlayerBg;
-
-
-  .player {
-    // width: 100%;
-    // height: 100%;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-  }
 }
 
 .audio {
   padding-top: 0;
 }
 
+.player {
+  // Uses inline styles where applicable
+  background: $avPlayerBg;
+}
+
+.controls {
+  height: 54px;
+  color: $white;
+  padding: 10px;
+
+  .button, .playpause {
+    height: 34px;
+    width: 34px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+
+    svg {
+      margin: 0 auto;      
+    }
+
+    &.disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .playpause {
+    background: $avPlayerPlayPauseBg;
+    background: pink;
+    background: $avPlayerSeekerBg;
+    margin-left: 0;
+    margin-right: 40px;
+  }
+
+  input[type="range"] {
+    margin: 0 20px;
+  }
+}
