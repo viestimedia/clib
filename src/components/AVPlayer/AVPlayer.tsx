@@ -220,26 +220,37 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
           <div
             className={`flex justify-between items-center ${styles.controls}`}
           >
-            <button onClick={play} className={styles.playpause}>
+            <button
+              onClick={play}
+              className={`${styles.playpause} mr-0 lg:mr-4`}
+            >
               {state.playing ? <PauseIcon /> : <PlayIcon />}
             </button>
 
             <Duration className={styles.duration} seconds={duration * played} />
 
-            <input
-              type="range"
-              min={0}
-              max={0.999999}
-              step="any"
-              value={played}
-              onMouseDown={handleSeekMouseDown}
-              onChange={handleSeekChange}
-              onMouseUp={handleSeekMouseUp}
-            />
+            <div className="relative w-1/3 md:w-1/2">
+              <div className={styles.seekerTotal} />
+
+              <div
+                className={styles.seekerPlayed}
+                style={{ width: `${played * 100}%` }}
+              />
+              <input
+                type="range"
+                min={0}
+                max={0.999999}
+                step="any"
+                value={played}
+                onMouseDown={handleSeekMouseDown}
+                onChange={handleSeekChange}
+                onMouseUp={handleSeekMouseUp}
+              />
+            </div>
             <Duration className={styles.duration} seconds={duration} />
 
             <label
-              className={`${styles.button} ${muted ? styles.disabled : ''}`}
+              className={`${styles.button} ${muted ? styles.disabled : ''} ml-0 lg:ml-4`}
             >
               <input
                 id="muted"
