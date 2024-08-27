@@ -18,6 +18,7 @@ import {
   Teaser,
   TeaserType,
   ListItemType,
+  AVPlayer,
 } from './components';
 
 import { useState } from 'react';
@@ -34,13 +35,44 @@ import { ViestimediaFooter } from 'components/ViestimediaFooter/ViestimediaFoote
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
 
+
+/**
+ * Copied from vm-web, consider moving theme stuff to 
+ * this library?
+ */
+const defaultTheme = {
+  '--brandColorLight': '#7AC74C',
+  '--brandColorMedium': '#54942E',
+  '--brandColorDark': '#336118',
+  '--brandFontFamily': '"Source Serif Pro", Georgia, serif',
+
+  '--brown': '#815109',
+  '--blue': '#27659f',
+  '--darkOrange': '#c1532f',
+  '--brandMarketingDark': '#344454',
+
+  '--avPlayerBg': '#195745',
+  '--avPlayerHeaderBg': '#268267',
+  '--avPlayerSeeker': '#268267',
+  '--avPlayerSeekerBg': '#0E2F26',
+  '--avPlayerSeekerThumb': '#F1F1F1',
+  '--avPlayerPlayPauseBg': '#1B1B1B',
+};
+
 function App() {
   // react-router would be a little overkill for this use
   const [_route, setRoute] = useHash();
   const route = _route || '#datepicker';
 
+  const styleVariables = Object.entries(defaultTheme).reduce(
+    (acc, curr) => `${acc} ${curr[0]}: ${curr[1]};`,
+    ''
+  );
+  const styleStr = `:root {${styleVariables}}`;
+
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: styleStr }} />
       <AppNav setRoute={setRoute} />
 
       {route === '#datepicker' && <DatepickerRoute />}
@@ -161,6 +193,25 @@ function FooterRoute() {
 function SomethingelseRoute() {
   return (
     <>
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Audio & video player</h2>
+        <div className=" p-3 border">
+          <AVPlayer
+            player={{
+              url: 'https://media-develop.viestimedia.net/sidetrack.mp4',
+            }}
+          />
+        </div>
+
+        <div className="bg-black p-3 border">
+          <AVPlayer
+            player={{
+              url: 'https://media-develop.viestimedia.net/podcast.m4a',
+            }}
+          />
+        </div>
+      </div>
+
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Buttons</h2>
         <div className=" p-3 border">

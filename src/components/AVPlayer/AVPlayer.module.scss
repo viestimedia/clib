@@ -1,0 +1,78 @@
+@import "/src/styles/common";
+
+.playerContainer {
+  // These overrides should only apply here, right? 
+
+  // --rinput-track-color: $avPlayerSeekerBg;
+
+  --rinput-track-color: transparent;
+  --rinput-track-border-color: transparent;
+  // --rinput-track-border-width: 0;
+
+  --rinput-thumb-color: var(--avPlayerSeekerThumb, #f1f1f1);
+  --rinput-thumb-border-width: 0;
+
+  width: 100%;
+  position: relative;
+  margin: $standardPadding 0;
+  background: $avPlayerBg;
+}
+
+.audio {
+  padding-top: 0;
+}
+
+.player {
+  // Uses inline styles where applicable
+  background: $avPlayerBg;
+}
+
+.controls {
+  height: 54px;
+  color: $white;
+  padding: 10px;
+
+  .seekerPlayed, 
+  .seekerTotal {
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    background: var(--avPlayerSeekerBg);
+    margin: 0 20px; // Same margin as the input that these overlay
+    z-index: 100;
+  }
+
+  .seekerPlayed {
+    background: var(--avPlayerHeaderBg);
+  }
+
+  .button, .playpause {
+    height: 34px;
+    width: 34px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin: 0 auto;      
+    }
+
+    &.disabled {
+      opacity: 0.5;
+    }
+  }
+
+  .playpause {
+    background: $avPlayerPlayPauseBg;
+    background: pink;
+    background: $avPlayerSeekerBg;
+  }
+
+  input[type="range"] {
+    margin: 0 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 101;
+  }
+}

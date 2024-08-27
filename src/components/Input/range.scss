@@ -1,0 +1,105 @@
+// Styling Cross-Browser Compatible Range Inputs with Sass
+// Github: https://github.com/darlanrod/input-range-sass
+// Author: Darlan Rod https://github.com/darlanrod
+// Version 1.5.3
+// MIT License
+
+// Converted to use CSS variables using GPT-4
+// because the original didn't allow us to pass CSS variables as arguments but we need to change the colors dynamically.
+
+// All IE stuff have also been removed, for obvious reasons.
+
+:root {
+  --rinput-track-color: #eceff1;
+  --rinput-thumb-color: #607d8b;
+  --rinput-thumb-radius: 0px;
+  --rinput-thumb-height: 12px;
+  --rinput-thumb-width: 4px;
+  --rinput-thumb-shadow-size: 4px;
+  --rinput-thumb-shadow-blur: 4px;
+  --rinput-thumb-shadow-color: rgba(0, 0, 0, .2);
+  --rinput-thumb-border-width: 2px;
+  --rinput-thumb-border-color: #eceff1;
+  --rinput-track-width: 100%;
+  --rinput-track-height: 4px;
+  --rinput-track-shadow-size: 1px;
+  --rinput-track-shadow-blur: 1px;
+  --rinput-track-shadow-color: rgba(0, 0, 0, .2);
+  --rinput-track-border-width: 2px;
+  --rinput-track-border-color: #cfd8dc;
+  --rinput-track-radius: 0px;
+  --contrast-percent: 0.05;
+
+}
+
+[type='range'] {
+  -webkit-appearance: none;
+  background: transparent;
+  margin: calc(var(--rinput-thumb-height) / 2) 0;
+  width: var(--rinput-track-width);
+  
+  &::-moz-focus-outer {
+    border: 0;
+  }
+  
+  &:focus {
+    // outline: 0; // Bad a11y
+  }
+  
+  &::-webkit-slider-runnable-track {
+    box-shadow: var(--rinput-track-shadow-size) var(--rinput-track-shadow-size) var(--rinput-track-shadow-blur) var(--rinput-track-shadow-color), 0 0 var 
+    (--rinput-track-shadow-size) rgba(0, 0, 0, .25);
+    background: var(--rinput-track-color);
+    border: var(--rinput-track-border-width) solid var(--rinput-track-border-color);
+    border-radius: var(--rinput-track-radius);
+    cursor: default;
+    height: var(--rinput-track-height);
+    transition: all .2s ease;
+    width: var(--rinput-track-width);
+  }
+  
+  &::-webkit-slider-thumb {
+    box-shadow: var(--rinput-thumb-shadow-size) var(--rinput-thumb-shadow-size) var(--rinput-thumb-shadow-blur) var(--rinput-thumb-shadow-color), 0 0 var(--rinput-thumb-shadow-size) rgba(0, 0, 0, .25);
+    background: var(--rinput-thumb-color);
+    border: var(--rinput-thumb-border-width) solid var(--rinput-thumb-border-color);
+    border-radius: var(--rinput-thumb-radius);
+    box-sizing: border-box;
+    cursor: default;
+    height: var(--rinput-thumb-height);
+    width: var(--rinput-thumb-width);
+    -webkit-appearance: none;
+    margin-top: calc(((-2 * var(--rinput-track-border-width) + var(--rinput-track-height)) / 2) - var(--rinput-thumb-height) / 2);
+  }
+  
+  &::-moz-range-track {
+    box-shadow: var(--rinput-track-shadow-size) var(--rinput-track-shadow-size) var(--rinput-track-shadow-blur) var(--rinput-track-shadow-color), 0 0 var(--rinput-track-shadow-size) rgba(0, 0, 0, .25);
+    background: var(--rinput-track-color);
+    border: var(--rinput-track-border-width) solid var(--rinput-track-border-color);
+    border-radius: var(--rinput-track-radius);
+    cursor: default;
+    height: var(--rinput-track-height);
+    transition: all .2s ease;
+    width: var(--rinput-track-width);
+    height: calc(var(--rinput-track-height) / 2);
+  }
+  
+  &::-moz-range-thumb {
+    box-shadow: var(--rinput-thumb-shadow-size) var(--rinput-thumb-shadow-size) var(--rinput-thumb-shadow-blur) var(--rinput-thumb-shadow-color), 0 0 var(--rinput-thumb-shadow-size) rgba(0, 0, 0, .25);
+    background: var(--rinput-thumb-color);
+    border: var(--rinput-thumb-border-width) solid var(--rinput-thumb-border-color);
+    border-radius: var(--rinput-thumb-radius);
+    box-sizing: border-box;
+    cursor: default;
+    height: var(--rinput-thumb-height);
+    width: var(--rinput-thumb-width);
+  }
+
+  
+  &:disabled {
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb,
+    &::-webkit-slider-runnable-track {
+      cursor: not-allowed;
+    }
+  }
+}
