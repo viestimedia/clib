@@ -42,7 +42,7 @@
     "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
-    "date-fns": "^2.30.0",
+    "date-fns": "^3.0.0",
     "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
