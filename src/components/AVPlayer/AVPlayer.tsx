@@ -216,20 +216,14 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             onDuration={handleDuration}
             {...state}
           />
-
-          <div
-            className={`flex justify-between items-center ${styles.controls}`}
-          >
-            <button
-              onClick={play}
-              className={`${styles.playpause} mr-0 lg:mr-4`}
-            >
+          <div className={styles.controls}>
+            <button onClick={play} className={styles.playpause}>
               {state.playing ? <PauseIcon /> : <PlayIcon />}
             </button>
 
             <Duration className={styles.duration} seconds={duration * played} />
 
-            <div className="relative w-1/3 md:w-1/2">
+            <div className={styles.seekerWrapper}>
               <div className={styles.seekerTotal} />
 
               <div
@@ -250,16 +244,16 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             <Duration className={styles.duration} seconds={duration} />
 
             <label
-              className={`${styles.button} ${muted ? styles.disabled : ''} ml-0 lg:ml-4`}
+              className={`${styles.button} ${muted ? styles.disabled : ''}`}
             >
               <input
                 id="muted"
                 type="checkbox"
                 checked={muted}
                 onChange={handleToggleMuted}
-                className="sr-only"
+                className={styles.srOnly}
               />{' '}
-              <span className="sr-only">Mute</span>
+              <span className={styles.srOnly}>Mute</span>
               <VolumeIcon />
             </label>
           </div>

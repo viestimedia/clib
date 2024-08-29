@@ -28,6 +28,17 @@ There's also a `npm run build:watch` option. So you don't have to manually run `
 
 You can also work on the components in isolation by running `npm run dev`. Include your components in `App.tsx` to see them in action.
 
+If `npm link` is giving you more trouble than it's worth, you can also just copy the library to the project you want to use it in.
+
+```
+# Assuming the library and the project are in sibling folders and you're at the root of the project
+
+rsync -av --exclude .git --exclude node_modules ../clib node_modules/@viestimedia
+
+# Next.js? May have to delete the .next cache / folder to see changes.
+# Restarting the server might not be enough.
+```
+
 ## Troubleshooting
 
 Chances are you will run into errors when `npm link`ing the library to a project.

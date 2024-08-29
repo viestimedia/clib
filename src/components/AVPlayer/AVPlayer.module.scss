@@ -31,6 +31,21 @@
   height: 54px;
   color: $white;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .seekerWrapper {
+    // "relative w-1/3 md:w-1/2"
+    position: relative;
+    width: 100%;
+    max-width: 40%;
+
+    @media (min-width: 768px) {
+      max-width: 50%;
+    }
+  }
+
 
   .seekerPlayed, 
   .seekerTotal {
@@ -53,6 +68,10 @@
     display: flex;
     align-items: center;
 
+    @media (min-width: 768px) {
+      margin-left: 2rem;
+    }
+
     svg {
       margin: 0 auto;      
     }
@@ -60,13 +79,33 @@
     &.disabled {
       opacity: 0.5;
     }
+
+    // This is mirrored from tailwind. Tailwind should work (and it does work in the Datepicker)
+    // but it does not. Using sr-only in the code does not reflect in the output.
+    .srOnly {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
   }
 
   .playpause {
     background: $avPlayerPlayPauseBg;
-    background: pink;
-    background: $avPlayerSeekerBg;
+    color: $white;
+
+    @media (min-width: 768px) {
+      margin-left: 0;
+      margin-right: 2rem;
+    }
   }
+
+
 
   input[type="range"] {
     margin: 0 20px;
