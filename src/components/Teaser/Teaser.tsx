@@ -52,7 +52,12 @@ export const Teaser = ({
         [className]: !moduleExtend,
       })}
     >
-      <Link href={linkUrl} className={styles.teaserLink} id={`teaser-${id}`}>
+      <Link
+        href={linkUrl}
+        className={styles.teaserLink}
+        id={`teaser-${id}`}
+        data-analytics-name="teaser-link"
+      >
         {topBanner && <div className={styles.banner}>{topBanner}</div>}
         {image && <div className={styles.articleImage}>{image}</div>}
         {author && <div className={styles.authorContainer}>{author}</div>}
