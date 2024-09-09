@@ -38,6 +38,7 @@ interface ButtonProps
   openInNewTab?: boolean;
   extraClass?: string;
   isLoading?: boolean;
+  dataAttr?: { [key: `data-${string}`]: string };
 
   // Allow all props.
   // In remix, it's common for buttons to have names, values, etc.
@@ -62,6 +63,7 @@ export const Button = ({
   children,
   className = '',
   isLoading = false,
+  dataAttr,
   ...buttonExtraProps
 }: ButtonProps) => {
   if (!label && !icon) {
@@ -86,7 +88,9 @@ export const Button = ({
       {children && children}
       {isLoading && (
         <div className={styles.progress}>
-          <Spinner className={variant === ButtonVariant.Primary ? 'light' : ''} />
+          <Spinner
+            className={variant === ButtonVariant.Primary ? 'light' : ''}
+          />
         </div>
       )}
     </>
@@ -102,6 +106,7 @@ export const Button = ({
           className={cn}
           brand={brand}
           openInNewTab={openInNewTab}
+          {...dataAttr}
         >
           <ButtonContent />
         </Link>
@@ -114,6 +119,7 @@ export const Button = ({
             onClick={onClick}
             disabled={disabled}
             type={type}
+            {...dataAttr}
             {...buttonExtraProps}
           >
             <ButtonContent />
