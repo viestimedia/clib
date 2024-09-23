@@ -221,7 +221,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
               {state.playing ? <PauseIcon /> : <PlayIcon />}
             </button>
 
-            <Duration className={styles.duration} seconds={duration * played} />
+            <Duration seconds={duration * played} />
 
             <div className={styles.seekerWrapper}>
               <div className={styles.seekerTotal} />
@@ -241,10 +241,10 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
                 onMouseUp={handleSeekMouseUp}
               />
             </div>
-            <Duration className={styles.duration} seconds={duration} />
+            <Duration className={styles.durationTotal} seconds={duration} />
 
             <label
-              className={`${styles.button} ${muted ? styles.disabled : ''}`}
+              className={`${styles.button} ${muted ? styles.disabled : ''} ${styles.volume}`}
             >
               <input
                 id="muted"
