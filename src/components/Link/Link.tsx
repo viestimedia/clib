@@ -34,7 +34,7 @@ type NextLinkProps = {
    * This prop is defined here because our implementation
    * turns openInNewTab into target and rel. Don't use it.
    *
-   * @deprecated Use `openInNewTab` instead
+   * @note Use `openInNewTab` instead
    */
   target?: HTMLAttributeAnchorTarget;
   rel?: string;
@@ -120,9 +120,9 @@ const NormalLink = ({
 
 /**
  * Remix is based on react-router, which handles
- * some things automatically, compared to Next. 
+ * some things automatically, compared to Next.
  * We don't have to handle anchor links or external
- * links separately. 
+ * links separately.
  */
 export const RemixLink =
   (LinkComponent: RemixLinkType) => (props: RemixLinkComponentProps) => {
@@ -157,9 +157,9 @@ export const RemixLink =
     );
   };
 
-
 /**
- * RemixLink is... "closer to the metal" than NextLink.
+ * RemixLink is... "closer to the metal" than NextLink
+ * and we have to handle certain things manually here.
  */
 export const NextLink =
   (LinkComponent: NextLinkType) => (props: NextLinkComponentProps) => {
@@ -168,7 +168,7 @@ export const NextLink =
     const hrefStr = href.toString();
 
     if (openInNewTab) {
-      // Note that this includes things like `aria-label` 
+      // Note that this includes things like `aria-label`
       // that might be set in the props.
       return (
         <NormalLink href={hrefStr} target={target} rel={rel} {...rest}>
@@ -178,11 +178,7 @@ export const NextLink =
     }
 
     if (hrefStr.startsWith('#')) {
-      <a
-        href={hrefStr}
-        aria-hidden="false"
-        {...rest}
-      >
+      <a href={hrefStr} aria-hidden="false" {...rest}>
         {children}
       </a>;
     }
