@@ -1,7 +1,7 @@
 import {
-  AnchorComponent,
+  FallbackLink,
   RemixLink,
-  AnchorProps,
+  NextLink,
   LinkType,
   NextLinkType,
   RemixLinkType,
@@ -17,22 +17,29 @@ type Options =
       variation: 'remix';
     };
 
-export let Link: LinkType | ((props: AnchorProps) => JSX.Element) =
-  AnchorComponent;
+export let Link: LinkType = FallbackLink;
 
-export const initializeComponentLibrary = (options: Options) => {
+/**
+ * Initialize the component library before using any components.
+ *
+ * @example import NextLink from 'next/link';
+ * @example initializeComponentLibrary({ linkComponent: NextLink, variation: 'next' });
+ */
+export function initializeComponentLibrary(options: Options) {
   const { variation, linkComponent } = options;
 
+  /**
+   * Wrap framework spesific link components
+   * with our own wrappers for a more unified API.
+   */
   switch (variation) {
     case 'remix':
-      // A link component that maps Next.js type of props to Remix type of props
       Link = RemixLink(linkComponent);
       break;
     case 'next':
-      // Next.js type of link props used
-      Link = options.linkComponent;
+      Link = NextLink(linkComponent);
       break;
     default:
       throw new Error('Invalid variation');
   }
-};
+}

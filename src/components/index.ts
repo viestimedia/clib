@@ -24,4 +24,4 @@ export * from './ViestimediaFooter/ViestimediaFooter';
 export * from './CookieSettingsLink/CookieSettingsLink';
 
 // This doesn't work with the * syntax for some reason
-export { initializeComponentLibrary } from 'utils/init';
+export { initializeComponentLibrary, Link } from 'utils/init';
