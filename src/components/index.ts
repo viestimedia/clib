@@ -2,56 +2,35 @@ import {
   FallbackLink,
   RemixLink,
   NextLink,
-  LinkType,
   NextLinkType,
   RemixLinkType,
 } from 'components/Link/Link';
 
-type Options =
-  | {
-      // linkComponent: NextLinkType;
-      variation: 'next';
-    }
-  | {
-      // linkComponent: RemixLinkType;
-      variation: 'remix';
-    };
-
-export let Link: LinkType = FallbackLink;
+export let Link: RemixLinkType | NextLinkType = FallbackLink;
+export type { NextLinkType, RemixLinkType };
 
 /**
  * Initialize the component library before using any components.
- *
- * @example import NextLink from 'next/link';
- * @example initializeComponentLibrary({ linkComponent: NextLink, variation: 'next' });
  */
-export function initializeComponentLibrary(options: Options) {
-  const { variation } = options;
+export function initializeComponentLibraryWithRemix() {
+  return function (LinkComponent: RemixLinkType) {
+    Link = RemixLink(LinkComponent) as RemixLinkType;
 
-  function remixInitializer() {
-    return function (Component: RemixLinkType) {
-      Link = RemixLink(Component);
-    };
-  }
+    // This return exists only to help TS infer that Link is now a RemixLinkType.
+    return 'remix';
+  };
+}
 
-  function nextInitializer() {
-    return function (Component: NextLinkType) {
-      Link = NextLink(Component);
-    };
-  }
+/**
+ * Initialize the component library before using any components.
+ */
+export function initializeComponentLibraryWithNext() {
+  return function (LinkComponent: NextLinkType) {
+    Link = NextLink(LinkComponent) as NextLinkType;
 
-  /**
-   * Wrap framework spesific link components
-   * with our own wrappers for a more unified API.
-   */
-  switch (variation) {
-    case 'remix':
-      return remixInitializer();
-    case 'next':
-      return nextInitializer();
-    default:
-      throw new Error('Invalid variation');
-  }
+    // This return exists only to help TS infer that Link is now a NextLinkType.
+    return 'next';
+  };
 }
 
 // Re-export everything from invidual components.
@@ -77,5 +56,3 @@ export * from './Teaser/Teaser';
 export * from './Footer/Footer';
 export * from './ViestimediaFooter/ViestimediaFooter';
 export * from './CookieSettingsLink/CookieSettingsLink';
-
-export type { NextLinkType, RemixLinkType, LinkType };

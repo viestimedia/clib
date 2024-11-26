@@ -1,10 +1,6 @@
 import { UrlObject } from 'url';
 // import { Brand } from './brand';
-import {
-  ComponentPropsWithoutRef,
-  HTMLAttributeAnchorTarget,
-  PropsWithChildren,
-} from 'react';
+import { HTMLAttributeAnchorTarget, PropsWithChildren } from 'react';
 
 export enum Brand {
   MT = 'mt',
@@ -20,7 +16,12 @@ type NextLinkProps = {
   scroll?: boolean;
   shallow?: boolean;
   passHref?: boolean;
-  prefetch?: boolean;
+
+  /**
+   * Next.js supports only 'intent' and 'none',
+   * so we map all values except 'none' to 'intent'.
+   */
+  prefetch?: PrefetchBehavior;
   locale?: string | false;
 } & {
   id?: string;
@@ -38,7 +39,6 @@ type NextLinkProps = {
    */
   target?: HTMLAttributeAnchorTarget;
   rel?: string;
-  to?: Url; // Props need to be compatible with Remix to avoid type errors
 };
 
 // Not actual Next's Link props but more like vm-web Link component props
@@ -81,8 +81,6 @@ export interface RemixLinkProps
 export type RemixLinkComponentProps = PropsWithChildren<RemixLinkProps>;
 export type NextLinkType = (props: NextLinkComponentProps) => JSX.Element;
 export type RemixLinkType = (props: RemixLinkComponentProps) => JSX.Element;
-export type LinkType = NextLinkType | RemixLinkType;
-export type AnchorProps = ComponentPropsWithoutRef<'a'>;
 
 /**
  * Standard <a> element that's used as a fallback
@@ -167,9 +165,9 @@ export const RemixLink =
  */
 export const NextLink =
   (LinkComponent: NextLinkType) => (props: NextLinkComponentProps) => {
-    const { href, to, children, openInNewTab, ...rest } = props;
+    const { href, children, openInNewTab, prefetch: pf, ...rest } = props;
     const { target, rel } = getTargetAndRel(props);
-    const hrefStr = href ? href.toString() : to ? to.toString() : '';
+    const hrefStr = href ? href.toString() : '';
 
     if (openInNewTab) {
       // Note that this includes things like `aria-label`
@@ -187,8 +185,20 @@ export const NextLink =
       </a>;
     }
 
+    let prefetch: 'intent' | 'none' = 'none';
+
+    if (typeof pf === 'string' && pf !== 'none') {
+      prefetch = 'intent';
+    }
+
     return (
-      <LinkComponent href={href} target={target} rel={rel} {...rest}>
+      <LinkComponent
+        href={href}
+        target={target}
+        rel={rel}
+        prefetch={prefetch}
+        {...rest}
+      >
         {children}
       </LinkComponent>
     );
