@@ -14,7 +14,7 @@ export enum Brand {
 
 type Url = string | UrlObject;
 type NextLinkProps = {
-  href: Url;
+  href?: Url;
   as?: Url;
   replace?: boolean;
   scroll?: boolean;
@@ -38,6 +38,7 @@ type NextLinkProps = {
    */
   target?: HTMLAttributeAnchorTarget;
   rel?: string;
+  to?: Url; // Props need to be compatible with Remix to avoid type errors
 };
 
 // Not actual Next's Link props but more like vm-web Link component props
@@ -133,8 +134,11 @@ export const RemixLink =
      * as it's spread onto the LinkComponent.
      *
      * Same with rel and target.
+     *
+     * openInNewTab is destructured to avoid passing it to the LinkComponent.
+     * It's used in getTargetAndRel, which uses the full props.
      */
-    const { href, prefetch, children, ...rest } = props;
+    const { href, prefetch, children, openInNewTab, ...rest } = props;
     const { target, rel } = getTargetAndRel(props);
 
     /**
@@ -163,9 +167,9 @@ export const RemixLink =
  */
 export const NextLink =
   (LinkComponent: NextLinkType) => (props: NextLinkComponentProps) => {
-    const { href, children, openInNewTab, ...rest } = props;
+    const { href, to, children, openInNewTab, ...rest } = props;
     const { target, rel } = getTargetAndRel(props);
-    const hrefStr = href.toString();
+    const hrefStr = href ? href.toString() : to ? to.toString() : '';
 
     if (openInNewTab) {
       // Note that this includes things like `aria-label`

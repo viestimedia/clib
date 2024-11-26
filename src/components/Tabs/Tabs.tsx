@@ -1,4 +1,4 @@
-import { Link } from 'utils/init';
+import { Link } from '..';
 import styles from './Tabs.module.scss';
 import { InputOption } from '..';
 

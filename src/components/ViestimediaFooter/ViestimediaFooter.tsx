@@ -1,6 +1,6 @@
 import styles from './ViestimediaFooter.module.scss';
 import { Brand } from 'components/Link/Link';
-import { Link } from 'utils/init';
+import { Link } from '..';
 import { Footer } from '../Footer/Footer';
 import ViestimediaLogo from 'assets/viestimedia-logo.svg';
 import { CookieSettingsLink } from '..';

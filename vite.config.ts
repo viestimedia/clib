@@ -59,11 +59,15 @@ export default defineConfig({
       entry: 'src/components/index.ts',
 
       name: 'clib',
-      formats: ['es', 'cjs'],
+      formats: ['es'],
+      // fileName(format, entry) {
+      //   return entry + '.' + format;
+      // },
+      // formats: ['es', 'cjs'],
 
-      // Do not touch this or everything will break
-      fileName: (format, entry) =>
-        `${entry}.${format === 'es' ? 'es.js' : format}`,
+      // // Do not touch this or everything will break
+      // fileName: (format, entry) =>
+      //   `${entry}.${format === 'es' ? 'mjs' : format}`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],

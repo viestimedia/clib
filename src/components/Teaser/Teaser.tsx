@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import styles from './Teaser.module.scss';
 import { Heading, HeadingStyle } from 'components/Heading/Heading';
-import { Link } from 'utils/init';
+import { Link } from '..';
 
 export enum TeaserType {
   Large = 'large',

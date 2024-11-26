@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Button.module.scss';
 import classNames from 'classnames';
-import { Link } from 'utils/init';
+import { Link } from '..';
 import { Brand } from 'components/Link/Link';
 import { Spinner } from 'components/Spinner/Spinner';
 

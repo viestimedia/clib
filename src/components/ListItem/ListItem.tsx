@@ -1,7 +1,7 @@
 import styles from './ListItem.module.scss';
 import classNames from 'classnames';
 import React from 'react';
-import { Link } from 'utils/init';
+import { Link } from '..';
 
 type Props = {
   heading: string | React.ReactNode;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './FooterBottom.module.scss';
-import { Link } from 'utils/init';
+import { Link } from '..';
 import { Brand } from 'components/Link/Link';
 // import { Link } from 'components/link/Link';
 // import { FooterContent } from 'models/structure';
