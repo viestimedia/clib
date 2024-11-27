@@ -60,14 +60,6 @@ export default defineConfig({
 
       name: 'clib',
       formats: ['es'],
-      // fileName(format, entry) {
-      //   return entry + '.' + format;
-      // },
-      // formats: ['es', 'cjs'],
-
-      // // Do not touch this or everything will break
-      // fileName: (format, entry) =>
-      //   `${entry}.${format === 'es' ? 'mjs' : format}`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
