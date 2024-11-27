@@ -4,6 +4,40 @@ Component library boilerplate using [Vite](https://vitejs.dev/) as a build syste
 
 Confirmed to work with Remix 1.19 and Next 12
 
+## Setup
+
+Install with `npm install @viestimedia/clib`.
+
+```typescript
+import {
+  initializeComponentLibraryWithRemix,
+  RemixLinkType,
+  // initializeComponentLibraryWithNext,
+  // NextLinkType
+} from '@viestimedia/clib';
+
+initializeComponentLibraryWithRemix()(Link as RemixLinkType);
+
+// or 
+
+initializeComponentLibraryWithNext()(Link as NextLinkType);
+```
+
+## Usage
+
+```tsx
+import { Link } from '@viestimedia/clib';
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Home</h1>
+      <Link to="/about">About</Link>
+    </div>
+  );
+}
+```
+
 ## Local development
 
 To link the library to a project locally,

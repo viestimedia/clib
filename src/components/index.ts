@@ -1,6 +1,40 @@
+import {
+  FallbackLink,
+  RemixLink,
+  NextLink,
+  NextLinkType,
+  RemixLinkType,
+} from 'components/Link/Link';
+
+export let Link: RemixLinkType | NextLinkType = FallbackLink;
+export type { NextLinkType, RemixLinkType };
+
+/**
+ * Initialize the component library before using any components.
+ */
+export function initializeComponentLibraryWithRemix() {
+  return function ({ RemixLink: LinkComponent }: { RemixLink: RemixLinkType }) {
+    Link = RemixLink(LinkComponent) as RemixLinkType;
+
+    // This return exists only to help TS infer that Link is now a RemixLinkType.
+    return 'remix';
+  };
+}
+
+/**
+ * Initialize the component library before using any components.
+ */
+export function initializeComponentLibraryWithNext() {
+  return function ({ NextLink: LinkComponent }: { NextLink: NextLinkType }) {
+    Link = NextLink(LinkComponent) as NextLinkType;
+
+    // This return exists only to help TS infer that Link is now a NextLinkType.
+    return 'next';
+  };
+}
+
 // Re-export everything from invidual components.
 // Use the component files to control what is exported.
-
 export * from './AVPlayer/AVPlayer';
 export * from './Datepicker';
 export * from './Button/Button';
@@ -22,6 +56,3 @@ export * from './Teaser/Teaser';
 export * from './Footer/Footer';
 export * from './ViestimediaFooter/ViestimediaFooter';
 export * from './CookieSettingsLink/CookieSettingsLink';
-
-// This doesn't work with the * syntax for some reason
-export { initializeComponentLibrary } from 'utils/init';

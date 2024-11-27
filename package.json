@@ -2,8 +2,8 @@
   "name": "@viestimedia/clib",
   "private": false,
   "version": "1.4.4",
-  "type": "module",
   "sideEffects": false,
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc",
@@ -23,8 +23,7 @@
     "**/*.d.ts",
     "./*"
   ],
-  "main": "dist/index.cjs",
-  "module": "dist/index.es.js",
+  "module": "dist/clib.js",
   "types": "dist/components/index.d.ts",
   "peerDependencies": {
     "classnames": "^2.3.2",
