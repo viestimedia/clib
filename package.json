@@ -23,6 +23,7 @@
     "**/*.d.ts",
     "./*"
   ],
+  "main": "dist/clib.js",
   "module": "dist/clib.js",
   "types": "dist/components/index.d.ts",
   "peerDependencies": {
