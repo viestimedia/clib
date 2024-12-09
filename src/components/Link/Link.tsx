@@ -79,7 +79,13 @@ export interface RemixLinkProps
 }
 
 export type RemixLinkComponentProps = PropsWithChildren<RemixLinkProps>;
-export type NextLinkType = (props: NextLinkComponentProps) => JSX.Element;
+
+// Somewhat like next/link props, but not fully
+// This is somewhat confusing, because of the naming here
+type NextLinkPropsLike = Omit<NextLinkComponentProps, 'prefetch'> & {
+  prefetch?: boolean;
+};
+export type NextLinkType = (props: NextLinkPropsLike) => JSX.Element;
 export type RemixLinkType = (props: RemixLinkComponentProps) => JSX.Element;
 
 /**
@@ -185,11 +191,7 @@ export const NextLink =
       </a>;
     }
 
-    let prefetch: 'intent' | 'none' = 'none';
-
-    if (typeof pf === 'string' && pf !== 'none') {
-      prefetch = 'intent';
-    }
+    const prefetch: boolean = pf === 'intent';
 
     return (
       <LinkComponent
