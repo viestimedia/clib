@@ -191,7 +191,12 @@ export const NextLink =
       </a>;
     }
 
-    const prefetch: boolean = pf === 'intent';
+    /**
+     * Explicitly map any other value than `intent` to `false`,
+     * which effectively maps to `none` or `intent` in the
+     * Next.js Link component.
+     */
+    const prefetch = pf === 'intent' ? true : false;
 
     return (
       <LinkComponent
