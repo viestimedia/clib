@@ -1,3 +1,7 @@
+/**************************
+ * Old Design System styles
+ * TODO: Update all references to use New Design System styles and remove the old styles
+ **************************/
 /* System colors */
 $statusGreen: #388e3c;
 $statusGreenDarkMode: #66bb6a;
@@ -55,3 +59,104 @@ $avPlayerSeeker: var(--avPlayerSeeker, $statusRed);
 $avPlayerSeekerBg: var(--avPlayerSeekerBg, $statusGreen);
 $avPlayerSeekerThumb: var(--avPlayerSeekerThumb, $white);
 $avPlayerPlayPauseBg: var(--avPlayerPlayPauseBg, $black);
+
+/************************** 
+ * New Design System styles
+ **************************/
+// Brand
+$brandMtGreen100: #7ac74c;
+$brandKvRed100: #e90e0e;
+$brandAarreGreen100: #a4bb24;
+$brandVmYellow100: #ffe15e;
+$brandVmLavender100: #8fa4e3;
+$brandYleTeal100: #03adc5;
+
+// Neutral
+$white: #ffffff;
+$grey100: #f1f1f1;
+$grey200: #e7e7e7;
+$grey300: #d5d5d5;
+$grey400: #bbbbbb;
+$grey500: #969696;
+$grey600: #747474;
+$grey700: #474747;
+$grey800: #2c2c2c;
+$grey900: #1b1b1b;
+$black: #000000;
+
+// Sales & Marketing
+$salesYellow100: #fcdf34;
+$salesYellow200: #f9c306;
+$salesYellow300: #e4a000;
+$marketingGrey100: #d6dde3;
+$marketingGrey200: #85919c;
+$marketingGrey300: #344454;
+$marketingBlue100: #75afe5;
+$marketingBlue200: #4c87bd;
+$marketingBlue300: #27659f;
+
+// Status
+$statusGreen100: #eaf2ea;
+$statusGreen600: #2e7d32;
+$statusOrange100: #fceee5;
+$statusOrange600: #e65100;
+$statusRed100: #fbeaea;
+$statusRed600: #d32f2f;
+$statusLightGreen600: #66bb6a;
+$statusLightGreen800: #3d7040;
+$statusLightOrange600: #ffa726;
+$statusLightOrange800: #996417;
+$statusLightRed600: #e57373;
+$statusLightRed800: #894545;
+
+// Other
+$terracotta100: #c1532f;
+$ultramarine100: #0e0066;
+$marine100: #427aae;
+$teal100: #387d7a;
+$purple100: #916991;
+$magenta100: #ae4296;
+$forest100: #066549;
+$brown100: #815109;
+$copper100: #d77a5b;
+$lavender100: #a799ff;
+$verdigris100: #49a2a0;
+$fuchsia100: #de67de;
+$dawnPurple100: #eeebff;
+$desert100: #f6c67e;
+$aquamarine100: #9af9dd;
+$rose100: #ff73ae;
+$mint100: #d0f1e7;
+$mint200: #a4e5d2;
+$mint300: #79d8bc;
+$mint400: #4dcba6;
+$mint500: #32ae8a;
+$mint600: #268267;
+$mint700: #195745;
+$mint800: #0e2f26;
+$brightMint100: #9df1d8;
+$brightMint200: #75ebc8;
+$brightMint300: #48e5b7;
+$brightMint400: #1fdba3;
+$brightMint500: #19ae82;
+$brightMint600: #128161;
+$brightMint700: #0c553f;
+$brightMint800: #06281e;
+$moss100: #e1f1d0;
+$moss200: #c5e5a4;
+$moss300: #aad879;
+$moss400: #8ecb4d;
+$moss500: #72ae32;
+$moss600: #568226;
+$moss700: #395719;
+$moss800: #1f2f0e;
+$lime100: #c8f19d;
+$lime200: #b2eb75;
+$lime300: #99e548;
+$lime400: #80db1f;
+$lime500: #66ae19;
+$lime600: #4c8112;
+$lime700: #32550c;
+$lime800: #182806;
+$crimson200: #d78484;
+$crimson600: #af0a0a;

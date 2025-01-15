@@ -9,12 +9,20 @@ export enum HeadingStyle {
   Tiny = 'tiny',
   Secondary = 'secondary',
   Subheading = 'subheading',
+  TeaserXL = 'teaserXl',
+  TeaserL = 'teaserL',
+  TeaserM = 'teaserM',
+  TeaserS = 'teaserS',
+  TeaserXS = 'teaserXs',
+  ArticleHeading = 'articleHeading',
+  ArticleSubheading = 'articleSubheading',
 }
 
 export type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 interface HeadingProps {
   text: string | React.ReactNode;
+  category?: string;
   style: HeadingStyle;
   level: HeadingLevel;
   italic?: boolean;
@@ -25,6 +33,7 @@ interface HeadingProps {
 
 export const Heading = ({
   text,
+  category,
   level,
   style,
   italic,
@@ -46,6 +55,14 @@ export const Heading = ({
         [extraClassName]: extraClassName,
       })}
     >
+      {category && (
+        <>
+          <span className={styles.category}>
+            {category}
+            <span className={styles.divider}> | </span>
+          </span>
+        </>
+      )}
       {text}
     </HeadingTag>
   );

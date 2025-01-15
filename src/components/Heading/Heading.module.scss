@@ -1,5 +1,9 @@
 @import "/src/styles/common";
 
+/**************************
+ * Old Design System styles
+ * TODO: Update all Heading references in vm-web and ilmoitusautomaatti to use New Design System styles and remove the old styles
+ **************************/
 .heading {
   @extend %serifBold;
   color: $darkGray;
@@ -73,47 +77,240 @@
   @extend %sansSerifBold;
 }
 
-.nativeAd,
-.suomenParhaat {
-  &.heading,
-  &.secondary,
-  &.subheading {
-    @extend %adFontBold;
+/**************************
+ * New Design System styles
+ **************************/
+.teaserXl,
+.teaserL,
+.teaserM {
+  .category,
+  .divider {
+    color: $forest100;
   }
 
-  &.subheading:not(.factBoxHeading) {
-    font-size: 23px;
-    line-height: 29px;
+  &.horseArticle {
+    .category,
+    .divider {
+      color: $brown100;
+    }
+  }
+}
 
-    @media (min-width: $mediumDesktopLowerLimit) {
-      font-size: 24px;
-      line-height: 30px;
+.teaserXl {
+  @include headingBoldMd;
+
+  .category {
+    @include headingBlackMd;
+  }
+
+  .divider {
+    @include headingMd;
+  }
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    @include headingBoldLg;
+
+    .category {
+      @include headingBlackLg;
+    }
+
+    .divider {
+      @include headingLg;
+    }
+  }
+}
+
+.teaserL {
+  @include headingBoldSm;
+
+  .category {
+    @include headingBlackSm;
+  }
+
+  .divider {
+    @include headingSm;
+  }
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    @include headingBoldMd;
+
+    .category {
+      @include headingBlackMd;
+    }
+
+    .divider {
+      @include headingMd;
+    }
+  }
+}
+
+.teaserM {
+  @include headingBold2xs;
+
+  .category {
+    @include headingBlack2xs;
+  }
+
+  .divider {
+    @include heading2xs;
+  }
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    @include headingBoldXs;
+
+    .category {
+      @include headingBlackXs;
+    }
+
+    .divider {
+      @include headingXs;
+    }
+  }
+}
+
+.teaserXs {
+  @include subheadingSemiboldSm;
+
+  .category {
+    @include subheadingBoldSm;
+  }
+
+  .divider {
+    @include subheadingSemiboldSm;
+  }
+}
+
+.nativeAdTeaserL {
+  @include headingAdSm;
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    @include headingAdMd;
+  }
+}
+
+.articleHeading {
+  @include headingBoldMd;
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    @include headingBoldLg;
+  }
+}
+
+.articleSubheading {
+  @include subheadingBoldMd;
+}
+
+.nativeAd,
+.suomenParhaat {
+  &.teaserXl,
+  &.teaserL,
+  &.teaserM,
+  &.teaserS {
+    .category,
+    .divider {
+      color: $marketingBlue300;
     }
   }
 
-  &.small {
-    font-size: 22px;
-    line-height: 28px;
+  &.teaserXl,
+  &.teaserL {
+    @include headingAdBoldSm;
+
+    .category {
+      @include headingAdBoldSm;
+    }
+
+    .divider {
+      @include headingAdSm;
+    }
 
     @media (min-width: $mediumDesktopLowerLimit) {
-      font-size: 25px;
+      @include headingAdBoldMd;
+
+      .category {
+        @include headingAdBoldMd;
+      }
+
+      .divider {
+        @include headingAdMd;
+      }
+    }
+  }
+
+  &.teaserM {
+    @include headingAdBoldXs;
+
+    .category {
+      @include headingAdBoldXs;
+    }
+
+    .divider {
+      @include headingAdXs;
+    }
+
+    @media (min-width: $mediumDesktopLowerLimit) {
+      @include headingAdBoldSm;
+
+      .category {
+        @include headingAdBoldSm;
+      }
+
+      .divider {
+        @include headingAdSm;
+      }
+    }
+  }
+
+  &.teaserS {
+    @include headingAdBoldXs;
+
+    .category {
+      @include headingAdBoldXs;
+    }
+
+    .divider {
+      @include headingAdXs;
+    }
+  }
+
+  &.articleHeading {
+    @include headingAdBoldMd;
+
+    @media (min-width: $mediumDesktopLowerLimit) {
+      @include headingAdBoldXl;
     }
   }
 }
 
 .yle {
-  &.heading,
-  &.secondary,
-  &.subheading {
-    @extend %yleFontBold;
+  &.teaserL {
+    .category,
+    .divider {
+      color: $brandYleTeal100;
+    }
   }
 
-  &.small {
-    font-size: 22px;
-    line-height: 28px;
+  &.teaserL {
+    @include headingYleBoldSm;
+
+    .category {
+      @include headingYleBoldSm;
+    }
+
+    .divider {
+      @include headingYleSm;
+    }
 
     @media (min-width: $mediumDesktopLowerLimit) {
-      font-size: 25px;
+      @include headingYleBoldMd;
+
+      .category {
+        @include headingYleBoldMd;
+      }
+
+      .divider {
+        @include headingYleMd;
+      }
     }
   }
 }

@@ -1,15 +1,14 @@
 @import "/src/styles/common";
 
 .tag {
+  @include metaBoldXs;
   display: inline-block;
   border-radius: 16px;
-  @extend %sansSerifBold;
   font-size: 12px;
   line-height: 18px;
   color: $white;
   padding: 0 8px;
 }
-
 
 // TagType:
 .plain {
@@ -28,4 +27,16 @@
 
 .leasing {
   background-color: var(--darkOrange);
+}
+
+.premium {
+  background-color: $grey900;
+  text-transform: uppercase;
+}
+
+.premiumPlain {
+  background-color: transparent;
+  color: $grey900;
+  padding: 0;
+  text-transform: uppercase;
 }

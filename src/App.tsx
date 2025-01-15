@@ -19,6 +19,8 @@ import {
   TeaserType,
   ListItemType,
   AVPlayer,
+  TagType,
+  ListHeadingType,
 } from './components';
 
 import { useState } from 'react';
@@ -35,16 +37,20 @@ import { ViestimediaFooter } from 'components/ViestimediaFooter/ViestimediaFoote
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
 
-
 /**
- * Copied from vm-web, consider moving theme stuff to 
+ * Copied from vm-web, consider moving theme stuff to
  * this library?
  */
 const defaultTheme = {
   '--brandColorLight': '#7AC74C',
   '--brandColorMedium': '#54942E',
   '--brandColorDark': '#336118',
+  // TODO: Remove all references to Source Serif Pro after all fonts have been updated to use New Design System fonts
   '--brandFontFamily': '"Source Serif Pro", Georgia, serif',
+  '--brandFontFamilySerif':
+    '"Source Serif 4 Variable", "Source Serif 4", Georgia, serif',
+  '--brandFontFamilySansSerif':
+    '"Red Hat Text Variable", "Red Hat Text", sans-serif',
 
   '--brown': '#815109',
   '--blue': '#27659f',
@@ -362,7 +368,7 @@ function SomethingelseRoute() {
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Headings</h2>
 
-        <div className=" p-3 border">
+        <div className="p-3 border flex flex-col gap-2">
           <Heading
             text="Default heading"
             style={HeadingStyle.Default}
@@ -389,6 +395,27 @@ function SomethingelseRoute() {
             style={HeadingStyle.Subheading}
             text="Native Ad subheading"
             className="nativeAd"
+          />
+          <div className="mt-4 text-md">Uudet otsikkotyylit:</div>
+          <Heading
+            level="h2"
+            text="Extra large teaser heading"
+            style={HeadingStyle.TeaserXL}
+          />
+          <Heading
+            level="h2"
+            text="Large teaser heading"
+            style={HeadingStyle.TeaserL}
+          />
+          <Heading
+            level="h2"
+            text="Medium teaser heading"
+            style={HeadingStyle.TeaserM}
+          />
+          <Heading
+            level="h2"
+            text="Small teaser heading"
+            style={HeadingStyle.TeaserS}
           />
         </div>
       </div>
@@ -441,20 +468,11 @@ function SomethingelseRoute() {
       </div>
 
       <div className="py-6 text-left">
-        <h2 className="text-xl font-bold">List with images</h2>
+        <h2 className="text-xl font-bold">Horse ad list with images</h2>
 
         <div className="bg-gray-200 p-3 border">
           <ListHeading text="Katsotuimmat hevoset" />
           <ul>
-            <ListItem
-              heading="Kuvallinen tilaajalle-otsikko lorem ipsum dolor sit amet"
-              linkUrl="/art1"
-              date="09:22"
-              image={<img src="https://picsum.photos/200" />}
-              tag={
-                <Tag text="Tilaajalle" className="text-[#1b1b1b] uppercase" />
-              }
-            />
             <ListItem
               heading="Kuvaton uutisotsikko lorem ipsum dolor sit amet"
               linkUrl="/art2"
@@ -485,7 +503,7 @@ function SomethingelseRoute() {
         <h2 className="text-xl font-bold mt-6">Horse ad list</h2>
 
         <div className="bg-gray-200 p-3 border">
-          <ListHeading text="Uusimmat hevoset" className="noBorder" />
+          <ListHeading text="Uusimmat hevoset" />
           <ul>
             <ListItem
               heading="Superpitkä hepan nimi lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
@@ -522,10 +540,84 @@ function SomethingelseRoute() {
           </ul>
         </div>
 
+        <h2 className="text-xl font-bold mt-6">News list</h2>
+
+        <div className="bg-gray-200 p-3 border">
+          <ListHeading
+            text="Uusimmat uutiset"
+            type={ListHeadingType.NewsLarge}
+          />
+          <ul className="flex flex-col gap-0.5 mt-0.5">
+            <Teaser
+              id="list-art1"
+              heading="Kuvaton uutisotsikko lorem ipsum dolor sit amet"
+              linkUrl="/art1"
+              date="05:11"
+              teaserType={TeaserType.Small}
+              tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
+            />
+            <Teaser
+              id="list-art2"
+              heading="Kuvallinen artikkeliotsikko loprem ipsum dolor sit amet"
+              linkUrl="/art3"
+              date="24.11. 13:26"
+              teaserType={TeaserType.Small}
+              image={<img src="https://picsum.photos/200" />}
+            />
+            <Teaser
+              id="list-art"
+              heading="Kuvallinen tilaaja-artikkeliotsikko loprem ipsum dolor sit amet"
+              linkUrl="/art3"
+              date="24.11. 13:26"
+              teaserType={TeaserType.Small}
+              image={<img src="https://picsum.photos/200" />}
+              tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
+            />
+          </ul>
+          <ListFooter text="Näytä lisää" linkUrl="/" />
+        </div>
+
+        <h2 className="text-xl font-bold mt-6">Most popular news list</h2>
+
+        <div className="bg-gray-200 p-3 border">
+          <ListHeading
+            text="Luetuimmat uutiset"
+            type={ListHeadingType.NewsLarge}
+          />
+          <ul className="flex flex-col gap-0.5 mt-0.5">
+            <Teaser
+              id="list-art1"
+              heading="Kuvaton uutisotsikko lorem ipsum dolor sit amet"
+              linkUrl="/art1"
+              rankNumber={1}
+              teaserType={TeaserType.MostPopular}
+              tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
+            />
+            <Teaser
+              id="list-art2"
+              heading="Kuvallinen artikkeliotsikko loprem ipsum dolor sit amet"
+              linkUrl="/art3"
+              rankNumber={2}
+              teaserType={TeaserType.MostPopular}
+              image={<img src="https://picsum.photos/200" />}
+            />
+            <Teaser
+              id="list-art"
+              heading="Kuvallinen tilaaja-artikkeliotsikko loprem ipsum dolor sit amet"
+              linkUrl="/art3"
+              rankNumber={3}
+              teaserType={TeaserType.MostPopular}
+              image={<img src="https://picsum.photos/200" />}
+              tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
+            />
+          </ul>
+          <ListFooter text="Näytä lisää" linkUrl="/" />
+        </div>
+
         <h2 className="text-xl font-bold mt-6">Job ad list</h2>
 
         <div className="bg-gray-200 p-3 border">
-          <ListHeading text="Uusimmat työpaikat" className="noBorder" />
+          <ListHeading text="Uusimmat työpaikat" />
           <ul>
             <ListItem
               heading="Superpitkä työpaikan nimi lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
@@ -592,28 +684,55 @@ function SomethingelseRoute() {
             className="hasBorder"
           />
           <Teaser
-            heading="Small-teaser lorem ipsum dolor sit amet"
-            linkUrl="/art3"
-            image={<img src="https://picsum.photos/200" />}
-            id="art3"
-            teaserType={TeaserType.Compact}
-            metadata={
-              <div className="italic">
-                Metadata-placeholder (styles in vm-web)
-              </div>
-            }
-          />
-          <Teaser
-            heading="Large-teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            category="Kategoria"
             linkUrl="/art4"
             image={<img src="https://picsum.photos/800/450" />}
             id="art3"
             teaserType={TeaserType.Large}
-            metadata={
-              <div className="italic">
-                Metadata-placeholder (styles in vm-web)
-              </div>
-            }
+            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+          />
+          <Teaser
+            heading="Compact teaser lorem ipsum dolor sit amet"
+            linkUrl="/art4"
+            image={<img src="https://picsum.photos/200" />}
+            id="art4"
+            teaserType={TeaserType.Compact}
+            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+          />
+          <Teaser
+            heading="Compact teaser with author lorem ipsum dolor sit amet"
+            linkUrl="/art4"
+            image={<img src="https://picsum.photos/200" />}
+            id="art4"
+            teaserType={TeaserType.Compact}
+            author={<div className="italic">Author placeholder</div>}
+          />
+          <Teaser
+            heading="Related article teaser lorem ipsum dolor sit amet"
+            linkUrl="/art5"
+            image={<img src="https://picsum.photos/200" />}
+            id="art5"
+            teaserType={TeaserType.RelatedArticle}
+            tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
+          />
+          <Teaser
+            heading="Small article teaser lorem ipsum dolor sit amet"
+            linkUrl="/art6"
+            image={<img src="https://picsum.photos/200" />}
+            id="art6"
+            teaserType={TeaserType.Small}
+            tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
+          />
+          <Teaser
+            heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed ac lacus elit. Sed quis mi molestie, tristique justo eu feugiat. Nulla non  ipsum vitae metus pharetra consectetur."
+            linkUrl="/art7"
+            image={<img src="https://picsum.photos/800" />}
+            id="art7"
+            teaserType={TeaserType.ExtraLarge}
+            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+            author={<div className="italic">Author placeholder</div>}
           />
         </div>
       </div>

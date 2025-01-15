@@ -12,6 +12,8 @@ export enum TagType {
   Buying = 'buying',
   Selling = 'selling',
   Leasing = 'leasing',
+  Premium = 'premium',
+  PremiumPlain = 'premiumPlain',
 }
 
 /**
