@@ -1,3 +1,7 @@
+/**************************
+ * Old Design System styles
+ * TODO: Update all references to use New Design System styles and remove the old styles
+ **************************/
 %paragraph {
   @extend %sansSerifRegular;
   font-size: 18px;
@@ -94,4 +98,553 @@
   @extend %adFontBold;
   font-size: 16px;
   line-height: 21px;
+}
+
+/**************************
+ * New Design System styles
+ **************************/
+
+// Headings
+@mixin headingXl {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 36px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 32;
+  font-weight: 400;
+}
+
+@mixin headingBoldXl {
+  @include headingXl;
+  font-weight: 700;
+}
+
+@mixin headingBlackXl {
+  @include headingXl;
+  font-weight: 900;
+}
+
+@mixin headingLg {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 32;
+  font-weight: 400;
+}
+
+@mixin headingBoldLg {
+  @include headingLg;
+  font-weight: 700;
+}
+
+@mixin headingBlackLg {
+  @include headingLg;
+  font-weight: 900;
+}
+
+@mixin headingMd {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -0.0125em;
+  font-variation-settings: "opsz" 32;
+  font-weight: 400;
+}
+
+@mixin headingBoldMd {
+  @include headingMd;
+  font-weight: 700;
+}
+
+@mixin headingBlackMd {
+  @include headingMd;
+  font-weight: 900;
+}
+
+@mixin headingSm {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 32;
+  font-weight: 400;
+}
+
+@mixin headingBoldSm {
+  @include headingSm;
+  font-weight: 700;
+}
+
+@mixin headingBlackSm {
+  @include headingSm;
+  font-weight: 900;
+}
+
+@mixin headingXs {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 18px;
+  line-height: 1.15;
+  letter-spacing: -0.0075em;
+  font-variation-settings: "opsz" 32;
+  font-weight: 400;
+}
+
+@mixin headingBoldXs {
+  @include headingXs;
+  font-weight: 700;
+}
+
+@mixin headingBlackXs {
+  @include headingXs;
+  font-weight: 900;
+}
+
+@mixin heading2xs {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 18px;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 32;
+  font-weight: 400;
+}
+
+@mixin headingBold2xs {
+  @include heading2xs;
+  font-weight: 700;
+}
+
+@mixin headingBlack2xs {
+  @include heading2xs;
+  font-weight: 900;
+}
+
+// Subheadings
+@mixin subheadingMd {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@mixin subheadingSemiboldMd {
+  @include subheadingMd;
+  font-weight: 600;
+}
+
+@mixin subheadingBoldMd {
+  @include subheadingMd;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+@mixin subheadingSm {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@mixin subheadingSemiboldSm {
+  @include subheadingSm;
+  font-weight: 600;
+}
+
+@mixin subheadingBoldSm {
+  @include subheadingSm;
+  font-weight: 700;
+  letter-spacing: -0.0025em;
+}
+
+@mixin subheadingXs {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@mixin subheadingSemiboldXs {
+  @include subheadingXs;
+  font-weight: 600;
+}
+
+@mixin subheadingBoldXs {
+  @include subheadingXs;
+  font-weight: 700;
+}
+
+// Body
+@mixin bodyMd {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyBoldMd {
+  @include bodyMd;
+  letter-spacing: -0.005em;
+  font-weight: 700;
+}
+
+@mixin bodySm {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyBoldSm {
+  @include bodySm;
+  letter-spacing: -0.0038em;
+  font-weight: 700;
+}
+
+@mixin bodyXs {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyBoldXs {
+  @include bodyXs;
+  letter-spacing: -0.0025em;
+  font-weight: 700;
+}
+
+@mixin body2xs {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyBold2xs {
+  @include body2xs;
+  letter-spacing: -0.0013em;
+  font-weight: 700;
+}
+
+// Ingress
+@mixin ingressMd {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin ingressSm {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+// Buttons
+@mixin buttonSemiboldSm {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 16px;
+  line-height: 1.32;
+  font-weight: 600;
+}
+
+@mixin buttonBoldSm {
+  @include buttonSemiboldSm;
+  letter-spacing: -0.0025em;
+  font-weight: 700;
+}
+
+@mixin buttonSemiboldXs {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 14px;
+  line-height: 1.32;
+  font-weight: 600;
+}
+
+@mixin buttonBoldXs {
+  @include buttonSemiboldXs;
+  font-weight: 700;
+}
+
+// Article
+@mixin quoteMd {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  font-variation-settings: "opsz" 32;
+}
+
+@mixin quoteSm {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+  font-variation-settings: "opsz" 32;
+}
+
+@mixin captionMd {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: 0.005em;
+  font-weight: 400;
+}
+
+@mixin captionSemiboldMd {
+  @include captionMd;
+  font-weight: 600;
+}
+
+// Meta
+@mixin metaXs {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 12px;
+  line-height: 1.32;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+@mixin metaSemiboldXs {
+  @include metaXs;
+  font-weight: 600;
+}
+
+@mixin metaBoldXs {
+  @include metaXs;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+@mixin rankBoldMd {
+  font-family: var(--brandFontFamilySerif);
+  font-size: 36px;
+  line-height: 0.72;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 32;
+  font-weight: 700;
+}
+
+// Ad content
+@mixin headingAdXl {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+@mixin headingAdBoldXl {
+  @include headingAdXl;
+  font-weight: 700;
+}
+
+@mixin headingAdMd {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+@mixin headingAdBoldMd {
+  @include headingAdMd;
+  font-weight: 700;
+}
+
+@mixin headingAdSm {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+
+@mixin headingAdBoldSm {
+  @include headingAdSm;
+  font-weight: 700;
+}
+
+@mixin headingAdXs {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@mixin headingAdBoldXs {
+  @include headingAdXs;
+  font-weight: 700;
+}
+
+@mixin ingressAdMd {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin ingressAdSm {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyAdMd {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyAdSm {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyAdXs {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyAdBoldXs {
+  @include bodyAdXs;
+  font-weight: 700;
+}
+
+@mixin captionAdMd {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin captionAdBoldMd {
+  @include captionAdMd;
+  font-weight: 700;
+}
+
+@mixin metaAdSm {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 1.15;
+  font-weight: 400;
+}
+
+// YLE
+@mixin headingYleXl {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  font-weight: 400;
+}
+
+@mixin headingYleBoldXl {
+  @include headingYleXl;
+  font-weight: 700;
+}
+
+@mixin headingYleMd {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+}
+
+@mixin headingYleBoldMd {
+  @include headingYleMd;
+  font-weight: 700;
+}
+
+@mixin headingYleSm {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  font-weight: 400;
+}
+
+@mixin headingYleBoldSm {
+  @include headingYleSm;
+  font-weight: 700;
+}
+
+@mixin headingYleXs {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+@mixin headingYleBoldXs {
+  @include headingYleXs;
+  font-weight: 700;
+}
+
+@mixin ingressYleMd {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin ingressYleSm {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyYleMd {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyYleSm {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyYleXs {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin bodyYleBoldXs {
+  @include bodyYleXs;
+  font-weight: 700;
+}
+
+@mixin captionYleMd {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+@mixin captionYleBoldMd {
+  @include captionYleMd;
+  font-weight: 700;
+}
+
+@mixin metaYleSm {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
 }

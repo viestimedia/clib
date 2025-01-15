@@ -1,11 +1,28 @@
 @import "/src/styles/common";
 
-.listHeading {
-  border-top: 4px solid $brandColorLight;
-  background: $white;
-  padding: $standardPadding;
+.heading {
+  @include subheadingBoldMd;
+  background-color: $white;
+  color: $fontColor;
+  padding: $spacingXs $spacingSm;
 
-  &.noBorder {
-    border: 0;
+  @media (min-width: $smallDesktopLowerLimit) {
+    padding: $spacingSm $spacingMd;
   }
+}
+
+.default {
+  border-top: 4px solid $brandColorLight;
+}
+
+.newsLarge {
+  @include headingBlackSm;
+}
+
+.adLarge {
+  @include headingAdBoldSm;
+}
+
+.adSmall {
+  @include headingAdBoldXs;
 }

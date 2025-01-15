@@ -1,55 +1,130 @@
 @import "/src/styles/common";
 
-$compactImageAreaWidthMobile: calc(
-  #{$compactTeaserImageWidthMobile} + #{$standardPadding}
-);
-$compactImageAreaWidthDesktop: calc(
-  #{$compactTeaserImageWidth} + #{$standardPadding}
-);
-$mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
-
-.teaserContainer {
-  position: relative; // Needed for absolute positioning of metadata
+.teaserLink {
+  color: $fontColor;
+  background: $white;
+  display: grid;
+  grid-template-areas: "banner" "image" "author" "info";
 }
 
-.nativeAd {
-  .articleInfo {
-    padding-bottom: 0;
+.authorContainer {
+  grid-area: author;
+  z-index: 1;
+}
+
+.banner {
+  grid-area: banner;
+}
+
+.rankNumber {
+  grid-area: rankNumber;
+  @include rankBoldMd;
+  color: $forest100;
+}
+
+.articleImage {
+  grid-area: image;
+
+  img {
+    width: 100%;
+  }
+}
+
+.articleInfo {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px $spacingSm $spacingSm;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    gap: $spacingXs;
+    padding: $spacingXs $spacingMd $spacingMd;
+  }
+}
+
+.metadata {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  .date {
+    @extend %metaSmallSemiBold;
+    color: $gray3;
   }
 
-  .heading {
-    padding-bottom: $standardPadding;
+  .tag {
+    line-height: 1em;
+  }
+}
+
+.subheading {
+  @extend %sansSerifRegular;
+  font-size: $fontSizeS;
+  padding: 5px 0 10px 0;
+}
+
+.text {
+  @include subheadingSemiboldSm;
+  padding-top: 12px;
+}
+
+.hasBorder {
+  border-bottom: 4px solid $brandColorLight;
+}
+
+.extraLarge,
+.large {
+  .authorContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $spacingSm;
 
     @media (min-width: $smallDesktopLowerLimit) {
-      padding-bottom: $standardPadding;
+      padding: $spacingMd;
+    }
+  }
+
+  &:not(.noImage) {
+    .authorContainer {
+      height: 72px;
+      margin-top: -72px; // Show on top of the image
+      background: rgba(27, 27, 27, 0.75);
+      color: $white;
+
+      @media (min-width: $smallDesktopLowerLimit) {
+        height: 87px;
+        margin-top: -87px; // Show on top of the image
+      }
+    }
+  }
+
+  &.noImage {
+    .authorContainer {
+      padding-bottom: 0;
     }
   }
 }
 
-.suomenParhaat {
-  .heading {
-    padding-bottom: 55px; // To make absolutely positioned metadata have room
-  }
-}
-
-.compact {
-  &.suomenParhaat,
-  &.nativeAd {
-    .articleInfo {
-      padding-top: 8px;
-    }
-  }
-
+.compact,
+.relatedArticle,
+.relatedAdArticle,
+.small {
   .teaserLink {
     grid-template-areas:
       "banner image"
       "author image"
       "info image";
-    grid-template-columns: 1fr $compactImageAreaWidthMobile;
+    grid-template-columns: 1fr $mobileTeaserHorizontalImageWidth;
     grid-template-rows: auto auto 1fr;
+    padding: $spacingSm;
+    column-gap: $spacingMd;
 
     @media (min-width: $smallDesktopLowerLimit) {
-      grid-template-columns: 1fr $compactImageAreaWidthDesktop;
+      padding: $spacingMd;
+      grid-template-columns: 1fr $teaserHorizontalImageWidth;
     }
   }
 
@@ -59,37 +134,65 @@ $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
     }
   }
 
-  .articleImage {
-    padding: $standardPadding $standardPadding $standardPadding 0;
+  .articleInfo {
+    padding: 0;
+    gap: $spacing2xs;
+
+    .heading {
+      flex: 1;
+    }
+  }
+
+  .authorContainer {
+    padding-bottom: $spacing2xs;
+  }
+}
+
+.relatedArticle,
+.relatedAdArticle {
+  .teaserLink {
+    grid-template-columns: 1fr $teaserRelatedArticleImageWidth;
+  }
+}
+
+.small {
+  .teaserLink {
+    grid-template-columns: 1fr $teaserSmallImageWidth;
+    column-gap: $spacingSm;
+
+    @media (min-width: $smallDesktopLowerLimit) {
+      padding: 18px $spacingMd $spacingMd;
+
+      .articleInfo {
+        gap: $spacing2xs;
+      }
+    }
+  }
+}
+
+.mostPopular {
+  .teaserLink {
+    grid-template-areas: "rankNumber info";
+    column-gap: $spacingSm;
+    grid-template-columns: 24px auto;
+    padding: $spacingSm;
+
+    @media (min-width: $smallDesktopLowerLimit) {
+      padding: $spacingMd;
+    }
   }
 
   .articleInfo {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 16px;
-    padding-right: 10px;
+    padding: 0;
+    gap: $spacing2xs;
 
-    @media (min-width: $smallDesktopLowerLimit) {
-      padding-right: $standardPadding;
+    .heading {
+      flex: 1;
     }
   }
 
-  .heading {
-    flex: 1;
-    padding-bottom: 85px; // To make absolutely positioned metadata have room
-
-    @media (min-width: $tabletLowerLimit) {
-      padding-bottom: 70px; // To make absolutely positioned metadata have room
-    }
-  }
-
-  .metadata {
-    bottom: 17px;
-    right: $compactImageAreaWidthMobile;
-
-    @media (min-width: $smallDesktopLowerLimit) {
-      right: $compactImageAreaWidthDesktop;
-    }
+  .articleImage {
+    display: none;
   }
 }
 
@@ -108,7 +211,7 @@ $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
         "banner image"
         "author image"
         "info image";
-      grid-template-columns: 1fr $mediumImageAreaWidthDesktop;
+      grid-template-columns: 1fr $mediumTeaserImageWidth;
     }
   }
 
@@ -152,70 +255,18 @@ $mediumImageAreaWidthDesktop: calc(#{$mediumTeaserImageWidth});
       padding: 0 0 15px $standardPadding;
     }
   }
+}
 
-  .metadata {
-    bottom: 17px;
-    right: $standardPadding;
+.nativeAd {
+  .articleInfo {
+    padding-bottom: 0;
+  }
+
+  .heading {
+    padding-bottom: $standardPadding;
 
     @media (min-width: $smallDesktopLowerLimit) {
-      right: $mediumImageAreaWidthDesktop;
+      padding-bottom: $standardPadding;
     }
   }
-}
-
-.teaserLink {
-  color: $fontColor;
-  background: $white;
-  display: grid;
-  grid-template-areas: "banner" "image" "author" "info";
-}
-
-.authorContainer {
-  grid-area: author;
-  padding: 10px 20px 0 20px;
-}
-
-.banner {
-  grid-area: banner;
-}
-
-.articleImage {
-  grid-area: image;
-
-  img {
-    width: 100%;
-  }
-}
-
-.articleInfo {
-  grid-area: info;
-  padding: $standardPadding $standardPadding 11px;
-}
-
-.heading {
-  padding-bottom: 71px; // To make absolutely positioned metadata have room
-
-  @media (min-width: $smallDesktopLowerLimit) {
-    padding-bottom: 44px; // To make absolutely positioned metadata have room
-  }
-
-  span {
-    color: $gray2;
-  }
-}
-
-.subheading {
-  @extend %sansSerifRegular;
-  font-size: $fontSizeS;
-  padding: 5px 0 10px 0;
-}
-
-.metadata {
-  position: absolute;
-  left: $standardPadding;
-  bottom: 13px;
-}
-
-.hasBorder {
-  border-bottom: 4px solid $brandColorLight;
 }

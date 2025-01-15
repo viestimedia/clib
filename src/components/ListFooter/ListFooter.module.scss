@@ -2,6 +2,9 @@
 
 .listFooter {
   background: white;
-  padding: 15px $standardPadding;
-  margin-top: 2px;
+  padding: $spacingSm;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    padding: $spacingMd;
+  }
 }
