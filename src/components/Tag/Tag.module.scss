@@ -1,7 +1,7 @@
 @import "/src/styles/common";
 
 .tag {
-  @include metaBoldXs;
+  @include tagBoldXs;
   display: inline-block;
   border-radius: 16px;
   font-size: 12px;

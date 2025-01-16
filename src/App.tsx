@@ -45,7 +45,7 @@ const defaultTheme = {
   '--brandColorLight': '#7AC74C',
   '--brandColorMedium': '#54942E',
   '--brandColorDark': '#336118',
-  // TODO: Remove all references to Source Serif Pro after all fonts have been updated to use New Design System fonts
+  // TODO: Remove all references to Source Serif Pro after all fonts have been updated to use New Design System (2025) fonts
   '--brandFontFamily': '"Source Serif Pro", Georgia, serif',
   '--brandFontFamilySerif':
     '"Source Serif 4 Variable", "Source Serif 4", Georgia, serif',

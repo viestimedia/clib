@@ -1,6 +1,6 @@
 /**************************
  * Old Design System styles
- * TODO: Update all references to use New Design System styles and remove the old styles
+ * TODO: Update all references to use New Design System (2025) styles and remove the old styles
  **************************/
 %paragraph {
   @extend %sansSerifRegular;
@@ -101,7 +101,7 @@
 }
 
 /**************************
- * New Design System styles
+ * New Design System (2025) styles
  **************************/
 
 // Headings
@@ -416,6 +416,14 @@
 @mixin metaBoldXs {
   @include metaXs;
   letter-spacing: 0;
+  font-weight: 700;
+}
+
+@mixin tagBoldXs {
+  font-family: var(--brandFontFamilySansSerif);
+  font-size: 12px;
+  line-height: 1.32;
+  letter-spacing: 0.01em;
   font-weight: 700;
 }
 
