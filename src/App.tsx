@@ -56,6 +56,7 @@ const defaultTheme = {
   '--blue': '#27659f',
   '--darkOrange': '#c1532f',
   '--brandMarketingDark': '#344454',
+  '--brandCategoryColor': '#1b1b1b',
 
   '--avPlayerBg': '#195745',
   '--avPlayerHeaderBg': '#268267',

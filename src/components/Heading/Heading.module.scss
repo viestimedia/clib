@@ -85,13 +85,20 @@
 .teaserM {
   .category,
   .divider {
-    color: $forest100;
+    color: var(--brandCategoryColor);
   }
 
-  &.horseArticle {
+  &.hevoset {
     .category,
     .divider {
       color: $brown100;
+    }
+  }
+
+  &.koneviesti {
+    .category,
+    .divider {
+      color: $crimson600;
     }
   }
 }
