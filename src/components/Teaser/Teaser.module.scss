@@ -19,7 +19,7 @@
 .rankNumber {
   grid-area: rankNumber;
   @include rankBoldMd;
-  color: $forest100;
+  color: var(--brandCategoryColor);
 }
 
 .articleImage {
