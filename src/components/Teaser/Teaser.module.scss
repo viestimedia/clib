@@ -35,11 +35,11 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px $spacingSm $spacingSm;
+  padding: 10px $spacingSm 14px;
 
   @media (min-width: $smallDesktopLowerLimit) {
     gap: $spacingXs;
-    padding: $spacingXs $spacingMd $spacingMd;
+    padding: $spacingXs $spacingMd $spacingSm;
   }
 }
 
@@ -137,6 +137,11 @@
   .articleInfo {
     padding: 0;
     gap: $spacing2xs;
+    margin-top: -4px;
+
+    @media (min-width: $smallDesktopLowerLimit) {
+      margin-top: -6px;
+    }
 
     .heading {
       flex: 1;
@@ -144,7 +149,11 @@
   }
 
   .authorContainer {
-    padding-bottom: $spacing2xs;
+    padding-bottom: $spacingXs;
+
+    @media (min-width: $smallDesktopLowerLimit) {
+      padding-bottom: $spacingSm;
+    }
   }
 }
 
@@ -152,6 +161,14 @@
 .relatedAdArticle {
   .teaserLink {
     grid-template-columns: 1fr $teaserRelatedArticleImageWidth;
+  }
+
+  .articleInfo {
+    margin-top: -4px;
+  }
+
+  .authorContainer {
+    padding-bottom: $spacingXs;
   }
 }
 
@@ -253,20 +270,6 @@
     @media (min-width: $smallDesktopLowerLimit) {
       margin-top: auto;
       padding: 0 0 15px $standardPadding;
-    }
-  }
-}
-
-.nativeAd {
-  .articleInfo {
-    padding-bottom: 0;
-  }
-
-  .heading {
-    padding-bottom: $standardPadding;
-
-    @media (min-width: $smallDesktopLowerLimit) {
-      padding-bottom: $standardPadding;
     }
   }
 }
