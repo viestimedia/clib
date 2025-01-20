@@ -137,11 +137,6 @@
   .articleInfo {
     padding: 0;
     gap: $spacing2xs;
-    margin-top: -4px;
-
-    @media (min-width: $smallDesktopLowerLimit) {
-      margin-top: -6px;
-    }
 
     .heading {
       flex: 1;
@@ -153,6 +148,16 @@
 
     @media (min-width: $smallDesktopLowerLimit) {
       padding-bottom: $spacingSm;
+    }
+  }
+}
+
+.compact {
+  .articleInfo {
+    margin-top: -4px;
+
+    @media (min-width: $smallDesktopLowerLimit) {
+      margin-top: -6px;
     }
   }
 }
