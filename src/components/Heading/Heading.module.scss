@@ -208,7 +208,11 @@
 }
 
 .articleSubheading {
-  @include subheadingBoldMd;
+  @include subheadingBoldSm;
+
+  @media (min-width: $mediumDesktopLowerLimit) {
+    @include subheadingBoldMd;
+  }
 }
 
 .nativeAd,
