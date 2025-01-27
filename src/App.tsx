@@ -33,6 +33,7 @@ import { Footer } from 'components/Footer/Footer';
 import { Brand } from 'components/Link/Link';
 import { CookieSettingsLink } from 'components/CookieSettingsLink/CookieSettingsLink';
 import { ViestimediaFooter } from 'components/ViestimediaFooter/ViestimediaFooter';
+import ArrowForwardIcon from 'assets/icons/arrow-forward.svg';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -221,16 +222,494 @@ function SomethingelseRoute() {
 
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Buttons</h2>
-        <div className=" p-3 border">
-          <Button label="Primary button" variant={ButtonVariant.Primary} />
-          <Button label="Naked button" variant={ButtonVariant.Naked} />
-          <Button label="Secondary button" variant={ButtonVariant.Secondary} />
+
+        <div className="font-bold pt-3">XS variations:</div>
+        <div className="mb-2 p-3 border">
+          <div className="flex flex-row items-start flex-wrap gap-3 mt-2">
+            <Button
+              label="Transparent button"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.XS}
+            />
+            <Button
+              label="Secondary button"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.XS}
+            />
+            <Button
+              label="Outline button"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.XS}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 mt-2">
+            <Button
+              label="Transparent button"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.XS}
+              isLoading={true}
+            />
+            <Button
+              label="Secondary button"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.XS}
+              isLoading={true}
+            />
+            <Button
+              label="Outline button"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.XS}
+              isLoading={true}
+            />
+          </div>
+
+          <div className="flex flex-row items-start flex-wrap gap-3 mt-2">
+            <Button
+              label="Transparent arrow"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Secondary arrow"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Outline arrow"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 mt-2">
+            <Button
+              label="Transparent arrow"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Secondary arrow"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Outline arrow"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent disabled"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+            <Button
+              label="Secondary disabled"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+            <Button
+              label="Outline disabled"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 mt-2">
+            <Button
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.XS}
+              icon={<ArrowForwardIcon />}
+            />
+          </div>
         </div>
 
-        <div className="bg-black p-3 border">
-          <Button label="Primary button" variant={ButtonVariant.Primary} />
-          <Button label="Naked button" variant={ButtonVariant.Naked} />
-          <Button label="Secondary button" variant={ButtonVariant.Secondary} />
+        <div className="font-bold pt-3">S variations:</div>
+        <div className="mb-2 p-3 border">
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent button"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.S}
+            />
+            <Button
+              label="Secondary button"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.S}
+            />
+            <Button
+              label="Secondary bold"
+              variant={ButtonVariant.SecondaryBold}
+              size={ButtonSize.S}
+            />
+            <Button
+              label="Outline button"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.S}
+            />
+            <Button
+              label="Outline bold"
+              variant={ButtonVariant.OutlineBold}
+              size={ButtonSize.S}
+            />
+            <Button
+              label="Primary button"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.S}
+            />
+            <Button
+              label="Sales button"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.S}
+            />
+            <Button
+              label="Link button"
+              variant={ButtonVariant.Naked}
+              size={ButtonSize.S}
+            />
+          </div>
+
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent disabled"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Secondary disabled"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Outline disabled"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Primary disabled"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Sales disabled"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent disabled"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Secondary disabled"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Outline disabled"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Primary disabled"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Sales disabled"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent disabled"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+            <Button
+              label="Secondary disabled"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+            <Button
+              label="Outline disabled"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+            <Button
+              label="Primary disabled"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+            <Button
+              label="Sales disabled"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+          </div>
+        </div>
+
+        <div className="font-bold pt-3">M variations:</div>
+        <div className="p-3 border">
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent button"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.M}
+            />
+            <Button
+              label="Secondary button"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.M}
+            />
+            <Button
+              label="Secondary bold"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.M}
+              className="bold"
+            />
+            <Button
+              label="Outline button"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.M}
+            />
+            <Button
+              label="Outline bold"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.M}
+              className="bold"
+            />
+            <Button
+              label="Primary button"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.M}
+            />
+            <Button
+              label="Sales button"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.M}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent arrow"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Secondary arrow"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Outline arrow"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Primary arrow"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Sales arrow"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent arrow"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Secondary arrow"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Outline arrow"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Primary arrow"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Sales arrow"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent disabled"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              disabled={true}
+            />
+            <Button
+              label="Secondary disabled"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              disabled={true}
+            />
+            <Button
+              label="Outline disabled"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              disabled={true}
+            />
+            <Button
+              label="Primary disabled"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              disabled={true}
+            />
+            <Button
+              label="Sales disabled"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+              disabled={true}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.M}
+              icon={<ArrowForwardIcon />}
+            />
+          </div>
         </div>
       </div>
 

@@ -6,19 +6,27 @@ import { Brand } from 'components/Link/Link';
 import { Spinner } from 'components/Spinner/Spinner';
 
 export enum ButtonVariant {
-  Primary = 'button',
-  Secondary = 'secondaryButton',
-  Sales = 'salesButton',
-  Naked = 'nakedButton',
-  Tertiary = 'tertiaryButton',
-  Blend = 'blendButton',
-  Delete = 'deleteButton',
-  Reject = 'rejectButton',
+  Primary = 'primary',
+  Secondary = 'secondary',
+  SecondaryBold = 'secondaryBold',
+  Transparent = 'transparent',
+  Outline = 'outline',
+  OutlineBold = 'outlineBold',
+  Sales = 'sales',
+  Naked = 'naked', // button without button styles or paddings
+
+  // Used only with old (before 2025) Design System
+  Tertiary = 'tertiary',
+  Blend = 'blend',
+  Delete = 'delete',
+  Reject = 'reject',
 }
 
 export enum ButtonSize {
+  XS = 'extraSmall',
   S = 'small',
   M = 'medium',
+  // Used only with old (before 2025) Design System
   L = 'large',
 }
 
@@ -32,6 +40,7 @@ interface ButtonProps
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
   outline?: boolean;
   ariaLabel?: string;
   brand?: Brand;
@@ -53,6 +62,7 @@ export const Button = ({
   size = ButtonSize.M,
   disabled = false,
   icon,
+  iconPosition = 'left',
   onClick,
   id,
   outline = true,
@@ -72,8 +82,10 @@ export const Button = ({
   }
 
   const moduleExtend = styles[className] ? true : false;
-  const cn = classNames(styles[variant], styles[size], {
+  const cn = classNames(styles.button, styles[variant], styles[size], {
     [styles['withIcon']]: Boolean(icon),
+    [styles['iconLeft']]: Boolean(icon && iconPosition === 'left'),
+    [styles['iconRight']]: Boolean(icon && iconPosition === 'right'),
     [styles['noLabel']]: Boolean(!label),
     [styles['noOutline']]: Boolean(!outline),
     [styles['isLoading']]: Boolean(isLoading),
@@ -83,9 +95,10 @@ export const Button = ({
 
   const ButtonContent = () => (
     <>
-      {icon}
+      {iconPosition === 'left' && icon}
       {label && <span>{label}</span>}
       {children && children}
+      {iconPosition === 'right' && icon}
       {isLoading && (
         <div className={styles.progress}>
           <Spinner
