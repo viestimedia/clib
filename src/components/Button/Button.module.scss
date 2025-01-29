@@ -49,7 +49,7 @@
 .extraSmall {
   @include buttonSemiboldXs;
   padding: 0 $spacing2xs;
-  height: 27px;
+  min-height: 27px;
 
   &.outline,
   &.outlineBold {
@@ -66,7 +66,7 @@
   @include buttonSemiboldXs;
   padding: 0 10px;
   gap: $spacing3xs;
-  height: 31px;
+  min-height: 31px;
 
   &.outline,
   &.outlineBold {
@@ -90,7 +90,7 @@
   @include buttonSemiboldSm;
   padding: 0 $spacingXs;
   gap: $spacing3xs;
-  height: 36px;
+  min-height: 36px;
 
   &.outline,
   &.outlineBold {
