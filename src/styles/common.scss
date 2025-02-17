@@ -28,11 +28,13 @@
 
 %mainLayoutContainerForHeaderAndFooter {
   @extend %mainLayoutContainer;
+  padding-left: $spacingSm;
+  padding-right: $spacingSm;
 
   @media (min-width: $smallDesktopLowerLimit) {
     text-align: left;
-    padding-left: $wallpaperAdMargin; // padding needed with wallpaper ad
-    padding-right: $wallpaperAdMargin; // padding needed with wallpaper ad
+    padding-left: $wallpaperAdMargin;
+    padding-right: $wallpaperAdMargin;
   }
 
   // This is needed to center header and footer content _with_ sticky ads

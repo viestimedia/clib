@@ -56,3 +56,4 @@ export * from './Teaser/Teaser';
 export * from './Footer/Footer';
 export * from './ViestimediaFooter/ViestimediaFooter';
 export * from './CookieSettingsLink/CookieSettingsLink';
+export * from './WideWrapper/WideWrapper';

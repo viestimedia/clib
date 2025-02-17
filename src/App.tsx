@@ -125,6 +125,12 @@ function HeaderRoute() {
     <div className="absolute top-36 left-0 right-0">
       <HeaderBanner
         mainLogo={<MTLogo />}
+        type="small"
+        className="headerBannerDemo"
+      />
+      <br />
+      <HeaderBanner
+        mainLogo={<MTLogo />}
         type="compact"
         className="headerBannerDemo"
         button={
@@ -833,15 +839,20 @@ function SomethingelseRoute() {
       <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Tags</h2>
 
-        <div className=" p-3 border flex flex-wrap gap-3">
+        <div className="p-3 border flex flex-wrap gap-3 items-start justify-start">
           <Tag
             text="Ostetaan"
             className="border border-[#815109] !text-[#815109] !leading-4"
           />
           <Tag text="Myydään" className="bg-[#815109]" />
-          <Tag text="Tilaajalle" className="bg-black uppercase" />
-          <Tag text="Tilaajalle" className="text-[#1b1b1b] uppercase" />
           <Tag text="Haku sulkeutuu pian" className="bg-[#E65100] uppercase" />
+        </div>
+
+        <div className="p-3 border flex flex-wrap gap-3 items-start justify-start">
+          <Tag text="Tilaajalle" type={TagType.Premium} />
+          <Tag text="Tlaajalle" type={TagType.PremiumPlain} />
+          <Tag text="Näytä kaikki" type={TagType.Primary} />
+          <Tag text="Konemalli" type={TagType.Outline} />
         </div>
       </div>
 
@@ -1162,6 +1173,15 @@ function SomethingelseRoute() {
             id="art2"
             teaserType={TeaserType.Medium}
             className="hasBorder"
+          />
+          <Teaser
+            heading="Case IH Axial-Flow 6160–7160"
+            text="2024-"
+            linkUrl="/art1"
+            image={<img src="https://picsum.photos/200" />}
+            tag={<Tag text="Puimurit" type={TagType.Primary} />}
+            id="art1"
+            teaserType={TeaserType.Machine}
           />
           <Teaser
             heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"

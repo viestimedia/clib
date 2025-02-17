@@ -1,0 +1,9 @@
+@import "/src/styles/common";
+
+.rowWrapper {
+  @extend %mainLayoutWrapper;
+}
+
+.innerContent {
+  @extend %mainLayoutContainerForHeaderAndFooter;
+}

@@ -13,6 +13,7 @@ export enum TeaserType {
   MostPopular = 'mostPopular',
   BackgroundImage = 'backgroundImage',
   Carousel = 'carousel',
+  Machine = 'machine',
   Medium = 'medium', // Used only in ilmoitusautomaatti
 }
 
@@ -26,6 +27,7 @@ export const TeaserHeadingMap: Record<TeaserType, HeadingStyle> = {
   [TeaserType.MostPopular]: HeadingStyle.TeaserXS,
   [TeaserType.BackgroundImage]: HeadingStyle.TeaserXL,
   [TeaserType.Carousel]: HeadingStyle.TeaserS,
+  [TeaserType.Machine]: HeadingStyle.TeaserXS,
   [TeaserType.Medium]: HeadingStyle.Secondary,
 };
 

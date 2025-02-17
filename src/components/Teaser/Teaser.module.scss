@@ -111,7 +111,8 @@
 .compact,
 .relatedArticle,
 .relatedAdArticle,
-.small {
+.small,
+.machine {
   .teaserLink {
     grid-template-areas:
       "banner image"
@@ -153,6 +154,21 @@
 }
 
 .compact {
+  .articleInfo {
+    margin-top: -4px;
+
+    @media (min-width: $smallDesktopLowerLimit) {
+      margin-top: -6px;
+    }
+  }
+}
+
+.machine {
+  .text {
+    @include metaSemiboldXs;
+    padding-top: $spacing2xs;
+  }
+
   .articleInfo {
     margin-top: -4px;
 

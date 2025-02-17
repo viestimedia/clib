@@ -1,27 +1,26 @@
 @import "/src/styles/common";
 
 .bannerWrapper {
-  @extend %mainLayoutWrapper;
-  padding: 25px $standardPadding;
   background-size: cover;
   background-repeat: no-repeat;
-	background-position: center;
-}
-
-.innerWrapper {
-  @extend %mainLayoutContainerForHeaderAndFooter;
+  background-position: center;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-	gap: 20px;
+  gap: 20px;
+  padding: 25px 0;
 
-	@media (min-width: $smallDesktopLowerLimit) {
-		flex-direction: row;
-		justify-content: space-between;
-	}
+  @media (min-width: $smallDesktopLowerLimit) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .small & {
+    padding: $spacingMd 0;
+  }
 }
 
 .logoContainer {
@@ -33,39 +32,51 @@
   @media (min-width: $smallDesktopLowerLimit) {
     text-align: left;
   }
+
+  .small & {
+    text-align: left;
+  }
 }
 
 .logo {
-	> * {
-		margin: 0 auto;		
-	}
+  > * {
+    margin: 0 auto;
 
-	@media (min-width: $smallDesktopLowerLimit) {
-		> * {
-			margin: 0;		
-		}
-	}
+    .small & {
+      margin: 0;
+    }
+  }
 
-	svg, img {
-		max-height: 100%;
-		max-width: 100%;
-	}
+  @media (min-width: $smallDesktopLowerLimit) {
+    > * {
+      margin: 0;
+    }
+  }
+
+  svg,
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
 }
 
 .mainLogo {
-	.large & {
-		height: 40px;
+  .large & {
+    height: 40px;
 
-		@media (min-width: $smallDesktopLowerLimit) {
-			height: 60px;
-		}
-	}
+    @media (min-width: $smallDesktopLowerLimit) {
+      height: 60px;
+    }
+  }
 
-	.compact & {
-		height: 34px;
-	}
+  .compact & {
+    height: 34px;
+  }
+
+  .small & {
+    height: 22px;
+  }
 }
-
 .subLogo {
   height: 20px;
   position: relative;

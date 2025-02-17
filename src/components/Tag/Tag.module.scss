@@ -1,13 +1,12 @@
 @import "/src/styles/common";
 
 .tag {
-  @include tagBoldXs;
+  @include metaBoldXs;
   display: inline-block;
   border-radius: 16px;
-  font-size: 12px;
-  line-height: 18px;
   color: $white;
-  padding: 0 8px;
+  padding: 1px 8px 0;
+  min-height: 18px;
 }
 
 // TagType:
@@ -17,6 +16,7 @@
 
 .buying {
   border-color: var(--brown);
+  padding-top: 0;
   background: $white;
   color: var(--brown) !important;
 }
@@ -29,14 +29,37 @@
   background-color: var(--darkOrange);
 }
 
-.premium {
+.primary {
   background-color: $grey900;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid $grey900;
+  padding-top: 0;
+  color: $grey900;
+}
+
+.premium {
+  @include tagBoldXs;
   text-transform: uppercase;
+  background-color: $grey900;
 }
 
 .premiumPlain {
+  @include tagBoldXs;
+  text-transform: uppercase;
   background-color: transparent;
   color: $grey900;
   padding: 0;
-  text-transform: uppercase;
+}
+
+.primary {
+  background-color: $grey900;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid $grey900;
+  color: $grey900;
 }
