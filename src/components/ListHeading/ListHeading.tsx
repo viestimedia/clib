@@ -5,6 +5,7 @@ type Props = {
   text: string;
   type?: ListHeadingType;
   className?: string;
+  button?: React.ReactNode;
 };
 
 export enum ListHeadingType {
@@ -19,6 +20,7 @@ export const ListHeading = ({
   text,
   type = ListHeadingType.Default,
   className = '',
+  button,
 }: Props) => {
   const moduleExtend = styles[className] ? true : false;
 
@@ -30,6 +32,7 @@ export const ListHeading = ({
       })}
     >
       {text}
+      {button}
     </div>
   );
 };

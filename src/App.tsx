@@ -853,6 +853,11 @@ function SomethingelseRoute() {
           <Tag text="Tlaajalle" type={TagType.PremiumPlain} />
           <Tag text="Näytä kaikki" type={TagType.Primary} />
           <Tag text="Konemalli" type={TagType.Outline} />
+          <Tag
+            text="Napilla"
+            type={TagType.Primary}
+            onClose={() => console.log('close')}
+          />
         </div>
       </div>
 
@@ -1074,6 +1079,13 @@ function SomethingelseRoute() {
           <ListHeading
             text="Luetuimmat uutiset"
             type={ListHeadingType.NewsLarge}
+            button={
+              <Button
+                label="Testinappi"
+                variant={ButtonVariant.Secondary}
+                size={ButtonSize.XS}
+              />
+            }
           />
           <ul className="flex flex-col gap-0.5 mt-0.5">
             <Teaser

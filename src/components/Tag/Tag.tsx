@@ -1,10 +1,12 @@
 import styles from './Tag.module.scss';
 import classNames from 'classnames';
+import CloseIcon from 'assets/icons/close.svg';
 
 type Props = {
   text: string;
   type?: TagType;
   className?: string;
+  onClose?: () => void;
 };
 
 export enum TagType {
@@ -27,7 +29,12 @@ export enum TagType {
  * 3. Use a custom class name, bypassing CSS modules. This is useful with one off
  * tags in projects that use Tailwind, or just adding margins to other elements.
  */
-export const Tag = ({ text, type = TagType.Plain, className = '' }: Props) => {
+export const Tag = ({
+  text,
+  type = TagType.Plain,
+  className = '',
+  onClose,
+}: Props) => {
   const moduleExtend = styles[className] ? true : false;
   const hasTagCss = styles[type] ? true : false;
 
@@ -37,9 +44,15 @@ export const Tag = ({ text, type = TagType.Plain, className = '' }: Props) => {
         [styles[type]]: hasTagCss,
         [styles[className]]: moduleExtend,
         [className]: !moduleExtend,
+        [styles.closeable]: !!onClose,
       })}
     >
       <span>{text}</span>
+      {onClose && (
+        <button onClick={onClose} className={styles.closeButton}>
+          <CloseIcon />
+        </button>
+      )}
     </div>
   );
 };

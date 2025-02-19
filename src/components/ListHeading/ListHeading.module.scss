@@ -4,10 +4,15 @@
   @include subheadingBoldMd;
   background-color: $white;
   color: $fontColor;
-  padding: $spacingXs $spacingSm;
+  padding: 0 $spacingSm;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 44px;
 
   @media (min-width: $smallDesktopLowerLimit) {
-    padding: $spacingSm $spacingMd;
+    padding: 0 $spacingMd;
+    min-height: 52px;
   }
 }
 
@@ -17,10 +22,20 @@
 
 .newsLarge {
   @include headingBlackSm;
+  min-height: 50px;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    min-height: 58px;
+  }
 }
 
 .adLarge {
   @include headingAdBoldSm;
+  min-height: 33px;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    min-height: 37px;
+  }
 }
 
 .adSmall {
