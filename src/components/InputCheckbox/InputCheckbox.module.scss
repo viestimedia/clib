@@ -1,0 +1,102 @@
+@import "/src/styles/common";
+
+.inline {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-gap: $standardPadding;
+  justify-content: center;
+
+  .option {
+    padding-bottom: 5px;
+  }
+}
+
+.name {
+  @extend %sansSerifSemiBold;
+  font-size: $fontSizeS;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.required {
+  color: $statusRed;
+  display: inline-block;
+  margin-left: 4px;
+}
+
+@media (min-width: $tabletLowerLimit) {
+  .compactOptions {
+    .options {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      column-gap: $standardPadding;
+      row-gap: 10px;
+    }
+
+    .option {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.option {
+  @include subheadingSemiboldSm;
+  cursor: pointer;
+  padding-bottom: 10px;
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-gap: 0.4em;
+  align-items: center;
+}
+
+.field {
+  display: flex;
+  margin-top: -3px;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+
+  &:checked + .customCheckboxControl {
+    background: var(--brandColorLight);
+    border-color: var(--brandColorLight);
+
+    // TODO: Add checkmark
+    &::after {
+      content: url("/src/assets/icons/check.svg");
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.customCheckboxControl {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid $grey400;
+  transform: translateY(0.1em);
+}
+
+.label {
+  line-height: 1;
+  position: relative;
+
+  svg {
+    height: 24px;
+    padding-left: 25px;
+    position: absolute;
+    top: -3px;
+    right: 0;
+
+    @media (min-width: $tabletLowerLimit) {
+      right: unset;
+    }
+  }
+}

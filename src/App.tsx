@@ -21,6 +21,7 @@ import {
   AVPlayer,
   TagType,
   ListHeadingType,
+  InputCheckbox,
 } from './components';
 
 import { useState } from 'react';
@@ -828,6 +829,34 @@ function SomethingelseRoute() {
               ]}
             />
           </div>
+        </div>
+
+        <div className="font-bold pt-3">Input Checkbox</div>
+        <div className=" p-3 border">
+          <InputCheckbox
+            label="Label"
+            required={true}
+            name="option"
+            onChange={() => null}
+            options={[
+              {
+                label: 'Select option',
+                value: '1',
+                id: 'option1',
+              },
+              {
+                label: 'Option number one',
+                value: '2',
+                id: 'option2',
+              },
+              {
+                label: 'Second option',
+                value: '3',
+                id: 'option3',
+              },
+            ]}
+            values={['1', '3']}
+          />
         </div>
 
         <div className="font-bold pt-3">Input Date Picker</div>

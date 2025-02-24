@@ -45,6 +45,7 @@ export * from './Input/Input';
 export * from './InputDatePicker/InputDatePicker';
 export * from './InputMessage/InputMessage';
 export * from './InputRadio/InputRadio';
+export * from './InputCheckbox/InputCheckbox';
 export * from './InputSelect/InputSelect';
 export * from './InputTextarea/InputTextarea';
 export * from './ListFooter/ListFooter';
