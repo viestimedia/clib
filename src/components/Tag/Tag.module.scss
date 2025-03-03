@@ -2,12 +2,11 @@
 
 .tag {
   @include metaBoldXs;
-  display: inline-block;
+  display: inline-flex;
   border-radius: 16px;
   color: $white;
   padding: 1px 8px 0;
   min-height: 18px;
-  display: flex;
   align-items: center;
   gap: $spacing4xs;
 }
