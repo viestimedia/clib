@@ -1296,8 +1296,10 @@ function SomethingelseRoute() {
               srcSet: 'https://picsum.photos/460/258',
               source: 'https://picsum.photos/920/516',
               alt: 'Hevonen',
-              caption: 'Kuvallinen hevosilmoitus',
+              caption: 'Kuvallinen hevosilmoitus lorem ipsum dolor sit amet.',
+              credit: 'Picsum',
             }}
+            showCaption={true}
           />
         </div>
         <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">

@@ -11,7 +11,15 @@
   }
 }
 
-.caption {
-  @include captionMd;
+.captionContainer {
   margin-top: $spacing2xs;
+
+  .caption {
+    @include captionMd;
+    padding-right: $spacing4xs;
+  }
+
+  .credit {
+    @include captionSemiboldMd;
+  }
 }

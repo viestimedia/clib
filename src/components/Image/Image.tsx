@@ -8,6 +8,7 @@ export type Image = {
   height?: number;
   alt?: string;
   caption?: string;
+  credit?: string;
 };
 
 type Props = {
@@ -34,8 +35,18 @@ export const ImageElement = ({ image, showCaption = false }: Props) => {
           {...(image.height && { height: image.height })}
         />
       </picture>
-      {showCaption && !imageError && image.caption && (
-        <div className={styles.caption}>{image.caption}</div>
+
+      {showCaption && !imageError && (image.caption || image.credit) && (
+        <>
+          <div className={styles.captionContainer}>
+            {image.caption && (
+              <span className={styles.caption}>{image.caption}</span>
+            )}
+            {image.credit && (
+              <span className={styles.credit}>Kuva: {image.credit}</span>
+            )}
+          </div>
+        </>
       )}
     </div>
   );
