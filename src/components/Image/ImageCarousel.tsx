@@ -68,9 +68,17 @@ export const ImageCarousel = ({ images }: CarouselProps) => {
       const selectedThumbnail = thumbnails.children[
         currentIndex
       ] as HTMLElement;
-      selectedThumbnail.scrollIntoView({
+      const thumbnailsRect = thumbnails.getBoundingClientRect();
+      const selectedRect = selectedThumbnail.getBoundingClientRect();
+
+      const scrollOffset =
+        selectedRect.left -
+        thumbnailsRect.left -
+        (thumbnailsRect.width - selectedRect.width) / 2;
+
+      thumbnails.scrollTo({
+        left: thumbnails.scrollLeft + scrollOffset,
         behavior: 'smooth',
-        inline: 'center',
       });
     }
   }, [currentIndex]);
