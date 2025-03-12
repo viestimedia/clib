@@ -1,0 +1,71 @@
+@import "/src/styles/common";
+
+.carouselMainImage {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(calc(-100% * var(--current-index)));
+}
+
+.image {
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.image.active {
+  opacity: 1;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.76;
+  z-index: 10;
+}
+
+.arrow.prevArrow {
+  left: 10px;
+}
+
+.arrow.nextArrow {
+  right: 10px;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  gap: $spacingSm;
+  overflow-x: auto;
+
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  /* Hide scrollbar for Webkit browsers */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.thumbnail {
+  width: 80px;
+  height: 61px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  flex-shrink: 0;
+}
+
+.thumbnail:hover,
+.thumbnail.selected {
+  opacity: 1;
+  border: 3px solid var(--brandColorDark);
+}

@@ -1,0 +1,25 @@
+@import "/src/styles/common";
+
+.imageContainer {
+  picture {
+    display: block;
+    line-height: 0;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.captionContainer {
+  margin-top: $spacing2xs;
+
+  .caption {
+    @include captionMd;
+    padding-right: $spacing4xs;
+  }
+
+  .credit {
+    @include captionSemiboldMd;
+  }
+}
