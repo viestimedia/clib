@@ -164,6 +164,10 @@
 }
 
 .machine {
+  .teaserLink {
+    grid-template-columns: 1fr $teaserMachineImageWidth;
+  }
+
   .text {
     @include metaSemiboldXs;
     padding-top: $spacing2xs;
