@@ -1,0 +1,17 @@
+@import "/src/styles/common";
+
+.imageContainer {
+  picture {
+    display: block;
+    line-height: 0;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.caption {
+  @include captionMd;
+  margin-top: $spacing2xs;
+}

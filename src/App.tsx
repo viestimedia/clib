@@ -10,6 +10,7 @@ import {
   InputDatePicker,
   InputMessage,
   InputSelect,
+  ImageElement,
   ListFooter,
   ListHeading,
   ListItem,
@@ -34,7 +35,8 @@ import { Footer } from 'components/Footer/Footer';
 import { Brand } from 'components/Link/Link';
 import { CookieSettingsLink } from 'components/CookieSettingsLink/CookieSettingsLink';
 import { ViestimediaFooter } from 'components/ViestimediaFooter/ViestimediaFooter';
-import ArrowForwardIcon from 'assets/icons/arrow-forward.svg';
+import ArrowForwardIcon from 'assets/icons/arrow-forward-outline.svg';
+import { ImageCarousel } from './components/Image/ImageCarousel';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -67,6 +69,13 @@ const defaultTheme = {
   '--avPlayerSeekerThumb': '#F1F1F1',
   '--avPlayerPlayPauseBg': '#1B1B1B',
 };
+
+const carouselImages = Array.from({ length: 8 }, (_, index) => ({
+  srcSet: `https://picsum.photos/460/345?${index + 1}`,
+  source: `https://picsum.photos/920/690?${index + 1}`,
+  alt: `Image ${index + 1}`,
+  caption: `Image ${index + 1} caption`,
+}));
 
 function App() {
   // react-router would be a little overkill for this use
@@ -1275,6 +1284,24 @@ function SomethingelseRoute() {
             tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
             author={<div className="italic">Author placeholder</div>}
           />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Kuvat</h2>
+
+        <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">
+          <ImageElement
+            image={{
+              srcSet: 'https://picsum.photos/460/258',
+              source: 'https://picsum.photos/920/516',
+              alt: 'Hevonen',
+              caption: 'Kuvallinen hevosilmoitus',
+            }}
+          />
+        </div>
+        <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">
+          <ImageCarousel images={carouselImages} />
         </div>
       </div>
     </>
