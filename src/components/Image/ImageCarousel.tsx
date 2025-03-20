@@ -7,9 +7,12 @@ import { Button, ButtonVariant, ButtonSize } from 'components/Button/Button';
 
 type CarouselProps = {
   images: Image[];
+  onImageClick?: (
+    e: React.MouseEvent<Element> | React.KeyboardEvent<Element>
+  ) => void;
 };
 
-export const ImageCarousel = ({ images }: CarouselProps) => {
+export const ImageCarousel = ({ images, onImageClick }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const startX = useRef(0);
   const isDragging = useRef(false);
@@ -111,6 +114,14 @@ export const ImageCarousel = ({ images }: CarouselProps) => {
                   className={`${styles.image} ${
                     index === currentIndex ? styles.active : ''
                   }`}
+                  role="button"
+                  tabIndex={0}
+                  onClick={(e) => onImageClick?.(e)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      onImageClick?.(e);
+                    }
+                  }}
                 >
                   <ImageElement image={image} showCaption={true} />
                 </div>
@@ -141,7 +152,18 @@ export const ImageCarousel = ({ images }: CarouselProps) => {
           </div>
         </div>
       ) : (
-        <ImageElement image={images[0]} showCaption={true} />
+        <div
+          onClick={(e) => onImageClick?.(e)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              onImageClick?.(e);
+            }
+          }}
+        >
+          <ImageElement image={images[0]} showCaption={true} />
+        </div>
       )}
     </>
   );
