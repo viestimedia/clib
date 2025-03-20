@@ -8,6 +8,7 @@ import { Button, ButtonVariant, ButtonSize } from 'components/Button/Button';
 type CarouselProps = {
   images: Image[];
   onImageClick?: (
+    index: number,
     e: React.MouseEvent<Element> | React.KeyboardEvent<Element>
   ) => void;
 };
@@ -116,10 +117,10 @@ export const ImageCarousel = ({ images, onImageClick }: CarouselProps) => {
                   }`}
                   role="button"
                   tabIndex={0}
-                  onClick={(e) => onImageClick?.(e)}
+                  onClick={(e) => onImageClick?.(index, e)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' || e.key === ' ') {
-                      onImageClick?.(e);
+                      onImageClick?.(index, e);
                     }
                   }}
                 >
@@ -153,12 +154,12 @@ export const ImageCarousel = ({ images, onImageClick }: CarouselProps) => {
         </div>
       ) : (
         <div
-          onClick={(e) => onImageClick?.(e)}
+          onClick={(e) => onImageClick?.(0, e)}
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
-              onImageClick?.(e);
+              onImageClick?.(0, e);
             }
           }}
         >
