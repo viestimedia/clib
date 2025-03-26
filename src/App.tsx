@@ -410,38 +410,111 @@ function SomethingelseRoute() {
               variant={ButtonVariant.Naked}
               size={ButtonSize.S}
             />
+            <Button
+              label="Success button"
+              variant={ButtonVariant.Success}
+              size={ButtonSize.S}
+            />
+            <Button
+              label="Alert button"
+              variant={ButtonVariant.Alert}
+              size={ButtonSize.S}
+            />
           </div>
 
           <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
             <Button
-              label="Transparent disabled"
+              label="Transparent arrow"
               variant={ButtonVariant.Transparent}
               size={ButtonSize.S}
               icon={<ArrowForwardIcon />}
             />
             <Button
-              label="Secondary disabled"
+              label="Secondary arrow"
               variant={ButtonVariant.Secondary}
               size={ButtonSize.S}
               icon={<ArrowForwardIcon />}
             />
             <Button
-              label="Outline disabled"
+              label="Outline arrow"
               variant={ButtonVariant.Outline}
               size={ButtonSize.S}
               icon={<ArrowForwardIcon />}
             />
             <Button
-              label="Primary disabled"
+              label="Primary arrow"
               variant={ButtonVariant.Primary}
               size={ButtonSize.S}
               icon={<ArrowForwardIcon />}
             />
             <Button
-              label="Sales disabled"
+              label="Sales arrow"
               variant={ButtonVariant.Sales}
               size={ButtonSize.S}
               icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Success arrow"
+              variant={ButtonVariant.Success}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+            <Button
+              label="Alert arrow"
+              variant={ButtonVariant.Alert}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+            />
+          </div>
+          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
+            <Button
+              label="Transparent arrow"
+              variant={ButtonVariant.Transparent}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Secondary arrow"
+              variant={ButtonVariant.Secondary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Outline arrow"
+              variant={ButtonVariant.Outline}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Primary arrow"
+              variant={ButtonVariant.Primary}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Sales arrow"
+              variant={ButtonVariant.Sales}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Success arrow"
+              variant={ButtonVariant.Success}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+            />
+            <Button
+              label="Alert arrow"
+              variant={ButtonVariant.Alert}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
             />
           </div>
           <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
@@ -451,43 +524,6 @@ function SomethingelseRoute() {
               size={ButtonSize.S}
               icon={<ArrowForwardIcon />}
               iconPosition="right"
-            />
-            <Button
-              label="Secondary disabled"
-              variant={ButtonVariant.Secondary}
-              size={ButtonSize.S}
-              icon={<ArrowForwardIcon />}
-              iconPosition="right"
-            />
-            <Button
-              label="Outline disabled"
-              variant={ButtonVariant.Outline}
-              size={ButtonSize.S}
-              icon={<ArrowForwardIcon />}
-              iconPosition="right"
-            />
-            <Button
-              label="Primary disabled"
-              variant={ButtonVariant.Primary}
-              size={ButtonSize.S}
-              icon={<ArrowForwardIcon />}
-              iconPosition="right"
-            />
-            <Button
-              label="Sales disabled"
-              variant={ButtonVariant.Sales}
-              size={ButtonSize.S}
-              icon={<ArrowForwardIcon />}
-              iconPosition="right"
-            />
-          </div>
-          <div className="flex flex-row items-start flex-wrap gap-3 pt-2">
-            <Button
-              label="Transparent disabled"
-              variant={ButtonVariant.Transparent}
-              size={ButtonSize.S}
-              icon={<ArrowForwardIcon />}
-              iconPosition="right"
               disabled={true}
             />
             <Button
@@ -517,6 +553,22 @@ function SomethingelseRoute() {
             <Button
               label="Sales disabled"
               variant={ButtonVariant.Sales}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+            <Button
+              label="Success disabled"
+              variant={ButtonVariant.Success}
+              size={ButtonSize.S}
+              icon={<ArrowForwardIcon />}
+              iconPosition="right"
+              disabled={true}
+            />
+            <Button
+              label="Alert disabled"
+              variant={ButtonVariant.Alert}
               size={ButtonSize.S}
               icon={<ArrowForwardIcon />}
               iconPosition="right"

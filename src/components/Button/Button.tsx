@@ -14,6 +14,8 @@ export enum ButtonVariant {
   OutlineBold = 'outlineBold',
   Sales = 'sales',
   Naked = 'naked', // button without button styles or paddings
+  Success = 'success',
+  Alert = 'alert',
 
   // Used only with old (before 2025) Design System
   Tertiary = 'tertiary',

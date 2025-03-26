@@ -80,6 +80,8 @@
 
   &.primary,
   &.sales,
+  &.success,
+  &.alert,
   &.secondaryBold,
   &.outlineBold {
     @include buttonBoldXs;
@@ -123,6 +125,8 @@
 
   &.primary,
   &.sales,
+  &.success,
+  &.alert,
   &.secondaryBold,
   &.outlineBold {
     @include buttonBoldSm;
@@ -211,6 +215,52 @@
 
     &:active {
       background-color: $salesYellow300;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 4px $grey300;
+    }
+  }
+
+  &.success {
+    background-color: $statusGreen600;
+    color: $white;
+
+    &.withIcon {
+      path {
+        fill: $white;
+      }
+    }
+
+    &:hover {
+      background-color: $statusGreen800;
+    }
+
+    &:active {
+      background-color: $statusGreen800;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 4px $grey300;
+    }
+  }
+
+  &.alert {
+    background-color: $statusRed600;
+    color: $white;
+
+    &.withIcon {
+      path {
+        fill: $white;
+      }
+    }
+
+    &:hover {
+      background-color: $statusRed800;
+    }
+
+    &:active {
+      background-color: $statusRed800;
     }
 
     &:focus {
