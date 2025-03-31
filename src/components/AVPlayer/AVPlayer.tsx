@@ -110,27 +110,27 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
     // };
 
     const handlePlay = () => {
-      console.log('onPlay');
+      console.debug('onPlay');
       setState({ playing: true });
     };
 
     const handleEnablePIP = () => {
-      console.log('onEnablePIP');
+      console.debug('onEnablePIP');
       setState({ pip: true });
     };
 
     const handleDisablePIP = () => {
-      console.log('onDisablePIP');
+      console.debug('onDisablePIP');
       setState({ pip: false });
     };
 
     const handlePause = () => {
-      console.log('onPause');
+      console.debug('onPause');
       setState({ playing: false });
     };
 
     const handleProgress = (progress: OnProgressProps) => {
-      console.log('onProgress', progress);
+      console.debug('onProgress', progress);
       // We only want to update time slider if we are not currently seeking
       if (!state.seeking) {
         setState(progress);
@@ -138,12 +138,12 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
     };
 
     const handleEnded = () => {
-      console.log('onEnded');
+      console.debug('onEnded');
       setState({ playing: state.loop });
     };
 
     const handleDuration = (duration: number) => {
-      console.log('onDuration', duration);
+      console.debug('onDuration', duration);
       setState({ duration });
     };
 
@@ -174,7 +174,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
     };
 
     useEffect(() => {
-      console.log('Player data', state);
+      console.debug('Player data', state);
     }, [state]);
 
     return (
@@ -201,13 +201,13 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             playbackRate={playbackRate}
             volume={volume}
             muted={muted}
-            onReady={() => console.log('onReady')}
-            onStart={() => console.log('onStart')}
+            onReady={() => console.debug('onReady')}
+            onStart={() => console.debug('onStart')}
             onPlay={handlePlay}
             onEnablePIP={handleEnablePIP}
             onDisablePIP={handleDisablePIP}
             onPause={handlePause}
-            onBuffer={() => console.log('onBuffer')}
+            onBuffer={() => console.debug('onBuffer')}
             onPlaybackRateChange={handleOnPlaybackRateChange}
             onSeek={(e) => console.log('onSeek', e)}
             onEnded={handleEnded}
