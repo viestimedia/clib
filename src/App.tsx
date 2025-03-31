@@ -23,6 +23,7 @@ import {
   TagType,
   ListHeadingType,
   InputCheckbox,
+  Breadcrumb,
 } from './components';
 
 import { useState } from 'react';
@@ -1016,6 +1017,22 @@ function SomethingelseRoute() {
               { label: 'Other tab', value: '/other-tab', id: '2' },
             ]}
             selectedOptionKey={'/selected-tab'}
+          />
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Breadcrumb</h2>
+
+        <div className=" p-3 border">
+          <Breadcrumb
+            items={[
+              { label: 'Home', url: '/home', id: '1' },
+              { label: 'Other link', url: '/other-link', id: '2' },
+              { label: 'Other link 2', url: '/other-link-2', id: '3' },
+              { label: 'Other link 3', url: '/other-link-3', id: '4' },
+              { label: 'Last item', url: '/last-item', id: '3' },
+            ]}
           />
         </div>
       </div>

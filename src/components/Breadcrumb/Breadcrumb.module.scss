@@ -1,0 +1,36 @@
+@import "/src/styles/common.scss";
+
+.breadcrumbContainer {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbItem {
+  @include subheadingSemiboldXs;
+  text-wrap: nowrap;
+
+  &:not(:last-child) {
+    &:after {
+      content: "/";
+      padding: 0 $spacing4xs;
+    }
+  }
+}
+
+.breadcrumbLink {
+  a {
+    @include subheadingSemiboldXs;
+    @extend %textUnderline;
+    color: $fontColor;
+  }
+
+  &.hidden {
+    a {
+      display: none;
+    }
+
+    &:after {
+      content: "...";
+    }
+  }
+}

@@ -60,3 +60,4 @@ export * from './CookieSettingsLink/CookieSettingsLink';
 export * from './WideWrapper/WideWrapper';
 export * from './Image/Image';
 export * from './Image/ImageCarousel';
+export * from './Breadcrumb/Breadcrumb';

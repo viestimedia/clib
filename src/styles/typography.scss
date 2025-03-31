@@ -656,3 +656,8 @@
   font-size: 12px;
   font-weight: 400;
 }
+
+%textUnderline {
+  text-decoration: underline;
+  text-underline-position: from-font;
+}
