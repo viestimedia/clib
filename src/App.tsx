@@ -24,6 +24,7 @@ import {
   ListHeadingType,
   InputCheckbox,
   Breadcrumb,
+  NotificationBanner,
 } from './components';
 
 import { useState } from 'react';
@@ -216,6 +217,8 @@ function FooterRoute() {
 }
 
 function SomethingelseRoute() {
+  const [showNotificationBanner, setShowNotificationBanner] = useState(false);
+
   return (
     <>
       <div className="py-6 text-left">
@@ -1310,6 +1313,17 @@ function SomethingelseRoute() {
             id="art3"
             teaserType={TeaserType.Large}
             tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+            buttons={[
+              <Button
+                icon={<ArrowForwardIcon />}
+                variant={ButtonVariant.Secondary} // Use secondary variant until we have design
+                size={ButtonSize.XS}
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log('clicked');
+                }}
+              />,
+            ]}
           />
           <Teaser
             heading="Compact teaser lorem ipsum dolor sit amet"
@@ -1318,7 +1332,22 @@ function SomethingelseRoute() {
             id="art4"
             teaserType={TeaserType.Compact}
             tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+            buttons={[
+              <Button
+                icon={<ArrowForwardIcon />}
+                variant={ButtonVariant.Secondary} // Use secondary variant until we have design
+                size={ButtonSize.XS}
+                onClick={(e) => {
+                  e.preventDefault();
+                  // show notification banner
+                  setShowNotificationBanner(true);
+                }}
+              />,
+            ]}
           />
+          {showNotificationBanner && (
+            <NotificationBanner text="Tässäpä notifikaatioon jotain tekstiä" />
+          )}
           <Teaser
             heading="Compact teaser with author lorem ipsum dolor sit amet"
             linkUrl="/art4"

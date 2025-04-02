@@ -115,3 +115,15 @@
   display: inline-block;
   padding-bottom: 8px;
 }
+
+%boxShadowSm {
+  -webkit-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.08);
+}
+
+%boxShadowMd {
+  -webkit-box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.09);
+  -moz-box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.09);
+}

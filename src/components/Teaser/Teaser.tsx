@@ -47,6 +47,7 @@ type Props = {
   rankNumber?: number;
   teaserType?: TeaserType;
   className?: string;
+  buttons?: React.ReactElement[];
 };
 
 export const Teaser = ({
@@ -64,6 +65,7 @@ export const Teaser = ({
   date,
   rankNumber,
   teaserType = TeaserType.Compact,
+  buttons,
   className = '',
 }: Props) => {
   const moduleExtend = styles[className] ? true : false;
@@ -85,7 +87,12 @@ export const Teaser = ({
         data-analytics-name="teaser-link"
       >
         {topBanner && <div className={styles.banner}>{topBanner}</div>}
-        {image && <div className={styles.articleImage}>{image}</div>}
+        {image && (
+          <div className={styles.articleImage}>
+            {image}
+            {buttons && <div className={styles.buttons}>{buttons}</div>}
+          </div>
+        )}
         {author && <div className={styles.authorContainer}>{author}</div>}
         {rankNumber && <div className={styles.rankNumber}>{rankNumber}</div>}
         <div className={styles.articleInfo}>
