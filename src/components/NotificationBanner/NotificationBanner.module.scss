@@ -10,14 +10,38 @@
   z-index: 1000;
   background-color: $white;
   @extend %boxShadowSm;
-  padding: 16px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 24px 1fr 24px;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 40px;
+  padding: $spacingSm 40px;
   width: 100%;
   opacity: 1;
   transition: opacity 3s ease-out; /* Transition for fade-out */
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing2xs;
+}
+
+.title {
+  @include subheadingBoldSm;
+}
+
+.text {
+  @include captionSemiboldMd;
+
+  a {
+    @include captionSemiboldMd;
+    @extend %textUnderline;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
 }
 
 .fadeOut {

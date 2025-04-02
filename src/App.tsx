@@ -38,6 +38,7 @@ import { Brand } from 'components/Link/Link';
 import { CookieSettingsLink } from 'components/CookieSettingsLink/CookieSettingsLink';
 import { ViestimediaFooter } from 'components/ViestimediaFooter/ViestimediaFooter';
 import ArrowForwardIcon from 'assets/icons/arrow-forward-outline.svg';
+import CheckIcon from 'assets/icons/check-circle-filled.svg';
 import { ImageCarousel } from './components/Image/ImageCarousel';
 
 const oneWeekLater = add(new Date(), { days: 7 });
@@ -1346,7 +1347,16 @@ function SomethingelseRoute() {
             ]}
           />
           {showNotificationBanner && (
-            <NotificationBanner text="Tässäpä notifikaatioon jotain tekstiä" />
+            <NotificationBanner
+              title="Otsikko"
+              text={
+                <>
+                  Tässäpä notifikaatioon jotain tekstiä kera{' '}
+                  <a href="https://www.mt.fi">linkin</a>
+                </>
+              }
+              icon={<CheckIcon />}
+            />
           )}
           <Teaser
             heading="Compact teaser with author lorem ipsum dolor sit amet"
