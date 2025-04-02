@@ -14,20 +14,32 @@ export const NotificationBanner = ({ title, text, icon }: Props) => {
   const [isVisible, setIsVisible] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
+  // Fade out after 5 seconds
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const fadeOutTimer = setTimeout(() => {
       setFadeOut(true);
-    }, 5000); // 5 seconds
+    }, 5000);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(fadeOutTimer);
+  }, []);
+
+  // Remove after 10 seconds to not show it to the screen readers etc.
+  useEffect(() => {
+    const removeTimer = setTimeout(() => {
+      setIsVisible(false);
+    }, 10000);
+
+    return () => clearTimeout(removeTimer);
   }, []);
 
   if (!isVisible || (!title && !text)) {
     return null;
   }
-
   return (
-    <div className={`${styles.container} ${fadeOut ? styles.fadeOut : ''}`}>
+    <div
+      className={`${styles.container} ${fadeOut ? styles.fadeOut : ''}`}
+      aria-live="polite"
+    >
       {icon && <div className={styles.icon}>{icon}</div>}
 
       <div className={styles.textContainer}>
