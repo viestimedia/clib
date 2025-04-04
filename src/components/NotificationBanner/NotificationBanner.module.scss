@@ -1,0 +1,50 @@
+@import "/src/styles/common";
+
+.container {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  z-index: 1000;
+  background-color: $white;
+  @extend %boxShadowSm;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: $spacingSm 40px;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 3s ease-out; /* Transition for fade-out */
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing2xs;
+  width: 100%;
+}
+
+.title {
+  @include subheadingBoldSm;
+}
+
+.text {
+  @include captionSemiboldMd;
+
+  a {
+    @include captionSemiboldMd;
+    @extend %textUnderline;
+    color: $fontColor;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.fadeOut {
+  opacity: 0;
+}

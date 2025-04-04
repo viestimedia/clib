@@ -61,3 +61,4 @@ export * from './WideWrapper/WideWrapper';
 export * from './Image/Image';
 export * from './Image/ImageCarousel';
 export * from './Breadcrumb/Breadcrumb';
+export * from './NotificationBanner/NotificationBanner';

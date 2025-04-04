@@ -24,6 +24,7 @@ import {
   ListHeadingType,
   InputCheckbox,
   Breadcrumb,
+  NotificationBanner,
 } from './components';
 
 import { useState } from 'react';
@@ -37,6 +38,7 @@ import { Brand } from 'components/Link/Link';
 import { CookieSettingsLink } from 'components/CookieSettingsLink/CookieSettingsLink';
 import { ViestimediaFooter } from 'components/ViestimediaFooter/ViestimediaFooter';
 import ArrowForwardIcon from 'assets/icons/arrow-forward-outline.svg';
+import CheckIcon from 'assets/icons/check-circle-filled.svg';
 import { ImageCarousel } from './components/Image/ImageCarousel';
 
 const oneWeekLater = add(new Date(), { days: 7 });
@@ -216,6 +218,8 @@ function FooterRoute() {
 }
 
 function SomethingelseRoute() {
+  const [showNotificationBanner, setShowNotificationBanner] = useState(false);
+
   return (
     <>
       <div className="py-6 text-left">
@@ -1310,6 +1314,17 @@ function SomethingelseRoute() {
             id="art3"
             teaserType={TeaserType.Large}
             tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+            buttons={[
+              <Button
+                icon={<ArrowForwardIcon />}
+                variant={ButtonVariant.Secondary} // Use secondary variant until we have design
+                size={ButtonSize.XS}
+                onClick={(e) => {
+                  e.preventDefault();
+                  console.log('clicked');
+                }}
+              />,
+            ]}
           />
           <Teaser
             heading="Compact teaser lorem ipsum dolor sit amet"
@@ -1318,7 +1333,31 @@ function SomethingelseRoute() {
             id="art4"
             teaserType={TeaserType.Compact}
             tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+            buttons={[
+              <Button
+                icon={<ArrowForwardIcon />}
+                variant={ButtonVariant.Secondary} // Use secondary variant until we have design
+                size={ButtonSize.XS}
+                onClick={(e) => {
+                  e.preventDefault();
+                  // show notification banner
+                  setShowNotificationBanner(true);
+                }}
+              />,
+            ]}
           />
+          {showNotificationBanner && (
+            <NotificationBanner
+              title="Otsikko"
+              text={
+                <>
+                  Tässäpä notifikaatioon jotain tekstiä kera{' '}
+                  <a href="https://www.mt.fi">linkin</a>
+                </>
+              }
+              icon={<CheckIcon />}
+            />
+          )}
           <Teaser
             heading="Compact teaser with author lorem ipsum dolor sit amet"
             linkUrl="/art4"
