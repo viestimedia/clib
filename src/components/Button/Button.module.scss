@@ -271,11 +271,6 @@
   &.bookmark.withIcon {
     background-color: white;
 
-    svg {
-      width: 20px;
-      height: 20px;
-    }
-
     &:hover,
     &:active {
       svg {

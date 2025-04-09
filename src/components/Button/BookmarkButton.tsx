@@ -1,5 +1,5 @@
 import styles from './Button.module.scss';
-import { Button, ButtonVariant } from 'components/Button/Button';
+import { Button, ButtonSize, ButtonVariant } from 'components/Button/Button';
 import BookmarkIcon from 'assets/icons/bookmark.svg';
 
 type Props = {
@@ -11,6 +11,7 @@ export const BookmarkButton = ({ isBookmarked, onClick }: Props) => {
   return (
     <Button
       variant={ButtonVariant.Bookmark}
+      size={ButtonSize.XS}
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
