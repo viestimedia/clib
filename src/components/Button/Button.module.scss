@@ -267,6 +267,41 @@
       box-shadow: 0 0 0 4px $grey300;
     }
   }
+
+  &.bookmark.withIcon {
+    background-color: white;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover,
+    &:active {
+      svg {
+        path {
+          fill: $grey900;
+        }
+      }
+    }
+
+    &.selected {
+      svg {
+        path {
+          fill: $grey900;
+        }
+      }
+
+      &:hover,
+      &:active {
+        svg {
+          path {
+            fill: $white;
+          }
+        }
+      }
+    }
+  }
 }
 
 .naked {
@@ -292,6 +327,55 @@
   &.extraSmall {
     .progress {
       scale: 0.8;
+    }
+  }
+}
+
+.bookmarkButton {
+  &.withIcon {
+    background-color: white;
+    width: 20px;
+    height: 20px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:not(:disabled) {
+      &:hover,
+      &:active {
+        background-color: $white;
+
+        svg {
+          path {
+            fill: $grey900;
+          }
+        }
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    &.selected {
+      svg {
+        path {
+          fill: $grey900;
+        }
+      }
+
+      &:not(:disabled) {
+        &:hover,
+        &:active {
+          svg {
+            path {
+              fill: $white;
+            }
+          }
+        }
+      }
     }
   }
 }

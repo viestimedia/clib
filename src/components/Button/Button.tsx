@@ -16,6 +16,7 @@ export enum ButtonVariant {
   Naked = 'naked', // button without button styles or paddings
   Success = 'success',
   Alert = 'alert',
+  Bookmark = 'bookmark', // icon only button with special hover styles
 
   // Used only with old (before 2025) Design System
   Tertiary = 'tertiary',

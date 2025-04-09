@@ -40,6 +40,7 @@ import { ViestimediaFooter } from 'components/ViestimediaFooter/ViestimediaFoote
 import ArrowForwardIcon from 'assets/icons/arrow-forward-outline.svg';
 import CheckIcon from 'assets/icons/check-circle-filled.svg';
 import { ImageCarousel } from './components/Image/ImageCarousel';
+import { BookmarkButton } from 'components/Button/BookmarkButton';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -1315,13 +1316,11 @@ function SomethingelseRoute() {
             teaserType={TeaserType.Large}
             tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
             buttons={[
-              <Button
-                icon={<ArrowForwardIcon />}
-                variant={ButtonVariant.Secondary} // Use secondary variant until we have design
-                size={ButtonSize.XS}
-                onClick={(e) => {
-                  e.preventDefault();
-                  console.log('clicked');
+              <BookmarkButton
+                isBookmarked={false}
+                onClick={() => {
+                  // show notification banner
+                  setShowNotificationBanner(!showNotificationBanner);
                 }}
               />,
             ]}
@@ -1334,14 +1333,11 @@ function SomethingelseRoute() {
             teaserType={TeaserType.Compact}
             tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
             buttons={[
-              <Button
-                icon={<ArrowForwardIcon />}
-                variant={ButtonVariant.Secondary} // Use secondary variant until we have design
-                size={ButtonSize.XS}
-                onClick={(e) => {
-                  e.preventDefault();
+              <BookmarkButton
+                isBookmarked={true}
+                onClick={() => {
                   // show notification banner
-                  setShowNotificationBanner(true);
+                  setShowNotificationBanner(!showNotificationBanner);
                 }}
               />,
             ]}
