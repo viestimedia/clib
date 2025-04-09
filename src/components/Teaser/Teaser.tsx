@@ -48,6 +48,7 @@ type Props = {
   teaserType?: TeaserType;
   className?: string;
   buttons?: React.ReactElement[];
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
 export const Teaser = ({
@@ -67,6 +68,7 @@ export const Teaser = ({
   teaserType = TeaserType.Compact,
   buttons,
   className = '',
+  onClick,
 }: Props) => {
   const moduleExtend = styles[className] ? true : false;
   const headingStyle = TeaserHeadingMap[teaserType];
@@ -86,6 +88,7 @@ export const Teaser = ({
         className={styles.teaserLink}
         id={`teaser-${id}`}
         data-analytics-name="teaser-link"
+        onClick={onClick}
       >
         {topBanner && <div className={styles.banner}>{topBanner}</div>}
         {image && (
