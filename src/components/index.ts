@@ -62,3 +62,4 @@ export * from './Image/Image';
 export * from './Image/ImageCarousel';
 export * from './Breadcrumb/Breadcrumb';
 export * from './NotificationBanner/NotificationBanner';
+export * from './Button/BookmarkButton';
