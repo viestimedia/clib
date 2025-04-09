@@ -1319,7 +1319,22 @@ function SomethingelseRoute() {
               <BookmarkButton
                 isBookmarked={false}
                 onClick={() => {
-                  // show notification banner
+                  setShowNotificationBanner(!showNotificationBanner);
+                }}
+              />,
+            ]}
+          />
+          <Teaser
+            heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet without image"
+            category="Kategoria"
+            linkUrl="/art4"
+            id="art3-no-image"
+            teaserType={TeaserType.Large}
+            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+            buttons={[
+              <BookmarkButton
+                isBookmarked={true}
+                onClick={() => {
                   setShowNotificationBanner(!showNotificationBanner);
                 }}
               />,
@@ -1336,7 +1351,21 @@ function SomethingelseRoute() {
               <BookmarkButton
                 isBookmarked={true}
                 onClick={() => {
-                  // show notification banner
+                  setShowNotificationBanner(!showNotificationBanner);
+                }}
+              />,
+            ]}
+          />
+          <Teaser
+            heading="Compact teaser without image"
+            linkUrl="/art4"
+            id="art4-no-image"
+            teaserType={TeaserType.Compact}
+            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+            buttons={[
+              <BookmarkButton
+                isBookmarked={false}
+                onClick={() => {
                   setShowNotificationBanner(!showNotificationBanner);
                 }}
               />,

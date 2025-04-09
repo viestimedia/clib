@@ -76,6 +76,7 @@ export const Teaser = ({
       className={classNames(styles.teaserContainer, {
         [styles[teaserType]]: true,
         [styles.noImage]: Boolean(!image),
+        [styles.hasButtons]: Boolean(buttons),
         [styles[className]]: moduleExtend,
         [className]: !moduleExtend,
       })}
@@ -91,6 +92,11 @@ export const Teaser = ({
           <div className={styles.articleImage}>
             {image}
             {buttons && <div className={styles.buttons}>{buttons}</div>}
+          </div>
+        )}
+        {!image && buttons && (
+          <div className={styles.buttonContainer}>
+            <div className={styles.buttons}>{buttons}</div>
           </div>
         )}
         {author && <div className={styles.authorContainer}>{author}</div>}
