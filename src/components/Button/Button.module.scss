@@ -286,15 +286,6 @@
           fill: $grey900;
         }
       }
-
-      &:hover,
-      &:active {
-        svg {
-          path {
-            fill: $white;
-          }
-        }
-      }
     }
   }
 }
