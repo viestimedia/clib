@@ -12,9 +12,7 @@ export const BookmarkButton = ({ isBookmarked, onClick }: Props) => {
     <Button
       variant={ButtonVariant.Bookmark}
       size={ButtonSize.XS}
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
+      onClick={() => {
         onClick();
       }}
       icon={<BookmarkIcon />}

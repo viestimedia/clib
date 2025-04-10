@@ -91,17 +91,7 @@ export const Teaser = ({
         onClick={onClick}
       >
         {topBanner && <div className={styles.banner}>{topBanner}</div>}
-        {image && (
-          <div className={styles.articleImage}>
-            {image}
-            {buttons && <div className={styles.buttons}>{buttons}</div>}
-          </div>
-        )}
-        {!image && buttons && (
-          <div className={styles.buttonContainer}>
-            <div className={styles.buttons}>{buttons}</div>
-          </div>
-        )}
+        {image && <div className={styles.articleImage}>{image}</div>}
         {author && <div className={styles.authorContainer}>{author}</div>}
         {rankNumber && <div className={styles.rankNumber}>{rankNumber}</div>}
         <div className={styles.articleInfo}>
@@ -126,6 +116,7 @@ export const Teaser = ({
           )}
         </div>
       </Link>
+      {buttons && <div className={styles.buttons}>{buttons}</div>}
     </div>
   );
 };

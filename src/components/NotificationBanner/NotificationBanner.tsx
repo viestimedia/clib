@@ -50,9 +50,7 @@ export const NotificationBanner = ({ title, text, icon }: Props) => {
       <Button
         variant={ButtonVariant.Transparent}
         size={ButtonSize.XS}
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
+        onClick={() => {
           setIsVisible(false);
         }}
         icon={<CloseIcon />}
