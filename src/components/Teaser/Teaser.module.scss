@@ -1,5 +1,9 @@
 @import "/src/styles/common";
 
+.teaserContainer {
+  position: relative;
+}
+
 .teaserLink {
   color: $fontColor;
   background: $white;
@@ -31,9 +35,15 @@
   }
 }
 
-.buttonContainer {
-  grid-area: buttons;
-  position: relative;
+.buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    top: 14px;
+    right: 14px;
+  }
 }
 
 .articleInfo {
@@ -49,10 +59,9 @@
   }
 }
 
-.buttons {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+// If there's no image, make space for the buttons
+.noImage.hasButtons .heading {
+  padding-right: 24px;
 }
 
 .metadata {
@@ -117,17 +126,6 @@
     .authorContainer {
       padding-bottom: 0;
     }
-
-    &.hasButtons {
-      .teaserLink {
-        display: grid;
-        grid-template-areas:
-          "banner buttons"
-          "author buttons"
-          "info buttons";
-        grid-template-columns: 1fr 24px;
-      }
-    }
   }
 }
 
@@ -156,16 +154,6 @@
     .teaserLink {
       grid-template-columns: 1fr;
     }
-
-    &.hasButtons {
-      .teaserLink {
-        grid-template-areas:
-          "banner buttons"
-          "author buttons"
-          "info buttons";
-        grid-template-columns: 1fr 24px;
-      }
-    }
   }
 
   .articleInfo {
@@ -183,11 +171,6 @@
     @media (min-width: $smallDesktopLowerLimit) {
       padding-bottom: $spacingSm;
     }
-  }
-
-  .buttons {
-    top: -6px;
-    right: -6px;
   }
 }
 
