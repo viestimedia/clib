@@ -33,7 +33,7 @@ export enum ButtonSize {
   L = 'large',
 }
 
-interface ButtonProps
+export interface ButtonProps
   extends React.DetailedHTMLProps<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
