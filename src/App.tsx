@@ -41,6 +41,7 @@ import ArrowForwardIcon from 'assets/icons/arrow-forward-outline.svg';
 import CheckIcon from 'assets/icons/check-circle-filled.svg';
 import { ImageCarousel } from './components/Image/ImageCarousel';
 import { BookmarkButton } from 'components/Button/BookmarkButton';
+import { TeaserCarousel } from 'components/Teaser/TeaserCarousel';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -64,7 +65,7 @@ const defaultTheme = {
   '--blue': '#27659f',
   '--darkOrange': '#c1532f',
   '--brandMarketingDark': '#344454',
-  '--brandCategoryColor': '#1b1b1b',
+  '--brandCategoryColor': '#747474',
 
   '--avPlayerBg': '#195745',
   '--avPlayerHeaderBg': '#268267',
@@ -97,10 +98,11 @@ function App() {
       <style dangerouslySetInnerHTML={{ __html: styleStr }} />
       <AppNav setRoute={setRoute} />
 
+      {route === '#general' && <GeneralRoute />}
+      {route === '#teasers' && <TeaserRoute />}
       {route === '#datepicker' && <DatepickerRoute />}
       {route === '#header' && <HeaderRoute />}
       {route === '#footer' && <FooterRoute />}
-      {route === '#somethingelse' && <SomethingelseRoute />}
     </>
   );
 }
@@ -109,6 +111,16 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
   return (
     <nav className="my-4">
       <ul className="flex justify-center gap-2">
+        <li>
+          <a href="#general" onClick={() => setRoute('general')}>
+            General
+          </a>
+        </li>
+        <li>
+          <a href="#teasers" onClick={() => setRoute('teasers')}>
+            Teasers
+          </a>
+        </li>
         <li>
           <a href="#datepicker" onClick={() => setRoute('datepicker')}>
             Datepicker
@@ -122,11 +134,6 @@ function AppNav({ setRoute }: { setRoute: (v: string) => void }) {
         <li>
           <a href="#footer" onClick={() => setRoute('footer')}>
             Footer
-          </a>
-        </li>
-        <li>
-          <a href="#somethingelse" onClick={() => setRoute('somethingelse')}>
-            Something else
           </a>
         </li>
       </ul>
@@ -218,9 +225,209 @@ function FooterRoute() {
   );
 }
 
-function SomethingelseRoute() {
+function TeaserRoute() {
   const [showNotificationBanner, setShowNotificationBanner] = useState(false);
 
+  return (
+    <div className="py-6 text-left">
+      <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">
+        <Teaser
+          heading="Kuvallinen hevosilmoitus"
+          subheading="2 v 6 kk, tamma, suomenhevonen, 6000 €"
+          linkUrl="/art1"
+          image={<img src="https://picsum.photos/920/516" />}
+          tag={<Tag text="Myydään" className="bg-[#815109]" />}
+          id="art1"
+          teaserType={TeaserType.Medium}
+          className="hasBorder"
+        />
+        <Teaser
+          heading="Kuvaton medium-teaser hevosilmoitus"
+          subheading="4 v 6 kk, tamma"
+          linkUrl="/art2"
+          tag={
+            <Tag
+              text="Ostetaan"
+              className="border border-[#815109] !text-[#815109] !leading-4"
+            />
+          }
+          id="art2"
+          teaserType={TeaserType.Medium}
+          className="hasBorder"
+        />
+        <Teaser
+          heading="Case IH Axial-Flow 6160–7160"
+          text="2024-"
+          linkUrl="/art1"
+          image={<img src="https://picsum.photos/200" />}
+          tag={<Tag text="Puimurit" type={TagType.Primary} />}
+          id="art1"
+          teaserType={TeaserType.Machine}
+        />
+        <Teaser
+          heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+          category="Kategoria"
+          linkUrl="/art4"
+          image={<img src="https://picsum.photos/800/450" />}
+          id="art3"
+          teaserType={TeaserType.Large}
+          tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+          buttons={[
+            <BookmarkButton
+              isBookmarked={false}
+              onClick={() => {
+                setShowNotificationBanner(!showNotificationBanner);
+              }}
+            />,
+          ]}
+        />
+        <Teaser
+          heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet without image"
+          category="Kategoria"
+          linkUrl="/art4"
+          id="art3-no-image"
+          teaserType={TeaserType.Large}
+          tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+          buttons={[
+            <BookmarkButton
+              isBookmarked={true}
+              onClick={() => {
+                setShowNotificationBanner(!showNotificationBanner);
+              }}
+            />,
+          ]}
+        />
+        <Teaser
+          heading="Compact teaser lorem ipsum dolor sit amet"
+          linkUrl="/art4"
+          image={<img src="https://picsum.photos/200" />}
+          id="art4"
+          teaserType={TeaserType.Compact}
+          tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+          buttons={[
+            <BookmarkButton
+              isBookmarked={true}
+              onClick={() => {
+                setShowNotificationBanner(!showNotificationBanner);
+              }}
+            />,
+          ]}
+        />
+        <Teaser
+          heading="Compact teaser without image"
+          linkUrl="/art4"
+          id="art4-no-image"
+          teaserType={TeaserType.Compact}
+          tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+          buttons={[
+            <BookmarkButton
+              isBookmarked={false}
+              onClick={() => {
+                setShowNotificationBanner(!showNotificationBanner);
+              }}
+            />,
+          ]}
+        />
+        {showNotificationBanner && (
+          <NotificationBanner
+            title="Otsikko"
+            text={
+              <>
+                Tässäpä notifikaatioon jotain tekstiä kera{' '}
+                <a href="https://www.mt.fi">linkin</a>
+              </>
+            }
+            icon={<CheckIcon />}
+          />
+        )}
+        <Teaser
+          heading="Compact teaser with author lorem ipsum dolor sit amet"
+          linkUrl="/art4"
+          image={<img src="https://picsum.photos/200" />}
+          id="art4"
+          teaserType={TeaserType.Compact}
+          author={<div className="italic">Author placeholder</div>}
+        />
+        <Teaser
+          heading="Related article teaser lorem ipsum dolor sit amet"
+          linkUrl="/art5"
+          image={<img src="https://picsum.photos/200" />}
+          id="art5"
+          teaserType={TeaserType.RelatedArticle}
+          tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
+        />
+        <Teaser
+          heading="Small article teaser lorem ipsum dolor sit amet"
+          linkUrl="/art6"
+          image={<img src="https://picsum.photos/200" />}
+          id="art6"
+          teaserType={TeaserType.Small}
+          tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
+        />
+        <Teaser
+          heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+          text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed ac lacus elit. Sed quis mi molestie, tristique justo eu feugiat. Nulla non  ipsum vitae metus pharetra consectetur."
+          linkUrl="/art7"
+          image={<img src="https://picsum.photos/800" />}
+          id="art7"
+          teaserType={TeaserType.ExtraLarge}
+          tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
+          author={<div className="italic">Author placeholder</div>}
+        />
+        <Teaser
+          heading="Background image teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+          category="Kategoria"
+          linkUrl="/art4"
+          id="art3-no-image"
+          image={<img src="https://picsum.photos/450/600" />}
+          teaserType={TeaserType.BackgroundImage}
+          tag={<Tag text="Tilaajalle" type={TagType.PremiumLight} />}
+        />
+      </div>
+      <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">
+        <TeaserCarousel
+          teasers={[
+            <Teaser
+              heading="Carousel teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+              category="Kategoria"
+              linkUrl="/art1"
+              id="art1-carousel"
+              image={<img src="https://picsum.photos/450/600?random=1" />}
+              teaserType={TeaserType.Carousel}
+              tag={<Tag text="Tilaajalle" type={TagType.PremiumLightPlain} />}
+            />,
+            <Teaser
+              heading="Carousel teaser second lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+              category="Kategoria"
+              linkUrl="/art2"
+              id="art2-carousel"
+              image={<img src="https://picsum.photos/450/600?random=2" />}
+              teaserType={TeaserType.Carousel}
+            />,
+            <Teaser
+              heading="Carousel teaser third lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+              category="Kategoria"
+              linkUrl="/art3"
+              id="art3-carousel"
+              image={<img src="https://picsum.photos/450/600?random=3" />}
+              teaserType={TeaserType.Carousel}
+            />,
+            <Teaser
+              heading="Carousel teaser fourth lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
+              category="Kategoria"
+              linkUrl="/art4"
+              image={<img src="https://picsum.photos/450/600?random=4" />}
+              teaserType={TeaserType.Carousel}
+              id="art4-carousel"
+            />,
+          ]}
+        />
+      </div>
+    </div>
+  );
+}
+
+function GeneralRoute() {
   return (
     <>
       <div className="py-6 text-left">
@@ -1267,156 +1474,6 @@ function SomethingelseRoute() {
               type={ListItemType.JobAdItem}
             />
           </ul>
-        </div>
-      </div>
-
-      <div className="py-6 text-left">
-        <h2 className="text-xl font-bold">Teaser</h2>
-
-        <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">
-          <Teaser
-            heading="Kuvallinen hevosilmoitus"
-            subheading="2 v 6 kk, tamma, suomenhevonen, 6000 €"
-            linkUrl="/art1"
-            image={<img src="https://picsum.photos/920/516" />}
-            tag={<Tag text="Myydään" className="bg-[#815109]" />}
-            id="art1"
-            teaserType={TeaserType.Medium}
-            className="hasBorder"
-          />
-          <Teaser
-            heading="Kuvaton medium-teaser hevosilmoitus"
-            subheading="4 v 6 kk, tamma"
-            linkUrl="/art2"
-            tag={
-              <Tag
-                text="Ostetaan"
-                className="border border-[#815109] !text-[#815109] !leading-4"
-              />
-            }
-            id="art2"
-            teaserType={TeaserType.Medium}
-            className="hasBorder"
-          />
-          <Teaser
-            heading="Case IH Axial-Flow 6160–7160"
-            text="2024-"
-            linkUrl="/art1"
-            image={<img src="https://picsum.photos/200" />}
-            tag={<Tag text="Puimurit" type={TagType.Primary} />}
-            id="art1"
-            teaserType={TeaserType.Machine}
-          />
-          <Teaser
-            heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
-            category="Kategoria"
-            linkUrl="/art4"
-            image={<img src="https://picsum.photos/800/450" />}
-            id="art3"
-            teaserType={TeaserType.Large}
-            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
-            buttons={[
-              <BookmarkButton
-                isBookmarked={false}
-                onClick={() => {
-                  setShowNotificationBanner(!showNotificationBanner);
-                }}
-              />,
-            ]}
-          />
-          <Teaser
-            heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet without image"
-            category="Kategoria"
-            linkUrl="/art4"
-            id="art3-no-image"
-            teaserType={TeaserType.Large}
-            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
-            buttons={[
-              <BookmarkButton
-                isBookmarked={true}
-                onClick={() => {
-                  setShowNotificationBanner(!showNotificationBanner);
-                }}
-              />,
-            ]}
-          />
-          <Teaser
-            heading="Compact teaser lorem ipsum dolor sit amet"
-            linkUrl="/art4"
-            image={<img src="https://picsum.photos/200" />}
-            id="art4"
-            teaserType={TeaserType.Compact}
-            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
-            buttons={[
-              <BookmarkButton
-                isBookmarked={true}
-                onClick={() => {
-                  setShowNotificationBanner(!showNotificationBanner);
-                }}
-              />,
-            ]}
-          />
-          <Teaser
-            heading="Compact teaser without image"
-            linkUrl="/art4"
-            id="art4-no-image"
-            teaserType={TeaserType.Compact}
-            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
-            buttons={[
-              <BookmarkButton
-                isBookmarked={false}
-                onClick={() => {
-                  setShowNotificationBanner(!showNotificationBanner);
-                }}
-              />,
-            ]}
-          />
-          {showNotificationBanner && (
-            <NotificationBanner
-              title="Otsikko"
-              text={
-                <>
-                  Tässäpä notifikaatioon jotain tekstiä kera{' '}
-                  <a href="https://www.mt.fi">linkin</a>
-                </>
-              }
-              icon={<CheckIcon />}
-            />
-          )}
-          <Teaser
-            heading="Compact teaser with author lorem ipsum dolor sit amet"
-            linkUrl="/art4"
-            image={<img src="https://picsum.photos/200" />}
-            id="art4"
-            teaserType={TeaserType.Compact}
-            author={<div className="italic">Author placeholder</div>}
-          />
-          <Teaser
-            heading="Related article teaser lorem ipsum dolor sit amet"
-            linkUrl="/art5"
-            image={<img src="https://picsum.photos/200" />}
-            id="art5"
-            teaserType={TeaserType.RelatedArticle}
-            tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
-          />
-          <Teaser
-            heading="Small article teaser lorem ipsum dolor sit amet"
-            linkUrl="/art6"
-            image={<img src="https://picsum.photos/200" />}
-            id="art6"
-            teaserType={TeaserType.Small}
-            tag={<Tag text="Tilaajalle" type={TagType.PremiumPlain} />}
-          />
-          <Teaser
-            heading="Large teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
-            text="Lorem ipsum dolor sit amet, consectetur adipiscing elit sed ac lacus elit. Sed quis mi molestie, tristique justo eu feugiat. Nulla non  ipsum vitae metus pharetra consectetur."
-            linkUrl="/art7"
-            image={<img src="https://picsum.photos/800" />}
-            id="art7"
-            teaserType={TeaserType.ExtraLarge}
-            tag={<Tag text="Tilaajalle" type={TagType.Premium} />}
-            author={<div className="italic">Author placeholder</div>}
-          />
         </div>
       </div>
 

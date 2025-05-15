@@ -1,0 +1,79 @@
+@import "/src/styles/common";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  padding: $spacingMd 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: $spacingSm;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    gap: $spacingMd;
+  }
+}
+
+.teaserContainer {
+  width: 253px;
+  flex: 0 0 auto;
+}
+
+.canScrollRight .teaserContainer:first-child {
+  margin-left: $spacingMd;
+}
+
+.canScrollLeft .teaserContainer:last-child {
+  margin-right: $spacingMd;
+}
+
+.arrow {
+  display: none;
+  @extend %boxShadowMd;
+
+  @media (min-width: $smallDesktopLowerLimit) {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 50%;
+    width: 46px !important;
+    height: 46px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $grey100;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.leftArrow {
+  left: $spacingMd;
+}
+
+.rightArrow {
+  right: $spacingMd;
+}
