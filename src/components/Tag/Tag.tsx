@@ -16,6 +16,8 @@ export enum TagType {
   Leasing = 'leasing',
   Premium = 'premium',
   PremiumPlain = 'premiumPlain',
+  PremiumLight = 'premiumLight',
+  PremiumLightPlain = 'premiumLightPlain',
   Primary = 'primary',
   Outline = 'outline',
 }
