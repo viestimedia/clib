@@ -214,6 +214,18 @@
   }
 }
 
+.playerHeading {
+  @include subheadingSemiboldXs;
+
+  .category {
+    @include subheadingBoldXs;
+  }
+
+  .divider {
+    @include subheadingSemiboldXs;
+  }
+}
+
 .nativeAd,
 .suomenParhaat {
   &.teaserXl,
