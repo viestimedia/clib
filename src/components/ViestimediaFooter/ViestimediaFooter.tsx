@@ -63,6 +63,14 @@ export const ViestimediaFooter = ({ seoText }: Props) => {
               brand: Brand.VM,
             },
             {
+              title: 'Saavutettavuusseloste',
+              // Note: if this link expires, as it probably will, we might want to link to /saavutettavuusseloste.pdf
+              // Which is a a file that should be available in the public folder of vm-web, so use absolute link for that (Remember ilmoitusautomaatti)
+              url: 'https://eservices.traficom.fi/Saavutettavuusselosteet/statement/9cd4f7b9-2575-45c9-8d43-1ddede532c32',
+              openInNewTab: true,
+              brand: Brand.VM,
+            },
+            {
               title: 'Evästeet',
               url: 'https://www.viestimedia.fi/evasteet/',
               openInNewTab: true,
