@@ -7,11 +7,27 @@ declare global {
     OneTrust: {
       ToggleInfoDisplay: () => void;
     };
+    gravito: {
+      cmp: {
+        openPreferences: () => void;
+      };
+    };
   }
 }
-
 // Link behaviour is defined in Cookie Consent Script
 export const CookieSettingsLink = () => {
+  const isGravito = window.gravito !== undefined;
+  if (isGravito) {
+    return (
+      <button
+        id="settings"
+        className={`${styles.link} gravitoCMP-standardCMP-secondary`}
+        onClick={() => window.gravito.cmp.openPreferences()}
+      >
+        Evästeasetukset
+      </button>
+    );
+  }
   return (
     <button
       id="ot-sdk-btn"
