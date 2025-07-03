@@ -16,23 +16,22 @@ declare global {
 }
 // Link behaviour is defined in Cookie Consent Script
 export const CookieSettingsLink = () => {
-  const isGravito = window.gravito !== undefined;
-  if (isGravito) {
-    return (
-      <button
-        id="settings"
-        className={`${styles.link} gravitoCMP-standardCMP-secondary`}
-        onClick={() => window.gravito.cmp.openPreferences()}
-      >
-        Evästeasetukset
-      </button>
-    );
-  }
+  // This will now evaluate to false on the server side, but it's ok
+  const isGravito =
+    typeof window !== 'undefined' && window.gravito !== undefined;
+  const onClick = () => {
+    if (isGravito) {
+      window.gravito.cmp.openPreferences();
+    } else {
+      window.OneTrust.ToggleInfoDisplay();
+    }
+  };
+
   return (
     <button
       id="ot-sdk-btn"
       className={`${styles.link} ot-sdk-show-settings`}
-      onClick={() => window.OneTrust.ToggleInfoDisplay()}
+      onClick={onClick}
     >
       Evästeasetukset
     </button>
