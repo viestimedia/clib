@@ -16,14 +16,14 @@ declare global {
 }
 // Link behaviour is defined in Cookie Consent Script
 export const CookieSettingsLink = () => {
+  const windowDefined = typeof window !== 'undefined';
   // This will now evaluate to false on the server side, but it's ok
-  const isGravito =
-    typeof window !== 'undefined' && window.gravito !== undefined;
+  const isGravito = windowDefined && window.gravito !== undefined;
   const onClick = () => {
     if (isGravito) {
-      window.gravito.cmp.openPreferences();
+      windowDefined && window.gravito.cmp.openPreferences();
     } else {
-      window.OneTrust.ToggleInfoDisplay();
+      windowDefined && window.OneTrust.ToggleInfoDisplay();
     }
   };
 
