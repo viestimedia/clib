@@ -64,7 +64,11 @@ export const ViestimediaFooter = ({ seoText }: Props) => {
             },
             {
               title: 'Saavutettavuusseloste',
-              url: 'https://eservices.traficom.fi/Saavutettavuusselosteet/statement/9cd4f7b9-2575-45c9-8d43-1ddede532c32',
+              // Note: this link is visible on mt.fi/tilaa, ilmoita.maaseuduntulevaisuus.fi, and koneviesti.fi/tilaa
+              // However, there's no easy way to link to Koneviesti without forcing this component to be used only on the client side
+              // I guess this solution is good enough for now
+              // TODO: Add a accessibility statement page to viestimedia.fi
+              url: 'https://www.maaseuduntulevaisuus.fi/saavutettavuusseloste/',
               openInNewTab: true,
               brand: Brand.VM,
             },
