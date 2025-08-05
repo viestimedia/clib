@@ -1,0 +1,10 @@
+@import '/src/styles/common.scss';
+
+.rdp-root {
+  --rdp-accent-color: #{$grey900}; // chevron etc.
+  --rdp-today-color: #{$grey900}; // today's date
+}
+
+.rdp-today {
+  font-weight: 900;
+}
