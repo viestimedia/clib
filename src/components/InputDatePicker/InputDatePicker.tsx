@@ -5,7 +5,7 @@ import { Input } from 'components/Input/Input';
 import { format } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
 import { usePopper } from 'react-popper';
-import { Datepicker, DayPickerSingleProps } from 'components/Datepicker';
+import { Datepicker, DatepickerProps } from 'components/Datepicker';
 import { validateDate } from 'utils/validate';
 
 type Props = {
@@ -20,16 +20,10 @@ type Props = {
   name?: string;
   value?: Date;
 
-  // datepicker?: Omit<DayPickerSingleProps, 'onSelect' | 'selected'>;
-  datepicker?: DayPickerSingleProps;
+  datepicker?: Omit<DatepickerProps, 'onSelect' | 'selected' | 'mode'>;
 
   // Input spesific props:
   input?: React.ComponentProps<typeof Input>;
-
-  // Forward rest of props to the input (deprecated).
-  // This will be removed in the next major version.
-  // Note: input only accepts known props, `data-something` will not work
-  [key: string]: any;
 };
 
 export const InputDatePicker = ({
@@ -39,7 +33,6 @@ export const InputDatePicker = ({
   value,
   datepicker,
   input,
-  ...rest
 }: Props) => {
   if (!(value instanceof Date) && value !== undefined) {
     console.warn(
@@ -50,15 +43,6 @@ export const InputDatePicker = ({
     // There seems to be no difference between these two
     // value = parseISO(value);
     value = new Date(value);
-  }
-
-  const keys = Object.keys(rest);
-
-  if (keys.length > 0) {
-    console.warn(
-      'InputDatePicker: The following props are deprecated and will be removed in the near future. Please use the input prop instead.',
-      keys
-    );
   }
 
   /**
@@ -161,11 +145,9 @@ export const InputDatePicker = ({
             if (e.key === 'Escape') {
               closeDayPicker();
             }
-
           }}
           onFocus={!inputValue ? openDayPicker : undefined}
           {...input}
-          {...rest} // TODO: Remove these in the near future, they've been replaced by the above
         />
       </div>
       {isDayPickerOpen && (
