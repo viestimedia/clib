@@ -3,7 +3,7 @@
 .button {
   border-radius: 3px;
   color: $grey900;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: $spacing4xs;
@@ -468,6 +468,7 @@
     background: $white;
     content: "";
     mix-blend-mode: color-burn;
+    border-radius: 3px;
   }
 
   &:hover,
