@@ -54,7 +54,7 @@ export * from './ListItem/ListItem';
 export * from './Tabs/Tabs';
 export * from './Tag/Tag';
 export * from './Teaser/Teaser';
-export * from './Teaser/TeaserCarousel';
+export * from './Carousel/Carousel';
 export * from './Footer/Footer';
 export * from './ViestimediaFooter/ViestimediaFooter';
 export * from './CookieSettingsLink/CookieSettingsLink';

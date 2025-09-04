@@ -41,7 +41,7 @@ import ArrowForwardIcon from 'assets/icons/arrow-forward-outline.svg';
 import CheckIcon from 'assets/icons/check-circle-filled.svg';
 import { ImageCarousel } from './components/Image/ImageCarousel';
 import { BookmarkButton } from 'components/Button/BookmarkButton';
-import { TeaserCarousel } from 'components/Teaser/TeaserCarousel';
+import { Carousel } from 'components/Carousel/Carousel';
 
 const oneWeekLater = add(new Date(), { days: 7 });
 const oneWeekBefore = sub(new Date(), { days: 7 });
@@ -385,8 +385,8 @@ function TeaserRoute() {
         />
       </div>
       <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">
-        <TeaserCarousel
-          teasers={[
+        <Carousel
+          items={[
             <Teaser
               heading="Carousel teaser lorem ipsum dolor sit amet lorem ipsum dolor sit amet"
               category="Kategoria"

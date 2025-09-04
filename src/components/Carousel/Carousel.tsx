@@ -4,10 +4,10 @@ import ChevronLeftIcon from 'assets/icons/chevron-left.svg';
 import ChevronRightIcon from 'assets/icons/chevron-right.svg';
 
 type Props = {
-  teasers: React.ReactElement[];
+  items: React.ReactElement[];
 };
 
-export const TeaserCarousel = ({ teasers }: Props) => {
+export const Carousel = ({ items }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -44,7 +44,7 @@ export const TeaserCarousel = ({ teasers }: Props) => {
     }, 1000);
 
     return () => clearTimeout(timeout);
-  }, [teasers]);
+  }, [items]);
 
   const scroll = (direction: 'left' | 'right') => {
     const el = containerRef.current;
@@ -74,7 +74,7 @@ export const TeaserCarousel = ({ teasers }: Props) => {
         className={`${styles.container} ${canScrollLeft ? styles.canScrollLeft : ''} ${canScrollRight ? styles.canScrollRight : ''} `}
         ref={containerRef}
       >
-        {teasers.map((teaser, index) => (
+        {items.map((teaser, index) => (
           <div className={styles.teaserContainer} key={index}>
             {teaser}
           </div>
