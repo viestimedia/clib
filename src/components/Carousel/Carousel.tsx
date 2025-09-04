@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './TeaserCarousel.module.scss';
+import styles from './Carousel.module.scss';
 import ChevronLeftIcon from 'assets/icons/chevron-left.svg';
 import ChevronRightIcon from 'assets/icons/chevron-right.svg';
 
