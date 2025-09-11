@@ -10,6 +10,13 @@ declare global {
     gravito: {
       cmp: {
         openPreferences: () => void;
+        tcf: {
+          currentState: {
+            purposes: {
+              consent: Record<string, boolean>;
+            };
+          };
+        };
       };
     };
   }
