@@ -1227,7 +1227,7 @@ function GeneralRoute() {
           <div className="py-3">
             <Alert
               type={AlertType.Info}
-              text="Info banner text"
+              text="Info banner text lorem ipsum dolor sit amet lorem ipsum sit amet"
               buttonText="Lue lisää"
               buttonLink="/"
             />
