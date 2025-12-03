@@ -35,7 +35,7 @@ export const Alert = ({ type, text, buttonText, buttonLink }: Props) => {
         <div className={styles.button}>
           <Button
             label={buttonText}
-            href={buttonLink}
+            linkUrl={buttonLink}
             variant={ButtonVariant.Primary}
             size={ButtonSize.S}
           />
