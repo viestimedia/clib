@@ -25,6 +25,8 @@ import {
   InputCheckbox,
   Breadcrumb,
   NotificationBanner,
+  Alert,
+  AlertType,
 } from './components';
 
 import { useState } from 'react';
@@ -1220,6 +1222,44 @@ function GeneralRoute() {
       </div>
 
       <div className="py-6 text-left">
+        <h2 className="text-xl font-bold">Info banner</h2>
+        <div className="p-3 border">
+          <div className="py-3">
+            <Alert
+              type={AlertType.Info}
+              text="Info banner text"
+              buttonText="Lue lisää"
+              buttonLink="/"
+            />
+          </div>
+          <div className="py-3">
+            <Alert
+              type={AlertType.Warning}
+              text="Warning banner text"
+              buttonText="Lue lisää"
+              buttonLink="/"
+            />
+          </div>
+          <div className="py-3">
+            <Alert
+              type={AlertType.Error}
+              text="Error banner text"
+              buttonText="Lue lisää"
+              buttonLink="/"
+            />
+          </div>
+          <div className="py-3">
+            <Alert
+              type={AlertType.Help}
+              text="Help banner text"
+              buttonText="Lue lisää"
+              buttonLink="/"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="py-6 text-left">
         <h2 className="text-xl font-bold">Tabs</h2>
 
         <div className=" p-3 border">
@@ -1257,6 +1297,20 @@ function GeneralRoute() {
             mainLogo={<MTLogo />}
             className="headerBannerDemo"
             type="compact"
+            button={
+              <Button
+                label="Palaa MT:n etusivulle"
+                variant={ButtonVariant.Blend}
+                size={ButtonSize.S}
+              />
+            }
+          />
+        </div>
+
+        <div className=" p-3 border">
+          <Alert
+            title="Info banner"
+            text="Info banner text"
             button={
               <Button
                 label="Palaa MT:n etusivulle"
