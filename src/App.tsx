@@ -1308,19 +1308,6 @@ function GeneralRoute() {
         </div>
 
         <div className=" p-3 border">
-          <Alert
-            title="Info banner"
-            text="Info banner text"
-            button={
-              <Button
-                label="Palaa MT:n etusivulle"
-                variant={ButtonVariant.Blend}
-                size={ButtonSize.S}
-              />
-            }
-          />
-        </div>
-        <div className=" p-3 border">
           <HeaderBanner
             mainLogo={<MTLogo />}
             subLogo={<img src="https://picsum.photos/100/20" />}
