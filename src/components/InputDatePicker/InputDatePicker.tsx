@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './InputDatePicker.module.scss';
-import EventIcon from 'assets/icons/event-outlined.svg';
+import EventIcon from 'assets/icons/event-outlined.svg?react';
 import { Input } from 'components/Input/Input';
 import { format } from 'date-fns';
 import FocusTrap from 'focus-trap-react';

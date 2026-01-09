@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import styles from './ImageCarousel.module.scss';
 import { ImageElement, Image } from './Image';
-import ArrowForwardIcon from 'assets/icons/arrow-forward.svg';
-import ArrowBackIcon from 'assets/icons/arrow-back.svg';
+import ArrowForwardIcon from 'assets/icons/arrow-forward.svg?react';
+import ArrowBackIcon from 'assets/icons/arrow-back.svg?react';
 import { Button, ButtonVariant, ButtonSize } from 'components/Button/Button';
 
 type CarouselProps = {
