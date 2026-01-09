@@ -2,7 +2,7 @@ import styles from './ViestimediaFooter.module.scss';
 import { Brand } from 'components/Link/Link';
 import { Link } from '..';
 import { Footer } from '../Footer/Footer';
-import ViestimediaLogo from 'assets/viestimedia-logo.svg';
+import ViestimediaLogo from 'assets/viestimedia-logo.svg?react';
 import { CookieSettingsLink } from '..';
 
 export type Props = {

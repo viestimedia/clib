@@ -1,8 +1,8 @@
 import styles from './Alert.module.scss';
-import InfoIcon from 'assets/icons/info-icon.svg';
-import WarningIcon from 'assets/icons/warn-icon.svg';
-import ErrorIcon from 'assets/icons/error-icon.svg';
-import HelpIcon from 'assets/icons/help-icon.svg';
+import InfoIcon from 'assets/icons/info-icon.svg?react';
+import WarningIcon from 'assets/icons/warn-icon.svg?react';
+import ErrorIcon from 'assets/icons/error-icon.svg?react';
+import HelpIcon from 'assets/icons/help-icon.svg?react';
 import { ButtonVariant, ButtonSize } from 'components/Button/Button';
 import { Button } from 'components/Button/Button';
 

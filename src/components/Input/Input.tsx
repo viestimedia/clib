@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import styles from './Input.module.scss';
 import { InputMessage } from 'components/InputMessage/InputMessage';
 import classNames from 'classnames';
-import EyeIcon from 'assets/icons/eye.svg';
-import EyeSlashIcon from 'assets/icons/eye-slash.svg';
+import EyeIcon from 'assets/icons/eye.svg?react';
+import EyeSlashIcon from 'assets/icons/eye-slash.svg?react';
 import { Button, ButtonVariant } from '..';
 
 interface Props

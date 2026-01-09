@@ -1,7 +1,7 @@
 import styles from './InputMessage.module.scss';
-import SuccessIcon from 'assets/icons/check-circle-filled.svg';
-import WarningIcon from '/src/assets/icons/warning-circle-filled.svg';
-import ErrorIcon from '/src/assets/icons/error-circle-filled.svg';
+import SuccessIcon from 'assets/icons/check-circle-filled.svg?react';
+import WarningIcon from '/src/assets/icons/warning-circle-filled.svg?react';
+import ErrorIcon from '/src/assets/icons/error-circle-filled.svg?react';
 
 type Props = {
   text?: string;

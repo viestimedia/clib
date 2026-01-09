@@ -6,10 +6,10 @@ import ReactPlayer, { FilePlayerProps } from 'react-player/file';
 // import screenfull from 'screenfull';
 import { OnProgressProps } from 'react-player/base';
 
-import PlayIcon from 'assets/icons/play.svg';
-import PauseIcon from 'assets/icons/pause.svg';
-// import FullscreenIcon from 'assets/icons/fullscreen.svg';
-import VolumeIcon from 'assets/icons/volume1.svg';
+import PlayIcon from 'assets/icons/play.svg?react';
+import PauseIcon from 'assets/icons/pause.svg?react';
+// import FullscreenIcon from 'assets/icons/fullscreen.svg?react';
+import VolumeIcon from 'assets/icons/volume1.svg?react';
 
 interface Props {
   className?: string;

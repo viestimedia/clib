@@ -5,7 +5,7 @@ import {
   ButtonVariant,
   ButtonProps,
 } from 'components/Button/Button';
-import BookmarkIcon from 'assets/icons/bookmark.svg';
+import BookmarkIcon from 'assets/icons/bookmark.svg?react';
 
 type Props = {
   isBookmarked: boolean;

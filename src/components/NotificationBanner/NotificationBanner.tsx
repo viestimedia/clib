@@ -3,7 +3,7 @@ import styles from './NotificationBanner.module.scss';
 import { Button } from 'components/Button/Button';
 import { ButtonSize } from 'components/Button/Button';
 import { ButtonVariant } from 'components/Button/Button';
-import CloseIcon from 'assets/icons/close-black.svg';
+import CloseIcon from 'assets/icons/close-black.svg?react';
 type Props = {
   title?: string;
   text?: React.ReactNode;

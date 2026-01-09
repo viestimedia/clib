@@ -1,6 +1,6 @@
 import styles from './Tag.module.scss';
 import classNames from 'classnames';
-import CloseIcon from 'assets/icons/close.svg';
+import CloseIcon from 'assets/icons/close.svg?react';
 
 type Props = {
   text: string;
