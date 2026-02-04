@@ -1,6 +1,6 @@
 import { UrlObject } from 'url';
 // import { Brand } from './brand';
-import { HTMLAttributeAnchorTarget, PropsWithChildren } from 'react';
+import React, { HTMLAttributeAnchorTarget, PropsWithChildren } from 'react';
 
 export enum Brand {
   MT = 'mt',
@@ -85,8 +85,8 @@ export type RemixLinkComponentProps = PropsWithChildren<RemixLinkProps>;
 type NextLinkPropsLike = Omit<NextLinkComponentProps, 'prefetch'> & {
   prefetch?: boolean;
 };
-export type NextLinkType = (props: NextLinkPropsLike) => JSX.Element;
-export type RemixLinkType = (props: RemixLinkComponentProps) => JSX.Element;
+export type NextLinkType = (props: NextLinkPropsLike) => React.JSX.Element;
+export type RemixLinkType = (props: RemixLinkComponentProps) => React.JSX.Element;
 
 /**
  * Standard <a> element that's used as a fallback
