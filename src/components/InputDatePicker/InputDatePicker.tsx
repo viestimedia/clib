@@ -4,7 +4,7 @@ import EventIcon from 'assets/icons/event-outlined.svg?react';
 import { Input } from 'components/Input/Input';
 import { format } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
-import { usePopper } from 'react-popper';
+import { useFloating, autoUpdate, offset, flip, shift } from '@floating-ui/react';
 import { Datepicker, DatepickerProps } from 'components/Datepicker';
 import { validateDate } from 'utils/validate';
 
@@ -63,20 +63,13 @@ export const InputDatePicker = ({
 
   const [isDayPickerOpen, setIsDayPickerOpen] = useState(false);
 
-  const popperRef = useRef<HTMLInputElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
-    null
-  );
 
-  // TODO: Remove this logging when done with the component
-  // useEffect(() => {
-  //   console.log('Datepicker data', {
-  //     selected,
-  //     inputValue,
-  //     datepicker,
-  //   });
-  // }, [selected, inputValue, datepicker]);
+  const { refs, floatingStyles } = useFloating({
+    placement: 'bottom-start',
+    whileElementsMounted: autoUpdate,
+    middleware: [offset(4), flip(), shift()],
+  });
 
   // I wrote this effect when TS complained about not matching
   // the correct type for onSelected. It also works with the
@@ -89,10 +82,6 @@ export const InputDatePicker = ({
       setInputValue('');
     }
   }, [selected]);
-
-  const popper = usePopper(popperRef.current, popperElement, {
-    placement: 'bottom-start',
-  });
 
   const closeDayPicker = () => {
     setIsDayPickerOpen(false);
@@ -126,7 +115,7 @@ export const InputDatePicker = ({
           value={selected?.toISOString() || ''} // Fixes: A component is changing an uncontrolled input to be controlled.
         />
         <Input
-          ref={popperRef}
+          ref={refs.setReference}
           label={label}
           required={required}
           value={inputValue}
@@ -163,10 +152,9 @@ export const InputDatePicker = ({
         >
           <div
             tabIndex={-1}
-            style={popper.styles.popper}
+            style={floatingStyles}
             className={styles.modal}
-            {...popper.attributes.popper}
-            ref={setPopperElement}
+            ref={refs.setFloating}
             role="dialog"
             aria-label="DayPicker calendar"
           >
