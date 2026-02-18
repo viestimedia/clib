@@ -7,6 +7,7 @@ import { Spinner } from 'components/Spinner/Spinner';
 
 export enum ButtonVariant {
   Primary = 'primary',
+  PrimaryLight = 'primaryLight',
   Secondary = 'secondary',
   SecondaryBold = 'secondaryBold',
   Transparent = 'transparent',

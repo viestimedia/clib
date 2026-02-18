@@ -79,6 +79,7 @@
   }
 
   &.primary,
+  &.primaryLight,
   &.sales,
   &.success,
   &.alert,
@@ -203,6 +204,29 @@
 
     &:focus {
       box-shadow: 0 0 0 4px $grey300;
+    }
+  }
+
+  &.primaryLight {
+    background-color: $white;
+    color: $grey900;
+
+    &.withIcon {
+      path {
+        fill: $grey900;
+      }
+    }
+
+    &:hover {
+      background-color: $grey200;
+    }
+
+    &:active {
+      background-color: $grey300;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 4px $grey600;
     }
   }
 

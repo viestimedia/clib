@@ -9,7 +9,7 @@ type Props = {
   title?: string;
   text?: React.ReactNode;
   icon?: React.ReactNode;
-  button: React.ReactNode;
+  button?: React.ReactNode;
   brand?: Brand;
 };
 

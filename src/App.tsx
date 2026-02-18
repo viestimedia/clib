@@ -624,6 +624,11 @@ function GeneralRoute() {
               size={ButtonSize.S}
             />
             <Button
+              label="Primary light button"
+              variant={ButtonVariant.PrimaryLight}
+              size={ButtonSize.S}
+            />
+            <Button
               label="Sales button"
               variant={ButtonVariant.Sales}
               size={ButtonSize.S}
