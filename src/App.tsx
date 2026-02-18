@@ -336,10 +336,18 @@ function TeaserRoute() {
             text={
               <>
                 Tässäpä notifikaatioon jotain tekstiä kera{' '}
-                <a href="https://www.mt.fi">linkin</a>
+                <a href="https://www.mt.fi">linkin</a> ja nappikin.
               </>
             }
             icon={<CheckIcon />}
+            button={
+              <Button
+                variant={ButtonVariant.Primary}
+                size={ButtonSize.XS}
+                linkUrl="/"
+                label="Painike"
+              />
+            }
           />
         )}
         <Teaser

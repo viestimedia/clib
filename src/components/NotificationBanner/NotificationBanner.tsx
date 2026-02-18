@@ -4,13 +4,22 @@ import { Button } from 'components/Button/Button';
 import { ButtonSize } from 'components/Button/Button';
 import { ButtonVariant } from 'components/Button/Button';
 import CloseIcon from 'assets/icons/close-black.svg?react';
+import { Brand } from 'components/Link/Link';
 type Props = {
   title?: string;
   text?: React.ReactNode;
   icon?: React.ReactNode;
+  button: React.ReactNode;
+  brand?: Brand;
 };
 
-export const NotificationBanner = ({ title, text, icon }: Props) => {
+export const NotificationBanner = ({
+  title,
+  text,
+  icon,
+  button,
+  brand,
+}: Props) => {
   const [isVisible, setIsVisible] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
@@ -37,7 +46,7 @@ export const NotificationBanner = ({ title, text, icon }: Props) => {
   }
   return (
     <div
-      className={`${styles.container} ${fadeOut ? styles.fadeOut : ''}`}
+      className={`${styles.container} ${fadeOut ? styles.fadeOut : ''} ${brand === Brand.KV ? styles.kv : ''}`}
       aria-live="polite"
     >
       {icon && <div className={styles.icon}>{icon}</div>}
@@ -47,14 +56,18 @@ export const NotificationBanner = ({ title, text, icon }: Props) => {
         {text && <div className={styles.text}>{text}</div>}
       </div>
 
-      <Button
-        variant={ButtonVariant.Transparent}
-        size={ButtonSize.XS}
-        onClick={() => {
-          setIsVisible(false);
-        }}
-        icon={<CloseIcon />}
-      />
+      <div className={styles.buttons}>
+        {button}
+
+        <Button
+          variant={ButtonVariant.Transparent}
+          size={ButtonSize.XS}
+          onClick={() => {
+            setIsVisible(false);
+          }}
+          icon={<CloseIcon />}
+        />
+      </div>
     </div>
   );
 };

@@ -9,14 +9,34 @@
   max-width: 600px;
   z-index: 1000;
   background-color: $white;
+  border-radius: 3px;
   @extend %boxShadowSm;
   display: flex;
   align-items: center;
-  gap: 40px;
-  padding: $spacingSm 40px;
+  gap: $spacingMd;
+  padding: $spacingSm $spacingMd;
   width: 100%;
   opacity: 1;
   transition: opacity 3s ease-out; /* Transition for fade-out */
+
+  &.kv {
+    background-color: $grey900;
+    color: $white;
+
+    .text,
+    .title {
+      color: $white;
+    }
+
+    a {
+      color: $white;
+    }
+
+    .icon svg path,
+    button svg path {
+      fill: $white;
+    }
+  }
 }
 
 .textContainer {
@@ -40,9 +60,15 @@
   }
 }
 
+.buttons {
+  display: flex;
+  gap: $spacingSm;
+}
+
 .icon {
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
 }
 
 .fadeOut {
