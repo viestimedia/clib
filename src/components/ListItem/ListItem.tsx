@@ -33,7 +33,8 @@ export const ListItem = ({
   id,
 }: Props) => {
   const moduleExtend = styles[className] ? true : false;
-  const isAdItem = type === ListItemType.HorseAdItem || type === ListItemType.JobAdItem; 
+  const isAdItem =
+    type === ListItemType.HorseAdItem || type === ListItemType.JobAdItem;
 
   return (
     <li
@@ -45,12 +46,10 @@ export const ListItem = ({
     >
       <Link href={linkUrl} id={id ? `listItem-${id}` : undefined}>
         {isAdItem && tag && <div className={styles.tag}>{tag}</div>}{' '}
-
         <div className={styles.heading}>
           <div className={styles.mainHeading}>{heading}</div>
           {subheading && <div className={styles.subheading}>{subheading}</div>}
         </div>
-
         {type === ListItemType.Default && (
           <>
             {image && <div className={styles.image}>{image}</div>}

@@ -34,11 +34,10 @@ export enum ButtonSize {
   L = 'large',
 }
 
-export interface ButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {
+export interface ButtonProps extends React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> {
   label?: string;
   linkUrl?: string;
   variant?: ButtonVariant;

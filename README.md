@@ -18,7 +18,7 @@ import {
 
 initializeComponentLibraryWithRemix()(Link as RemixLinkType);
 
-// or 
+// or
 
 initializeComponentLibraryWithNext()(Link as NextLinkType);
 ```
