@@ -36,6 +36,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
         ...newState,
       }),
       {
+        playsinline: true,
         ...player,
       }
     );
