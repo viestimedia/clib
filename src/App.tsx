@@ -445,7 +445,7 @@ function GeneralRoute() {
         <div className=" p-3 border">
           <AVPlayer
             player={{
-              url: 'https://media-develop.viestimedia.net/sidetrack.mp4',
+              url: 'https://d24vi3j4oqssjr.cloudfront.net/10154/320809124/22510901.mp4/1.0.mp4',
             }}
           />
         </div>
