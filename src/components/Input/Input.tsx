@@ -6,14 +6,13 @@ import EyeIcon from 'assets/icons/eye.svg?react';
 import EyeSlashIcon from 'assets/icons/eye-slash.svg?react';
 import { Button, ButtonVariant } from '..';
 
-interface Props
-  extends Omit<
-    React.DetailedHTMLProps<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      HTMLInputElement
-    >,
-    'onChange' // We are using a custom type of onChange
-  > {
+interface Props extends Omit<
+  React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >,
+  'onChange' // We are using a custom type of onChange
+> {
   label?: string;
   labelInfo?: string;
   onChange?(value: string | number): void;

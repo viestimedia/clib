@@ -3,8 +3,12 @@
 $spinnerWidth: 16px;
 
 @keyframes wrapper {
-  0% { transform: translate(-50%,-50%) rotate(0deg); }
-  100% { transform: translate(-50%,-50%) rotate(360deg); }
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 .wrapper {
@@ -26,7 +30,6 @@ $spinnerWidth: 16px;
     border-radius: 50%;
     animation: wrapper 1.4s linear infinite;
     box-sizing: content-box;
-
   }
 
   &.light .spinner {

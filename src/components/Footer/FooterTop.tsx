@@ -9,12 +9,8 @@ export type TopFooterProps = {
 export const FooterTop = ({ actions, logo }: TopFooterProps) => {
   return (
     <div className={styles.topRow}>
-      <div className={styles.logo}>
-        {logo}
-      </div>
-      <div>
-        {actions}
-      </div>
+      <div className={styles.logo}>{logo}</div>
+      <div>{actions}</div>
     </div>
   );
 };
