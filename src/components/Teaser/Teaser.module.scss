@@ -1,4 +1,4 @@
-@import "/src/styles/common";
+@use "/src/styles/common" as *;
 
 .teaserContainer {
   position: relative;
@@ -217,6 +217,10 @@
     justify-content: flex-end;
     color: $white;
   }
+}
+
+.carousel .articleInfo {
+  background: linear-gradient(to top, #1b1b1b 0%, #1b1b1b00 60%);
 }
 
 .backgroundImage {

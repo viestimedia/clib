@@ -1,4 +1,4 @@
-@import '/src/styles/common.scss';
+@use '/src/styles/common' as *;
 
 .rdp-root {
   --rdp-accent-color: #{$grey900}; // chevron etc.

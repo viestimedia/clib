@@ -1,4 +1,4 @@
-@import "/src/styles/common";
+@use "/src/styles/common" as *;
 
 .playerContainer {
   // These overrides should only apply here, right? 
