@@ -27,7 +27,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
   ({ player, className = '' }, ref) => {
     const moduleExtend = styles[className] ? true : false;
 
-    const instance = React.useRef<HTMLVideoElement>(null);
+    const instance = React.useRef<ReactPlayer>(null);
     const [state, setState] = useReducer(
       (state: PlaybackState, newState: Partial<PlaybackState>) => ({
         ...state,
@@ -113,8 +113,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
       setState({ seeking: false });
 
       if (instance.current) {
-        instance.current.currentTime =
-          parseFloat(el.value) * (instance.current.duration || 0);
+        instance.current.seekTo(parseFloat(el.value));
       }
     };
 
@@ -152,7 +151,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             onPause={handlePause}
             onWaiting={() => console.debug('onWaiting')}
             onRateChange={handleRateChange}
-            onSeeking={(e) => console.log('onSeeking', e)}
+            onSeeking={(e: unknown) => console.log('onSeeking', e)}
             onEnded={handleEnded}
             onError={(e) => console.log('onError', e)}
             onTimeUpdate={handleTimeUpdate}
