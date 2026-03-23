@@ -27,7 +27,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
   ({ player, className = '' }, ref) => {
     const moduleExtend = styles[className] ? true : false;
 
-    const instance = React.useRef<ReactPlayer>(null);
+    const instance = React.useRef<InstanceType<typeof ReactPlayer>>(null);
     const [state, setState] = useReducer(
       (state: PlaybackState, newState: Partial<PlaybackState>) => ({
         ...state,
