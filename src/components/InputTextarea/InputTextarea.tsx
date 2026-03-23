@@ -3,14 +3,13 @@ import styles from './InputTextarea.module.scss';
 import { InputMessage } from 'components/InputMessage/InputMessage';
 import classNames from 'classnames';
 
-interface Props
-  extends Omit<
-    React.DetailedHTMLProps<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      HTMLInputElement
-    >,
-    'onChange' // We are using a custom type of onChange
-  > {
+interface Props extends Omit<
+  React.DetailedHTMLProps<
+    React.InputHTMLAttributes<HTMLInputElement>,
+    HTMLInputElement
+  >,
+  'onChange' // We are using a custom type of onChange
+> {
   label?: string;
   onChange?(value: string | number): void;
   message?: string;

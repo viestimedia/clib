@@ -54,8 +54,10 @@ type PrefetchBehavior = 'intent' | 'render' | 'none' | 'viewport';
  * Rest of the props implemented with
  * https://remix.run/docs/ja/main/components/link.
  */
-export interface RemixLinkProps
-  extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
+export interface RemixLinkProps extends Omit<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  'href'
+> {
   to?: Url;
 
   /**
@@ -86,7 +88,9 @@ type NextLinkPropsLike = Omit<NextLinkComponentProps, 'prefetch'> & {
   prefetch?: boolean;
 };
 export type NextLinkType = (props: NextLinkPropsLike) => React.JSX.Element;
-export type RemixLinkType = (props: RemixLinkComponentProps) => React.JSX.Element;
+export type RemixLinkType = (
+  props: RemixLinkComponentProps
+) => React.JSX.Element;
 
 /**
  * Standard <a> element that's used as a fallback

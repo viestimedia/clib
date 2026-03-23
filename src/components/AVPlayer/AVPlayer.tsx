@@ -2,46 +2,47 @@ import React, { useEffect, useReducer } from 'react';
 import styles from './AVPlayer.module.scss';
 import classNames from 'classnames';
 
-import ReactPlayer, { FilePlayerProps } from 'react-player/file';
+import ReactPlayer from 'react-player';
 // import screenfull from 'screenfull';
-import { OnProgressProps } from 'react-player/base';
 
 import PlayIcon from 'assets/icons/play.svg?react';
 import PauseIcon from 'assets/icons/pause.svg?react';
 // import FullscreenIcon from 'assets/icons/fullscreen.svg?react';
 import VolumeIcon from 'assets/icons/volume1.svg?react';
 
+type PlayerProps = Omit<React.ComponentProps<typeof ReactPlayer>, 'ref'>;
+
 interface Props {
   className?: string;
-  // player: React.ComponentProps<typeof ReactPlayer>;
-  player: FilePlayerProps;
+  player: PlayerProps;
 }
 
-/**
- * This player works with files that are supported by the browser.
- * This *does* support playing HLS, but we have a separate implementation for that. ReactPlayer will load hls.js from a public CDN if you pass it an HLS stream.
- *
- * @todo Consider contributing to ReactPlayer to use hls.js from peer dependencies, instead of loading it from a CDN we don't control.
- * That would allow us to remove our "custom" HLS player, which just uses
- * the native unstyled <video> element.
- */
+type PlaybackState = PlayerProps & {
+  played: number;
+  duration: number;
+  seeking?: boolean;
+};
+
 export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
   ({ player, className = '' }, ref) => {
     const moduleExtend = styles[className] ? true : false;
 
-    const instance = React.useRef<ReactPlayer>(null);
+    const instance = React.useRef<HTMLVideoElement>(null);
     const [state, setState] = useReducer(
-      (state: FilePlayerProps, newState: Partial<FilePlayerProps>) => ({
+      (state: PlaybackState, newState: Partial<PlaybackState>) => ({
         ...state,
         ...newState,
       }),
       {
+        playsInline: true,
+        played: 0,
+        duration: 0,
         ...player,
       }
     );
 
     const {
-      url,
+      src,
       playing,
       controls,
       light,
@@ -49,7 +50,6 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
       muted,
       loop,
       played,
-      // loaded,
       duration,
       playbackRate,
       pip,
@@ -57,71 +57,9 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
 
     const play = () => setState({ playing: !state.playing });
 
-    // const load = (url: string) => {
-    //   setState({
-    //     url,
-    //     played: 0,
-    //     loaded: 0,
-    //     pip: false,
-    //   });
-    // };
-
-    // const handleStop = () => {
-    //   setState({ url: undefined, playing: false });
-    // };
-
-    // const handleToggleControls = () => {
-    //   // const url = state.url;
-    //   setState(
-    //     {
-    //       controls: !state.controls,
-    //       // url: undefined,
-    //     }
-    //     // () => load(url)
-    //   );
-    // };
-
-    // const handleToggleLight = () => {
-    //   setState({ light: !state.light });
-    // };
-
-    // const handleToggleLoop = () => {
-    //   setState({ loop: !state.loop });
-    // };
-
-    // const handleVolumeChange = (e) => {
-    //   setState({ volume: parseFloat(e.target.value) });
-    // };
-
-    const handleToggleMuted = () => {
-      setState({ muted: !state.muted });
-    };
-
-    // const handleSetPlaybackRate = (e) => {
-    //   setState({ playbackRate: parseFloat(e.target.value) });
-    // };
-
-    const handleOnPlaybackRateChange = (speed: string) => {
-      setState({ playbackRate: parseFloat(speed) });
-    };
-
-    // const handleTogglePIP = () => {
-    //   setState({ pip: !state.pip });
-    // };
-
     const handlePlay = () => {
       console.debug('onPlay');
       setState({ playing: true });
-    };
-
-    const handleEnablePIP = () => {
-      console.debug('onEnablePIP');
-      setState({ pip: true });
-    };
-
-    const handleDisablePIP = () => {
-      console.debug('onDisablePIP');
-      setState({ pip: false });
     };
 
     const handlePause = () => {
@@ -129,33 +67,38 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
       setState({ playing: false });
     };
 
-    const handleProgress = (progress: OnProgressProps) => {
-      console.debug('onProgress', progress);
-      // We only want to update time slider if we are not currently seeking
-      if (!state.seeking) {
-        setState(progress);
-      }
-    };
-
     const handleEnded = () => {
       console.debug('onEnded');
       setState({ playing: state.loop });
     };
 
-    const handleDuration = (duration: number) => {
-      console.debug('onDuration', duration);
-      setState({ duration });
+    const handleTimeUpdate = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+      const video = e.currentTarget;
+      if (!state.seeking && video.duration) {
+        console.debug('onTimeUpdate', video.currentTime);
+        setState({ played: video.currentTime / video.duration });
+      }
     };
 
-    // const handleClickFullscreen = () => {
-    //   // screenfull.request()
-    // };
+    const handleDurationChange = (
+      e: React.SyntheticEvent<HTMLVideoElement>
+    ) => {
+      const dur = e.currentTarget.duration;
+      console.debug('onDurationChange', dur);
+      setState({ duration: dur });
+    };
 
-    const handleSeekMouseDown = () =>
-      // e: React.MouseEvent<HTMLInputElement, MouseEvent>
-      {
-        setState({ seeking: true });
-      };
+    const handleRateChange = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+      setState({ playbackRate: e.currentTarget.playbackRate });
+    };
+
+    const handleToggleMuted = () => {
+      setState({ muted: !state.muted });
+    };
+
+    const handleSeekMouseDown = () => {
+      setState({ seeking: true });
+    };
 
     const handleSeekChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setState({ played: parseFloat(e.target.value) });
@@ -169,8 +112,10 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
       const el = e.target as HTMLInputElement;
       setState({ seeking: false });
 
-      // instance.current.seekTo(parseFloat(e.target.value))
-      instance.current?.seekTo(parseFloat(el.value));
+      if (instance.current) {
+        instance.current.currentTime =
+          parseFloat(el.value) * (instance.current.duration || 0);
+      }
     };
 
     useEffect(() => {
@@ -191,8 +136,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             height="100%"
             ref={instance}
             className={styles.player}
-            // className="not-working"
-            url={url}
+            src={src}
             pip={pip}
             playing={playing}
             controls={controls}
@@ -201,20 +145,18 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
             playbackRate={playbackRate}
             volume={volume}
             muted={muted}
+            playsInline={state.playsInline}
             onReady={() => console.debug('onReady')}
             onStart={() => console.debug('onStart')}
             onPlay={handlePlay}
-            onEnablePIP={handleEnablePIP}
-            onDisablePIP={handleDisablePIP}
             onPause={handlePause}
-            onBuffer={() => console.debug('onBuffer')}
-            onPlaybackRateChange={handleOnPlaybackRateChange}
-            onSeek={(e) => console.log('onSeek', e)}
+            onWaiting={() => console.debug('onWaiting')}
+            onRateChange={handleRateChange}
+            onSeeking={(e) => console.log('onSeeking', e)}
             onEnded={handleEnded}
             onError={(e) => console.log('onError', e)}
-            onProgress={handleProgress}
-            onDuration={handleDuration}
-            {...state}
+            onTimeUpdate={handleTimeUpdate}
+            onDurationChange={handleDurationChange}
           />
           <div className={styles.controls}>
             <button onClick={play} className={styles.playpause}>
@@ -249,7 +191,7 @@ export const AVPlayer = React.forwardRef<HTMLDivElement, Props>(
               <input
                 id="muted"
                 type="checkbox"
-                checked={muted}
+                checked={muted ?? false}
                 onChange={handleToggleMuted}
                 className={styles.srOnly}
               />{' '}

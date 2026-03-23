@@ -445,7 +445,7 @@ function GeneralRoute() {
         <div className=" p-3 border">
           <AVPlayer
             player={{
-              url: 'https://media-develop.viestimedia.net/sidetrack.mp4',
+              src: 'https://d24vi3j4oqssjr.cloudfront.net/10154/320809124/22510901.mp4/1.0.mp4',
             }}
           />
         </div>
@@ -453,7 +453,7 @@ function GeneralRoute() {
         <div className="bg-black p-3 border">
           <AVPlayer
             player={{
-              url: 'https://media-develop.viestimedia.net/podcast.m4a',
+              src: 'https://media-develop.viestimedia.net/podcast.m4a',
             }}
           />
         </div>

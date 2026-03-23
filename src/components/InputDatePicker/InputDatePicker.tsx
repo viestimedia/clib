@@ -4,7 +4,13 @@ import EventIcon from 'assets/icons/event-outlined.svg?react';
 import { Input } from 'components/Input/Input';
 import { format } from 'date-fns';
 import FocusTrap from 'focus-trap-react';
-import { useFloating, autoUpdate, offset, flip, shift } from '@floating-ui/react';
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+} from '@floating-ui/react';
 import { Datepicker, DatepickerProps } from 'components/Datepicker';
 import { validateDate } from 'utils/validate';
 

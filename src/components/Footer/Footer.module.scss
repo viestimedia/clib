@@ -37,6 +37,6 @@
   // %mainLayoutContainerForHeaderAndFooter
   @media (max-width: calc(#{$smallDesktopLowerLimit} - 1px)) {
     max-width: $tabletMainLaneMaxWidth;
-    text-align: center;    
+    text-align: center;
   }
 }

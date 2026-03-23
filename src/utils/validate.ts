@@ -7,6 +7,6 @@ export const validateDate = (dateString: string) => {
 
   if (!isValid(date)) {
     return 'Anna päivämäärä muodossa pp.kk.vvvv';
-  } 
+  }
   return undefined;
 };

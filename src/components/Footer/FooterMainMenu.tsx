@@ -7,7 +7,11 @@ export type MainFooterProps = {
   children?: React.ReactNode;
 };
 
-export const FooterMainMenu = ({ infoTexts, columns, children }: MainFooterProps) => {
+export const FooterMainMenu = ({
+  infoTexts,
+  columns,
+  children,
+}: MainFooterProps) => {
   return (
     <div>
       {infoTexts?.map((text, index) => (

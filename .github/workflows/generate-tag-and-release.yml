@@ -22,7 +22,7 @@ jobs:
       new_tag: ${{ steps.collect.outputs.new_tag }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Configure git
         run: |
@@ -53,7 +53,7 @@ jobs:
     needs: version
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Create release notes
         id: notes
@@ -76,7 +76,7 @@ jobs:
     needs: release
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Node
         uses: actions/setup-node@v6

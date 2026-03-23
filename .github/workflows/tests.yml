@@ -19,7 +19,7 @@ jobs:
         uses: styfle/cancel-workflow-action@0.12.1
 
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
@@ -34,6 +34,9 @@ jobs:
       - name: 🔎 Type check
         run: npm run typecheck --if-present
 
+      - name: 🎨 Check formatting
+        run: npm run format -- --check
+
   vitest:
     name: ⚡ Vitest
     runs-on: ubuntu-latest
@@ -42,7 +45,7 @@ jobs:
         uses: styfle/cancel-workflow-action@0.12.1
 
       - name: ⬇️ Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
