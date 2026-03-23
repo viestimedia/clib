@@ -1,9 +1,16 @@
-@import "./breakpoints.scss";
-@import "./grid.scss";
-@import "./colors.scss";
-@import "./fonts.scss";
-@import "./typography.scss";
-@import "./variables.scss";
+@forward './breakpoints';
+@forward './grid';
+@forward './colors';
+@forward './fonts';
+@forward './typography';
+@forward './variables';
+
+@use './breakpoints' as *;
+@use './grid' as *;
+@use './colors' as *;
+@use './fonts' as *;
+@use './typography' as *;
+@use './variables' as *;
 
 %contentPlaceholder {
   background: white;

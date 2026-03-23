@@ -1,4 +1,4 @@
-@import "/src/styles/common.scss";
+@use "/src/styles/common" as *;
 
 .button {
   border-radius: 3px;

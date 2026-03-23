@@ -1,5 +1,5 @@
-@import "/src/styles/common";
-@import "./range";
+@use "/src/styles/common" as *;
+@use "./range";
 
 .label {
   @extend %inputLabel;
