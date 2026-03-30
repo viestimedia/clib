@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import styles from './Teaser.module.scss';
 import { Heading, HeadingStyle } from 'components/Heading/Heading';
 import { Link } from '..';
+import ClockIcon from 'assets/icons/clock.svg?react';
 
 export enum TeaserType {
   ExtraLarge = 'extraLarge',
@@ -41,9 +42,9 @@ type Props = {
   image?: React.ReactElement;
   topBanner?: React.ReactElement;
   author?: React.ReactElement;
-  metadata?: React.ReactElement;
   tag?: React.ReactElement;
   date?: string;
+  duration?: string;
   rankNumber?: number;
   teaserType?: TeaserType;
   className?: string;
@@ -61,9 +62,9 @@ export const Teaser = ({
   image,
   topBanner,
   author,
-  metadata,
   tag,
   date,
+  duration,
   rankNumber,
   teaserType = TeaserType.Compact,
   buttons,
@@ -108,9 +109,14 @@ export const Teaser = ({
             )}
             {text && <div className={styles.text}>{text}</div>}
           </div>
-          {(metadata || date || tag) && (
+          {(date || duration || tag) && (
             <div className={styles.metadata}>
               {date && <div className={styles.date}>{date}</div>}
+              {duration && (
+                <div className={styles.duration}>
+                  <ClockIcon /> {duration}
+                </div>
+              )}
               {tag && <div className={styles.tag}>{tag}</div>}
             </div>
           )}

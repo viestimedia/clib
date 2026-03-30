@@ -70,6 +70,19 @@
     color: $gray3;
   }
 
+  .duration {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    @extend %metaSmallSemiBold;
+    color: $gray3;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
   .tag {
     line-height: 1em;
   }

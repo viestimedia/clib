@@ -330,6 +330,15 @@ function TeaserRoute() {
             />,
           ]}
         />
+        <Teaser
+          heading="Compact video teaser lorem ipsum dolor sit amet"
+          linkUrl="/art4"
+          image={<img src="https://picsum.photos/200" />}
+          id="art4"
+          teaserType={TeaserType.Compact}
+          duration="3:45"
+        />
+
         {showNotificationBanner && (
           <NotificationBanner
             title="Otsikko"
