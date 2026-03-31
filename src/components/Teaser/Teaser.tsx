@@ -52,6 +52,30 @@ type Props = {
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
+type TeaserMetadataProps = {
+  date?: string;
+  duration?: string;
+  tag?: React.ReactElement;
+};
+
+const TeaserMetadata = ({ date, duration, tag }: TeaserMetadataProps) => {
+  if (!date && !duration && !tag) {
+    return null;
+  }
+
+  return (
+    <div className={styles.metadata}>
+      {date && <div className={styles.date}>{date}</div>}
+      {duration && (
+        <div className={styles.duration}>
+          <ClockIcon /> {duration}
+        </div>
+      )}
+      {tag && <div className={styles.tag}>{tag}</div>}
+    </div>
+  );
+};
+
 export const Teaser = ({
   id,
   heading,
@@ -109,17 +133,7 @@ export const Teaser = ({
             )}
             {text && <div className={styles.text}>{text}</div>}
           </div>
-          {(date || duration || tag) && (
-            <div className={styles.metadata}>
-              {date && <div className={styles.date}>{date}</div>}
-              {duration && (
-                <div className={styles.duration}>
-                  <ClockIcon /> {duration}
-                </div>
-              )}
-              {tag && <div className={styles.tag}>{tag}</div>}
-            </div>
-          )}
+          <TeaserMetadata date={date} duration={duration} tag={tag} />
         </div>
       </Link>
       {buttons && <div className={styles.buttons}>{buttons}</div>}
