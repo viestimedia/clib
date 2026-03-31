@@ -402,6 +402,37 @@ function TeaserRoute() {
           teaserType={TeaserType.BackgroundImage}
           tag={<Tag text="Tilaajalle" type={TagType.PremiumLight} />}
         />
+        <Teaser
+          heading="Uuden sukupolven traktorit mullistavat maatilan arjen – katso vertailu"
+          category="Traktorit"
+          linkUrl="/art4"
+          id="art3-no-image"
+          className="koneviesti"
+          image={<img src="https://viestimedia.imgix.net/kSkT6-ee83GiM08noowjgzNhVJM.jpg?h=1312&fp-x=0.5&fp-y=0.5&crop=focalPoint&fit=crop&fp-z=1&ar=1%3A1" />}
+          teaserType={TeaserType.CategoryLatest}
+          date="25.3.2026"
+          tag={<Tag text="Tilaajalle" type={TagType.PremiumLight} />}
+        />
+      <div style={{ display: 'flex', gap: 16 }}>
+        <Teaser
+          heading="Talvihuolto kuntoon – näin pidät koneet valmiina kevääseen"
+          category="Huolto ja tekniikka"
+          linkUrl="/cat1"
+          id="cat1"
+          teaserType={TeaserType.CategoryLatest}
+          image={<img src="https://viestimedia.imgix.net/c5f16900-e196-5d01-848d-af7e09a043c2.jpg?h=738&fp-x=0.5&fp-y=0.42&crop=focalPoint&fit=crop&fp-z=1&ar=1%3A1" />}
+          date="12.4.2026"
+        />
+        <Teaser
+          heading="Ennätyssato vaatii täsmäviljelyä – GPS ohjaa jo puimuria"
+          category="Maatalous"
+          linkUrl="/cat2"
+          id="cat2"
+          teaserType={TeaserType.CategoryLatest}
+          image={<img src="https://viestimedia.imgix.net/a10879f8-501b-5bd8-91a0-c717f1f6c99a.jpg?h=702&ar=1%3A1&fit=crop" />}
+          date="5.6.2026"
+        />
+      </div>
       </div>
       <div className="bg-gray-200 p-3 border flex flex-col gap-4 max-w-2xl">
         <Carousel
