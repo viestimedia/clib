@@ -169,7 +169,7 @@ const TeaserCategoryLatest = ({
   );
 };
 
-export const Teaser = ({
+const TeaserDefault = ({
   id,
   heading,
   subheading,
@@ -189,41 +189,17 @@ export const Teaser = ({
   onClick,
 }: Props) => {
   const moduleExtend = styles[className] ? true : false;
-  const defaultContainerClassName = classNames(styles.teaserContainer, {
+  const containerClassName = classNames(styles.teaserContainer, {
     [styles[teaserType]]: true,
     [styles.noImage]: Boolean(!image),
     [styles.hasButtons]: Boolean(buttons),
     [styles[className]]: moduleExtend,
     [className]: !moduleExtend,
   });
-
-  if (teaserType === TeaserType.CategoryLatest) {
-    return (
-      <TeaserCategoryLatest
-        id={id}
-        linkUrl={linkUrl}
-        heading={heading}
-        subheading={subheading}
-        category={category}
-        text={text}
-        image={image}
-        topBanner={topBanner}
-        author={author}
-        rankNumber={rankNumber}
-        date={date}
-        duration={duration}
-        tag={tag}
-        buttons={buttons}
-        className={className}
-        onClick={onClick}
-      />
-    );
-  }
-
   const headingStyle = TeaserHeadingMap[teaserType];
 
   return (
-    <div className={defaultContainerClassName}>
+    <div className={containerClassName}>
       <Link
         href={linkUrl}
         className={styles.teaserLink}
@@ -255,4 +231,14 @@ export const Teaser = ({
       {buttons && <div className={styles.buttons}>{buttons}</div>}
     </div>
   );
+};
+
+export const Teaser = (props: Props) => {
+  const { teaserType, ...categoryLatestProps } = props;
+
+  if (teaserType === TeaserType.CategoryLatest) {
+    return <TeaserCategoryLatest {...categoryLatestProps} />;
+  }
+
+  return <TeaserDefault {...props} />;
 };
