@@ -101,17 +101,11 @@ const TeaserCategoryLatest = ({
   id,
   linkUrl,
   heading,
-  subheading,
   category,
-  text,
   image,
-  topBanner,
-  author,
-  rankNumber,
   date,
   duration,
   tag,
-  buttons,
   className = '',
   onClick,
 }: TeaserCategoryLatestProps) => {
@@ -120,7 +114,6 @@ const TeaserCategoryLatest = ({
   const rootClassName = classNames(styles.teaserContainer, {
     [styles[TeaserType.CategoryLatest]]: true,
     [styles.noImage]: Boolean(!image),
-    [styles.hasButtons]: Boolean(buttons),
     [styles[className]]: moduleExtend,
     [className]: !moduleExtend,
   });
@@ -134,18 +127,12 @@ const TeaserCategoryLatest = ({
         data-analytics-name="teaser-link"
         onClick={onClick}
       >
-        {topBanner && <div className={styles.banner}>{topBanner}</div>}
         {image && <div className={styles.articleImage}>{image}</div>}
-        {author && <div className={styles.authorContainer}>{author}</div>}
-        {rankNumber && <div className={styles.rankNumber}>{rankNumber}</div>}
         <div className={styles.articleInfo}>
           <div className={styles.heading}>
             {category && (
               <div
-                className={classNames(styles.standaloneCategory, {
-                  [styles[className]]: moduleExtend,
-                  [className]: Boolean(className) && !moduleExtend,
-                })}
+                className={styles.standaloneCategory}
               >
                 {category}
               </div>
@@ -156,15 +143,10 @@ const TeaserCategoryLatest = ({
               level="h2"
               className={className}
             />
-            {subheading && (
-              <div className={styles.subheading}>{subheading}</div>
-            )}
-            {text && <div className={styles.text}>{text}</div>}
           </div>
           <TeaserMetadata date={date} duration={duration} tag={tag} />
         </div>
       </Link>
-      {buttons && <div className={styles.buttons}>{buttons}</div>}
     </div>
   );
 };
