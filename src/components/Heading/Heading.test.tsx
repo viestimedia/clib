@@ -16,15 +16,19 @@ describe('Heading', () => {
 
 describe('CategoryHeading', () => {
   it('renders title with TeaserCategoryLatest heading', () => {
-    const wrapper = render(<CategoryHeading text="Article title" />);
-    expect(wrapper.getByRole('heading', { name: 'Article title' })).toBeInTheDocument();
+    const wrapper = render(<CategoryHeading text="Article title" level="h2" />);
+    expect(
+      wrapper.getByRole('heading', { name: 'Article title' })
+    ).toBeInTheDocument();
   });
 
   it('renders standalone category when provided', () => {
     const wrapper = render(
-      <CategoryHeading category="News" text="Article title" />
+      <CategoryHeading category="News" text="Article title" level="h2" />
     );
     expect(wrapper.getByText('News')).toBeInTheDocument();
-    expect(wrapper.getByRole('heading', { name: 'Article title' })).toBeInTheDocument();
+    expect(
+      wrapper.getByRole('heading', { name: 'Article title' })
+    ).toBeInTheDocument();
   });
 });
