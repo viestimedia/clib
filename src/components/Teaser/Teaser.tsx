@@ -86,17 +86,11 @@ type TeaserCategoryLatestProps = {
   id: string;
   linkUrl: string;
   heading: string | React.ReactNode;
-  subheading?: string;
   category?: string;
-  text?: string;
   image?: React.ReactElement;
-  topBanner?: React.ReactElement;
-  author?: React.ReactElement;
   tag?: React.ReactElement;
   date?: string;
   duration?: string;
-  rankNumber?: number;
-  buttons?: React.ReactElement[];
   className?: string;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
