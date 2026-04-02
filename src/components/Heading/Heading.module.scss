@@ -85,22 +85,26 @@
 
 .teaserXl,
 .teaserL,
-.teaserM {
+.teaserM
+.teaserCategoryLatest {
   .category,
-  .divider {
+  .divider,
+  .standaloneCategory {
     color: var(--brandCategoryColor);
   }
 
   &.hevoset {
     .category,
-    .divider {
+    .divider,
+    .standaloneCategory {
       color: $brown100;
     }
   }
 
   &.koneviesti {
     .category,
-    .divider {
+    .divider,
+    .standaloneCategory {
       color: $crimson600;
     }
   }
@@ -196,6 +200,21 @@
 
   @container (width > #{$largeContainerLowerLimit}) {
     @include headingBoldMd;
+  }
+}
+
+.standaloneCategory {
+  @include headingBlackMd;
+  color: var(--brandCategoryColor);
+  margin-bottom: $spacingXs;
+  background-color: $white;
+  display: inline-block;
+  padding: $spacing3xs $spacing2xs;
+}
+
+@container (min-width: #{$tabletLowerLimit}) {
+  .standaloneCategory {
+    @include headingBlackLg;
   }
 }
 

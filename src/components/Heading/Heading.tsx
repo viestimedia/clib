@@ -33,6 +33,13 @@ interface HeadingProps {
   extraClassName?: string;
 }
 
+type CategoryHeadingProps = {
+  category?: string;
+  text: string | React.ReactNode;
+  level: HeadingLevel;
+  className?: string;
+};
+
 export const Heading = ({
   text,
   category,
@@ -67,5 +74,31 @@ export const Heading = ({
       )}
       {text}
     </HeadingTag>
+  );
+};
+
+export const CategoryHeading = ({
+  category,
+  text,
+  level,
+  className = '',
+}: CategoryHeadingProps) => {
+  const moduleExtend = styles[className] ? true : false;
+  const rootClassName = classNames(styles.standaloneCategory, {
+    [styles[className]]: moduleExtend,
+    [className]: !moduleExtend,
+  });
+  return (
+    <>
+      {category && (
+        <div className={rootClassName}>{category}</div>
+      )}
+      <Heading
+        text={text}
+        style={HeadingStyle.TeaserCategoryLatest}
+        level={level}
+        className={className}
+      />
+    </>
   );
 };

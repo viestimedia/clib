@@ -258,26 +258,11 @@
     }
   }
 
-  .standaloneCategory {
-    @include headingBlackMd;
-    color: var(--brandCategoryColor);
-    margin-bottom: $spacingXs;
-    background-color: $white;
-    display: inline-block;
-    padding: $spacing3xs $spacing2xs;
-  }
-
   .metadata {
     .date,
     .duration {
       color: $white;
     }
-  }
-}
-
-@container (min-width: #{$tabletLowerLimit}) {
-  .categoryLatest .standaloneCategory {
-    @include headingBlackLg;
   }
 }
 

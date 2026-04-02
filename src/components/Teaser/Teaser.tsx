@@ -1,6 +1,10 @@
 import classNames from 'classnames';
 import styles from './Teaser.module.scss';
-import { Heading, HeadingStyle } from 'components/Heading/Heading';
+import {
+  CategoryHeading,
+  Heading,
+  HeadingStyle,
+} from 'components/Heading/Heading';
 import { Link } from '..';
 import ClockIcon from 'assets/icons/clock.svg?react';
 
@@ -109,7 +113,6 @@ const TeaserCategoryLatest = ({
   className = '',
   onClick,
 }: TeaserCategoryLatestProps) => {
-  const headingStyle = TeaserHeadingMap[TeaserType.CategoryLatest];
   const moduleExtend = styles[className] ? true : false;
   const rootClassName = classNames(styles.teaserContainer, {
     [styles[TeaserType.CategoryLatest]]: true,
@@ -130,16 +133,9 @@ const TeaserCategoryLatest = ({
         {image && <div className={styles.articleImage}>{image}</div>}
         <div className={styles.articleInfo}>
           <div className={styles.heading}>
-            {category && (
-              <div
-                className={styles.standaloneCategory}
-              >
-                {category}
-              </div>
-            )}
-            <Heading
+            <CategoryHeading
+              category={category}
               text={heading}
-              style={headingStyle}
               level="h2"
               className={className}
             />
