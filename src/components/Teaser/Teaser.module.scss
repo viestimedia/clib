@@ -2,6 +2,8 @@
 
 .teaserContainer {
   position: relative;
+  container-type: inline-size;
+  flex: 1 1 0;
 }
 
 .teaserLink {
@@ -202,7 +204,8 @@
 }
 
 .backgroundImage,
-.carousel {
+.carousel,
+.categoryLatest {
   .teaserLink {
     display: block;
   }
@@ -240,6 +243,25 @@
 
     @media (min-width: $smallDesktopLowerLimit) {
       padding: $spacingMd;
+    }
+  }
+}
+
+.categoryLatest {
+  .articleInfo {
+    align-items: center;
+    text-align: center;
+    padding: $spacingSm;
+
+    @media (min-width: $smallDesktopLowerLimit) {
+      padding: $spacingMd;
+    }
+  }
+
+  .metadata {
+    .date,
+    .duration {
+      color: $white;
     }
   }
 }

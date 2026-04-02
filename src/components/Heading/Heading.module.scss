@@ -85,22 +85,26 @@
 
 .teaserXl,
 .teaserL,
-.teaserM {
+.teaserM,
+.teaserCategoryLatest {
   .category,
-  .divider {
+  .divider,
+  .standaloneCategory {
     color: var(--brandCategoryColor);
   }
 
   &.hevoset {
     .category,
-    .divider {
+    .divider,
+    .standaloneCategory {
       color: $brown100;
     }
   }
 
   &.koneviesti {
     .category,
-    .divider {
+    .divider,
+    .standaloneCategory {
       color: $crimson600;
     }
   }
@@ -187,6 +191,29 @@
 
   .divider {
     @include subheadingSemiboldSm;
+  }
+}
+
+// Allows placing two teasers side by side in main lane.
+.teaserCategoryLatest {
+  @include headingBoldSm;
+
+  @container (width > #{$largeContainerLowerLimit}) {
+    @include headingBoldMd;
+  }
+}
+
+.standaloneCategory {
+  @include headingBlackMd;
+  color: var(--brandCategoryColor);
+  margin-bottom: $spacingMd;
+  background-color: $white;
+  display: inline-block;
+  padding: $spacing3xs $spacing2xs;
+
+  @container (min-width: #{$largeContainerLowerLimit}) {
+    @include headingBlackLg;
+    margin-bottom: $spacing3xl;
   }
 }
 
