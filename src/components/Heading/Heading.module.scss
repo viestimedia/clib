@@ -206,15 +206,16 @@
 .standaloneCategory {
   @include headingBlackMd;
   color: var(--brandCategoryColor);
-  margin-bottom: $spacingXs;
+  margin-bottom: $spacingMd;
   background-color: $white;
   display: inline-block;
   padding: $spacing3xs $spacing2xs;
 }
 
-@container (min-width: #{$tabletLowerLimit}) {
+@container (min-width: #{$largeContainerLowerLimit}) {
   .standaloneCategory {
     @include headingBlackLg;
+    margin-bottom: $spacing3xl;
   }
 }
 
