@@ -90,9 +90,7 @@ export const CategoryHeading = ({
   });
   return (
     <>
-      {category && (
-        <div className={rootClassName}>{category}</div>
-      )}
+      {category && <div className={rootClassName}>{category}</div>}
       <Heading
         text={text}
         style={HeadingStyle.TeaserCategoryLatest}
