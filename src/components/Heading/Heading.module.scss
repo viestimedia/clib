@@ -210,10 +210,8 @@
   background-color: $white;
   display: inline-block;
   padding: $spacing3xs $spacing2xs;
-}
 
-@container (min-width: #{$largeContainerLowerLimit}) {
-  .standaloneCategory {
+  @container (min-width: #{$largeContainerLowerLimit}) {
     @include headingBlackLg;
     margin-bottom: $spacing3xl;
   }
