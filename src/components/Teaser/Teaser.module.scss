@@ -2,6 +2,8 @@
 
 .teaserContainer {
   position: relative;
+  container-type: inline-size;
+  flex: 1 1 0;
 }
 
 .teaserLink {
@@ -250,8 +252,6 @@
     align-items: center;
     text-align: center;
     padding: $spacingSm;
-    container-type: inline-size;
-    container-name: categoryLatestTeaser;
 
     @media (min-width: $smallDesktopLowerLimit) {
       padding: $spacingMd;
@@ -275,7 +275,7 @@
   }
 }
 
-@container categoryLatestTeaser (min-width: #{$tabletLowerLimit}) {
+@container (min-width: #{$tabletLowerLimit}) {
   .categoryLatest .standaloneCategory {
     @include headingBlackLg;
   }

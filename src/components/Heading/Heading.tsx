@@ -14,6 +14,7 @@ export enum HeadingStyle {
   TeaserM = 'teaserM',
   TeaserS = 'teaserS',
   TeaserXS = 'teaserXs',
+  TeaserCategoryLatest = 'teaserCategoryLatest',
   ArticleHeading = 'articleHeading',
   ArticleSubheading = 'articleSubheading',
   PlayerHeading = 'playerHeading',

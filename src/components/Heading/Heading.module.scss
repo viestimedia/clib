@@ -190,6 +190,15 @@
   }
 }
 
+// Allows placing two teasers side by side in main lane.
+.teaserCategoryLatest {
+  @include headingBoldSm;
+
+  @container (width > #{$largeContainerLowerLimit}) {
+    @include headingBoldMd;
+  }
+}
+
 .nativeAdTeaserL {
   @include headingAdSm;
 

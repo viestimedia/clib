@@ -28,7 +28,7 @@ export const TeaserHeadingMap: Record<TeaserType, HeadingStyle> = {
   [TeaserType.Small]: HeadingStyle.TeaserXS,
   [TeaserType.MostPopular]: HeadingStyle.TeaserXS,
   [TeaserType.BackgroundImage]: HeadingStyle.TeaserXL,
-  [TeaserType.CategoryLatest]: HeadingStyle.TeaserXL,
+  [TeaserType.CategoryLatest]: HeadingStyle.TeaserCategoryLatest,
   [TeaserType.Carousel]: HeadingStyle.TeaserXS,
   [TeaserType.Machine]: HeadingStyle.TeaserXS,
   [TeaserType.Medium]: HeadingStyle.Secondary,
