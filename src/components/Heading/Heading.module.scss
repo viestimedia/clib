@@ -196,7 +196,11 @@
 
 // Allows placing two teasers side by side in main lane.
 .teaserTopic {
-  @include headingBoldSm;
+  @include headingBoldXs;
+
+  @container (width > #{$mediumContainerLowerLimit}) {
+    @include headingBoldSm;
+  }
 
   @container (width > #{$largeContainerLowerLimit}) {
     @include headingBoldMd;
@@ -204,12 +208,16 @@
 }
 
 .standaloneCategory {
-  @include headingBlackMd;
+  @include headingBlackSm;
   color: var(--brandCategoryColor);
   margin-bottom: $spacingMd;
   background-color: $white;
   display: inline-block;
   padding: $spacing3xs $spacing2xs;
+
+  @container (width > #{$mediumContainerLowerLimit}) {
+    @include headingBlackMd;
+  }
 
   @container (min-width: #{$largeContainerLowerLimit}) {
     @include headingBlackLg;
