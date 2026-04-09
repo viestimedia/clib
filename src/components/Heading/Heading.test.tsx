@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { render } from '@testing-library/react';
-import { CategoryHeading, Heading, HeadingStyle } from './Heading';
+import { Heading, HeadingStyle, TopicHeading } from './Heading';
 
 describe('Heading', () => {
   const text = 'heading content text';
@@ -14,17 +14,17 @@ describe('Heading', () => {
   });
 });
 
-describe('CategoryHeading', () => {
-  it('renders title with TeaserCategoryLatest heading', () => {
-    const wrapper = render(<CategoryHeading text="Article title" level="h2" />);
+describe('TopicHeading', () => {
+  it('renders title with TeaserTopic heading', () => {
+    const wrapper = render(<TopicHeading text="Article title" level="h2" />);
     expect(
       wrapper.getByRole('heading', { name: 'Article title' })
     ).toBeInTheDocument();
   });
 
-  it('renders standalone category when provided', () => {
+  it('renders standalone topic when provided', () => {
     const wrapper = render(
-      <CategoryHeading category="News" text="Article title" level="h2" />
+      <TopicHeading topic="News" text="Article title" level="h2" />
     );
     expect(wrapper.getByText('News')).toBeInTheDocument();
     expect(

@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import styles from './Teaser.module.scss';
 import {
-  CategoryHeading,
   Heading,
   HeadingStyle,
+  TopicHeading,
 } from 'components/Heading/Heading';
 import { Link } from '..';
 import ClockIcon from 'assets/icons/clock.svg?react';
@@ -17,7 +17,7 @@ export enum TeaserType {
   RelatedAdArticle = 'relatedAdArticle',
   MostPopular = 'mostPopular',
   BackgroundImage = 'backgroundImage',
-  CategoryLatest = 'categoryLatest',
+  Topic = 'topic',
   Carousel = 'carousel',
   Machine = 'machine',
   Medium = 'medium', // Used only in ilmoitusautomaatti
@@ -32,7 +32,7 @@ export const TeaserHeadingMap: Record<TeaserType, HeadingStyle> = {
   [TeaserType.Small]: HeadingStyle.TeaserXS,
   [TeaserType.MostPopular]: HeadingStyle.TeaserXS,
   [TeaserType.BackgroundImage]: HeadingStyle.TeaserXL,
-  [TeaserType.CategoryLatest]: HeadingStyle.TeaserCategoryLatest,
+  [TeaserType.Topic]: HeadingStyle.TeaserTopic,
   [TeaserType.Carousel]: HeadingStyle.TeaserXS,
   [TeaserType.Machine]: HeadingStyle.TeaserXS,
   [TeaserType.Medium]: HeadingStyle.Secondary,
@@ -82,7 +82,7 @@ const TeaserMetadata = ({ date, duration, tag }: TeaserMetadataProps) => {
   );
 };
 
-type TeaserCategoryLatestProps = {
+type TeaserTopicProps = {
   id: string;
   linkUrl: string;
   heading: string | React.ReactNode;
@@ -95,7 +95,7 @@ type TeaserCategoryLatestProps = {
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
 };
 
-const TeaserCategoryLatest = ({
+const TeaserTopic = ({
   id,
   linkUrl,
   heading,
@@ -106,10 +106,10 @@ const TeaserCategoryLatest = ({
   tag,
   className = '',
   onClick,
-}: TeaserCategoryLatestProps) => {
+}: TeaserTopicProps) => {
   const moduleExtend = styles[className] ? true : false;
   const rootClassName = classNames(styles.teaserContainer, {
-    [styles[TeaserType.CategoryLatest]]: true,
+    [styles[TeaserType.Topic]]: true,
     [styles.noImage]: Boolean(!image),
     [styles[className]]: moduleExtend,
     [className]: !moduleExtend,
@@ -127,8 +127,8 @@ const TeaserCategoryLatest = ({
         {image && <div className={styles.articleImage}>{image}</div>}
         <div className={styles.articleInfo}>
           <div className={styles.heading}>
-            <CategoryHeading
-              category={category}
+            <TopicHeading
+              topic={category}
               text={heading}
               level="h2"
               className={className}
@@ -206,10 +206,10 @@ const TeaserDefault = ({
 };
 
 export const Teaser = (props: Props) => {
-  const { teaserType, ...categoryLatestProps } = props;
+  const { teaserType, ...topicProps } = props;
 
-  if (teaserType === TeaserType.CategoryLatest) {
-    return <TeaserCategoryLatest {...categoryLatestProps} />;
+  if (teaserType === TeaserType.Topic) {
+    return <TeaserTopic {...topicProps} />;
   }
 
   return <TeaserDefault {...props} />;

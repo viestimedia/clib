@@ -411,7 +411,7 @@ function TeaserRoute() {
           image={
             <img src="https://viestimedia.imgix.net/kSkT6-ee83GiM08noowjgzNhVJM.jpg?h=1312&fp-x=0.5&fp-y=0.5&crop=focalPoint&fit=crop&fp-z=1&ar=1%3A1" />
           }
-          teaserType={TeaserType.CategoryLatest}
+          teaserType={TeaserType.Topic}
           date="25.3.2026"
           tag={<Tag text="Tilaajalle" type={TagType.PremiumLight} />}
         />
@@ -423,7 +423,7 @@ function TeaserRoute() {
               linkUrl="/art9"
               id="art9"
               className="koneviesti"
-              teaserType={TeaserType.CategoryLatest}
+              teaserType={TeaserType.Topic}
               image={
                 <img src="https://viestimedia.imgix.net/c5f16900-e196-5d01-848d-af7e09a043c2.jpg?h=738&fp-x=0.5&fp-y=0.42&crop=focalPoint&fit=crop&fp-z=1&ar=1%3A1" />
               }
@@ -437,7 +437,7 @@ function TeaserRoute() {
               linkUrl="/art10"
               id="art10"
               className="koneviesti"
-              teaserType={TeaserType.CategoryLatest}
+              teaserType={TeaserType.Topic}
               image={
                 <img src="https://viestimedia.imgix.net/a10879f8-501b-5bd8-91a0-c717f1f6c99a.jpg?h=702&ar=1%3A1&fit=crop" />
               }
@@ -452,10 +452,8 @@ function TeaserRoute() {
           linkUrl="/art11-no-image"
           id="art11-no-image"
           className="koneviesti"
-          image={
-            <img src="" />
-          }
-          teaserType={TeaserType.CategoryLatest}
+          image={<img src="" />}
+          teaserType={TeaserType.Topic}
           date="25.3.2026"
           tag={<Tag text="Tilaajalle" type={TagType.PremiumLight} />}
         />
