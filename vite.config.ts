@@ -65,6 +65,7 @@ export default defineConfig({
 
       name: 'clib',
       formats: ['es'],
+      cssFileName: 'style',
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
