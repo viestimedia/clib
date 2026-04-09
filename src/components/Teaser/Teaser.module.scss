@@ -261,7 +261,7 @@
   .articleImage {
     aspect-ratio: 3 / 4;
 
-    @container (min-width: #{$largeContainerLowerLimit}) {
+    @container (min-width: #{$mediumContainerLowerLimit}) {
       aspect-ratio: 1 / 1;
     }
   }
