@@ -86,7 +86,7 @@
 .teaserXl,
 .teaserL,
 .teaserM,
-.teaserCategoryLatest {
+.teaserTopic {
   .category,
   .divider,
   .standaloneCategory {
@@ -195,7 +195,7 @@
 }
 
 // Allows placing two teasers side by side in main lane.
-.teaserCategoryLatest {
+.teaserTopic {
   @include headingBoldSm;
 
   @container (width > #{$largeContainerLowerLimit}) {

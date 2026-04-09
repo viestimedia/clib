@@ -14,7 +14,7 @@ export enum HeadingStyle {
   TeaserM = 'teaserM',
   TeaserS = 'teaserS',
   TeaserXS = 'teaserXs',
-  TeaserCategoryLatest = 'teaserCategoryLatest',
+  TeaserTopic = 'teaserTopic',
   ArticleHeading = 'articleHeading',
   ArticleSubheading = 'articleSubheading',
   PlayerHeading = 'playerHeading',
@@ -33,8 +33,8 @@ interface HeadingProps {
   extraClassName?: string;
 }
 
-type CategoryHeadingProps = {
-  category?: string;
+type TopicHeadingProps = {
+  topic?: string;
   text: string | React.ReactNode;
   level: HeadingLevel;
   className?: string;
@@ -77,12 +77,12 @@ export const Heading = ({
   );
 };
 
-export const CategoryHeading = ({
-  category,
+export const TopicHeading = ({
+  topic,
   text,
   level,
   className = '',
-}: CategoryHeadingProps) => {
+}: TopicHeadingProps) => {
   const moduleExtend = styles[className] ? true : false;
   const rootClassName = classNames(styles.standaloneCategory, {
     [styles[className]]: moduleExtend,
@@ -90,10 +90,10 @@ export const CategoryHeading = ({
   });
   return (
     <>
-      {category && <div className={rootClassName}>{category}</div>}
+      {topic && <div className={rootClassName}>{topic}</div>}
       <Heading
         text={text}
-        style={HeadingStyle.TeaserCategoryLatest}
+        style={HeadingStyle.TeaserTopic}
         level={level}
         className={className}
       />
