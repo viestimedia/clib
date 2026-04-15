@@ -9,9 +9,9 @@
     {
       "matchDatasources": ["npm"],
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "stabilityDays": 2,
       "prCreation": "not-pending",
-      "automerge": true
+      "automerge": true,
+      "minimumReleaseAge": "16 days"
     }
   ]
 }
