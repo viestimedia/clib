@@ -1,9 +1,7 @@
 import styles from './CookieSettingsLink.module.scss';
 
 declare global {
-  // eslint-disable-next-line no-unused-vars
   interface Window {
-    // eslint-disable-next-line no-unused-vars
     OneTrust: {
       ToggleInfoDisplay: () => void;
     };
@@ -27,10 +25,11 @@ export const CookieSettingsLink = () => {
   // This will now evaluate to false on the server side, but it's ok
   const isGravito = windowDefined && window.gravito !== undefined;
   const onClick = () => {
+    if (!windowDefined) return;
     if (isGravito) {
-      windowDefined && window.gravito.cmp.openPreferences();
+      window.gravito.cmp.openPreferences();
     } else {
-      windowDefined && window.OneTrust.ToggleInfoDisplay();
+      window.OneTrust.ToggleInfoDisplay();
     }
   };
 

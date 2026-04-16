@@ -19,8 +19,7 @@ interface Props {
   id?: string;
   value?: string;
   defaultValue?: string;
-  // eslint-disable-next-line no-unused-vars
-  onChange?(val: string): void;
+  onChange?: (val: string) => void;
   placeholder?: string;
   options: InputOption[];
   required?: boolean;

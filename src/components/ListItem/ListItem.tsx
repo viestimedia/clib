@@ -2,6 +2,9 @@ import styles from './ListItem.module.scss';
 import classNames from 'classnames';
 import React from 'react';
 import { Link } from '..';
+import { ListItemType } from './ListItem.types';
+
+export { ListItemType };
 
 type Props = {
   heading: string | React.ReactNode;
@@ -14,12 +17,6 @@ type Props = {
   className?: string;
   id?: string;
 };
-
-export enum ListItemType {
-  Default = 'default',
-  HorseAdItem = 'horseAdItem',
-  JobAdItem = 'jobAdItem',
-}
 
 export const ListItem = ({
   heading,

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/static-components -- TODO: hoist PasswordToggleButton out of Input render body. Deferred to a follow-up PR. */
 import React, { useState } from 'react';
 import styles from './Input.module.scss';
 import { InputMessage } from 'components/InputMessage/InputMessage';
@@ -59,6 +60,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     const showPasswordToggle = type === 'password' && !iconButton;
     const [showPassword, setShowPassword] = useState<boolean>(false);
 
+    // TODO: hoist PasswordToggleButton out of Input render body. Deferred to a follow-up PR.
     const PasswordToggleButton = () => {
       return (
         <Button
@@ -96,7 +98,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             id={name}
             type={showPasswordToggle && showPassword ? 'text' : type}
             placeholder={placeholder}
-            autoFocus={autoFocus} // eslint-disable-line jsx-a11y/no-autofocus -- Don't use this unless you have a good reason, like a search field on the search page.
+            // Don't use autoFocus unless you have a good reason, like a search field on the search page.
+            autoFocus={autoFocus}
             aria-describedby={message ? `${messageId}` : undefined}
             value={value}
             onChange={onChange ? (e) => onChange(e.target.value) : undefined}
