@@ -24,12 +24,11 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 22
+          cache: 'npm'
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+      - name: 📥 Install deps
+        run: npm install
 
       - name: 🔎 Type check
         run: npm run typecheck --if-present
@@ -50,12 +49,11 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 22
+          cache: 'npm'
 
-      - name: 📥 Download deps
-        uses: bahmutov/npm-install@v1
-        with:
-          useLockFile: false
+      - name: 📥 Install deps
+        run: npm install
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
