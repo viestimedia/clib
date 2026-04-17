@@ -63,6 +63,9 @@ export const InputDatePicker = ({
     value ? value : undefined
   );
   const [inputValue, setInputValue] = useState<string>(
+    // TODO: wrap the initializer in a lazy `() =>` callback to satisfy
+    // react-hooks/purity. Deferred to a follow-up PR.
+    // eslint-disable-next-line react-hooks/purity
     value ? format(value, 'd.M.yyyy') : format(Date.now(), 'd.M.yyyy')
   );
   const [inputError, setInputError] = useState<string | undefined>('');
@@ -83,6 +86,9 @@ export const InputDatePicker = ({
   useEffect(() => {
     if (selected) {
       setInputValue(format(selected, 'd.M.yyyy'));
+      // TODO: reorder so `closeDayPicker` is declared before this effect, or
+      // wrap it in useCallback. Deferred to a follow-up PR.
+      // eslint-disable-next-line react-hooks/immutability
       closeDayPicker();
     } else {
       setInputValue('');

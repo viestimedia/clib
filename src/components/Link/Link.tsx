@@ -1,12 +1,8 @@
 import { UrlObject } from 'url';
-// import { Brand } from './brand';
 import React, { HTMLAttributeAnchorTarget, PropsWithChildren } from 'react';
+import { Brand } from './brand';
 
-export enum Brand {
-  MT = 'mt',
-  KV = 'kv',
-  VM = 'vm',
-}
+export { Brand };
 
 type Url = string | UrlObject;
 type NextLinkProps = {
@@ -71,7 +67,7 @@ export interface RemixLinkProps extends Omit<
   relative?: 'route' | 'path';
   reloadDocument?: boolean;
   replace?: boolean;
-  state?: any; // Access with useLocation().state
+  state?: unknown; // Access with useLocation().state
   viewTransition?: boolean;
 
   // Custom props to handle openInNewTab,
@@ -100,7 +96,9 @@ export type RemixLinkType = (
  * If this is used, you've not initialized the library
  * correctly.
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- FallbackLink must satisfy both RemixLinkType and NextLinkType in the barrel export.
 export const FallbackLink = (props: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { children, ...rest } = props;
 
   console.error('Used default anchor tag, is clib initialized properly?');
@@ -146,7 +144,13 @@ export const RemixLink =
      * openInNewTab is destructured to avoid passing it to the LinkComponent.
      * It's used in getTargetAndRel, which uses the full props.
      */
-    const { href, prefetch, children, openInNewTab, ...rest } = props;
+    const {
+      href,
+      prefetch,
+      children,
+      openInNewTab: _openInNewTab,
+      ...rest
+    } = props;
     const { target, rel } = getTargetAndRel(props);
 
     /**
@@ -177,7 +181,12 @@ export const NextLink =
   (LinkComponent: NextLinkType) => (props: NextLinkComponentProps) => {
     const { href, children, openInNewTab, prefetch: pf, ...rest } = props;
     const { target, rel } = getTargetAndRel(props);
-    const hrefStr = href ? href.toString() : '';
+    if (href && typeof href !== 'string') {
+      console.warn(
+        'NextLink: UrlObject href is not supported on the anchor fallback path; pass a string href when using openInNewTab or hash links.'
+      );
+    }
+    const hrefStr = typeof href === 'string' ? href : '';
 
     if (openInNewTab) {
       // Note that this includes things like `aria-label`

@@ -1,6 +1,9 @@
 import styles from './Tag.module.scss';
 import classNames from 'classnames';
 import CloseIcon from 'assets/icons/close.svg?react';
+import { TagType } from './Tag.types';
+
+export { TagType };
 
 type Props = {
   text: string;
@@ -8,19 +11,6 @@ type Props = {
   className?: string;
   onClose?: () => void;
 };
-
-export enum TagType {
-  Plain = 'plain',
-  Buying = 'buying',
-  Selling = 'selling',
-  Leasing = 'leasing',
-  Premium = 'premium',
-  PremiumPlain = 'premiumPlain',
-  PremiumLight = 'premiumLight',
-  PremiumLightPlain = 'premiumLightPlain',
-  Primary = 'primary',
-  Outline = 'outline',
-}
 
 /**
  * 3 ways to extend the tag:

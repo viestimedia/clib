@@ -1,5 +1,8 @@
 import styles from './ListHeading.module.scss';
 import classNames from 'classnames';
+import { ListHeadingType } from './ListHeading.types';
+
+export { ListHeadingType };
 
 type Props = {
   text: string;
@@ -7,14 +10,6 @@ type Props = {
   className?: string;
   button?: React.ReactNode;
 };
-
-export enum ListHeadingType {
-  Default = 'default',
-  NewsLarge = 'newsLarge',
-  NewsSmall = 'newsSmall',
-  AdLarge = 'adLarge',
-  AdSmall = 'adSmall',
-}
 
 export const ListHeading = ({
   text,

@@ -57,3 +57,25 @@ jobs:
 
       - name: ⚡ Run vitest
         run: npm run test -- --coverage
+
+  lint:
+    name: 🧹 ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛑 Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.13.1
+
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v6
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: 📥 Install deps
+        run: npm install
+
+      - name: 🧹 Run eslint
+        run: npm run lint

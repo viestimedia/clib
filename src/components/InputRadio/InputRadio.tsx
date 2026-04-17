@@ -8,8 +8,7 @@ interface Props {
   name: string;
   value: string;
   options: InputOption[];
-  // eslint-disable-next-line no-unused-vars
-  onChange?(val: string): void;
+  onChange?: (val: string) => void;
   message?: string;
   messageType?: 'success' | 'error' | 'warning' | 'info';
 
@@ -44,7 +43,7 @@ export const InputRadio = ({
 
   // If onChange is provided, this is a controlled component.
   // In Remix, uncontrolled components are preferred, as forms are handled as wholes and not as individual inputs.
-  const uncontrolled = !Boolean(onChange);
+  const uncontrolled = !onChange;
 
   return (
     <>

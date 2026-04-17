@@ -5,13 +5,9 @@ import ErrorIcon from 'assets/icons/error-icon.svg?react';
 import HelpIcon from 'assets/icons/help-icon.svg?react';
 import { ButtonVariant, ButtonSize } from 'components/Button/Button';
 import { Button } from 'components/Button/Button';
+import { AlertType } from './Alert.types';
 
-export enum AlertType {
-  Info = 'info',
-  Warning = 'warning',
-  Error = 'error',
-  Help = 'help',
-}
+export { AlertType };
 type Props = {
   type: AlertType;
   text: string;

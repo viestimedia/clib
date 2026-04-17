@@ -65,7 +65,8 @@ export const InputTextarea = React.forwardRef<HTMLTextAreaElement, Props>(
             name={name}
             id={name}
             placeholder={placeholder}
-            autoFocus={autoFocus} // eslint-disable-line jsx-a11y/no-autofocus -- Don't use this unless you have a good reason, like a search field on the search page.
+            // Don't use autoFocus unless you have a good reason, like a search field on the search page.
+            autoFocus={autoFocus}
             aria-describedby={message ? `${messageId}` : undefined}
             value={value}
             onChange={onChange ? (e) => onChange(e.target.value) : undefined}
