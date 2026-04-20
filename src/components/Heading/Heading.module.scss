@@ -209,6 +209,7 @@
 
 .standaloneCategory {
   @include headingBlackSm;
+  text-transform: capitalize;
   color: var(--brandCategoryColor);
   margin-bottom: $spacingMd;
   background-color: $white;
