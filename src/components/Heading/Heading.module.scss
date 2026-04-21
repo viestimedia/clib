@@ -209,12 +209,15 @@
 
 .standaloneCategory {
   @include headingBlackSm;
-  text-transform: capitalize;
   color: var(--brandCategoryColor);
   margin-bottom: $spacingMd;
   background-color: $white;
   display: inline-block;
   padding: $spacing3xs $spacing2xs;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 
   @container (width > #{$mediumContainerLowerLimit}) {
     @include headingBlackMd;
