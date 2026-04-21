@@ -416,10 +416,10 @@ function TeaserRoute() {
           tag={<Tag text="Tilaajalle" type={TagType.PremiumLight} />}
         />
         <div className="flex flex-wrap gap-4">
-          <div className="min-w-[300px] flex-1">
+          <div className="min-w-[269px] flex-1">
             <Teaser
               heading="Talvihuolto kuntoon – näin pidät koneet valmiina kevääseen"
-              category="Huolto ja tekniikka"
+              category="Ympäristönhoitokoneet"
               linkUrl="/art9"
               id="art9"
               className="koneviesti"
@@ -430,10 +430,10 @@ function TeaserRoute() {
               date="12.4.2026"
             />
           </div>
-          <div className="min-w-[300px] flex-1">
+          <div className="min-w-[269px] flex-1">
             <Teaser
               heading="Ennätyssato vaatii täsmäviljelyä – GPS ohjaa jo puimuria"
-              category="Maatalous"
+              category="koneet ja kulkuneuvot"
               linkUrl="/art10"
               id="art10"
               className="koneviesti"
