@@ -252,6 +252,15 @@
     align-items: center;
     text-align: center;
     padding: $spacingSm;
+    height: auto;
+    top: unset;
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      #1b1b1b 0%,
+      #1b1b1b82 60%,
+      transparent 100%
+    );
 
     @media (min-width: $smallDesktopLowerLimit) {
       padding: $spacingMd;
