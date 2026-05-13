@@ -31,7 +31,7 @@ export const ViestimediaFooter = ({ seoText }: Props) => {
         },
         main: {
           infoTexts: [
-            'Puh. 020 413 2277 ma-pe klo 8-21, hinta mpm/pvm',
+            'Puh. 020 413 2277 ma-pe klo 8-18, hinta mpm/pvm',
             ...(seoText ? [seoText] : []),
           ],
         },
