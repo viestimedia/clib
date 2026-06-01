@@ -30,7 +30,7 @@ This is a React component library published as `@viestimedia/clib`. It uses Vite
 
 ### Multi-brand support
 
-Components support multiple brand variants (Mt, Kv, Aarre, Yle, etc.) via CSS custom properties set at the app level (e.g., `--brandColorLight`, `--brandColorDark`, `--brandFontFamilySerif`). Color tokens like `$brandMtGreen100` are defined in `src/styles/colors.scss`.
+Components support multiple brand variants (Mt, Kv, Aarre, etc.) via CSS custom properties set at the app level (e.g., `--brandColorLight`, `--brandColorDark`, `--brandFontFamilySerif`). Color tokens like `$brandMtGreen100` are defined in `src/styles/colors.scss`.
 
 ### Framework-agnostic Link
 
