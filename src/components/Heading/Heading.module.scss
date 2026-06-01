@@ -346,36 +346,3 @@
     }
   }
 }
-
-.yle {
-  &.teaserL {
-    .category,
-    .divider {
-      color: $brandYleTeal100;
-    }
-  }
-
-  &.teaserL {
-    @include headingYleBoldSm;
-
-    .category {
-      @include headingYleBoldSm;
-    }
-
-    .divider {
-      @include headingYleSm;
-    }
-
-    @media (min-width: $mediumDesktopLowerLimit) {
-      @include headingYleBoldMd;
-
-      .category {
-        @include headingYleBoldMd;
-      }
-
-      .divider {
-        @include headingYleMd;
-      }
-    }
-  }
-}
