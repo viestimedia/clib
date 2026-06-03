@@ -1265,12 +1265,6 @@ function GeneralRoute() {
           <Heading
             level="h2"
             style={HeadingStyle.Subheading}
-            text="Suomen Parhaat subheading"
-            className="suomenParhaat"
-          />
-          <Heading
-            level="h2"
-            style={HeadingStyle.Subheading}
             text="Native Ad subheading"
             className="nativeAd"
           />
