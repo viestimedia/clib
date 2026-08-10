@@ -21,10 +21,11 @@
     "noFallthroughCasesInSwitch": true,
 
     "typeRoots": ["node_modules/@types", "src/component/index.d.ts"],
-    "baseUrl": "./src",
     "paths": {
-      "components/*": ["components/*"],
-      "models/*": ["models/*"]
+      "components/*": ["./src/components/*"],
+      "models/*": ["./src/models/*"],
+      "assets/*": ["./src/assets/*"],
+      "utils/*": ["./src/utils/*"]
     }
   },
   "include": ["src"],
