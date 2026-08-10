@@ -250,7 +250,7 @@ function TeaserRoute() {
           tag={
             <Tag
               text="Ostetaan"
-              className="border border-[#815109] !text-[#815109] !leading-4"
+              className="border border-[#815109] text-[#815109]! leading-4!"
             />
           }
           id="art2"
@@ -1224,7 +1224,7 @@ function GeneralRoute() {
         <div className="p-3 border flex flex-wrap gap-3 items-start justify-start">
           <Tag
             text="Ostetaan"
-            className="border border-[#815109] !text-[#815109] !leading-4"
+            className="border border-[#815109] text-[#815109]! leading-4!"
           />
           <Tag text="Myydään" className="bg-[#815109]" />
           <Tag text="Haku sulkeutuu pian" className="bg-[#E65100] uppercase" />
@@ -1419,7 +1419,7 @@ function GeneralRoute() {
               tag={
                 <Tag
                   text="Ostetaan"
-                  className="border border-[#815109] !text-[#815109] !leading-4"
+                  className="border border-[#815109] text-[#815109]! leading-4!"
                 />
               }
             />
@@ -1459,7 +1459,7 @@ function GeneralRoute() {
               tag={
                 <Tag
                   text="Ostetaan"
-                  className="border border-[#815109] !text-[#815109] !leading-4"
+                  className="border border-[#815109] text-[#815109]! leading-4!"
                 />
               }
               type={ListItemType.HorseAdItem}
@@ -1580,7 +1580,7 @@ function GeneralRoute() {
               tag={
                 <Tag
                   text="Kuljetusala"
-                  className="border border-[#815109] !text-[#815109] !leading-4"
+                  className="border border-[#815109] text-[#815109]! leading-4!"
                 />
               }
               type={ListItemType.JobAdItem}
