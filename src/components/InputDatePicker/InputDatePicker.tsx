@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './InputDatePicker.module.scss';
 import EventIcon from 'assets/icons/event-outlined.svg?react';
 import { Input } from 'components/Input/Input';
@@ -80,21 +80,6 @@ export const InputDatePicker = ({
     middleware: [offset(4), flip(), shift()],
   });
 
-  // I wrote this effect when TS complained about not matching
-  // the correct type for onSelected. It also works with the
-  // commented out handleDaySelect function.
-  useEffect(() => {
-    if (selected) {
-      setInputValue(format(selected, 'd.M.yyyy'));
-      // TODO: reorder so `closeDayPicker` is declared before this effect, or
-      // wrap it in useCallback. Deferred to a follow-up PR.
-      // eslint-disable-next-line react-hooks/immutability
-      closeDayPicker();
-    } else {
-      setInputValue('');
-    }
-  }, [selected]);
-
   const closeDayPicker = () => {
     setIsDayPickerOpen(false);
     buttonRef?.current?.focus();
@@ -104,18 +89,15 @@ export const InputDatePicker = ({
     setIsDayPickerOpen(true);
   };
 
-  // This also works. I'm not sure which one is better.
-  // Functionally they're the same. Performance? Idk.
-  // Doesn't this function get created on every render?
-  // const handleDaySelect = (date?: Date) => {
-  //   setSelected(date);
-  //   if (date) {
-  //     setInputValue(format(date, 'd.M.yyyy'));
-  //     closeDayPicker();
-  //   } else {
-  //     setInputValue('');
-  //   }
-  // };
+  const handleDaySelect = (date?: Date) => {
+    setSelected(date);
+    if (date) {
+      setInputValue(format(date, 'd.M.yyyy'));
+      closeDayPicker();
+    } else {
+      setInputValue('');
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -166,6 +148,8 @@ export const InputDatePicker = ({
             tabIndex={-1}
             style={floatingStyles}
             className={styles.modal}
+            // `refs.setFloating` is a floating-ui callback-ref setter, not a raw ref.current access.
+            // eslint-disable-next-line react-hooks/refs
             ref={refs.setFloating}
             role="dialog"
             aria-label="DayPicker calendar"
@@ -173,8 +157,7 @@ export const InputDatePicker = ({
             <Datepicker
               mode="single"
               selected={selected}
-              onSelect={(d) => setSelected(d)}
-              // onSelect={(d) => handleDaySelect(d)}
+              onSelect={handleDaySelect}
               {...datepicker}
             />
           </div>

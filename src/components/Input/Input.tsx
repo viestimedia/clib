@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/static-components -- TODO: hoist PasswordToggleButton out of Input render body. Deferred to a follow-up PR. */
 import React, { useState } from 'react';
 import styles from './Input.module.scss';
 import { InputMessage } from 'components/InputMessage/InputMessage';
