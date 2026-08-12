@@ -14,7 +14,7 @@ export type { NextLinkType, RemixLinkType };
  */
 export function initializeComponentLibraryWithRemix() {
   return function ({ RemixLink: LinkComponent }: { RemixLink: RemixLinkType }) {
-    Link = RemixLink(LinkComponent) as RemixLinkType;
+    Link = RemixLink(LinkComponent);
 
     // This return exists only to help TS infer that Link is now a RemixLinkType.
     return 'remix';
@@ -26,7 +26,7 @@ export function initializeComponentLibraryWithRemix() {
  */
 export function initializeComponentLibraryWithNext() {
   return function ({ NextLink: LinkComponent }: { NextLink: NextLinkType }) {
-    Link = NextLink(LinkComponent) as NextLinkType;
+    Link = NextLink(LinkComponent);
 
     // This return exists only to help TS infer that Link is now a NextLinkType.
     return 'next';
