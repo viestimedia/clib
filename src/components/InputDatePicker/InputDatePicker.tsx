@@ -109,7 +109,7 @@ export const InputDatePicker = ({
           value={selected?.toISOString() || ''} // Fixes: A component is changing an uncontrolled input to be controlled.
         />
         <Input
-          ref={refs.setReference}
+          ref={(node) => refs.setReference(node)}
           label={label}
           required={required}
           value={inputValue}
@@ -148,9 +148,7 @@ export const InputDatePicker = ({
             tabIndex={-1}
             style={floatingStyles}
             className={styles.modal}
-            // `refs.setFloating` is a floating-ui callback-ref setter, not a raw ref.current access.
-            // eslint-disable-next-line react-hooks/refs
-            ref={refs.setFloating}
+            ref={(node) => refs.setFloating(node)}
             role="dialog"
             aria-label="DayPicker calendar"
           >
