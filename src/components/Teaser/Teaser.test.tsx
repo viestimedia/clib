@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Teaser, TeaserType } from './Teaser';
+// Assert against the real generated class, not a guessed literal string —
+// the scoped-name format differs between local `vite build` and the
+// vitest/CI CSS pipeline.
+import styles from './Teaser.module.scss';
 
 describe('Teaser', () => {
   it('keeps the image when it loads successfully', () => {
@@ -15,7 +19,7 @@ describe('Teaser', () => {
     );
 
     expect(container.querySelector('img')).toBeInTheDocument();
-    expect(container.firstChild).not.toHaveClass('vmTeaser__noImage');
+    expect(container.firstChild).not.toHaveClass(styles.noImage);
   });
 
   it('removes the image and falls back to noImage styling when it fails to load', () => {
@@ -39,7 +43,7 @@ describe('Teaser', () => {
 
     expect(container.querySelector('img')).not.toBeInTheDocument();
     expect(screen.getByText('Test heading')).toBeInTheDocument();
-    expect(container.firstChild).toHaveClass('vmTeaser__noImage');
+    expect(container.firstChild).toHaveClass(styles.noImage);
   });
 
   it('falls back to noImage styling on image error for TeaserType.Topic too', () => {
@@ -56,7 +60,7 @@ describe('Teaser', () => {
     fireEvent.error(container.querySelector('img')!);
 
     expect(container.querySelector('img')).not.toBeInTheDocument();
-    expect(container.firstChild).toHaveClass('vmTeaser__noImage');
+    expect(container.firstChild).toHaveClass(styles.noImage);
   });
 
   it('renders without an image as noImage from the start', () => {
@@ -70,6 +74,6 @@ describe('Teaser', () => {
     );
 
     expect(container.querySelector('img')).not.toBeInTheDocument();
-    expect(container.firstChild).toHaveClass('vmTeaser__noImage');
+    expect(container.firstChild).toHaveClass(styles.noImage);
   });
 });
