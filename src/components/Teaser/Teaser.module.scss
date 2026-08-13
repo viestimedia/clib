@@ -291,6 +291,20 @@
     padding: $spacingSm;
     background: linear-gradient(to top, #1b1b1b 0%, #1b1b1b00 60%);
   }
+
+  // Unlike .compact/.machine/etc., .carousel has no background of its own —
+  // its text is only legible layered over the image. Fall back to a plain
+  // card (static layout, default text color) when the image is missing or
+  // failed to load (see Teaser.tsx's noImage handling), instead of leaving
+  // invisible white-on-white text.
+  &.noImage {
+    .articleInfo {
+      position: static;
+      height: auto;
+      background: none;
+      color: $fontColor;
+    }
+  }
 }
 
 .machine {
