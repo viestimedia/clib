@@ -10,6 +10,12 @@ import path from 'path';
 // @ts-ignore Shut up and do it
 import * as packageJson from './package.json';
 
+const externalDeps = [
+  ...Object.keys(packageJson.peerDependencies),
+  'react/jsx-runtime',
+  'react/jsx-dev-runtime',
+];
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
@@ -68,12 +74,15 @@ export default defineConfig({
       cssFileName: 'style',
     },
     rolldownOptions: {
-      external: [...Object.keys(packageJson.peerDependencies)],
+      external: externalDeps,
       output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
+        // Rolldown's ESM output for externals falls back to a `require()` that
+        // throws in environments without a global `require` (e.g. Vitest
+        // loading externalized deps via Node's native ESM loader) - some
+        // bundled runtime deps (focus-trap-react) are plain CJS and call
+        // require('react') internally. A real, working `require` bound to
+        // this module satisfies that fallback everywhere it's checked.
+        intro: "import { createRequire as __createRequire } from 'module';\nconst require = __createRequire(import.meta.url);",
       },
     },
   },
