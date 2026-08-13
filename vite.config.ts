@@ -30,6 +30,25 @@ export default defineConfig({
     svgr({
       exportAsDefault: true,
     }),
+    {
+      // focus-trap-react is plain CJS and does `require('react')` in its own
+      // source to read React.version. 'react' is external here, and rolldown's
+      // fallback for a require() targeting an external only works if a global
+      // `require` exists at runtime - true in Node's CJS mode, but not under
+      // native ESM loaders (Vitest) or in the browser (Next.js/webpack), where
+      // it either throws or fails to statically resolve. Converting this one
+      // known require() call to a real import at the source level means
+      // rolldown never needs that fallback for it at all.
+      name: 'focus-trap-react-require-to-import',
+      transform(code, id) {
+        if (!id.includes('/focus-trap-react/')) return null;
+        if (!code.includes("require('react')")) return null;
+        return code.replace(
+          "var React = require('react');",
+          "import React from 'react';"
+        );
+      },
+    },
   ],
 
   test: {
@@ -75,15 +94,6 @@ export default defineConfig({
     },
     rolldownOptions: {
       external: externalDeps,
-      output: {
-        // Rolldown's ESM output for externals falls back to a `require()` that
-        // throws in environments without a global `require` (e.g. Vitest
-        // loading externalized deps via Node's native ESM loader) - some
-        // bundled runtime deps (focus-trap-react) are plain CJS and call
-        // require('react') internally. A real, working `require` bound to
-        // this module satisfies that fallback everywhere it's checked.
-        intro: "import { createRequire as __createRequire } from 'module';\nconst require = __createRequire(import.meta.url);",
-      },
     },
   },
 });
