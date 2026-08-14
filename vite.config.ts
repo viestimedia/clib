@@ -34,11 +34,11 @@ export default defineConfig({
       // focus-trap-react is plain CJS and does `require('react')` in its own
       // source to read React.version. 'react' is external here, and rolldown's
       // fallback for a require() targeting an external only works if a global
-      // `require` exists at runtime - true in Node's CJS mode, but not under
-      // native ESM loaders (Vitest) or in the browser (Next.js/webpack), where
-      // it either throws or fails to statically resolve. Converting this one
-      // known require() call to a real import at the source level means
-      // rolldown never needs that fallback for it at all.
+      // `require` exists at runtime - true in Node's CJS mode, but not when a
+      // downstream bundler (e.g. Turbopack) resolves this ESM output for a
+      // browser bundle, or when Vitest loads it via Node's native ESM loader.
+      // Converting this one known require() call to a real import at the
+      // source level means rolldown never needs that fallback for it at all.
       name: 'focus-trap-react-require-to-import',
       transform(code, id) {
         if (!id.includes('/focus-trap-react/')) return null;
