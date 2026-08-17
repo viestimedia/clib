@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react';
 import classNames from 'classnames';
 import styles from './Teaser.module.scss';
 import { Heading, TopicHeading } from 'components/Heading/Heading';
@@ -6,6 +7,19 @@ import ClockIcon from 'assets/icons/clock.svg?react';
 import { TeaserType, TeaserHeadingMap } from './Teaser.types';
 
 export { TeaserType, TeaserHeadingMap };
+
+// `image` is an opaque element the consumer renders (an <img>, ImageElement,
+// a Next <Image>, ...) — Teaser doesn't control its internals, so it can't
+// know up front whether the image will actually load. The `error` event on
+// <img> doesn't bubble, but it does still traverse the capture phase, so a
+// capture-phase listener on an ancestor sees it even though a bubble-phase
+// listener there never would. Once an image fails, treat the teaser as if
+// no image had been passed at all, for every teaser type.
+const useImageLoadFailed = () => {
+  const [failed, setFailed] = useState(false);
+  const onErrorCapture = useCallback(() => setFailed(true), []);
+  return [failed, onErrorCapture] as const;
+};
 
 type Props = {
   id: string;
@@ -76,10 +90,13 @@ const TeaserTopic = ({
   className = '',
   onClick,
 }: TeaserTopicProps) => {
+  const [imageFailed, onImageErrorCapture] = useImageLoadFailed();
+  const hasImage = Boolean(image) && !imageFailed;
+
   const moduleExtend = styles[className] ? true : false;
   const rootClassName = classNames(styles.teaserContainer, {
     [styles[TeaserType.Topic]]: true,
-    [styles.noImage]: Boolean(!image),
+    [styles.noImage]: !hasImage,
     [styles[className]]: moduleExtend,
     [className]: !moduleExtend,
   });
@@ -93,7 +110,14 @@ const TeaserTopic = ({
         data-analytics-name="teaser-link"
         onClick={onClick}
       >
-        {image && <div className={styles.articleImage}>{image}</div>}
+        {hasImage && (
+          <div
+            className={styles.articleImage}
+            onErrorCapture={onImageErrorCapture}
+          >
+            {image}
+          </div>
+        )}
         <div className={styles.articleInfo}>
           <div className={styles.heading}>
             <TopicHeading
@@ -129,10 +153,13 @@ const TeaserDefault = ({
   className = '',
   onClick,
 }: Props) => {
+  const [imageFailed, onImageErrorCapture] = useImageLoadFailed();
+  const hasImage = Boolean(image) && !imageFailed;
+
   const moduleExtend = styles[className] ? true : false;
   const containerClassName = classNames(styles.teaserContainer, {
     [styles[teaserType]]: true,
-    [styles.noImage]: Boolean(!image),
+    [styles.noImage]: !hasImage,
     [styles.hasButtons]: Boolean(buttons),
     [styles[className]]: moduleExtend,
     [className]: !moduleExtend,
@@ -149,7 +176,14 @@ const TeaserDefault = ({
         onClick={onClick}
       >
         {topBanner && <div className={styles.banner}>{topBanner}</div>}
-        {image && <div className={styles.articleImage}>{image}</div>}
+        {hasImage && (
+          <div
+            className={styles.articleImage}
+            onErrorCapture={onImageErrorCapture}
+          >
+            {image}
+          </div>
+        )}
         {author && <div className={styles.authorContainer}>{author}</div>}
         {rankNumber && <div className={styles.rankNumber}>{rankNumber}</div>}
         <div className={styles.articleInfo}>
