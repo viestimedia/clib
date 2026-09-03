@@ -39,4 +39,23 @@ describe('InputSelect', () => {
 
     expect(wrapper.getByText('Select option')).toBeInTheDocument();
   });
+
+  // The arrow is an ::after on the element wrapping the <select>, positioned
+  // relative to it — it must wrap only the <select>, not the visible label
+  // above it, or the arrow ends up on the label instead of the select box.
+  it('wraps the select in its own element, separate from a visible label', () => {
+    const wrapper = render(
+      <InputSelect
+        name="withLabel"
+        title="Select this thing"
+        label="Select this thing"
+        options={InputSelectOptions}
+        onChange={onChange}
+      />
+    );
+
+    const select = wrapper.container.querySelector('select');
+    const label = wrapper.container.querySelector('label');
+    expect(select?.parentElement).not.toBe(label?.parentElement);
+  });
 });

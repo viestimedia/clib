@@ -79,23 +79,25 @@ export const InputSelect = ({
       ) : (
         <label className={styles.hidden}>{title}</label>
       )}
-      <select
-        name={name}
-        title={title}
-        id={id || name}
-        className={styles.select}
-        value={value}
-        defaultValue={defaultValue}
-        onChange={onChange ? (e) => onChange(e.target.value) : undefined}
-        required={required}
-      >
-        {placeholder && ( // Always show placeholder if there's no empty option. Otherwise field can't be cleared.
-          <option value="" hidden={hasNoEmptyOption}>
-            {placeholder}
-          </option>
-        )}
-        {renderedOptions}
-      </select>
+      <div className={styles.field}>
+        <select
+          name={name}
+          title={title}
+          id={id || name}
+          className={styles.select}
+          value={value}
+          defaultValue={defaultValue}
+          onChange={onChange ? (e) => onChange(e.target.value) : undefined}
+          required={required}
+        >
+          {placeholder && ( // Always show placeholder if there's no empty option. Otherwise field can't be cleared.
+            <option value="" hidden={hasNoEmptyOption}>
+              {placeholder}
+            </option>
+          )}
+          {renderedOptions}
+        </select>
+      </div>
 
       <InputMessage
         text={message}
