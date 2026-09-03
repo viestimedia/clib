@@ -2,9 +2,19 @@
 
 .label {
   display: block;
-  position: relative;
   max-width: 430px;
   width: 100%;
+}
+
+.labelText {
+  @extend %inputLabel;
+}
+
+// Wraps only the <select> (not the label row above it), so the arrow below
+// is positioned relative to the select itself regardless of whether a
+// visible label is rendered. Mirrors Input's .field.
+.field {
+  position: relative;
 
   &:after {
     pointer-events: none;
@@ -18,10 +28,6 @@
     border-right: 5px solid transparent;
     border-top: 5px solid $gray3;
   }
-}
-
-.labelText {
-  @extend %inputLabel;
 }
 
 .select {
@@ -45,7 +51,7 @@
 }
 
 .noBg {
-  &:after {
+  .field:after {
     right: 0;
   }
 

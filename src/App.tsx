@@ -1182,6 +1182,33 @@ function GeneralRoute() {
               ]}
             />
           </div>
+          <div className="mt-5">
+            <InputSelect
+              title="Options with visible label"
+              label="Options with visible label"
+              required={true}
+              name="option-label"
+              id="optiontest-label"
+              onChange={() => null}
+              options={[
+                {
+                  label: 'Select option',
+                  value: '',
+                  id: '',
+                },
+                {
+                  label: 'Option number one',
+                  value: '1',
+                  id: 'option1',
+                },
+                {
+                  label: 'Second option',
+                  value: '2',
+                  id: 'option2',
+                },
+              ]}
+            />
+          </div>
         </div>
 
         <div className="font-bold pt-3">Input Checkbox</div>
